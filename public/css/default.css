@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* 初始化 */
+*{margin: 0; padding: 0;}
+body{font-size: 12px; background: #F2F2F2;}
+img{border: none;}
+ul{list-style: none;}
+a{color: #1F3D99; text-decoration: none;}
+a:hover{color: #FF6600; text-decoration: none;}
+textarea{border: #999 1px solid; background: #EFF4FA; font-size: 12px;}
+.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA;}
+
+.UI{background-image:url("../images/ui.jpg"); background-repeat: no-repeat; background-position:0px 0px;}
+.left{float: left;}
+.right{float: right;}
+.mtop{margin-top: 10px;}
+
+/*Color*/
+.c666{color: #666;}
+.c999{color: #999;}
+.green{color: green;}
+.red{color: #D34600;}
+
+
+
+
+
+
+
