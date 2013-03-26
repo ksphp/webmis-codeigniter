@@ -24,4 +24,6 @@ if(@$show->summary){$dsp = @$show->summary;}
 
 <body>
 <div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
-	头部<hr>
+	<div class="content">
+		<h2>头部内容</h2>
+	</div>

@@ -1,1 +1,3 @@
-	<?php echo $test;?><hr>
+	<div class="content">
+		<?php echo $test;?>
+	</div>

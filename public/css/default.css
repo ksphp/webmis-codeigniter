@@ -20,6 +20,8 @@ textarea{border: #999 1px solid; background: #EFF4FA; font-size: 12px;}
 .green{color: green;}
 .red{color: #D34600;}
 
+/*test*/
+.content{width: 90%; line-height: 22px; border: #CCC 1px solid; background: #FFF; padding: 20px; margin: 10px auto 0 auto;}
 
 
 
