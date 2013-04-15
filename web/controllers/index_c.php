@@ -8,7 +8,9 @@ class Index_c extends MY_Controller {
 		$data['test'] = '<h4>使用说明</h4>';
 		$data['test'] .= "\t".'WEBMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，百度编辑器等插件、实现简洁、美观的弹框效果！<br/><br/>'."\n";
 		$data['test'] .= '<b>一、下载</b><br/>';
-		$data['test'] .= '登陆 http://www.ksphp.com 或 https://github.com/ksphp/webmis(点击左上角的“ZIP”图标下载)；<br/>';
+		$data['test'] .= '1、<a href="https://github.com/ksphp/webmis" target="_blank" title="点击下载"><b>点击进入下载页面</b></a>(点击左上角的“ZIP”图标下载)；<br/>';
+		$data['test'] .= '2、点击下面链接直接下载<br/>';
+		$data['test'] .= '<div class="github-widget" style="margin:10px 0;" data-repo="ksphp/webmis"></div>';
 		$data['test'] .= '<b>二、安装</b><br/>';
 		$data['test'] .= '1、解压到网站跟目录；<br/>';
 		$data['test'] .= '2、创建数据库、导入根目录下面的 webmis.sql 数据库文件；<br/>';
