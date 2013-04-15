@@ -20,6 +20,8 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<meta  name="description"  content="<?php echo $dsp;?>"/>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('public/css/default.css');?>" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="<?php echo base_url('webmis/plugin/jquery/jquery-1.9.1.min.js');?>"></script>
+	<script language="javascript" src="<?php echo base_url('public/js/default.js');?>"></script>
 </head>
 
 <body>
