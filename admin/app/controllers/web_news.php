@@ -4,6 +4,8 @@ class Web_news extends MY_Controller {
 	public function index(){
 		$data = $this->Page('web_news/index.html','web_news_m','page',array('in'=>array('0','1','2')),'id desc');
 		$data['js'] = array(
+			'../webmis/plugin/jquery/ajaxfileupload.js',
+			'../webmis/plugin/ueditor/editor_all.js',
 			'js/inc/ueditor_web.js',
 			'js/web/web_news.js'
 		);

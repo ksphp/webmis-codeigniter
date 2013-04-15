@@ -15,7 +15,7 @@ class Index_c extends MY_Controller {
 		$data['test'] .= '3、修改数据库配置文件；<br/>';
 		$data['test'] .= '管理后台：admin/app/config/database.php<br/>';
 		$data['test'] .= '网站前台：web/config/database.php</br>';
-		$data['test'] .= '3、修改 “/” 根目录和 “/admin” 下面的 .htaccess 文件（必须支持重写）；<br/>';
+		$data['test'] .= '4、修改 “/” 根目录和 “/admin” 下面的 .htaccess 文件（必须支持重写）；<br/>';
 		$data['test'] .= '<b>三、测试</b><br/>';
 		$data['test'] .= '网站前台：<a href="'.base_url('web').'" >'.base_url('web').'</a><br/>';
 		$data['test'] .= '管理员后台：<a href="'.base_url('admin').'" >'.base_url('admin').'</a> (帐号：webmis 密码：ksphp.com)<br/>';

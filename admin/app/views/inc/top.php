@@ -7,13 +7,10 @@
 	<title><?php echo $config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/css/admin.css'); ?>" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery-1.9.1.min.js'); ?>"></script>
+	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-1.9.1.min.js'); ?>"></script>
 	<script language="javascript" src="<?php echo base_url('../webmis/js/webmis.js');?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/js/msgbox.js');?>"></script>
 	<script language="javascript" src="<?php echo base_url('../webmis/js/admin.js');?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery.form.js'); ?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/plugin/ajaxfileupload.js'); ?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/plugin/ueditor/editor_all.js'); ?>"></script>
+	<script language="javascript" src="<?php echo base_url('../webmis/js/msgbox.js');?>"></script>
 	<script language="javascript" src="<?php echo base_url('../webmis/plugin/Validform_v5.3_min.js'); ?>"></script>
 </head>
 
