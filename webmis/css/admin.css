@@ -118,6 +118,8 @@ input:focus, textarea:focus{
 .action_exp:hover em{background-position: -475px -28px;}
 .action_imp em{background-position: -500px -2px;}
 .action_imp:hover em{background-position: -500px -28px;}
+.action_chart em{background-position: -500px -52px;}
+.action_chart:hover em{background-position: -500px -78px;}
 
 
 /* Table */
