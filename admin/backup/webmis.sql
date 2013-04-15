@@ -19,7 +19,7 @@ CREATE TABLE `wmis_sys_admin` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 13:19 24:65 25:145 18:63 19:31 21:27 11:1');
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 13:19 24:65 25:129 18:63 19:31 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 13:19 24:65 25:129 18:319 19:31 21:27 11:1');
 
 
 #
@@ -35,7 +35,7 @@ CREATE TABLE `wmis_sys_admin_login_log` (
   `ip` varchar(16) NOT NULL,
   `time` varchar(19) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (1, '失败', 'kingsoul', '127.0.0.1', '2012-10-25 13:40:51');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (2, '禁用', 'admin', '127.0.0.1', '2012-10-25 13:40:59');
@@ -98,6 +98,11 @@ INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUE
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (59, '退出', 'admin', '127.0.0.1', '2013-03-26 09:06:42');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (60, '失败', 'admin', '127.0.0.1', '2013-03-26 09:06:49');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (61, '登录', 'admin', '127.0.0.1', '2013-03-26 09:06:58');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (62, '退出', 'admin', '127.0.0.1', '2013-03-26 11:08:13');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (63, '登录', 'webmis', '127.0.0.1', '2013-03-26 11:08:21');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (64, '登录', 'webmis', '127.0.0.1', '2013-04-15 10:55:05');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (65, '退出', 'webmis', '127.0.0.1', '2013-04-15 14:36:41');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (66, '登录', 'webmis', '127.0.0.1', '2013-04-15 14:36:53');
 
 
 #
@@ -151,7 +156,7 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctim
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (15, 14, '修改密码', 'sys_change_passwd', '0', '修改密码!', '2012-03-30 14:37:30', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (16, 0, '网站', 'M1', '0', '网站导航！', '2012-03-31 09:10:58', 3);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (17, 16, '内容管理', 'M2_content', '0', '内容管理!', '2012-03-31 09:42:59', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (18, 17, '新闻管理', 'web_news', '63', '新闻内容管理！', '2012-03-31 10:53:01', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (18, 17, '新闻管理', 'web_news', '319', '新闻内容管理！', '2012-03-31 10:53:01', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (19, 17, '导航管理', 'web_class', '31', '网站所有新闻分类!', '2012-03-31 10:45:05', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (20, 16, '留言系统', 'M2_book', '0', '留言系统!', '2012-03-31 10:49:07', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `remark`, `ctime`, `sort`) VALUES (21, 20, '留言管理', 'web_book', '27', '网站留言管理!', '2012-03-31 10:30:09', 0);
@@ -173,7 +178,7 @@ CREATE TABLE `wmis_sys_menus_action` (
   `perm` varchar(6) NOT NULL,
   `class` varchar(12) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (1, '列表', '1', 'action_list');
 INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (2, '搜索', '2', 'action_sea');
@@ -183,6 +188,7 @@ INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (5, '�
 INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (6, '审核', '32', 'action_audit');
 INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (7, '导出', '64', 'action_exp');
 INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (8, '导入', '128', 'action_imp');
+INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `class`) VALUES (9, '图表', '256', 'action_chart');
 
 
 #
