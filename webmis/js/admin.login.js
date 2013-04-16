@@ -1,4 +1,7 @@
+var $base_url = '';
 $(function(){
+	//网址
+	$base_url = $('#base_url').text();
 	//登录事项
 	$('#adminLogin').hover(
 		function () {

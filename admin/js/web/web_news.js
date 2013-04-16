@@ -106,19 +106,21 @@ $(function(){
 		}
 	});
 /*
-统计
+图表
 */
 	$('.action_chart').click(function(){
 		$.WMisMsg({title:'统计图',width:620,height:450,overflow:true});
-		var datas = [['分类1',45],['分类2',10],['分类3',30],['分类4',15]];
-		//创建图表
-		$('#WebMisMsgCT').highcharts({
-            chart: {type: 'pie'},
-            title: {text: '<b>新闻分类统计图</b>'},
-            tooltip: {pointFormat: '{series.name}: <b>{point.percentage}%</b>',percentageDecimals: 1},
-            plotOptions: {pie: {allowPointSelect: true,cursor: 'pointer',dataLabels: {enabled: true,color: '#000000',connectorColor: '#000000',formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' 条';}}}},
-					 series: [{name: '百分比',data: datas}]
+		//获取数据
+		$.post($base_url+'web_news/chartData.html',function(data){
+			//创建图表
+			$('#WebMisMsgCT').highcharts({
+				chart: {type: 'pie'},
+				title: {text: '<b>新闻分类统计图</b>'},
+				tooltip: {pointFormat: '{series.name}: <b>{point.percentage}%</b>',percentageDecimals: 1},
+				plotOptions: {pie: {allowPointSelect: true,cursor: 'pointer',dataLabels: {enabled: true,color: '#000000',connectorColor: '#000000',formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' 条';}}}},
+				series: [{name: '百分比',data: data}]
         });
+		},'json');
 	});
 	
 });

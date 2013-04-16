@@ -60,6 +60,21 @@ class Web_news extends MY_Controller {
 		$this->load->model('web_news_m');
 		echo $this->web_news_m->audit();
 	}
+	//图表
+	public function chartData() {
+		$this->load->model('web_class_m');
+		$this->load->model('web_news_m');
+		$html = '[';
+		$menus = $this->web_class_m->getMenus('2');
+		foreach($menus as $val){
+			$num = $this->web_news_m->count_all(array('class' =>':'.$val->id.':'));
+			$html .= '["'.$val->title.'",'.$num.']';
+			if($val!=end($menus)) {$html .= ',';}
+		}
+		$html .= ']';
+		echo $html;
+		//echo '[["分类1",0],["分类2",0],["分类3",0],["分类4",0]]';
+	}
 	//预览
 	public function show(){
 		$this->load->model('web_news_m');
@@ -68,7 +83,6 @@ class Web_news extends MY_Controller {
 		
 		$this->load->view('web/news/show',$data);
 	}
-	
 	//文件上传
 	function upload($type='none'){
 		$this->load->library('upload_web');
