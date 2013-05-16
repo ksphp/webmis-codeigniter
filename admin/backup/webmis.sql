@@ -35,7 +35,7 @@ CREATE TABLE `wmis_sys_admin_login_log` (
   `ip` varchar(16) NOT NULL,
   `time` varchar(19) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (1, '失败', 'kingsoul', '127.0.0.1', '2012-10-25 13:40:51');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (2, '禁用', 'admin', '127.0.0.1', '2012-10-25 13:40:59');
@@ -103,6 +103,17 @@ INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUE
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (64, '登录', 'webmis', '127.0.0.1', '2013-04-15 10:55:05');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (65, '退出', 'webmis', '127.0.0.1', '2013-04-15 14:36:41');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (66, '登录', 'webmis', '127.0.0.1', '2013-04-15 14:36:53');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (67, '登录', 'webmis', '127.0.0.1', '2013-04-16 10:11:52');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (68, '退出', 'Auto Logout', '127.0.0.1', '2013-04-16 12:25:32');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (69, '登录', 'webmis', '127.0.0.1', '2013-04-16 12:43:05');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (70, '退出', 'webmis', '127.0.0.1', '2013-04-16 12:54:58');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (71, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:55:05');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (72, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:55:10');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (73, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:56:13');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (74, '失败', 'kingsoul', '127.0.0.1', '2013-04-23 12:11:47');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (75, '登录', 'webmis', '127.0.0.1', '2013-04-23 12:11:55');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (76, '退出', 'webmis', '127.0.0.1', '2013-04-23 12:15:33');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (77, '登录', 'webmis', '127.0.0.1', '2013-05-16 10:36:14');
 
 
 #
@@ -260,7 +271,11 @@ CREATE TABLE `wmis_web_news` (
   `atime` date NOT NULL,
   `state` varchar(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, '0', ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 0, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16', '1');
+INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, '0', ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 0, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'webmis', '2013-05-16', '1');
+
 
 #
 # TABLE STRUCTURE FOR: wmis_web_news_html
@@ -273,5 +288,9 @@ CREATE TABLE `wmis_web_news_html` (
   `nid` int(6) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO wmis_web_news_html (`id`, `nid`, `content`) VALUES (1, 1, '<p style=\"text-align:center\"><br /></p><p style=\"text-align:center\"><img src=\"/upload/web/images/www/80961368671891.jpg\" alt=\"微软开发者解释为什么Windows内核落后于Linux\" /></p><p><br /></p><p> &nbsp; &nbsp; &nbsp; &nbsp;微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。</p><p> &nbsp; &nbsp; &nbsp; &nbsp;一位微软Windows NT内核开发者<a href=\"http://blog.zorinaq.com/?e=74\" target=\"_blank\">承认</a>，Windows内核与Linux内核之间的性能差距正日益拉大。他通过Tor(原因显而易见)在Hacker News上<a href=\"https://news.ycombinator.com/item?id=5689391\" target=\"_blank\">匿名发帖</a>(已 经自行删除)，指出问题的根源不是技术方面而是社会性的。微软开发者几乎没人会为了自己为了荣耀而去改进内核，Linux世界的那些现象在微软这样的大企 业不会发生。能指挥开发者改进特定条件下系统性能的人的动机通常是出于商业意图，而在商业上性能的重要性从来没有被认为攸关生死，所以改进系统性能没有正 式或非正式的程序。</p><p> &nbsp; &nbsp; &nbsp; &nbsp;微软在Windows &nbsp;SP3前开始关注安全是因为他们认为安全是商业目标的存在性威胁，而性能不是存在性威胁。内核不同组件的负责人对外部递交补丁一般都是充满敌意的，非提前 计划的改变可能会影响原定目标，领导会生气，测试组也会生气，产品经理也会发怒。内核开发团队因此没有动机去接受外界递交的补丁。你总能找到理由说不，但 很少有动机去说好的。而在Linux世界，如果能把某一功能的性能改进5%，你将会被万众瞩目。</p><p><br /></p><p><br /></p>');
+INSERT INTO wmis_web_news_html (`id`, `nid`, `content`) VALUES (2, 2, '<p> &nbsp; &nbsp; &nbsp; &nbsp;似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。</p><p><br /></p><p style=\"text-align:center\"><img src=\"/upload/web/images/www/36831368672071.jpg\" alt=\"国际空间站决定弃用 Windows 启用 Linux\" /></p><p><br /></p><p> &nbsp; &nbsp; &nbsp; &nbsp;ISS中的计算机系统由多台在同一网络运行下的笔记本组成。它可以保证宇航员日常重要事项的正常运行；告知宇航员他们所处的位置，管理运行中的设备，甚至还能连接到摄像机，拍摄太空照片与视频并通过互联网分享给地球上的人。</p><p> &nbsp; &nbsp; &nbsp; &nbsp;Linux基金会称，美国太空局的Keith Chuvala将负责这次的系统交接工作。</p><p> &nbsp; &nbsp; &nbsp; &nbsp;Chuvala表示，太空署之所以决定更换系统是为了能够保持ISS计算机系统运行的稳定性--言下之意就是，过于追求形式的Win8其运行效果并没有达到他们的要求。</p><p> &nbsp; &nbsp; &nbsp; &nbsp;日前，Chuvala及其团队成员正在接受来自Linux基金会的相关培训，希望能够尽快在ISS部署Linux。据悉，Linux基金会专门针对USA和NASA两支团队不同的需求开设了2门不同的培训课程。</p><p><br /></p>');
+
 
