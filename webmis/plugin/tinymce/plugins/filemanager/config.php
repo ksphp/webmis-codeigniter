@@ -27,7 +27,7 @@ $MaxSizeUpload=100; //Mb
 //If you set dimension limit, automatically the images that exceed this limit are convert to limit, instead
 //if the images are lower the dimension is maintained
 //if you don't have limit set both to 0
-$image_max_width=650;
+$image_max_width=0;
 $image_max_height=0;
 
 //Automatic resizing //
