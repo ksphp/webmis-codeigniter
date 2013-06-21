@@ -24,7 +24,7 @@
 		<span class="top_link">管理员：<a href="#"><?php echo $uinfo['uname']; ?></a>&nbsp;&nbsp;[&nbsp;&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;&nbsp;]&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
 	</div>
 	<div class="top_nav">
-		<div class="title"><a href="http://www.ksphp.com/" target="_blank"><b>WebMIS v3.0</b> [ {elapsed_time} ]</a></div>
+		<div class="title"><a href="http://www.ksphp.com/" target="_blank"><b>WebMIS v3.2</b> [ {elapsed_time} ]</a></div>
 		<div id="nav" class="nav">
 			<div class="line UI">&nbsp;</div>
 			<?php echo $navHtml; ?>

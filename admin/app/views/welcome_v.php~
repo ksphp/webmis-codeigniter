@@ -9,7 +9,7 @@
 <!-- Action End -->
 <!-- Content -->
 <div class="right_ct">
-	你好！欢迎登录<a href="http://www.ksphp.com" target="_blank"><b>灵创网络</b></a>提供的WebMIS v3.2后台管理系统！<br />
+	你好！欢迎登录<a href="http://www.ksphp.com" target="_blank"><b>灵创网络</b></a>提供的WebMIS v3.0后台管理系统！<br />
 	<b>使用说明：</b><br />
 	一、后台布局（后台共分三个区域）<br />
 	1、头部导航：包括Logo、当前用户信息、安全退出、一级导航等<br />
