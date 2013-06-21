@@ -1,0 +1,40 @@
+body{ background:url(../images/fabric_plaid.png); }
+.ff-container .affix input{display: none;}
+.ff-container .affix label{margin-bottom:10px;}
+.container-fluid{padding-right:0 !important;margin-top:10px !important;}
+.ff-items li{text-align:center; position:relative;}
+.ff-items li a{color:black;}
+.ff-items li img{height:60px; max-width:120px; width:auto;}
+.ff-items li h4,.ff-items li h3{border-top:1px solid #EEE;margin-top:5px !important;padding-top:5px !important; line-height:16px; margin-bottom:0px;}
+.ff-items li p{margin-bottom:0 !important;height:22px !important;display:block;}
+.ff-items li.noml{margin-left:0 !important;}
+.qq-uploader .span9{margin-left:14px !important;width:690px !important;}
+.space10{ clear:both; height:10px; }
+.ff-item-type-dir{ background-color:#f4f4f4; }
+h4{ font-size:12px; font-weight:normal;}
+h3{ font-size:14px;}
+.boxes{ border:1px solid #CCCCCC; word-wrap: break-word; background:white; -webkit-box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2);box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2); min-height:115px; }
+.container-fluid{ padding:0px 10px !important;}
+.btn-group{ position:absolute; top:0px; left:0px; margin: 0px; padding:0px; width:100%; text-align:center;}
+.btn-group .btn:hover{ margin:0px;}
+.btn-group a:last-child:hover{padding-left:11px;}
+.preview{ padding-left:19px; padding-right:18px;}
+.preview:hover{ padding-left:18px; padding-right:18px;}
+.top-right{position: absolute; top:0px; right: 0px;}
+.filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee;} 
+.uploader{
+	position:absolute;
+	top:100px;
+	margin:auto;
+	width:100%;
+	z-index:9999;
+	background:#eeeeee;
+	padding-top:20px;
+	display:none;
+}
+.download-form{
+	margin-bottom:25px;
+}
+.directory-img{
+	margin-top:25px;
+}
