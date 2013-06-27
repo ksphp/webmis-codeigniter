@@ -136,11 +136,20 @@ function newsForm(){
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen",
-			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor",
-			"filemanager autoresize"
+			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor"
+			//"filemanager autoresize"
 		],
 		image_advtab: true,
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
+		file_browser_callback : function(field_name, url, type, win) {
+			tinymce.activeEditor.windowManager.open({
+   			url: '/webmis/plugin/filemanager/dialog.php',
+				width: 900,
+				height: 560
+			}, {
+				custom_param: 1
+			});
+		}
 	});
 	//验证提交
 	$("#newsForm").Validform({
