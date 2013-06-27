@@ -143,11 +143,15 @@ function newsForm(){
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
 		file_browser_callback : function(field_name, url, type, win) {
 			tinymce.activeEditor.windowManager.open({
-   			url: '/webmis/plugin/filemanager/dialog.php',
+   			url: '/webmis/plugin/filemanager/dialog.php?editor='+field_name+'&lang='+tinymce.settings.language,
+   			title: 'FileManager',
+   			filetype:'all',
 				width: 900,
 				height: 560
 			}, {
-				custom_param: 1
+				//custom_param: 1
+				window : win,
+				input : field_name
 			});
 		}
 	});
