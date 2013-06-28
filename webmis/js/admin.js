@@ -1,7 +1,4 @@
-var $base_url = '';
 $(function(){
-	//网址
-	$base_url = $('#base_url').text();
 	//菜单操作
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();

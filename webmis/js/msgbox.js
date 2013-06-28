@@ -16,27 +16,7 @@
 	** 先弹出窗口后加载内容：$('#WebMisMsgCT').html(data);
 */
 $(function(){
-	//打开窗口
-	var openWin = function (options) {
-		alert(options.width);
-	}
-	//加载内容
-	var loadWin = function () {
-		alert('加载内容');
-	}
-	//关闭窗口
-	var closeWin = function () {
-		
-	}
 
-	//命名空间
-	$.webmis={
-		win: {open: openWin, load: loadWin, close: closeWin,},
-		test: function () {alert('test');},
-	};
-
-	//调用
-	//$.webmis.win.open({width:240,height:150});
 
 	$.WMisMsg=function(options){
 		var defaults = {

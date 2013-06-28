@@ -1,0 +1,44 @@
+/* 
+  SubClass
+*/
+.sub01,.sub02{cursor: pointer; border: none; width: 104px; height: 34px;}
+.sub01{background: url("../images/admin_ui.jpg") no-repeat -170px 0;}
+.sub02{background: url("../images/admin_ui.jpg") no-repeat -170px -40px; color: #FFF;}
+
+/* 
+  WebMisMsg
+*/
+.WebMisWinBg{position: fixed; z-index: 99; top: 0; left: 0; background: #000; display: none;}
+.WebMisWin{position: fixed; z-index: 100; border: #666 1px solid; background: url("../images/msg_bg.jpg") repeat-x #FFF; padding: 0 10px; border-radius: 5px; box-shadow: 0px 0px 6px #000; display: none;}
+.WebMisWin_top{cursor: all-scroll; height: 30px; border-bottom: #999 1px solid;}
+.WebMisWin_top .title{float: left; line-height: 30px; font-size: 13px; font-weight: bold;}
+.WebMisWin_top .close{float: right; width: 16px; height: 16px; display: inline-block; margin-top: 7px; background: url("../images/msg_close1.gif") no-repeat center center;}
+.WebMisWin_top .close:hover{background: url("../images/msg_close2.gif") no-repeat center center;}
+.WebMisWin_ct{padding: 10px 0;}
+.WebMisWin_ct .load{text-align: center;}
+.WebMisWin_ct .onLoad{padding: 5px 10px; background:url(../images/onLoad.gif) no-repeat center center;}
+.WebMisWin_ct .text{color: #666;}
+
+.WebMisMsgBg{position: fixed; z-index: 99; top: 0; left: 0; background: #000; display: none;}
+.WebMisMsg{position: fixed; z-index: 100; border: #666 1px solid; background: url("../images/msg_bg.jpg") repeat-x #FFF; padding: 0 10px; border-radius: 5px; box-shadow: 0px 0px 6px #000; display: none;}
+.WebMisMsg_top{cursor: all-scroll; height: 30px; border-bottom: #999 1px solid;}
+.WebMisMsg_top .title{float: left; line-height: 30px; font-size: 13px; font-weight: bold;}
+.WebMisMsg_top .close{float: right; width: 16px; height: 16px; display: inline-block; margin-top: 7px; background: url("../images/msg_close1.gif") no-repeat center center;}
+.WebMisMsg_top .close:hover{background: url("../images/msg_close2.gif") no-repeat center center;}
+.WebMisMsg_ct{padding: 10px 0;}
+.WebMisMsg_ct .load{text-align: center;}
+.WebMisMsg_ct .onLoad{padding: 5px 10px; background:url(../images/onLoad.gif) no-repeat center center;}
+.WebMisMsg_ct .text{color: #666;}
+
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{line-height:20px; height:20px; overflow:hidden; color:#999; font-size:12px; padding-left: 20px;}
+.Validform_right{color:#71b83d; background:url(../images/right.png) no-repeat left center;}
+.Validform_wrong{color:red; white-space:nowrap; background:url(../images/error.png) no-repeat left center;}
+.Validform_loading{padding-left:20px; background:url(../images/onLoad.gif) no-repeat left center;}
+.Validform_error{background-color:#ffe7e7;}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}

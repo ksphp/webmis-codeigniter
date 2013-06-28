@@ -1,4 +1,3 @@
-var $base_url = '';
 $(function(){
 	//登录事项
 	$('#adminLogin').hover(
