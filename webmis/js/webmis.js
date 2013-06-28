@@ -104,101 +104,105 @@ $(function(){
 	var loadWin = function (data) {
 		$('#WebMisWinCT').html(data);   //加载内容
 	}
+/**
+* WebMis UI插件
+*/
+	$.fn.webmis = function (effect,options) {
+		var $this = this;
+		//按钮样式
+		var SubClass = function (options) {
+			var defaults = {overClass:'SubClass2',outClass:'SubClass1'}
+			var options = $.extend(defaults, options);
+			$this.addClass(options.outClass).hover(
+				function () { 
+					$(this).addClass(options.overClass);
+				},
+				function () { 
+					$(this).removeClass(options.overClass);
+				}
+			);
+		};
+		
+		//表格隔行换色
+		var TableOddColor = function (options) {
+			var defaults = {oddClass:'TableTrBg1',overClass:'TableTrBg2'}
+			var options = $.extend(defaults, options);
+			//隔行变色
+			$this.children('tr:odd').addClass(options.oddClass);
+			//鼠标经过样式变化处
+			$this.children('tr').hover(
+				function () { 
+					$(this).addClass(options.overClass);
+				},
+				function () { 
+					$(this).removeClass(options.overClass);
+				}
+			);
+		}
+	
+		//调整高宽
+		var TableAdjust = function () {
+			//移动
+			var moveTableWidht=function(id){
+				var _move = false;
+				var _x,_w,x,w;
+				var __x;
+				$(id).unbind().mousedown(function(e){
+					_move=true;
+					_x=e.pageX;
+					_w = $(this).parent().prev().width();
+				});
+				$(document).mousemove(function(e){
+					if(_move){
+						__x = e.pageX;
+						w = _w+(__x-_x);
+						$(id).parent().prev().width(w);
+					}
+				}).mouseup(function(){
+					_move=false;
+				});
+			}
+			//添加
+			var i= 1;
+			var html = '';
+			$this.find('td').each(function(){
+				if(i!=1){
+					html = '<div id="TableAdjust'+i+'" class="TableAdjust">&nbsp;</div>';
+					$(this).prepend(html);
+					moveTableWidht('#TableAdjust'+i);
+				}
+				i++;
+			});
+		}
 
-	//命名空间
+		//特效
+		switch (effect){
+			case 'SubClass':
+				SubClass(options);
+			break;
+			case 'TableOddColor':
+				TableOddColor(options);
+			break;
+			case 'TableAdjust':
+				TableAdjust();
+			break;
+		};
+	};
+/**
+* 命名空间
+*/
 	$.webmis={
 		inc: include,
-		win: {open: openWin, load: loadWin, close: closeWin,},
-		test: function () {alert('test');},
+		win: {open: openWin, load: loadWin, close: closeWin},
+		test: function () {alert('test');}
 	};
 
-	//调用 document.write(document.cookie)
-	//$.webmis.win.open({width:240,height:150});
-	//$.webmis.win.load('<b class="green">删除成功</b>')
 	
-	
-/*----------------------------
-公共插件
-----------------------------*/
-	/*
-	** ******按钮样式******
-	** overClass:'sub02' 鼠标经过样式
-	** outClass:'sub01'  鼠标离开样式
-	*/    
-	$.fn.WMisSub = function(options){
-		var defaults = {overClass:'sub02',outClass:'sub01'}
-		var options = $.extend(defaults, options);
-		this.addClass(options.outClass).hover(
-			function () { 
-				$(this).addClass(options.overClass);
-			},
-			function () { 
-				$(this).removeClass(options.overClass);
-			}
-		);
-	};
+
 	
 /*----------------------------
 WebMis
 ----------------------------*/
-	/*
-	** ******表格UI******
-	** oddClass:'bg1' 隔行颜色
-	** overClass:'bg2'  鼠标经过样式
-	*/    
-	$.fn.WMisTableUI = function(options){
-		var defaults = {oddClass:'bg1',overClass:'bg2'}
-		var options = $.extend(defaults, options);
-		//隔行变色
-		this.children('tr:odd').addClass(options.oddClass);
-		//鼠标经过样式变化处
-		this.children('tr').hover(
-			function () { 
-				$(this).addClass(options.overClass);
-			},
-			function () { 
-				$(this).removeClass(options.overClass);
-			}
-		);
-	};
-	/*
-	** ******调整表格宽度******
-	*/
-	$.fn.WMisMoveTW = function(){
-		//移动
-		var moveTableWidht=function(id){
-			var _move = false;
-			var _x,_w,x,w;
-			var __x;
-			//按下鼠标
-			$(id).unbind().mousedown(function(e){
-				_move=true;
-				_x=e.pageX;
-				_w = $(this).parent().prev().width();
-			});
-			//鼠标移动
-			$(document).mousemove(function(e){
-				if(_move){
-					__x = e.pageX;
-					w = _w+(__x-_x);
-					$(id).parent().prev().width(w);
-				}
-			}).mouseup(function(){
-				_move=false;
-			});
-		}
-		//添加
-		var i= 1;
-		var html = '';
-		this.find('td').each(function(){
-			if(i!=1){
-				html = '<div id="table_move'+i+'" class="table_list_line">&nbsp;</div>';
-				$(this).prepend(html);
-				moveTableWidht('#table_move'+i);
-			}
-			i++;
-		});
-	};
 	/*
 	** ******返回选中ID******
 	** 1、type:'one'  返回一条

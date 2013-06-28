@@ -1,9 +1,16 @@
 /* 
+  Table
+*/
+.TableTrBg1{background: #F4F7FA;}
+.TableTrBg2{background: #E2ECF7;}
+.TableAdjust{cursor: e-resize; position: fixed; width: 4px; margin-left: -7px;}
+
+/* 
   SubClass
 */
-.sub01,.sub02{cursor: pointer; border: none; width: 104px; height: 34px;}
-.sub01{background: url("../images/admin_ui.jpg") no-repeat -170px 0;}
-.sub02{background: url("../images/admin_ui.jpg") no-repeat -170px -40px; color: #FFF;}
+.SubClass1,.SubClass2{cursor: pointer; border: none; width: 104px; height: 34px;}
+.SubClass1{background: url("../images/admin_ui.jpg") no-repeat -170px 0;}
+.SubClass2{background: url("../images/admin_ui.jpg") no-repeat -170px -40px; color: #FFF;}
 
 /* 
   WebMisMsg

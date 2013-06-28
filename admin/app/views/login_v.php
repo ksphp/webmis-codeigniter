@@ -6,10 +6,10 @@
 	<meta name="author" content="kingsoul" />
 	<title>WebMIS v3.2管理员控制台</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link href="<?php echo base_url('../webmis/css/admin.css'); ?>" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.0.0.min.js'); ?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/js/admin.login.js');?>"></script>
-	<script language="javascript" src="<?php echo base_url('../webmis/js/msgbox.js');?>"></script>
+	<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.0.min.js"></script>
+	<script language="javascript" src="/webmis/js/webmis.js"></script>
+	<script language="javascript" src="/webmis/js/config.js"></script>
+	<script language="javascript" src="/webmis/js/admin.login.js"></script>
 </head>
 
 <body class="login_bg">

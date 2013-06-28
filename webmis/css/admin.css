@@ -126,10 +126,7 @@ input:focus, textarea:focus{
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF;}
 .table_list td{border: #CFCFCF 1px solid; padding: 6px 5px;}
 .table_list .title{color: #666; font-weight: bold; background: url("../images/admin_tb_x.jpg") repeat-x #F4F7FA;}
-.table_list .bg1{background: #F4F7FA;}
-.table_list .bg2{background: #E2ECF7;}
 .page{height: 50px; line-height: 50px; text-align: center; color: #999; background: url("../images/admin_top_nav_x.jpg") 0 -71px repeat-x;}
-.table_list_line{cursor: e-resize; position: absolute; width: 4px; margin-left: -7px;}
 
 .table_list_show{width: 100%; border-collapse: collapse; text-align: center; background: #FFF; margin: 0 auto;}
 .table_list_show td{border: #CFCFCF 1px solid; padding: 5px;}

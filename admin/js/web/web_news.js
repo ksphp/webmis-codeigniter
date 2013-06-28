@@ -2,27 +2,27 @@ $(function(){
 /*
 列表
 */
-	$('#listBG').WMisTableUI();   //表格样式
-	$('#news_table').WMisMoveTW();  //调整表格宽度
+	$('#listBG').webmis('TableOddColor');	//隔行换色
+	$('#news_table').webmis('TableAdjust');  //调整宽度
 /*
 搜索
 */
 	$('.action_sea').click(function(){
-		$.WMisMsg({title:'搜索',width:340,height:300});
+		$.webmis.win.open({title:'搜索',width:360,height:280});
 		//加载内容
 		$.get($base_url+'web_news/search.html',function(data){
-			$('#WebMisMsgCT').html(data);   //加载内容
-			$('#seaSub').WMisSub(); //按钮样式
+			$.webmis.win.load(data);   //加载内容
+			$('#seaSub').webmis('SubClass'); //按钮样式
 		});
 	});
 /*
 添加
 */
 	$('.action_add').click(function(){
-		$.WMisMsg({title:'添加',width:840,height:580,overflow:true});
+		$.webmis.win.open({title:'添加',width:840,height:580,overflow:true});
 		//加载内容
 		$.get($base_url+'web_news/add.html',function(data){
-			$('#WebMisMsgCT').html(data);   //加载内容
+			$.webmis.win.load(data);   //加载内容
 			newsClass();    //查询导航菜单
 			newsForm(); //表单验证
 		});
@@ -34,16 +34,16 @@ $(function(){
 	$('.action_edit').click(function(){
 		var id = $('#listBG').WMisGetID();
 		if(id){
-			$.WMisMsg({title:'编辑',width:840,height:580,overflow:true});
+			$.webmis.win.open({title:'编辑',width:840,height:580,overflow:true});
 			//加载内容
 			$.post($base_url+'web_news/edit.html',{'id':id},function(data){
-				$('#WebMisMsgCT').html(data);   //加载内容
+				$.webmis.win.load(data);   //加载内容
 				$('#newsID').val(id);
 				newsClass();	//查询导航菜单
 				newsForm(); //表单验证
 			});
 		}else{
-			$.WMisMsg({content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
 		}
 		return false;
 	});
@@ -53,23 +53,23 @@ $(function(){
 	$('.action_del').click(function(){
 		var id = $('#listBG').WMisGetID({type:' '});
 		if(id!=' '){
-			$.WMisMsg({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
-			$('#delSub').WMisSub(); //按钮样式
+			$.webmis.win.open({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
+			$('#delSub').webmis('SubClass'); //按钮样式
 			//点击提交
 			$('#delSub').click(function(){
 				$.post($base_url+'web_news/delData.html',{'id':id},function(data){
 					if(data){
-						$.WMisMsgClose();
+						$.webmis.win.close();
 						var url = $('#getUrl').text();
-						$.WMisMsg({content:'<b class="green">删除成功</b>',target:'web_news.html'+url,AutoClose:3});
+						$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'web_news.html'+url,AutoClose:3});
 					}else{
-						$.WMisMsgClose();
-						$.WMisMsg({content:'<b class="red">删除失败</b>',AutoClose:3});
+						$.webmis.win.close();
+						$.webmis.win.open({content:'<b class="red">删除失败</b>',AutoClose:3});
 					}
 				});
 			});
 		}else{
-			$.WMisMsg({content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
 		}
 	});
 /*
@@ -127,7 +127,7 @@ $(function(){
 
 //表单验证
 function newsForm(){
-	$('#newsSub').WMisSub(); //按钮样式
+	$('#newsSub').webmis('SubClass'); //按钮样式
 	//编辑器
 	tinymce.init({
 		selector:'#tinymce',
@@ -136,8 +136,8 @@ function newsForm(){
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen",
-			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor"
-			//"filemanager autoresize"
+			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor",
+			"autoresize"
 		],
 		image_advtab: true,
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
