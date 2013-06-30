@@ -8,7 +8,6 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.0.min.js"></script>
 	<script language="javascript" src="/webmis/js/webmis.js"></script>
-	<script language="javascript" src="/webmis/js/config.js"></script>
 	<script language="javascript" src="/webmis/js/admin.login.js"></script>
 </head>
 
