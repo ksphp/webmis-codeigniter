@@ -32,7 +32,7 @@ $(function(){
 编辑
 */
 	$('.action_edit').click(function(){
-		var id = $('#listBG').WMisGetID();
+		var id = $('#listBG').webmis('GetInputID');
 		if(id){
 			$.webmis.win.open({title:'编辑',width:840,height:580,overflow:true});
 			//加载内容
@@ -51,7 +51,7 @@ $(function(){
 删除
 */
 	$('.action_del').click(function(){
-		var id = $('#listBG').WMisGetID({type:' '});
+		var id = $('#listBG').webmis('GetInputID',{type:' '});
 		if(id!=' '){
 			$.webmis.win.open({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
 			$('#delSub').webmis('SubClass'); //按钮样式
@@ -76,10 +76,10 @@ $(function(){
 审核
 */
 	$('.action_audit').click(function(){
-		var id = $('#listBG').WMisGetID({type:' '});
+		var id = $('#listBG').webmis('GetInputID',{type:' '});
 		if(id!=' '){
-			$.WMisMsg({title:'审核',width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
-			$('#auditSub1,#auditSub2').WMisSub(); //按钮样式
+			$.webmis.win.open({title:'审核',width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
+			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
 			//通过
 			$('#auditSub1').click(function(){
 				auditData(id,'1');
@@ -89,18 +89,18 @@ $(function(){
 				auditData(id,'2');
 			});
 		}else{
-			$.WMisMsg({content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
 		}
 		//提交数据
 		var auditData = function(id,state){
 			$.post($base_url+'web_news/auditData.html',{'id':id,'state':state},function(data){
 				if(data){
-					$.WMisMsgClose();
+					$.webmis.win.close();
 					var url = $('#getUrl').text();
-					$.WMisMsg({content:'<b class="green">审核成功</b>',target:'web_news.html'+url,AutoClose:3});
+					$.webmis.win.open({content:'<b class="green">审核成功</b>',target:'web_news.html'+url,AutoClose:3});
 				}else{
-					$.WMisMsgClose();
-					$.WMisMsg({content:'<b class="red">审核失败</b>',AutoClose:3});
+					$.webmis.win.close();
+					$.webmis.win.open({content:'<b class="red">审核失败</b>',AutoClose:3});
 				}
 			});
 		}
@@ -109,7 +109,7 @@ $(function(){
 图表
 */
 	$('.action_chart').click(function(){
-		$.WMisMsg({title:'统计图',width:620,height:450,overflow:true});
+		$.webmis.win.open({title:'统计图',width:620,height:450,overflow:true});
 		//获取数据
 		$.post($base_url+'web_news/chartData.html',function(data){
 			//创建图表
@@ -163,10 +163,10 @@ function newsForm(){
 			$.Hidemsg();
 			if(data.status=="y"){
 				var url = $('#getUrl').text();
-				$.WMisMsgClose('web_news.html'+url);
+				$.webmis.win.close('web_news.html'+url);
 			}else{
-				$.WMisMsgClose();
-				$.WMisMsg({content:'<b class="red">操作失败</b>',AutoClose:3});
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="red">操作失败</b>',AutoClose:3});
 			}
 		}
 	});
@@ -174,7 +174,7 @@ function newsForm(){
 
 //分类联动
 function newsClass(){
-	$('#newsClass').AutoSelect({
+	$('#newsClass').webmis('AutoSelect',{
 		url:$base_url+'web_news/getMenu.html',
 		data:'0',
 		getValType:':',
@@ -201,9 +201,9 @@ function ajaxFileUpload(){
 }
 //显示详细信息
 function newsShow(id){
-	$.WMisMsg({title:'预览',width:720,height:580,overflow:true});
+	$.webmis.win.open({title:'预览',width:720,height:580,overflow:true});
 	//加载内容
 	$.post($base_url+'web_news/show.html',{'id':id},function(data){
-		$('#WebMisMsgCT').html(data);
+		$.webmis.win.load(data);
 	});
 }

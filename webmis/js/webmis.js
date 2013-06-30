@@ -4,14 +4,15 @@
 * Date: 2013-06-28
 * 主要用于封装WebMIS前段样式
 */
-
 var $base_url = 'http://www.ksphp.com/';
 var $webmis_root = '/webmis/';
+
 $(function(){
 	$base_url = $('#base_url').text();  //网址
-/**
-* 加载 css,js
-*/
+	
+	/*
+	** 加载 css,js
+	*/
 	var include = function (files) {
 		for (var i=0; i<files.length; i++) {
 			var att = files[i].replace(/^\s|\s$/g, "").split('.');
@@ -23,9 +24,10 @@ $(function(){
 			$('head').append("<" + tag + attr + link + "></" + tag + ">");
 		}
 	}
-/**
-* 信息提示框
-*/
+
+	/*
+	** 信息提示框
+	*/
 	//关闭窗口
 	var closeWin = function (target) {
 		$('#WebMisWin').slideUp('fast');
@@ -104,12 +106,96 @@ $(function(){
 	var loadWin = function (data) {
 		$('#WebMisWinCT').html(data);   //加载内容
 	}
-/**
-* WebMis UI插件
+
+/*
+** WebMis UI插件
 */
 	$.fn.webmis = function (effect,options) {
 		var $this = this;
-		//按钮样式
+		
+		/*
+		** ******联动菜单******
+		** url:数据源
+		** data:专递的变量，变量名为：fid
+		** getVal:返回的数据值，用表单接收
+		** getValType:返回的数据格式，(1)'' 返回选中值 (2)':' 返回字符串，如 ':1:2:3:'
+		** type:AJAX提交类型 如、get、post
+		** dataType:AJAX返回数据类型
+		** num:联动菜单数 默认：3级内
+		*/
+		var AutoSelect = function (options) {
+			var defaults = {url:'',data:'',getVal:'',getValType:'',type:'GET',dataType:'json',num:4}
+			var options = $.extend(defaults, options);
+			var valArr = new Array();
+			var idName = $this.attr('id');
+			//获取数据
+			var getData=function(num){
+				$.ajax({url:options.url,data:{'fid':options.data},type:options.type,dataType:options.dataType,
+					success:function(db){
+						var html = '<select id="'+idName+'_'+num+'">';
+						html += '<option value="">------请选择------</option>';
+						for(var i= 0; i < db.length;i++){
+							html += '<option value="'+db[i].id+'">'+db[i].title+'</option>';
+						}
+						html += '</select>';
+						$('#'+idName).append(html);
+						$('#'+idName+'_'+num).change(function(){
+							//清除
+							for(var i= 1; i < options.num+1;i++){
+								if(i>num){
+									$('#'+idName+'_'+i).remove();  //删除当前以后Select
+									valArr.splice(i-1,1);          //删除当前以后数组元素
+								}
+							}
+							//追加
+							options.data = $(this).val();
+							if(options.data){
+								if(options.getValType){
+									//将字符串写入数组
+									valArr[num-1]= options.data+options.getValType;
+									//组合字符串
+									var chr = options.getValType;
+									for(var i= 0; i < valArr.length;i++){
+										chr += valArr[i];
+									}
+									$(options.getVal).val(chr);
+								}else{
+									$(options.getVal).val(options.data);
+								}
+								getData(num+1);
+							}
+						});
+					}
+				});
+			}
+			//提交数据
+			if(options.url){
+				getData(1);
+			}
+		}
+		
+		/*
+		** ******返回Input选择ID******
+		** 1、type: 'one' 返回第一条 ID
+		** 2、type:' ' 返回，如' 1 2 3 '
+		*/
+		var GetInputID = function (options) {
+			var defaults = {type:'one'}
+			var options = $.extend(defaults, options);
+			var id = options.type;
+			if(options.type == 'one'){
+				id = $this.find('input:checked').val();
+			}else{
+				$this.find('input:checked').each(function(){
+					id += $(this).val()+options.type;
+				});
+			}
+			return id;
+		}
+		
+		/*
+		** ******按钮样式******
+		*/
 		var SubClass = function (options) {
 			var defaults = {overClass:'SubClass2',outClass:'SubClass1'}
 			var options = $.extend(defaults, options);
@@ -123,7 +209,9 @@ $(function(){
 			);
 		};
 		
-		//表格隔行换色
+		/*
+		** ******表格隔行换色******
+		*/
 		var TableOddColor = function (options) {
 			var defaults = {oddClass:'TableTrBg1',overClass:'TableTrBg2'}
 			var options = $.extend(defaults, options);
@@ -140,7 +228,9 @@ $(function(){
 			);
 		}
 	
-		//调整高宽
+		/*
+		** ******调整表格高宽******
+		*/
 		var TableAdjust = function () {
 			//移动
 			var moveTableWidht=function(id){
@@ -175,8 +265,16 @@ $(function(){
 			});
 		}
 
-		//特效
+		/*
+		** ******命名空间******
+		*/
 		switch (effect){
+			case 'AutoSelect':
+				AutoSelect(options);
+			break;
+			case 'GetInputID':
+				return GetInputID(options);
+			break;
 			case 'SubClass':
 				SubClass(options);
 			break;
@@ -188,104 +286,20 @@ $(function(){
 			break;
 		};
 	};
-/**
-* 命名空间
-*/
+	/*
+	** ******命名空间******
+	*/
 	$.webmis={
 		inc: include,
 		win: {open: openWin, load: loadWin, close: closeWin},
 		test: function () {alert('test');}
 	};
-
-	
-
-	
-/*----------------------------
-WebMis
-----------------------------*/
-	/*
-	** ******返回选中ID******
-	** 1、type:'one'  返回一条
-	** 2、type:' '  返回字符串，如' 1 2 3 '
-	*/
-	$.fn.WMisGetID = function(options){
-		var defaults = {type:'one'}
-		var options = $.extend(defaults, options);
-		var id = options.type;
-		if(options.type == 'one'){
-			id = $(this).find('input:checked').val();
-		}else{
-			$(this).find('input:checked').each(function(){
-				id += $(this).val()+options.type;
-			});
-		}
-		return id;
-	};
-	/*
-	** ******联动菜单******
-	** url:数据源
-	** data:专递的变量，变量名为：fid
-	** getVal:返回的数据值，用表单接收
-	** getValType:返回的数据格式，(1)'' 返回选中值 (2)':' 返回字符串，如 ':1:2:3:'
-	** type:AJAX提交类型 如、get、post
-	** dataType:AJAX返回数据类型
-	** num:联动菜单数 默认：3级内
-	*/ 
-	$.fn.AutoSelect = function(options){
-		var defaults = {url:'',data:'',getVal:'',getValType:'',type:'GET',dataType:'json',num:4}
-		var options = $.extend(defaults, options);
-		var valArr = new Array();
-		var idName = $(this).attr('id');
-		//获取数据
-		var getData=function(num){
-			$.ajax({url:options.url,data:{'fid':options.data},type:options.type,dataType:options.dataType,
-				success:function(db){
-					var html = '<select id="'+idName+'_'+num+'">';
-					html += '<option value="">------请选择------</option>';
-					for(var i= 0; i < db.length;i++){
-						html += '<option value="'+db[i].id+'">'+db[i].title+'</option>';
-					}
-					html += '</select>';
-					$('#'+idName).append(html);
-					$('#'+idName+'_'+num).change(function(){
-						//清除
-						for(var i= 1; i < options.num+1;i++){
-							if(i>num){
-								$('#'+idName+'_'+i).remove();  //删除当前以后Select
-								valArr.splice(i-1,1);          //删除当前以后数组元素
-							}
-						}
-						//追加
-						options.data = $(this).val();
-						if(options.data){
-							if(options.getValType){
-								//将字符串写入数组
-								valArr[num-1]= options.data+options.getValType;
-								//组合字符串
-								var chr = options.getValType;
-								for(var i= 0; i < valArr.length;i++){
-									chr += valArr[i];
-								}
-								$(options.getVal).val(chr);
-							}else{
-								$(options.getVal).val(options.data);
-							}
-							getData(num+1);
-						}
-					});
-				}
-			});
-		}
-		//提交数据
-		if(options.url){
-			getData(1);
-		}
-	};
 	
 });
 
-
-//倒计时信息提示
+/*
+** ******倒计时信息提示******
+*/
 var WebMisInt,WebMisTime;
 function WinInterval(time,target,numID){
 	WebMisTime = time;
@@ -299,7 +313,10 @@ function WinIntervalFun(target,numID){
 	$(numID).text(WebMisTime);
 	WebMisTime--;
 }
-//移动窗口
+
+/*
+** ******移动窗口******
+*/
 function WebMisWinMove(click,move){
 	var _move = false;
 	var _x,_y,_w,_h,x,y;
