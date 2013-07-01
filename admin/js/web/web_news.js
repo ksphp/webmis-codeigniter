@@ -1,4 +1,10 @@
 $(function(){
+	//加载文件
+	$.webmis.inc([
+		$webmis_root + 'plugin/highcharts/highcharts.js',		//图表插件
+		$webmis_root + 'plugin/jquery/ajaxfileupload.js',		//上传插件
+		$webmis_root + 'plugin/tinymce/tinymce.min.js'	//编辑器插件
+	]);
 /*
 列表
 */
@@ -51,59 +57,13 @@ $(function(){
 删除
 */
 	$('.action_del').click(function(){
-		var id = $('#listBG').webmis('GetInputID',{type:' '});
-		if(id!=' '){
-			$.webmis.win.open({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
-			$('#delSub').webmis('SubClass'); //按钮样式
-			//点击提交
-			$('#delSub').click(function(){
-				$.post($base_url+'web_news/delData.html',{'id':id},function(data){
-					if(data){
-						$.webmis.win.close();
-						var url = $('#getUrl').text();
-						$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'web_news.html'+url,AutoClose:3});
-					}else{
-						$.webmis.win.close();
-						$.webmis.win.open({content:'<b class="red">删除失败</b>',AutoClose:3});
-					}
-				});
-			});
-		}else{
-			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
-		}
+		actionDel('web_news/delData.html','web_news.html');
 	});
 /*
 审核
 */
 	$('.action_audit').click(function(){
-		var id = $('#listBG').webmis('GetInputID',{type:' '});
-		if(id!=' '){
-			$.webmis.win.open({title:'审核',width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
-			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
-			//通过
-			$('#auditSub1').click(function(){
-				auditData(id,'1');
-			});
-			//不通过
-			$('#auditSub2').click(function(){
-				auditData(id,'2');
-			});
-		}else{
-			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
-		}
-		//提交数据
-		var auditData = function(id,state){
-			$.post($base_url+'web_news/auditData.html',{'id':id,'state':state},function(data){
-				if(data){
-					$.webmis.win.close();
-					var url = $('#getUrl').text();
-					$.webmis.win.open({content:'<b class="green">审核成功</b>',target:'web_news.html'+url,AutoClose:3});
-				}else{
-					$.webmis.win.close();
-					$.webmis.win.open({content:'<b class="red">审核失败</b>',AutoClose:3});
-				}
-			});
-		}
+		actionAudit('web_news/auditData.html','web_news.html');
 	});
 /*
 图表

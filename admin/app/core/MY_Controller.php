@@ -205,7 +205,7 @@ class MY_Controller extends CI_Controller {
 * 状态名称
 -------------------------------------------------------------------*/
 	public function stateName($type){
-		$arr = array('<span class="c999">未提交</span>','<span class="green">通过</span>','<span class="red">未审核</span>','<span class="red">未通过</span>');
+		$arr = array('<span class="c999">未提交</span>','<span class="green">通过</span>','<span class="red">未通过</span>','<span class="red">未审核</span>');
 		return $arr[$type];
 	}
 }
