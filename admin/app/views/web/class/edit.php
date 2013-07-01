@@ -37,7 +37,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<input type="hidden" id="classID" name="id" value="" />
-			<input type="submit" id="editSub" value="编辑" />
+			<input type="submit" id="classSub" value="编辑" />
 		</td>
 	</tr>
 </table>

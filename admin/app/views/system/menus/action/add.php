@@ -10,7 +10,7 @@
 	<tr>
 		<td class="add_right">权限:</td>
 		<td>
-			<input type="text" id="action_perm" name="perm" class="input" style="width: 120px;" datatype="s2-6" errormsg="2~6个字符内！" />
+			<input type="text" id="action_perm" name="perm" class="input" style="width: 120px;" datatype="s1-6" errormsg="1~6个字符内！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
@@ -24,7 +24,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" id="addSub" value="添加" />
+			<input type="submit" id="actionSub" value="添加" />
 		</td>
 	</tr>
 </table>

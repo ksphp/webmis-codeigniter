@@ -1,12 +1,9 @@
 <?php
 class Sys_admin extends MY_Controller {
-	
 	//首页
 	public function index(){
 		$data = $this->Page('sys_admin/index.html','sys_admin_m');
-		$data['js'] = array(
-			'js/system/sys_admin.js'
-		);
+		$data['js'] = array('js/system/sys_admin.js');
 		$this->MyView('system/admin/index',$data);
 	}
 	//搜索

@@ -29,7 +29,7 @@
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
 		<td style="text-align: left;"><?php echo keyHH($val->title, @$key['title']);?></td>
-		<td><a href="#" onclick="bookShow(<?php echo $val->id;?>)"><?php echo sysSubStr($val->content,42,true);?></a></td>
+		<td><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo sysSubStr($val->content,42,true);?></a></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 		<td><?php echo keyHH($val->admin, @$key['admin']);?></td>
 		<td><?php echo keyHH($val->rtime, @$key['rtime']);?></td>

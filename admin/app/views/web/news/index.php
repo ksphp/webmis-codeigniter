@@ -32,7 +32,7 @@
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
 		<td style="text-align: left;">
-			<a href="#" onclick="newsShow(<?php echo $val->id;?>)"><?php echo keyHH($val->title, @$key['title']);?></a>
+			<a href="#" onclick="newsShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a>
 			<?php echo $val->img?' <span class="c666">[ 图 ]</span>':'';?>
 		</td>
 		<td style="text-align: left;">

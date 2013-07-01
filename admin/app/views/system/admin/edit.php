@@ -54,7 +54,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<input type="hidden" id="adminID" name="id" value="" />
-			<input type="submit" id="editSub" value="更新" />
+			<input type="submit" id="adminSub" value="更新" />
 		</td>
 	</tr>
 </table>

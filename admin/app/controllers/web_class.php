@@ -1,12 +1,9 @@
 <?php
 class Web_class extends MY_Controller {
-
 	//首页
 	public function index(){
 		$data = $this->Page('web_class/index.html','web_class_m');
-		$data['js'] = array(
-			'js/web/web_class.js'
-		);
+		$data['js'] = array('js/web/web_class.js');
 		$this->MyView('web/class/index',$data);
 	}
 	//搜索

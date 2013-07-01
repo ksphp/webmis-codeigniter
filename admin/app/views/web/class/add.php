@@ -36,7 +36,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" id="addSub" value="添加" />
+			<input type="submit" id="classSub" value="添加" />
 		</td>
 	</tr>
 </table>

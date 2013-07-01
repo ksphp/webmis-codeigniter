@@ -33,7 +33,7 @@
 	<tr>
 		<td class="add_right">备注:</td>
 		<td>
-			<textarea name="remark" style="width: 320px; height: 120px;"><?php echo $remark;?></textarea>
+			<textarea name="remark" style="width: 460px; height: 120px;"><?php echo $remark;?></textarea>
 		</td>
 	</tr>
 	<tr>
@@ -46,7 +46,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<input type="hidden" id="menusID" name="id" value="" />
-			<input type="submit" id="editSub" value="编辑" />
+			<input type="submit" id="menusSub" value="编辑" />
 		</td>
 	</tr>
 </table>

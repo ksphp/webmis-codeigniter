@@ -2,82 +2,66 @@ $(function(){
 /*
 列表
 */
-	$('#listBG').WMisTableUI();   //表格样式
-	$('#menus_table').WMisMoveTW();  //调整表格宽度
+	$('#listBG').webmis('TableOddColor');	//隔行换色
+	$('#menus_table').webmis('TableAdjust');  //调整宽度
 /*
 搜索
 */
 	$('.action_sea').click(function(){
-		$.WMisMsg({title:'搜索',width:340,height:280});
+		$.webmis.win.open({title:'搜索',width:340,height:280});
 		//加载内容
 		$.get($base_url+'sys_menus/search.html',function(data){
-			$('#WebMisMsgCT').html(data);   //加载内容
-			$('#seaSub').WMisSub(); //按钮样式
+			$.webmis.win.load(data);   //加载内容
+			$('#seaSub').webmis('SubClass'); //按钮样式
 		});
+		return false;
 	});
 /*
 添加
 */
 	$('.action_add').click(function(){
-		$.WMisMsg({title:'添加',width:500,height:420});
+		$.webmis.win.open({title:'添加',width:640,height:420});
 		//加载内容
 		$.get($base_url+'sys_menus/add.html',function(data){
-			$('#WebMisMsgCT').html(data);   //加载内容
-			$('#addSub').WMisSub(); //按钮样式
+			$.webmis.win.load(data);   //加载内容
 			menusClass();    //查询导航菜单
 			menusForm(); //表单验证
-			
 		});
+		return false;
 	});
 /*
 编辑
 */
 	$('.action_edit').click(function(){
-		var id = $('#listBG').WMisGetID();
+		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.WMisMsg({title:'编辑',width:500,height:420});
+			$.webmis.win.open({title:'编辑',width:640,height:420});
 			//加载内容
 			$.post($base_url+'sys_menus/edit.html',{'id':id},function(data){
-				$('#WebMisMsgCT').html(data);   //加载内容
+				$.webmis.win.load(data);   //加载内容
 				$('#menusID').val(id);
-				$('#editSub').WMisSub(); //按钮样式
 				menusClass();    //查询导航菜单
 				menusForm(); //表单验证
 			});
 		}else{
-			$.WMisMsg({content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
 		}
+		return false;
 	});
 /*
 删除
 */
 	$('.action_del').click(function(){
-		var id = $('#listBG').WMisGetID({type:' '});
-		if(id!=' '){
-			$.WMisMsg({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
-			$('#delSub').WMisSub(); //按钮样式
-			//点击提交
-			$('#delSub').click(function(){
-				$.post($base_url+'sys_menus/delData.html',{'id':id},function(data){
-					if(data){
-						$.WMisMsgClose();
-						var url = $('#getUrl').text();
-						$.WMisMsg({content:'<b class="green">删除成功</b>',target:'sys_menus.html'+url,AutoClose:3});
-					}else{
-						$.WMisMsgClose();
-						$.WMisMsg({content:'<b class="red">删除失败</b>',AutoClose:3});
-					}
-				});
-			});
-		}else{
-			$.WMisMsg({content:'<b class="red">请选择！</b>',AutoClose:3});
-		}
+		actionDel('sys_menus/delData.html','sys_menus.html');
+		return false;
 	});
 	
 });
 
 //表单验证
 function menusForm(){
+	$('#menusSub').webmis('SubClass'); //按钮样式
+	//验证提交
 	$("#menusForm").Validform({
 		ajaxPost:true,
 		tiptype:2,
@@ -92,11 +76,11 @@ function menusForm(){
 			$.Hidemsg();
 			if(data.status=="y"){
 				var url = $('#getUrl').text();
-				$.WMisMsgClose();
-				$.WMisMsg({content:'<b class="green">操作成功</b>',target:'sys_menus.html'+url,AutoClose:3});
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="green">操作成功</b>',target:'sys_menus.html'+url,AutoClose:3});
 			}else{
-				$.WMisMsgClose();
-				$.WMisMsg({content:'<b class="red">操作失败</b>',AutoClose:3});
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="red">操作失败</b>',AutoClose:3});
 			}
 		}
 	});
@@ -104,7 +88,7 @@ function menusForm(){
 
 //分类联动
 function menusClass(){
-	$('#menusClass').AutoSelect({
+	$('#menusClass').webmis('AutoSelect',{
 		url:$base_url+'sys_menus/getMenu.html',
 		data:'0',
 		type:'post',

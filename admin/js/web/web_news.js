@@ -20,6 +20,7 @@ $(function(){
 			$.webmis.win.load(data);   //加载内容
 			$('#seaSub').webmis('SubClass'); //按钮样式
 		});
+		return false;
 	});
 /*
 添加
@@ -58,12 +59,14 @@ $(function(){
 */
 	$('.action_del').click(function(){
 		actionDel('web_news/delData.html','web_news.html');
+		return false;
 	});
 /*
 审核
 */
 	$('.action_audit').click(function(){
 		actionAudit('web_news/auditData.html','web_news.html');
+		return false;
 	});
 /*
 图表
@@ -73,7 +76,7 @@ $(function(){
 		//获取数据
 		$.post($base_url+'web_news/chartData.html',function(data){
 			//创建图表
-			$('#WebMisMsgCT').highcharts({
+			$('#WebMisWinCT').highcharts({
 				chart: {type: 'pie'},
 				title: {text: '<b>新闻分类统计图</b>'},
 				tooltip: {pointFormat: '{series.name}: <b>{point.percentage}%</b>',percentageDecimals: 1},
@@ -81,6 +84,7 @@ $(function(){
 				series: [{name: '百分比',data: data}]
         });
 		},'json');
+		return false;
 	});
 	
 });

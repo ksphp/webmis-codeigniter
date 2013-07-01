@@ -18,8 +18,8 @@
 		<td width="20"><a href="#" onclick="All()">Y</a>/<a href="#" onclick="delAll()">N</a></td>
 		<td width="40">ID</td>
 		<td width="40">FID</td>
-		<td width="120">菜单名</td>
-		<td width="160">URL</td>
+		<td>菜单名</td>
+		<td>URL</td>
 		<td width="60">动作值</td>
 		<td width="120">创建时间</td>
 		<td>备注</td>
@@ -35,7 +35,7 @@
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
 		<td><?php echo keyHH($val->perm, @$key['perm']);?></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td><?php echo keyHH($val->remark, @$key['remark']);?></td>
+		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>
 	</tr>
 	<?php } ?>

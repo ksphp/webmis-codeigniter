@@ -4,9 +4,7 @@ class Sys_menus_action extends MY_Controller {
 	//首页
 	public function index(){
 		$data = $this->Page('sys_menus_action/index.html','sys_menus_action_m');
-		$data['js'] = array(
-			'js/system/sys_menus_action.js'
-		);
+		$data['js'] = array('js/system/sys_menus_action.js');
 		$this->MyView('system/menus/action/index',$data);
 	}
 	//搜索

@@ -1,12 +1,9 @@
 <?php
 class Web_book extends MY_Controller {
-
 	//首页
 	public function index(){
 		$data = $this->Page('web_book/index.html','web_book_m');
-		$data['js'] = array(
-			'js/web/web_book.js'
-		);
+		$data['js'] = array('js/web/web_book.js');
 		
 		$this->MyView('web/book/index',$data);
 	}

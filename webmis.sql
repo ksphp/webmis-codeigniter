@@ -18,7 +18,7 @@ CREATE TABLE `wmis_sys_admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 13:19 24:65 25:145 18:63 19:31 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 13:19 24:65 25:145 18:319 19:31 21:27 11:1');
 INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 22:1 13:19 24:65 25:129 18:319 19:31 21:27 11:1');
 
 
@@ -35,89 +35,7 @@ CREATE TABLE `wmis_sys_admin_login_log` (
   `ip` varchar(16) NOT NULL,
   `time` varchar(19) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
-
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (1, '失败', 'kingsoul', '127.0.0.1', '2012-10-25 13:40:51');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (2, '禁用', 'admin', '127.0.0.1', '2012-10-25 13:40:59');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (3, '登录', 'admin', '127.0.0.1', '2012-10-25 13:41:26');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (4, '退出', 'admin', '127.0.0.1', '2012-10-25 13:42:04');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (5, '登录', 'admin', '127.0.0.1', '2012-10-25 13:42:10');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (6, '退出', 'admin', '127.0.0.1', '2012-10-25 13:42:14');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (7, '登录', 'admin', '127.0.0.1', '2012-10-25 13:42:19');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (8, '失败', 'kingsoul', '127.0.0.1', '2012-10-25 14:20:55');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (9, '登录', 'admin', '127.0.0.1', '2012-10-25 14:21:07');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (10, '失败', 'kingsoul', '127.0.0.1', '2012-10-29 16:31:14');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (11, '失败', 'kingsoul', '127.0.0.1', '2012-10-29 16:31:15');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (12, '失败', 'admin', '127.0.0.1', '2012-10-29 16:31:27');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (13, '失败', 'admin', '127.0.0.1', '2012-10-29 16:31:28');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (14, '登录', 'admin', '127.0.0.1', '2012-10-29 16:31:35');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (15, '退出', 'admin', '127.0.0.1', '2012-10-29 16:32:45');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (16, '登录', 'admin', '127.0.0.1', '2012-10-29 16:36:56');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (17, '登录', 'admin', '127.0.0.1', '2012-10-29 17:05:47');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (18, '退出', 'Auto Logout', '127.0.0.1', '2012-10-30 12:48:06');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (19, '登录', 'admin', '127.0.0.1', '2012-10-30 12:49:54');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (20, '退出', 'admin', '127.0.0.1', '2012-10-30 12:59:27');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (21, '登录', 'admin', '127.0.0.1', '2012-10-30 13:41:50');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (22, '失败', 'kingsoul', '127.0.0.1', '2012-10-31 13:16:44');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (23, '登录', 'admin', '127.0.0.1', '2012-10-31 13:16:51');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (24, '登录', 'admin', '127.0.0.1', '2012-10-31 13:48:41');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (25, '退出', 'admin', '127.0.0.1', '2012-10-31 13:57:30');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (26, '登录', 'admin', '127.0.0.1', '2012-10-31 14:14:05');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (27, '失败', 'kingsoul', '127.0.0.1', '2012-11-01 14:03:34');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (28, '登录', 'admin', '127.0.0.1', '2012-11-01 14:03:41');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (29, '退出', 'Auto Logout', '127.0.0.1', '2012-11-01 18:05:21');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (30, '登录', 'admin', '127.0.0.1', '2012-11-01 18:17:01');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (31, '退出', 'Auto Logout', '127.0.0.1', '2012-11-02 08:26:18');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (32, '登录', 'admin', '127.0.0.1', '2012-11-02 08:32:08');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (33, '退出', 'admin', '127.0.0.1', '2012-11-02 08:55:41');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (34, '登录', 'admin', '127.0.0.1', '2012-11-02 08:56:48');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (35, '退出', 'Auto Logout', '127.0.0.1', '2012-11-02 13:34:13');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (36, '失败', 'admin', '127.0.0.1', '2012-11-02 13:49:51');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (37, '失败', 'admin', '127.0.0.1', '2012-11-02 13:49:52');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (38, '登录', 'admin', '127.0.0.1', '2012-11-02 13:50:01');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (39, '退出', 'admin', '127.0.0.1', '2012-11-02 14:00:34');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (40, '退出', 'Auto Logout', '127.0.0.1', '2012-11-02 19:19:52');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (41, '登录', 'admin', '127.0.0.1', '2012-11-07 10:31:06');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (42, '退出', 'Auto Logout', '127.0.0.1', '2012-11-13 19:24:03');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (43, '失败', 'kingsoul', '127.0.0.1', '2012-11-13 19:24:14');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (44, '登录', 'admin', '127.0.0.1', '2012-11-13 19:24:25');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (45, '退出', 'admin', '127.0.0.1', '2012-11-13 20:10:21');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (46, '退出', 'kingsoul', '127.0.0.1', '2013-03-25 13:43:40');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (47, '失败', 'kingsoul', '127.0.0.1', '2013-03-25 13:43:50');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (48, '登录', 'admin', '127.0.0.1', '2013-03-25 13:43:58');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (49, '退出', 'admin', '127.0.0.1', '2013-03-25 13:44:38');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (50, '登录', 'admin', '127.0.0.1', '2013-03-25 13:44:49');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (51, '退出', 'admin', '127.0.0.1', '2013-03-25 13:48:40');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (52, '登录', 'admin', '127.0.0.1', '2013-03-25 13:48:47');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (53, '退出', 'admin', '127.0.0.1', '2013-03-25 14:03:49');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (54, '登录', 'webmis', '127.0.0.1', '2013-03-25 14:05:46');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (55, '退出', 'Auto Logout', '127.0.0.1', '2013-03-25 14:37:20');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (56, '登录', 'admin', '127.0.0.1', '2013-03-25 15:02:49');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (57, '退出', 'Auto Logout', '127.0.0.1', '2013-03-26 09:05:41');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (58, '登录', 'admin', '127.0.0.1', '2013-03-26 09:05:47');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (59, '退出', 'admin', '127.0.0.1', '2013-03-26 09:06:42');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (60, '失败', 'admin', '127.0.0.1', '2013-03-26 09:06:49');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (61, '登录', 'admin', '127.0.0.1', '2013-03-26 09:06:58');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (62, '退出', 'admin', '127.0.0.1', '2013-03-26 11:08:13');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (63, '登录', 'webmis', '127.0.0.1', '2013-03-26 11:08:21');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (64, '登录', 'webmis', '127.0.0.1', '2013-04-15 10:55:05');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (65, '退出', 'webmis', '127.0.0.1', '2013-04-15 14:36:41');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (66, '登录', 'webmis', '127.0.0.1', '2013-04-15 14:36:53');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (67, '登录', 'webmis', '127.0.0.1', '2013-04-16 10:11:52');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (68, '退出', 'Auto Logout', '127.0.0.1', '2013-04-16 12:25:32');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (69, '登录', 'webmis', '127.0.0.1', '2013-04-16 12:43:05');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (70, '退出', 'webmis', '127.0.0.1', '2013-04-16 12:54:58');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (71, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:55:05');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (72, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:55:10');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (73, '失败', 'kingsoul', '127.0.0.1', '2013-04-16 12:56:13');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (74, '失败', 'kingsoul', '127.0.0.1', '2013-04-23 12:11:47');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (75, '登录', 'webmis', '127.0.0.1', '2013-04-23 12:11:55');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (76, '退出', 'webmis', '127.0.0.1', '2013-04-23 12:15:33');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (77, '登录', 'webmis', '127.0.0.1', '2013-05-16 10:36:14');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (78, '登录', 'admin', '127.0.0.1', '2013-06-21 08:46:51');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (79, '退出', 'Auto Logout', '127.0.0.1', '2013-06-21 08:57:34');
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (80, '登录', 'admin', '127.0.0.1', '2013-06-21 08:57:40');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: wmis_sys_config

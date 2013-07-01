@@ -1,6 +1,5 @@
 <?php
 class Sys_db_restore extends MY_Controller {
-	
 	//首页
 	public function index(){
 		$this->load->helper('my');
@@ -10,9 +9,7 @@ class Sys_db_restore extends MY_Controller {
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
 		
-		$data['js'] = array(
-			'js/system/sys_db_restore.js',
-		);
+		$data['js'] = array('js/system/sys_db_restore.js',);
 		$data['file'] = get_dir_file_info($config['backdir'],false);
 		
 		$this->MyView('system/db/restore/index',$data);
@@ -20,7 +17,6 @@ class Sys_db_restore extends MY_Controller {
 	//下载
 	public function down(){
 		$this->load->helper('download');
-		
 		//系统配置
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();

@@ -1,5 +1,5 @@
 /*
-* WebMIS 3.0
+* WebMIS 3.2
 * Copyright (c) 灵创网络 http://www.ksphp.com/
 * Date: 2013-06-28
 * 主要用于封装WebMIS前段样式
@@ -66,6 +66,7 @@ $(function(){
 			//点击关闭窗口
 			$('#WebMisWin .close').click(function(){
 				closeWin(options.target);
+				return false;
 			});
 			//ESC键关闭
 			$(document).keydown(function(e){
@@ -133,7 +134,7 @@ $(function(){
 				$.ajax({url:options.url,data:{'fid':options.data},type:options.type,dataType:options.dataType,
 					success:function(db){
 						var html = '<select id="'+idName+'_'+num+'">';
-						html += '<option value="">------请选择------</option>';
+						html += '<option value="">---请选择---</option>';
 						for(var i= 0; i < db.length;i++){
 							html += '<option value="'+db[i].id+'">'+db[i].title+'</option>';
 						}
