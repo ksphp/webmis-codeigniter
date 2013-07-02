@@ -33,7 +33,7 @@
 		<td><?php echo keyHH($val->title, @$key['title']);?></td>
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td><?php echo keyHH($val->remark, @$key['remark']);?></td>
+		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>
 	</tr>
 	<?php } ?>
