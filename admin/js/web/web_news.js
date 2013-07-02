@@ -1,10 +1,10 @@
 $(function(){
 	//加载文件
-	$.webmis.inc([
+	$.webmis.inc({files:[
 		$webmis_root + 'plugin/highcharts/highcharts.js',		//图表插件
 		$webmis_root + 'plugin/jquery/ajaxfileupload.js',		//上传插件
 		$webmis_root + 'plugin/tinymce/tinymce.min.js'	//编辑器插件
-	]);
+	]});
 /*
 列表
 */
