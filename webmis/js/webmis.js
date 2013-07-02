@@ -13,7 +13,10 @@ $(function(){
 	/*
 	** 加载 css,js
 	*/
-	var include = function (files) {
+	var include = function (options) {
+		var defaults = {files: '', doc: 'body'}
+		var options = $.extend(defaults, options);
+		var files = options.files;
 		for (var i=0; i<files.length; i++) {
 			var att = files[i].replace(/^\s|\s$/g, "").split('.');
 			var ext = att[att.length - 1].toLowerCase();
@@ -21,7 +24,7 @@ $(function(){
 			var tag = isCSS ? "link" : "script";
 			var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
 			var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
-			$('head').append("<" + tag + attr + link + "></" + tag + ">");
+			$(options.doc).append("<" + tag + attr + link + "></" + tag + ">");
 		}
 	}
 

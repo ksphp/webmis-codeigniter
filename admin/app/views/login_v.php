@@ -6,9 +6,6 @@
 	<meta name="author" content="kingsoul" />
 	<title>WebMIS v3.2管理员控制台</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
-	<script language="javascript" src="/webmis/js/webmis.js"></script>
-	<script language="javascript" src="/webmis/js/admin.login.js"></script>
 </head>
 
 <body class="login_bg">
@@ -30,5 +27,8 @@
 		<div class="login_copy">Copyright © <a href="<?php echo base_url(''); ?>"><b>www.ksphp.com</b></a> All rights are reserved.</div>
 	</div>
 </div>
+<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
+<script language="javascript" src="/webmis/js/webmis.js"></script>
+<script language="javascript" src="/webmis/js/admin.login.js"></script>
 </body>
 </html>

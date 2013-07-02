@@ -1,7 +1,3 @@
-<!-- JS -->
-<?php foreach($js as $val){ ?>
-<script language="javascript" src="<?php echo base_url($val); ?>"></script>
-<?php }?>
 <!-- Action -->
 <div class="right_top">
 	<span class="right_action">

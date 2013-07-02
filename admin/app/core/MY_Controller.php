@@ -97,7 +97,7 @@ class MY_Controller extends CI_Controller {
 		$data['menuHtml']=$this->getMenuHtml(0);
 		$data['actionHtml']=$this->actionHtml();
 		$this->load->view('inc/top',$data);
-		$this->load->view($url,$data);
+		$this->load->view($url);
 		$this->load->view('inc/bottom');
 	}
 /*------------------------------------------------------------------

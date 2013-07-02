@@ -1,11 +1,5 @@
-<!-- JS -->
-<div id="getUrl" style="display: none;"><?php echo $get_url; ?></div>
-<?php foreach($js as $val){ ?>
-<script language="javascript" src="<?php echo base_url($val); ?>"></script>
-<?php }?>
 <!-- Action -->
 <div class="right_top">
-	
 	<span class="right_action">
 		<div class="right_title"><?php echo $title; ?></div>
 		<?php echo $actionHtml; ?>

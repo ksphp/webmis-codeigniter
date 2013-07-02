@@ -64,7 +64,7 @@ class MY_Controller extends CI_Controller {
 		$data['navName']=$this->navName;
 		
 		$this->load->view('inc/top',$data);
-		$this->load->view($url,$data);
+		$this->load->view($url);
 		$this->load->view('inc/bottom');
 	}
 /*------------------------------------------------------------------

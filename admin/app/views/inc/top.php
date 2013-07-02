@@ -6,15 +6,9 @@
 	<meta name="author" content="kingsoul" />
 	<title><?php echo $config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
-	<script language="javascript" src="/webmis/js/webmis.js"></script>
-	<script language="javascript" src="/webmis/js/admin.js"></script>
 </head>
 
 <body class="body_bg">
-<div id="base_url" style="display: none;"><?php echo $base_url; ?></div>
-<div id="NavId" style="display: none;"><?php echo $NavId; ?></div>
-<div id="MenuTwoId" style="display: none;"><?php echo $MenuTwoId; ?></div>
 <div class="top_bg">
 	<div id="top" class="top">
 		<div class="top_logo">&nbsp;</div>
