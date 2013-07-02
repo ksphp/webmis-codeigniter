@@ -6,6 +6,8 @@
 	<meta name="author" content="kingsoul" />
 	<title><?php echo $config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="/webmis/css/admin.css" rel="stylesheet" type="text/css" />
+	<link href="/webmis/css/webmis.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="body_bg">

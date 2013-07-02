@@ -1,10 +1,4 @@
 $(function(){
-	$webmis_root = '/webmis/'		//Webmis根目录
-	//加载文件
-	$.webmis.inc({files:[
-		$webmis_root + 'css/admin.css',		//后台样式
-		$webmis_root + 'css/webmis.css',		//插件样式
-	]});
 	//登录事项
 	$('#adminLogin').hover(
 		function () {

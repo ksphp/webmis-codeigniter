@@ -6,6 +6,8 @@
 	<meta name="author" content="kingsoul" />
 	<title>WebMIS v3.2管理员控制台</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="/webmis/css/admin.css" rel="stylesheet" type="text/css" />
+	<link href="/webmis/css/webmis.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="login_bg">
