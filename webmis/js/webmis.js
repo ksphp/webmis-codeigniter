@@ -74,12 +74,14 @@ $(function(){
 			});
 			
 			//获取参数
+			var winWindt = $(window).width();
+			var winHeight = $(window).height();
 			var bodyWidth = $(document).width();
 			var bodyHeight = $(document).height();
 			var Win = $('#WebMisWin');
 			//计算垂直居中位置
-			var mleft = (bodyWidth-Win.width())/2-10;
-			var mtop = (bodyHeight-Win.height())/2;
+			var mleft = (winWindt-Win.width())/2-10;
+			var mtop = (winHeight-Win.height())/2;
 			//限制顶部
 			if(mtop < 10){mtop = 10;}
 			//显示信息框
