@@ -10,7 +10,7 @@
 <!-- Content -->
 <table class="table_list">
 	<tr class="title" id="menus_action_table">
-		<td width="20"><a href="#" onclick="All()">Y</a>/<a href="#" onclick="delAll()">N</a></td>
+		<td width="20"><a href="#" id="checkboxY">√</a><a href="#" id="checkboxN">×</a></td>
 		<td width="60">ID</td>
 		<td width="80">名称</td>
 		<td width="80">权限值</td>

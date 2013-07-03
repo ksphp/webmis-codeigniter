@@ -109,7 +109,7 @@ class MY_Controller extends CI_Controller {
 		$html = '';
 		foreach($nav as $val){
 			if(isset($permArr[$val->id])){
-				$html .= '<span id="nav_'.$val->id.'" class="nav_an2"><a href="#" onclick="menuOne(\''.$val->id.'\')">'.$val->title.'</a></span>';
+				$html .= '<span id="nav_'.$val->id.'" class="nav_an2"><a href="#" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></span>';
 				$html .= '<div class="line UI">&nbsp;</div>';
 			}
 		}

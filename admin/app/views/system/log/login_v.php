@@ -10,7 +10,7 @@
 <!-- Content -->
 <table class="table_list">
 	<tr class="title" id="admin_log_table">
-		<td width="20"><a href="#" onclick="All()">Y</a>/<a href="#" onclick="delAll()">N</a></td>
+		<td width="20"><a href="#" id="checkboxY">√</a><a href="#" id="checkboxN">×</a></td>
 		<td width="60">ID</td>
 		<td width="60">类型</td>
 		<td width="120">用户名</td>

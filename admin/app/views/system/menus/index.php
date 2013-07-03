@@ -10,7 +10,7 @@
 <!-- Content -->
 <table class="table_list">
 	<tr class="title" id="menus_table">
-		<td width="20"><a href="#" onclick="All()">Y</a>/<a href="#" onclick="delAll()">N</a></td>
+		<td width="20"><a href="#" id="checkboxY">√</a><a href="#" id="checkboxN">×</a></td>
 		<td width="40">ID</td>
 		<td width="40">FID</td>
 		<td>菜单名</td>

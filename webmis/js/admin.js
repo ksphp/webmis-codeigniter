@@ -15,6 +15,7 @@ $(function(){
 		}else{
 			$("#top").slideUp('fast');
 		}
+		return false;
 	});
 	//显示、隐藏左侧菜单
 	$('#LeftMenus').click(function(){
@@ -23,15 +24,22 @@ $(function(){
 		}else{
 			$("#tb_left").hide();
 		}
+		return false;
+	});
+	//全选,全不选
+	$('#checkboxY').click(function () {
+		$(this).hide();
+		$(this).parent().parent().parent().parent().find("input:checkbox").prop("checked", true);
+		$('#checkboxN').show().click(function () {
+			$(this).hide();
+			$('#checkboxY').show();
+			$(this).parent().parent().parent().parent().find("input:checkbox").prop("checked", false);
+			return false;
+		});
+		return false;
 	});
 });
-//全选,全不选
-function All(){
-	$("input:checkbox").attr("checked", true);
-}
-function delAll(){
-	$("input:checkbox").removeAttr("checked");
-}
+
 /*
 ** ******菜单操作******
 */

@@ -10,7 +10,7 @@
 <!-- Content -->
 <table class="table_list">
 	<tr class="title" id="news_table">
-		<td width="20"><a href="#" onclick="All()">Y</a>/<a href="#" onclick="delAll()">N</a></td>
+		<td width="20"><a href="#" id="checkboxY">√</a><a href="#" id="checkboxN">×</a></td>
 		<td>ID</td>
 		<td>标题</td>
 		<td>所属</td>
