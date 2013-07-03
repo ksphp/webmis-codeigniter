@@ -1,0 +1,20 @@
+v0.13 - Jul 6 2011
+* added callback to reload directory tree after folder creation (Arpad SZUCS)
+* prevent upload folder deletion (Arpad SZUCS)
+* CSS layout fix for google Chrome
+* Hungarian translation (Arpad SZUCS)
+* Garman translation (Stephan Eicher)
+* updated class.upload.php from 0.25 to 0.31 (http://www.verot.net)
+
+v0.12 - May 10 2009 
+* russian translation (Ivan Chistyakov)
+* permit use of cache in ajax (Joris Frugier)
+
+v0.11 - Jan 08 2009 
+* added "delete folder" option
+* show current location
+* added some file type icons
+* language updates
+
+v0.1 - Oct 2008
+* initial release

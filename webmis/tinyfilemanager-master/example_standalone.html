@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Example 2</title>
+<script type="text/javascript">
+	function BrowseFiles(popurl) {
+		var winpops=window.open(popurl,"","status = 1, height = 450, width = 640, left = 200, top = 180, resizable = 0")
+	}
+</script>
+
+</head>
+<body>
+
+<form method="post" action="">
+	File: <input type="text" value="" size="40" id="my-cool-input" /> <a href="javascript:BrowseFiles('mfm.php?mode=standalone&amp;field=my-cool-input');">Choose</a><br />
+	<input type="submit" name="save" value="Submit" />
+</form>
+
+</body>
+</html>
