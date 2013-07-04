@@ -35,6 +35,26 @@
 		<td width="40">权限</td>
 	</tr>
 	<tbody id="listBG">
+<?php if($filelist){foreach($filelist['folder'] as $val){ ?>
+	<tr>
+		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
+		<td align="left"><a href="#" ><?php echo $val['name']; ?></a></td>
+		<td><?php echo $val['ctime']; ?></td>
+		<td><?php echo $val['mtime']; ?></td>
+		<td><?php echo $val['size']; ?></td>
+		<td><?php echo $val['perm']; ?></td>
+	</tr>
+<?php };foreach($filelist['files'] as $val){ ?>
+	<tr>
+		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
+		<td align="left"><a href="#" ><?php echo $val['name']; ?></a></td>
+		<td><?php echo $val['ctime']; ?></td>
+		<td><?php echo $val['mtime']; ?></td>
+		<td><?php echo $val['size']; ?></td>
+		<td><?php echo $val['perm']; ?></td>
+	</tr>
+<?php }} ?>
 	</tbody>
 </table>
+<div class="page">文件信息</div>
 <!-- Content End -->
