@@ -4,6 +4,7 @@ body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
 img{border: none;}
 ul{list-style: none;}
+em{padding: 4px 10px;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 textarea{border: #999 1px solid; background: #EFF4FA;}
@@ -18,7 +19,7 @@ input:focus, textarea:focus{
 }
 .input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA; display: inline-block;}
 
-.UI{background-image:url("../images/admin_ui.jpg"); background-repeat: no-repeat; background-position:0px 0px;}
+.UI{background-image:url("../images/admin_ui.png"); background-repeat: no-repeat; background-position:0px 0px;}
 
 /* Checkbox */
 #checkboxY,#checkboxN{padding: 2px 6px;}
@@ -92,7 +93,7 @@ input:focus, textarea:focus{
 .menu_an_bg1{background-position: 0px -120px;}
 .menu_an_bg2{background-position: 0px -155px;}
 .menu_list li{padding: 6px; font-weight: normal; border: none;}
-.menu_list li a em{padding: 4px 10px; background-position: -300px -2px;}
+.menu_list li a em{background-position: -300px -2px;}
 .menu_list li a:hover em{background-position: -300px -28px;}
 .menuOne{display: none;}
 .menu_list{display: none;}
@@ -104,7 +105,6 @@ input:focus, textarea:focus{
 .right_action{float: left;}
 .right_action span{float: left; color: #999;}
 .right_action a{float: left; margin: 0 10px;}
-.right_action a em{padding: 4px 10px;}
 
 /* Action */
 .action_list em{background-position: -325px -2px;}
@@ -130,14 +130,19 @@ input:focus, textarea:focus{
 .action_upload:hover em{background-position: -300px -128px;}
 .action_down em{background-position: -325px -102px;}
 .action_down:hover em{background-position: -325px -128px;}
-.action_folder em{background-position: -350px -102px;}
-.action_folder:hover em{background-position: -350px -128px;}
+.action_back em{background-position: -350px -102px;}
+.action_back:hover em{background-position: -350px -128px;}
 .action_addfolder em{background-position: -375px -102px;}
 .action_addfolder:hover em{background-position: -375px -128px;}
 .action_delfolder em{background-position: -400px -102px;}
 .action_delfolder:hover em{background-position: -400px -128px;}
-.action_file em{background-position: -425px -102px;}
-.action_file:hover em{background-position: -425px -128px;}
+.action_refresh em{background-position: -425px -102px;}
+.action_refresh:hover em{background-position: -425px -128px;}
+
+.ico_folder em{background-position: -300px -152px;}
+.ico_folder:hover em{background-position: -300px -178px;}
+.ico_file em{background-position: -325px -152px;}
+.ico_file:hover em{background-position: -325px -178px;}
 
 
 /* Table */
