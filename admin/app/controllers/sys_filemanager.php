@@ -46,7 +46,7 @@ class Sys_filemanager extends MY_Controller {
 	//配置
 	private function config() {
 		$this->load->library('file_class');
-		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'].'/upload/';
+		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'].'/';
 	}
 }
 ?>
