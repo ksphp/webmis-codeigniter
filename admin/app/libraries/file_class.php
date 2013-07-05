@@ -4,8 +4,8 @@ class file_class{
 	
 	//文件列表
 	function lists($c='/') {
-		//替换 “../”|“.”
-		$c = preg_replace('/\.\.\/|\./','',$c);
+		//替换 “../”|“./”
+		$c = preg_replace('/\.\.\/|\.\/|\.\./','',$c);
 		//添加 “/”
 		$c = substr($c,0,1)=='/'?$c:'/'.$c;
 		$c = substr($c,-1)=='/'?$c:$c.'/';
