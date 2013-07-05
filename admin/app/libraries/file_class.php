@@ -9,8 +9,12 @@ class file_class{
 		//添加 “/”
 		$c = substr($c,0,1)=='/'?$c:'/'.$c;
 		$c = substr($c,-1)=='/'?$c:$c.'/';
-		//路径
+		//返回参数
 		$data['path'] = $c;
+		$data['dirNum'] = 0;
+		$data['fileNum'] = 0;
+		$data['size'] = 0;
+		
 		$c = $this->file_root.$c;
 		//读取文件
 		if(is_dir($c)) {
@@ -23,17 +27,22 @@ class file_class{
 				$mtime = $this->getmtime($ff);
 				$perm = $this->perm($ff).'<br>';
 				if(is_dir($ff)) {
-					$size = $this->dsize($ff).'<br>';
-					$data['folder'][] = array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$size, 'perm'=>$perm);
+					$size = $this->dirsize($ff).'<br>';
+					$data['folder'][] = array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm);
+					$data['size'] += $size;
+					$data['dirNum']++;
 				}else {
 					$size = $this->size($ff).'<br>';
 					$class = $this->ico_class($ext);
-					$data['files'][] =  array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$size, 'perm'=>$perm, 'class'=>$class);
+					$data['files'][] =  array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm, 'class'=>$class);
+					$data['size'] += $size;
+					$data['fileNum']++;
 				}
 			}
 		}else {
 			show_404();
 		}
+		$data['size'] = $this->formatBytes($data['size']);
 		return $data;
 	}
 	//文件图标
@@ -84,9 +93,6 @@ class file_class{
 	}
 
 	//文件夹大小
-	function dsize($dir) {
-		return $this->formatBytes($this->dirsize($dir));
-	}
 	function dirsize($dir) {
 		$handle=opendir($dir);
 		$size = 0;
@@ -102,7 +108,7 @@ class file_class{
 	}
 	//文件大小
 	function size($f='') {
-		return $this->formatBytes(filesize($f));
+		return filesize($f);
 	}
 	//文件权限
 	function perm($f='') {

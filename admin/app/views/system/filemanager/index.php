@@ -55,5 +55,9 @@
 <?php }} ?>
 	</tbody>
 </table>
-<div class="page">文件信息</div>
+<div class="page">
+	文件夹：<?php echo $filelist['dirNum']; ?>&nbsp;&nbsp;
+	文件：<?php echo $filelist['fileNum']; ?>&nbsp;&nbsp;
+	大小：<?php echo $filelist['size']; ?>
+</div>
 <!-- Content End -->
