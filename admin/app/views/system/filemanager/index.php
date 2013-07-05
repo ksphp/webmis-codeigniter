@@ -29,7 +29,7 @@
 		<td>名称</td>
 		<td width="120">创建时间</td>
 		<td width="120">修改时间</td>
-		<td width="80">大小</td>
+		<td>大小</td>
 		<td width="40">权限</td>
 	</tr>
 	<tbody id="listBG">

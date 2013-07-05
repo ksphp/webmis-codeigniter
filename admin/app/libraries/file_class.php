@@ -25,14 +25,14 @@ class file_class{
 				$ext = strtolower(substr(strrchr($f, '.'), 1));
 				$ctime = $this->getctime($ff);
 				$mtime = $this->getmtime($ff);
-				$perm = $this->perm($ff).'<br>';
+				$perm = $this->perm($ff);
 				if(is_dir($ff)) {
-					$size = $this->dirsize($ff).'<br>';
+					$size = $this->dirsize($ff);
 					$data['folder'][] = array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm);
 					$data['size'] += $size;
 					$data['dirNum']++;
 				}else {
-					$size = $this->size($ff).'<br>';
+					$size = $this->size($ff);
 					$class = $this->ico_class($ext);
 					$data['files'][] =  array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm, 'class'=>$class);
 					$data['size'] += $size;
@@ -131,7 +131,7 @@ class file_class{
 		}elseif($bytes >= 1024){
 			$bytes = round($bytes / 1024 * 100) / 100 . ' KB';
 		}else{
-			$bytes = $bytes . ' Bytes';
+			$bytes = $bytes . ' B';
 		}
 		return $bytes;
 	}
