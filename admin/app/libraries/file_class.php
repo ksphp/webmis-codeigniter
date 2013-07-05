@@ -3,14 +3,14 @@ class file_class{
 	var $file_root = '.';
 	
 	//文件列表
-	function lists($c='/') {
+	function lists($c='.') {
 		//替换 “../”|“./”
 		$c = preg_replace('/\.\.\/|\.\/|\.\./','',$c);
 		//添加 “/”
-		$c = substr($c,0,1)=='/'?$c:'/'.$c;
+		$c = substr($c,0,1)=='/'?substr($c,1):$c;
 		$c = substr($c,-1)=='/'?$c:$c.'/';
 		//返回参数
-		$data['path'] = $c;
+		$data['path'] = $c=='/'?$c:'/'.$c;
 		$data['dirNum'] = 0;
 		$data['fileNum'] = 0;
 		$data['size'] = 0;
