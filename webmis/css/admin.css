@@ -143,6 +143,8 @@ input:focus, textarea:focus{
 .ico_folder:hover em{background-position: -300px -178px;}
 .ico_file em{background-position: -325px -152px;}
 .ico_file:hover em{background-position: -325px -178px;}
+.ico_img em{background-position: -350px -152px;}
+.ico_img:hover em{background-position: -350px -178px;}
 
 
 /* Table */

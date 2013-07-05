@@ -40,17 +40,49 @@ class file_class{
 	private function ico_class($ext='file') {
 		$class = array(
 			'file'=>'ico_file',
-			'img'=>'ico_img',
+			'jpg'=>'ico_img',
+			'png'=>'ico_img',
 			'pdf'=>'ico_pdf',
 			'ico'=>'ico_ico'
 		);
 		$date = @$class[$ext]?$class[$ext]:'ico_file';
 		return $date;
 	}
+
 	//新建文件夹
 	function addDir($path,$perm=0755) {
 		return mkdir($this->file_root.$path, octdec($perm));
 	}
+
+	//删除文件夹和文件
+	function del($path,$f) {
+		$arr = array_filter(explode(',', $f));
+		foreach($arr as $val){
+			$ff = $this->file_root.$path.$val;
+			if(!is_dir($ff)) {
+				if(unlink($ff)){$data = true;}else {$data = false;break;}
+			}else {
+				if($this->deldir($ff)){$data = true;}else {$data = false;break;}
+			}
+		}
+		return $data;
+	}
+	function deldir($dir){
+		$d = opendir($dir);
+		while ($file = readdir($d)){
+      	if ($file != "." && $file != ".."){
+				$fullpath = $dir . "/" . $file;
+				if (!is_dir($fullpath)){
+					unlink($fullpath);
+				} else {
+					$this->deldir($fullpath);
+				}
+			}
+		}
+		closedir($d);
+		return rmdir($dir);
+	}
+
 	//文件夹大小
 	function dsize($dir) {
 		return $this->formatBytes($this->dirsize($dir));

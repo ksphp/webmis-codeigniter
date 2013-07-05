@@ -18,6 +18,31 @@ class Sys_filemanager extends MY_Controller {
 		$perm = (int)$this->input->post('perm');
 		echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n"}';
 	}
+	//删除
+	public function delData(){
+		$this->config();
+		$path = $this->input->post('path');
+		$f = $this->input->post('id');
+		echo $this->file_class->del($path,$f);
+	}
+	//下载
+	public function down(){
+		$this->load->library('zip');
+		$this->config();
+		// 文件
+		$path = $this->input->get('path');
+		$files = $this->input->get('files');
+		$arr = array_filter(explode(',',$files));
+		foreach($arr as $val){
+			$ff = $this->file_class->file_root.$path.$val;
+			if(!is_dir($ff)) {
+				$this->zip->read_file($ff);
+			}else {
+				$this->zip->read_dir($ff.'/',false);
+			}
+		}
+		$this->zip->download('myphotos.zip');
+	}
 	//配置
 	private function config() {
 		$this->load->library('file_class');

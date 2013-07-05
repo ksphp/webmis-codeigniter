@@ -18,6 +18,43 @@ $(function () {
 		});
 		return false;
 	});
+/*
+下载
+*/	
+	$('.action_down').click(function(){
+		var id = $('#listBG').webmis('GetInputID',{type:','});
+		if(id!=','){
+			$.webmis.win.close('sys_filemanager/down.html?path='+path+'&files='+id);
+		}else{
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
+		}
+		return false;
+	});
+/*
+删除
+*/
+	$('.action_del').click(function(){
+		var id = $('#listBG').webmis('GetInputID',{type:','});
+		if(id!=','){
+			$.webmis.win.open({title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
+			$('#delSub').webmis('SubClass'); //按钮样式
+			//点击提交
+			$('#delSub').click(function(){
+				$.post($base_url+'sys_filemanager/delData.html',{'id':id,'path':path},function(data){
+					if(data=='1'){
+						$.webmis.win.close();
+						$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'sys_filemanager.html?path='+path,AutoClose:3});
+					}else{
+						$.webmis.win.close();
+						$.webmis.win.open({content:'<b class="red">删除失败</b>',AutoClose:3});
+					}
+				});
+			});
+		}else{
+			$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
+		}
+		return false;
+	});
 });
 //表单验证
 function fileForm(){

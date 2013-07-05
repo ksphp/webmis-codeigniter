@@ -46,7 +46,7 @@
 <?php if(@$filelist['files']){foreach($filelist['files'] as $val){ ?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td align="left"><a href="#" class="ico_file"><em class="UI">&nbsp;</em><?php echo $val['name']; ?></a></td>
+		<td align="left"><a href="#" class="<?php echo $val['class']; ?>"><em class="UI">&nbsp;</em><?php echo $val['name']; ?></a></td>
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
