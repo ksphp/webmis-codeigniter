@@ -1,17 +1,18 @@
 <?php
 class file_class{
-	var $file_root = '/';
+	var $file_root = '.';
 	
 	//文件列表
 	function lists($c='/') {
-		$c = $c?($c=='..'||$c=='.'?$this->file_root:$c):$this->file_root;
+		//替换 “../”|“.”
+		$c = preg_replace('/\.\.\/|\./','',$c);
 		//添加 “/”
 		$c = substr($c,0,1)=='/'?$c:'/'.$c;
 		$c = substr($c,-1)=='/'?$c:$c.'/';
-		$data['path'] = '/';
-		//替换 “..”|“.”
-		$c = preg_replace('/\.\.|\./','',$c);
-		$c = $c==$this->file_root?$_SERVER['DOCUMENT_ROOT'].$this->file_root:$_SERVER['DOCUMENT_ROOT'].$this->file_root.$c;
+		//路径
+		$data['path'] = $c;
+		$c = $this->file_root.$c;
+		//读取文件
 		if(is_dir($c)) {
 			$d = opendir($c);
 			while($f = readdir($d)) {
@@ -36,7 +37,7 @@ class file_class{
 		return $data;
 	}
 	//文件图标
-	function ico_class($ext='file') {
+	private function ico_class($ext='file') {
 		$class = array(
 			'file'=>'ico_file',
 			'img'=>'ico_img',
@@ -45,6 +46,10 @@ class file_class{
 		);
 		$date = @$class[$ext]?$class[$ext]:'ico_file';
 		return $date;
+	}
+	//新建文件夹
+	function addDir($path,$perm=0755) {
+		return mkdir($this->file_root.$path, octdec($perm));
 	}
 	//文件夹大小
 	function dsize($dir) {
@@ -88,7 +93,7 @@ class file_class{
 		}elseif($bytes >= 1024){
 			$bytes = round($bytes / 1024 * 100) / 100 . ' KB';
 		}else{
-			$bytes = $bytes . 'Bytes';
+			$bytes = $bytes . ' Bytes';
 		}
 		return $bytes;
 	}

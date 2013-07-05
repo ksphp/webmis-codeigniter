@@ -21,7 +21,7 @@
 <table class="table_list">
 	<tr>
 		<td colspan="6" align="left">
-			当前位置：<?php echo preg_replace('/(\.\.\/upload)/','',$filelist['path']); ?>
+			当前位置：<span id="filePath"><?php echo $filelist['path']; ?></span>
 		</td>
 	</tr>
 	<tr class="title" id="table">

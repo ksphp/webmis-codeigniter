@@ -157,7 +157,7 @@ input:focus, textarea:focus{
 .table_add{width: 100%; border-collapse: collapse;}
 .table_add td{padding: 5px;}
 .table_add td .Validform_checktip{padding-left: 20px;}
-.table_add .add_width{width: 90px;}
+.table_add .add_width{width: 70px;}
 .table_add .add_right{text-align: right;}
 .delData{padding: 20px 0; text-align: center;}
 
