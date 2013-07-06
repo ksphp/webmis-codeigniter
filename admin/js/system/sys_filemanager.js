@@ -19,6 +19,34 @@ $(function () {
 		return false;
 	});
 /*
+上传
+*/
+	$('.action_upload').click(function(){
+		//加载文件
+		$.webmis.inc({files:[$webmis_root + 'plugin/uploadify/jquery.uploadify.min.js', $webmis_root + 'plugin/uploadify/uploadify.css']});
+		$.webmis.win.open({title:'上传文件',width:500,height:360,overflow:true});
+		//加载内容
+		$.get($base_url+'sys_filemanager/upload.html',function(data){
+			$.webmis.win.load(data);   //加载内容
+			$('#fileSub').webmis('SubClass'); //按钮样式
+			$('#dirPath').val(path);
+			//上传插件
+			$('#file_upload').uploadify({
+//				'formData'     : {
+//					'timestamp' : '<?php echo $timestamp;?>',
+//					'token'     : '<?php echo md5("unique_salt" . $timestamp);?>'
+//				},
+				'swf' : $webmis_root + 'plugin/uploadify/uploadify.swf',
+				'uploader' : $base_url+'sys_filemanager/uploadData.html',
+				'onUploadSuccess' : function(file, data, response) {
+					alert('The file ' + file.name + ' was successfully uploaded with a response of ' + response + ':' + data);
+				}
+				//'auto'     : false,
+			});
+		});
+		return false;
+	});
+/*
 下载
 */	
 	$('.action_down').click(function(){

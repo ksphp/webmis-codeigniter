@@ -4,8 +4,12 @@
 * Date: 2013-06-28
 * 主要用于封装WebMIS前段样式
 */
+//参数
 var $base_url = 'http://www.ksphp.com/';
 var $webmis_root = '/webmis/';
+var $webmis_js = $webmis_root+'js/'
+var $webmis_css = $webmis_root+'css/'
+var $webmis_plugin = $webmis_root+'plugin/'
 
 $(function(){
 	$base_url = $('#base_url').text();  //网址
