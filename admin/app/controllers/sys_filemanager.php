@@ -18,6 +18,10 @@ class Sys_filemanager extends MY_Controller {
 		$perm = (int)$this->input->post('perm');
 		echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n"}';
 	}
+	//上传文件
+	function upload() {
+		$this->load->view('system/filemanager/upload');
+	}
 	//删除
 	public function delData(){
 		$this->config();
