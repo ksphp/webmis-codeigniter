@@ -23,15 +23,31 @@ $(function () {
 */
 	$('.action_upload').click(function(){
 		//加载文件
-		//$.webmis.inc({files:[$webmis_plugin + 'uploadify/jquery.uploadify.min.js']});
-		$.webmis.win.open({title:'上传文件',width:500,height:360,overflow:true});
+		$.webmis.inc({files:[
+			$webmis_plugin + 'uploadify/jquery.uploadify.min.js',
+			$webmis_plugin + 'uploadify/uploadify.css'
+		]});
+		$.webmis.win.open({title:'上传文件',width:480,height:360,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_filemanager/upload.html',function(data){
 			$.webmis.win.load(data);   //加载内容
-			$('#fileSub').webmis('SubClass'); //按钮样式
-			$('#dirPath').val(path);
 			//上传插件
-			
+			$("#file_upload").uploadify({
+				'formData': {'path' : path,'someKey' : 'someValue'},
+				'swf': $webmis_plugin + 'uploadify/uploadify.swf',
+				'uploader': $webmis_plugin + 'uploadify/uploadify.php',
+				'buttonImage' : $webmis_plugin + 'uploadify/browse-btn.png',
+				'auto': false,
+			});
+			//点击按钮
+			$('#fileSub').click(function (){
+				$('#file_upload').uploadify('upload','*');
+				return false;
+			}).webmis('SubClass');
+			//关闭窗口
+			$('#WebMisWin .close').click(function (){
+				refreshDir($('#filePath').text());
+			});
 		});
 		return false;
 	});

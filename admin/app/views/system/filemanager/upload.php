@@ -9,7 +9,6 @@
 	<tr>
 		<td>
 			<input type="submit" id="fileSub" value="上传" />
-			<input type="hidden" id="dirPath" name="path">
 		</td>
 	</tr>
 </table>
