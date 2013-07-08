@@ -10,7 +10,9 @@
 </head>
 
 <body style="padding: 10px;">
-<div id="fileGetUrl" style="display: none;"><?php echo $fileGetUrl; ?></div>
+<div id="file_root" style="display: none;"><?php echo $file_root; ?></div>
+<div id="file_action" style="display: none;"><?php echo $file_action; ?></div>
+<div id="file_editor" style="display: none;"><?php echo $file_editor; ?></div>
 <!-- Action -->
 <div class="right_top">
 	<span class="right_action">
@@ -33,7 +35,7 @@
 <!-- Content -->
 <table class="table_list">
 	<tr>
-		<td colspan="6" align="left">
+		<td colspan="7" align="left">
 			当前位置：<span id="filePath"><?php echo $filelist['path']; ?></span>
 		</td>
 	</tr>
@@ -44,6 +46,7 @@
 		<td width="120">修改时间</td>
 		<td width="80">大小</td>
 		<td width="40">权限</td>
+		<td width="120">操作</td>
 	</tr>
 	<tbody id="listBG">
 <?php if(@$filelist['folder']){foreach($filelist['folder'] as $val){ ?>
@@ -53,7 +56,8 @@
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
-		<td><?php echo $val['perm']; ?></td>
+		<td><a href="#" ><?php echo $val['perm']; ?></a></td>
+		<td><a href="#" >重命名</a></td>
 	</tr>
 <?php }} ?>
 <?php if(@$filelist['files']){foreach($filelist['files'] as $val){ ?>
@@ -63,7 +67,12 @@
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
-		<td><?php echo $val['perm']; ?></td>
+		<td><a href="#" ><?php echo $val['perm']; ?></a></td>
+		<td>
+			<a href="#" onclick="insertEditor('<?php echo $filelist['path'].$val['name']; ?>');return false;">插入</a>&nbsp;|&nbsp;
+			<a href="#" >重命名</a>&nbsp;|&nbsp;
+			<a href="#" >编辑</a>
+		</td>
 	</tr>
 <?php }} ?>
 	</tbody>
@@ -77,6 +86,7 @@
 
 <div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
 <script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
+<script language="javascript" src="/webmis/plugin/Validform_v5.3.2_min.js"></script>
 <script language="javascript" src="/webmis/js/webmis.js"></script>
 <script language="javascript" src="/webmis/js/admin.js"></script>
 <?php if(@$js){ foreach($js as $val){ ?>

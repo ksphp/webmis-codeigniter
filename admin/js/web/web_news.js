@@ -106,16 +106,15 @@ function newsForm(){
 		image_advtab: true,
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
 		file_browser_callback : function(field_name, url, type, win) {
+			var file = $('#'+field_name).val();
 			tinymce.activeEditor.windowManager.open({
-   			url: $base_url+'sys_filemanager/editor.html?editor='+field_name,
+   			url: $base_url+'sys_filemanager.html?action=editor&editor='+field_name+'&file='+file,
    			title: 'FileManager',
-   			filetype:'all',
+   			classes:'filemanager',
 				width: 900,
 				height: 560
 			}, {
-				//custom_param: 1
-				window : win,
-				input : field_name
+				custom_param: 1
 			});
 		}
 	});

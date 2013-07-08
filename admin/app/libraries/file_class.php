@@ -3,14 +3,14 @@ class file_class{
 	var $file_root = '.';
 	
 	//文件列表
-	function lists($c='.') {
+	function lists($c='/') {
+		$c = $c?$c:'/';
 		//替换 “../”|“./”
 		$c = preg_replace('/\.\.\/|\.\/|\.\./','',$c);
 		//添加 “/”
-		$c = substr($c,0,1)=='/'?substr($c,1):$c;
-		$c = substr($c,-1)=='/'?$c:$c.'/';
+		$c = $c=='/'?$c:'/'.trim($c, '/').'/';
 		//返回参数
-		$data['path'] = $c=='/'?$c:'/'.$c;
+		$data['path'] = $c;
 		$data['dirNum'] = 0;
 		$data['fileNum'] = 0;
 		$data['size'] = 0;
@@ -66,6 +66,7 @@ class file_class{
 
 	//删除文件夹和文件
 	function del($path,$f) {
+		$data = false;
 		$arr = array_filter(explode(',', $f));
 		foreach($arr as $val){
 			$ff = $this->file_root.$path.$val;

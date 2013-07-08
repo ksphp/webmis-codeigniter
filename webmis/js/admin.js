@@ -1,8 +1,4 @@
 $(function(){
-	//加载文件
-	$.webmis.inc({files:[
-		$webmis_root + 'plugin/Validform_v5.3.2_min.js'	//表单验证插件
-	]});
 	//菜单操作
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();

@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_filemanager/addFolderData.html');?>" method="post" id="fileForm">
+<form action="<?php echo base_url('sys_filemanager.html');?>" method="get" id="fileForm">
 <table class="table_add">
 	<tr>
 		<td colspan="2">&nbsp;</td>
@@ -21,7 +21,9 @@
 		<td>&nbsp;</td>
 		<td>
 			<input type="submit" id="fileSub" value="新建" />
-			<input type="hidden" id="dirPath" name="path">
+			<input type="hidden" id="file_path" name="path">
+			<input type="hidden" name="action" value="mkdir">
+			<input type="hidden" id="file_editor" name="editor">
 		</td>
 	</tr>
 </table>
