@@ -107,24 +107,7 @@ $(function () {
 		return false;
 	});
 });
-//表单验证
-function fileForm(){
-	$('#fileSub').webmis('SubClass'); //按钮样式
-	//验证提交
-	$("#fileForm").Validform({
-		ajaxPost:true,
-		tiptype:2,
-		callback:function(data){
-			$.Hidemsg();
-			if(data.status=="y"){
-				$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
-			}else{
-				$.webmis.win.close();
-				$.webmis.win.open({content:'<b class="red">提交失败</b>',AutoClose:3});
-			}
-		}
-	});
-}
+
 //打开文件夹
 function openDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
