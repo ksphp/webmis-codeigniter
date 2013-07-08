@@ -1,8 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="kingsoul" />
+	<title>文件管理器</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="/webmis/css/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="padding: 10px;">
 <div id="fileGetUrl" style="display: none;"><?php echo $fileGetUrl; ?></div>
 <!-- Action -->
 <div class="right_top">
 	<span class="right_action">
-		<div class="right_title"><?php echo $title; ?></div>
+		<div class="right_title">文件管理</div>
 		<a class="action_back" href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="UI">&nbsp;</em>返回上级</a>
 		 <span>|</span>
 		 <a class="action_refresh" href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="UI">&nbsp;</em>刷新</a>
@@ -62,3 +74,13 @@
 	大小：<?php echo $filelist['size']; ?>
 </div>
 <!-- Content End -->
+
+<div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
+<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
+<script language="javascript" src="/webmis/js/webmis.js"></script>
+<script language="javascript" src="/webmis/js/admin.js"></script>
+<?php if(@$js){ foreach($js as $val){ ?>
+<script language="javascript" src="<?php echo base_url($val); ?>"></script>
+<?php }}?>
+</body>
+</html>

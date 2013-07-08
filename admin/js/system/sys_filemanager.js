@@ -1,4 +1,5 @@
 var path = $('#filePath').text();
+var fileGetUrl = $('#fileGetUrl').text();
 $(function () {
 /*
 列表
@@ -76,7 +77,7 @@ $(function () {
 				$.post($base_url+'sys_filemanager/delData.html',{'id':id,'path':path},function(data){
 					if(data=='1'){
 						$.webmis.win.close();
-						$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'sys_filemanager.html?path='+path,AutoClose:3});
+						$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'sys_filemanager/'+fileGetUrl+'.html?path='+path,AutoClose:3});
 					}else{
 						$.webmis.win.close();
 						$.webmis.win.open({content:'<b class="red">删除失败</b>',AutoClose:3});
@@ -99,7 +100,7 @@ function fileForm(){
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){
-				$.webmis.win.close('sys_filemanager.html?path='+path);
+				$.webmis.win.close('sys_filemanager/'+fileGetUrl+'.html?path='+path);
 			}else{
 				$.webmis.win.close();
 				$.webmis.win.open({content:'<b class="red">提交失败</b>',AutoClose:3});
@@ -109,13 +110,13 @@ function fileForm(){
 }
 //打开文件夹
 function openDir(path) {
-	$.webmis.win.close('sys_filemanager.html?path='+path);
+	$.webmis.win.close('sys_filemanager/'+fileGetUrl+'.html?path='+path);
 }
 //返回上级
 function backDir(path) {
-	$.webmis.win.close('sys_filemanager.html?path='+path);
+	$.webmis.win.close('sys_filemanager/'+fileGetUrl+'.html?path='+path);
 }
 //刷新目录
 function refreshDir(path) {
-	$.webmis.win.close('sys_filemanager.html?path='+path);
+	$.webmis.win.close('sys_filemanager/'+fileGetUrl+'.html?path='+path);
 }
