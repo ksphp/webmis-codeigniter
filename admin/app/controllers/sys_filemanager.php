@@ -80,14 +80,9 @@ class Sys_filemanager extends MY_Controller {
 		//获取文件
 		$file = $file_root.$this->input->get('path');
 		$ext = $this->input->get('ext');
-		//打开类型
-		$view_file = array_flip(array('php','jsp','asp','aspx','htm','html','sql','md'));
-		if(isset($view_file[$ext])) {
-			$string = read_file($file);
-			echo $string = '<div style="font-size: 14px; line-height: 24px; padding: 0 10px;">'.auto_typography($string).'</div>';
-		}else {
-			echo '该文件不可以预览！';
-		}
+		//读取
+		$string = read_file($file);
+		echo $string = '<div style="font-size: 14px; line-height: 24px; padding: 0 10px;">'.auto_typography($string).'</div>';
 	}
 }
 ?>

@@ -54,7 +54,7 @@ $(function(){
 			target:false,
 			overflow:false,
 			AutoClose:false,
-			AlphaBG:0.6
+			AlphaBG:0.4
 		}
 		var options = $.extend(defaults, options);
 		//创建

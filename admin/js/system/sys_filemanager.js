@@ -114,14 +114,41 @@ function openDir(path) {
 }
 //打开文件
 function openFile(path,ext) {
-	var imgfile = ['img','png','gif'];
-	
-	alert(imgfile);
-	
-	$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
-	$.get($base_url+'sys_filemanager.html',{'ext':ext,'path':path,'action':'viewfile','editor':file_editor},function(data){
-		$.webmis.win.load(data);
-	});
+	var view_img = ['jpg','png','gif','ico'];
+	var view_file = ['php','css','js','htm','html','sql','md']
+	if ($.inArray(ext, view_img) != -1) {
+		$.webmis.win.open({title:'预览图片',width:520,height:400,overflow:true});
+		//图片类
+		var img = new Image();
+		img.src = file_root+path;
+		// 加载完成执行
+		img.onload = function(){
+			//压缩比例
+			var maxWidth = 520;
+			var maxHeight = 340;
+			var Ratio = 1;
+			var w = img.width;
+			var h = img.height;
+			var wRatio = maxWidth/w;
+			var hRatio = maxHeight/h;
+			if (wRatio < 1 || hRatio < 1) {
+				Ratio = (wRatio<=hRatio?wRatio:hRatio);
+			}
+			if (Ratio<1){
+				w = Math.floor(w * Ratio);
+				h = Math.floor(h * Ratio);
+			}
+			//加载内容
+			$.webmis.win.load('<table class="fileImgView"><tr><td><img src="'+img.src+'" width="'+w+'" height="'+h+'"></td></tr></table>');
+		};
+	}else if ($.inArray(ext, view_file) != -1){
+		$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
+		$.get($base_url+'sys_filemanager.html',{'ext':ext,'path':path,'action':'viewfile','editor':file_editor},function(data){
+			$.webmis.win.load(data);
+		});
+	}else {
+		$.webmis.win.open({content:'<b class="red">该文件不能预览！</b>',AutoClose:3});
+	}
 }
 //返回上级
 function backDir(path) {

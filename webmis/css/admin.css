@@ -126,6 +126,7 @@ input:focus, textarea:focus{
 .action_chart em{background-position: -500px -52px;}
 .action_chart:hover em{background-position: -500px -78px;}
 
+/* FileManager */
 .action_upload em{background-position: -300px -102px;}
 .action_upload:hover em{background-position: -300px -128px;}
 .action_down em{background-position: -325px -102px;}
@@ -147,6 +148,8 @@ input:focus, textarea:focus{
 .ico_img:hover em{background-position: -350px -178px;}
 .ico_ico em{background-position: -350px -152px;}
 .ico_ico:hover em{background-position: -350px -178px;}
+
+.fileImgView{width: 100%; height: 340px; border-collapse: collapse; text-align: center; background: url("../images/bg.png") #333; margin: 0 auto;}
 
 /* Table */
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF;}
