@@ -26,10 +26,10 @@ $(function () {
 			$("#fileForm").ajaxForm(function(data) {
 				if(data=='1'){
 					$.webmis.win.close();
-					$.webmis.win.open({content:'<b class="green">删除成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
+					$.webmis.win.open({content:'<b class="green">新建成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
 				}else{
 					$.webmis.win.close();
-					$.webmis.win.open({content:'<b class="red">删除失败</b>',AutoClose:3});
+					$.webmis.win.open({content:'<b class="red">新建失败</b>',AutoClose:3});
 				}
 			});
 			$('#fileSub').webmis('SubClass'); //按钮样式
@@ -149,6 +149,27 @@ function openFile(path,ext) {
 	}else {
 		$.webmis.win.open({content:'<b class="red">该文件不能预览！</b>',AutoClose:3});
 	}
+}
+//编辑权限
+function editPerm(name,perm) {
+	$.webmis.win.open({title:'编辑权限',width:240,height:180});
+	//加载内容
+	$.get($base_url+'sys_filemanager/editPerm.html',function(data){
+		$.webmis.win.load(data);   //加载内容
+		$('#file_path').val(path+name);
+		$('#file_perm').val(perm);
+		$('#file_editor').val(file_editor);
+		$("#fileForm").ajaxForm(function(data) {
+			if(data=='1'){
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="green">编辑成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
+			}else{
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="red">编辑失败</b>',AutoClose:3});
+			}
+		});
+		$('#fileSub').webmis('SubClass'); //按钮样式
+	});
 }
 //返回上级
 function backDir(path) {

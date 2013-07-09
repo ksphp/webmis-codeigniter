@@ -52,6 +52,7 @@ class file_class{
 			'file'=>'ico_file',
 			'jpg'=>'ico_img',
 			'png'=>'ico_img',
+			'gif'=>'ico_img',
 			'pdf'=>'ico_pdf',
 			'ico'=>'ico_ico'
 		);
@@ -83,15 +84,37 @@ class file_class{
 		while ($file = readdir($d)){
       	if ($file != "." && $file != ".."){
 				$fullpath = $dir . "/" . $file;
-				if (!is_dir($fullpath)){
-					unlink($fullpath);
-				} else {
-					$this->deldir($fullpath);
-				}
+				if (!is_dir($fullpath)) unlink($fullpath);
+				else $this->deldir($fullpath);
 			}
 		}
 		closedir($d);
 		return rmdir($dir);
+	}
+
+	//编辑权限
+	function editPerm($path,$perm) {
+		$ff = $this->file_root.$path;
+		$perm = octdec($perm);
+		$data = false;
+		if(!is_dir($ff)) {
+			if(chmod($ff,$perm)){$data = true;}else {$data = false;break;}
+		}else {
+			if($this->editDirPerm($ff,$perm)){$data = true;}else {$data = false;break;}
+		}
+		return $data;
+	}
+	function editDirPerm($dir,$perm) {
+		$d = opendir($dir);
+		while ($file = readdir($d)){
+      	if ($file != "." && $file != ".."){
+				$fullpath = $dir . "/" . $file;
+				if (!is_dir($fullpath)) chmod($fullpath,$perm);
+				else $this->editDirPerm($fullpath,$perm);
+			}
+		}
+		closedir($d);
+		return chmod($dir,$perm);
 	}
 
 	//文件夹大小
@@ -100,10 +123,8 @@ class file_class{
 		$size = 0;
 		while ( $file=readdir($handle) ) {
 			if ( ( $file == "." ) || ( $file == ".." ) ) continue;
-			if ( is_dir("$dir/$file") )
-				$size += $this->dirsize("$dir/$file");
-			else
-				$size += filesize("$dir/$file");
+			if ( is_dir("$dir/$file") ) $size += $this->dirsize("$dir/$file");
+			else $size += filesize("$dir/$file");
 		}
 		closedir($handle);
 		return $size;
@@ -112,6 +133,7 @@ class file_class{
 	function size($f='') {
 		return filesize($f);
 	}
+
 	//文件权限
 	function perm($f='') {
 		return substr(sprintf('%o', fileperms($f)), -4);

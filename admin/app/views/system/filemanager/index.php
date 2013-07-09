@@ -44,7 +44,7 @@
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
-		<td><a href="#" ><?php echo $val['perm']; ?></a></td>
+		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td><a href="#" >重命名</a></td>
 	</tr>
 <?php }} ?>
@@ -55,7 +55,7 @@
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
-		<td><a href="#" ><?php echo $val['perm']; ?></a></td>
+		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td>
 			<a href="#" >重命名</a>&nbsp;|&nbsp;
 			<a href="#" >编辑</a>
