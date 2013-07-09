@@ -3,6 +3,7 @@ class Sys_filemanager extends MY_Controller {
 	//首页
 	function index(){
 		$this->load->library('file_class');
+		
 		//文件根目录
 		$editor = $this->input->get('editor');
 		$data['file_root'] = $editor?'/upload':'';
@@ -22,6 +23,9 @@ class Sys_filemanager extends MY_Controller {
 				break;
 			case 'down':
 				$this->down($this->file_class->file_root);
+				break;
+			case 'viewfile':
+				$this->viewFile($this->file_class->file_root);
 				break;
 			case 'editor':
 				$data['file_action'] = 'editor';
@@ -68,6 +72,22 @@ class Sys_filemanager extends MY_Controller {
 			}
 		}
 		$this->zip->download('myphotos.zip');
+	}
+	//打开文件
+	public function viewFile($file_root) {
+		$this->load->helper('file');
+		$this->load->helper('typography');
+		//获取文件
+		$file = $file_root.$this->input->get('path');
+		$ext = $this->input->get('ext');
+		//打开类型
+		$view_file = array_flip(array('php','jsp','asp','aspx','htm','html','sql','md'));
+		if(isset($view_file[$ext])) {
+			$string = read_file($file);
+			echo $string = '<div style="font-size: 14px; line-height: 24px; padding: 0 10px;">'.auto_typography($string).'</div>';
+		}else {
+			echo '该文件不可以预览！';
+		}
 	}
 }
 ?>

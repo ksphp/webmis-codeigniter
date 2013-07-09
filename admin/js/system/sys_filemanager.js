@@ -112,6 +112,17 @@ $(function () {
 function openDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
 }
+//打开文件
+function openFile(path,ext) {
+	var imgfile = ['img','png','gif'];
+	
+	alert(imgfile);
+	
+	$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
+	$.get($base_url+'sys_filemanager.html',{'ext':ext,'path':path,'action':'viewfile','editor':file_editor},function(data){
+		$.webmis.win.load(data);
+	});
+}
 //返回上级
 function backDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);

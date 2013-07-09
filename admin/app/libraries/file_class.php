@@ -34,7 +34,7 @@ class file_class{
 				}else {
 					$size = $this->size($ff);
 					$class = $this->ico_class($ext);
-					$data['files'][] =  array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm, 'class'=>$class);
+					$data['files'][] =  array('name'=>$f, 'ctime'=>$ctime, 'mtime'=>$mtime, 'size'=>$this->formatBytes($size), 'perm'=>$perm, 'ext'=>$ext, 'class'=>$class);
 					$data['size'] += $size;
 					$data['fileNum']++;
 				}

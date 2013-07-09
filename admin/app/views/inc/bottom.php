@@ -8,7 +8,7 @@
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
 <div id="NavId" style="display: none;"><?php echo $NavId; ?></div>
 <div id="MenuTwoId" style="display: none;"><?php echo $MenuTwoId; ?></div>
-<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
+<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.3.min.js"></script>
 <script language="javascript" src="/webmis/plugin/Validform_v5.3.2_min.js"></script>
 <script language="javascript" src="/webmis/js/webmis.js"></script>
 <script language="javascript" src="/webmis/js/admin.js"></script>
