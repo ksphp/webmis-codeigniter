@@ -85,7 +85,7 @@
 <!-- Content End -->
 
 <div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
-<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.2.min.js"></script>
+<script language="javascript" src="/webmis/plugin/jquery/jquery-2.0.3.min.js"></script>
 <script language="javascript" src="/webmis/js/webmis.js"></script>
 <script language="javascript" src="/webmis/js/admin.js"></script>
 <?php if(@$js){ foreach($js as $val){ ?>
