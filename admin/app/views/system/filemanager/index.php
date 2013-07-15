@@ -45,7 +45,7 @@
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
 		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>');return false;"><?php echo $val['perm']; ?></a></td>
-		<td><a href="#" >重命名</a></td>
+		<td><a href="#" onclick="reName('<?php echo $val['name']; ?>');return false;">重命名</a></td>
 	</tr>
 <?php }} ?>
 <?php if(@$filelist['files']){foreach($filelist['files'] as $val){ ?>
@@ -57,7 +57,7 @@
 		<td><?php echo $val['size']; ?></td>
 		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td>
-			<a href="#" >重命名</a>&nbsp;|&nbsp;
+			<a href="#" onclick="reName('<?php echo $val['name']; ?>');return false;">重命名</a>&nbsp;|&nbsp;
 			<a href="#" >编辑</a>
 		</td>
 	</tr>

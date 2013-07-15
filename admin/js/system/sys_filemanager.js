@@ -108,11 +108,11 @@ $(function () {
 	});
 });
 
-//打开文件夹
+/* 打开文件夹 */
 function openDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
 }
-//打开文件
+/* 打开文件 */
 function openFile(path,ext) {
 	var view_img = ['jpg','png','gif','ico'];
 	var view_file = ['php','css','js','htm','html','sql','md']
@@ -143,14 +143,14 @@ function openFile(path,ext) {
 		};
 	}else if ($.inArray(ext, view_file) != -1){
 		$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
-		$.get($base_url+'sys_filemanager.html',{'ext':ext,'path':path,'action':'viewfile','editor':file_editor},function(data){
+		$.get($base_url+'sys_filemanager.html',{'path':path,'action':'viewfile','editor':file_editor},function(data){
 			$.webmis.win.load(data);
 		});
 	}else {
 		$.webmis.win.open({content:'<b class="red">该文件不能预览！</b>',AutoClose:3});
 	}
 }
-//编辑权限
+/* 编辑权限 */
 function editPerm(name,perm) {
 	$.webmis.win.open({title:'编辑权限',width:240,height:180});
 	//加载内容
@@ -171,15 +171,37 @@ function editPerm(name,perm) {
 		$('#fileSub').webmis('SubClass'); //按钮样式
 	});
 }
-//返回上级
+/* 重命名 */
+function reName(name) {
+	$.webmis.win.open({title:'重命名',width:320,height:200});
+	//加载内容
+	$.get($base_url+'sys_filemanager/reName.html',function(data){
+		$.webmis.win.load(data);   //加载内容
+		$('#file_path').val(path);
+		$('#file_name').val(name);
+		$('#file_rename').val(name);
+		$('#file_editor').val(file_editor);
+		$("#fileForm").ajaxForm(function(data) {
+			if(data=='1'){
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="green">编辑成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
+			}else{
+				$.webmis.win.close();
+				$.webmis.win.open({content:'<b class="red">编辑失败</b>',AutoClose:3});
+			}
+		});
+		$('#fileSub').webmis('SubClass'); //按钮样式
+	});
+}
+/* 返回上级 */
 function backDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
 }
-//刷新目录
+/* 刷新目录 */
 function refreshDir(path) {
 	$.webmis.win.close('sys_filemanager.html?path='+path+fileGetUrl);
 }
-//插入到编辑器
+/* 插入到编辑器 */
 function insertEditor(path) {
 	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
 	$(window.parent.document).find('#'+file_editor).val(file_root+path);

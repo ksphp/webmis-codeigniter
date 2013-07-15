@@ -2,21 +2,19 @@
 class file_class{
 	var $file_root = '.';
 	
-	//文件列表
+	/* 文件列表 */
 	function lists($c='/') {
 		$c = $c?$c:'/';
-		//替换 “../”|“./”
 		$c = preg_replace('/\.\.\/|\.\/|\.\./','',$c);
-		//添加 “/”
 		$c = $c=='/'?$c:'/'.trim($c, '/').'/';
-		//返回参数
+
 		$data['path'] = $c;
 		$data['dirNum'] = 0;
 		$data['fileNum'] = 0;
 		$data['size'] = 0;
 		
 		$c = $this->file_root.$c;
-		//读取文件
+
 		if(is_dir($c)) {
 			$d = opendir($c);
 			while($f = readdir($d)) {
@@ -46,7 +44,7 @@ class file_class{
 		return $data;
 	}
 
-	//文件图标
+	/* 文件图标 */
 	private function ico_class($ext='file') {
 		$class = array(
 			'file'=>'ico_file',
@@ -60,12 +58,19 @@ class file_class{
 		return $date;
 	}
 
-	//新建文件夹
+	/* 新建文件夹 */
 	function addDir($path,$perm=0755) {
 		return mkdir($this->file_root.$path, octdec($perm));
 	}
 
-	//删除文件夹和文件
+	/* 重命名 */
+	function reName($rename,$name) {
+		$ff = $this->file_root.$rename;
+		$f = $this->file_root.$name;
+		return rename($ff,$f);
+	}
+
+	/* 删除文件夹和文件 */
 	function del($path,$f) {
 		$data = false;
 		$arr = array_filter(explode(',', $f));
@@ -92,7 +97,7 @@ class file_class{
 		return rmdir($dir);
 	}
 
-	//编辑权限
+	/* 编辑权限 */
 	function editPerm($path,$perm) {
 		$ff = $this->file_root.$path;
 		$perm = octdec($perm);

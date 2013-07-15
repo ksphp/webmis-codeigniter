@@ -1,43 +1,42 @@
 <?php
 class Sys_filemanager extends MY_Controller {
-	//首页
+	/* 首页 */
 	function index(){
 		$this->load->library('file_class');
 		
-		//文件根目录
 		$editor = $this->input->get('editor');
 		$data['file_root'] = $editor?'/upload':'';
 		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'].$data['file_root'];
 		
 		$action = $this->input->get('action');
 		switch($action) {
-			//新建文件夹
 			case 'mkdir':
 				$path = $this->input->get('path'). $this->input->get('name');
 				$perm = (int)$this->input->get('perm');
 				echo $this->file_class->addDir($path,$perm);
 				break;
-			//删除
+			case 'rename':
+				$path = $this->input->get('path');
+				$name = $this->input->get('name');
+				$rename = $this->input->get('rename');
+				echo $this->file_class->reName($path.$rename,$path.$name);
+				break;
 			case 'del':
 				$path = $this->input->get('path');
 				$f = $this->input->get('id');
 				echo $this->file_class->del($path,$f);
 				break;
-			//编辑权限
 			case 'editperm':
 				$path = $this->input->get('path');
 				$perm = $this->input->get('perm');
 				echo $this->file_class->editPerm($path,$perm);
 				break;
-			//下载zip
 			case 'down':
 				$this->down($this->file_class->file_root);
 				break;
-			//浏览文件
 			case 'viewfile':
 				$this->viewFile($this->file_class->file_root);
 				break;
-			//编辑器调用
 			case 'editor':
 				$data['file_action'] = 'editor';
 				$data['file_editor'] = $this->input->get('editor');
@@ -50,7 +49,6 @@ class Sys_filemanager extends MY_Controller {
 				$data['js'] = array('js/system/sys_filemanager.js');
 				$this->load->view('system/filemanager/editor',$data);
 				break;
-			//默认文件列表
 			default:
 				$data['file_action'] = '';
 				$data['file_editor'] = '';
@@ -60,22 +58,26 @@ class Sys_filemanager extends MY_Controller {
 				$this->MyView('system/filemanager/index',$data);
 		}
 	}
-	//新建文件夹
+	/* 新建文件夹 */
 	function addFolder() {
 		$this->load->view('system/filemanager/mkdir');
 	}
-	//上传文件
+	/* 上传文件 */
 	function upload() {
 		$this->load->view('system/filemanager/upload');
 	}
-	//编辑权限
+	/* 编辑权限 */
 	function editPerm() {
 		$this->load->view('system/filemanager/edit_perm');
 	}
-	//下载
+	/* 重命名 */
+	function reName() {
+		$this->load->view('system/filemanager/rename');
+	}
+	/* 下载 */
 	public function down($file_root){
 		$this->load->library('zip');
-		// 文件
+
 		$path = $this->input->get('path');
 		$files = $this->input->get('files');
 		$arr = array_filter(explode(',',$files));
@@ -89,14 +91,13 @@ class Sys_filemanager extends MY_Controller {
 		}
 		$this->zip->download('myphotos.zip');
 	}
-	//打开文件
+	/* 打开文件 */
 	public function viewFile($file_root) {
 		$this->load->helper('file');
 		$this->load->helper('typography');
-		//获取文件
+		
 		$file = $file_root.$this->input->get('path');
-		$ext = $this->input->get('ext');
-		//读取
+
 		$string = read_file($file);
 		echo $string = '<div style="font-size: 14px; line-height: 24px; padding: 0 10px;">'.auto_typography($string).'</div>';
 	}
