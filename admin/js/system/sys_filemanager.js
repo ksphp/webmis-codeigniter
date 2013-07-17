@@ -38,6 +38,29 @@ $(function () {
 		return false;
 	});
 /*
+新建文件夹
+*/
+	$('.action_add').click(function () {
+		$.webmis.win.open({title:'新建文件',width:320,height:200});
+		//加载内容
+		$.get($base_url+'sys_filemanager/addFile.html',function(data){
+			$.webmis.win.load(data);   //加载内容
+			$('#file_path').val(path);
+			$('#file_editor').val(file_editor);
+			$("#fileForm").ajaxForm(function(data) {
+				if(data=='1'){
+					$.webmis.win.close();
+					$.webmis.win.open({content:'<b class="green">新建成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
+				}else{
+					$.webmis.win.close();
+					$.webmis.win.open({content:'<b class="red">新建失败</b>',AutoClose:3});
+				}
+			});
+			$('#fileSub').webmis('SubClass'); //按钮样式
+		});
+		return false;
+	});
+/*
 上传
 */
 	$('.action_upload').click(function(){
@@ -116,7 +139,7 @@ function openDir(path) {
 /* 打开文件 */
 function openFile(path,ext) {
 	var view_img = ['jpg','png','gif','ico'];
-	var view_file = ['php','css','js','htm','html','sql','md'];
+	var view_file = ['php','css','js','htm','html','sql','txt','md'];
 	if ($.inArray(ext, view_img) != -1) {
 		$.webmis.win.open({title:'预览图片',width:520,height:400,overflow:true});
 		//图片类
@@ -153,7 +176,7 @@ function openFile(path,ext) {
 }
 /* 编辑文件 */
 function editFile(file,ext) {
-	var edit_file = ['php','css','js','htm','html','sql','md'];
+	var edit_file = ['php','css','js','htm','html','sql','txt','md'];
 	var edit_tinymce = ['md','txt'];
 	if ($.inArray(ext, edit_file) != -1){
 		$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});

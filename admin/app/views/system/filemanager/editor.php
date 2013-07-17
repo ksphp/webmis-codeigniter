@@ -19,11 +19,13 @@
 		<div class="right_title">文件管理</div>
 		<a class="action_back" href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="UI">&nbsp;</em>返回上级</a>
 		 <span>|</span>
+		 <a class="action_addfolder" href="#"><em class="UI">&nbsp;</em>新建文件夹</a>
+		 <span>|</span>
+		 <a class="action_add" href="#"><em class="UI">&nbsp;</em>新建文件</a>
+		 <span>|</span>
 		 <a class="action_refresh" href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="UI">&nbsp;</em>刷新</a>
 		 <span>|</span>
 		 <a class="action_upload" href="#"><em class="UI">&nbsp;</em>上传</a>
-		 <span>|</span>
-		 <a class="action_addfolder" href="#"><em class="UI">&nbsp;</em>新建文件夹</a>
 		 <span>|</span>
 		 <a class="action_down" href="#"><em class="UI">&nbsp;</em>下载</a>
 		 <span>|</span>

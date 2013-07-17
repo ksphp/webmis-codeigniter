@@ -15,6 +15,10 @@ class Sys_filemanager extends MY_Controller {
 				$perm = (int)$this->input->get('perm');
 				echo $this->file_class->addDir($path,$perm);
 				break;
+			case 'addfile':
+				$file = $this->file_class->file_root.$this->input->get('path'). $this->input->get('file');
+				echo $this->addFileData($file);
+				break;
 			case 'rename':
 				$path = $this->input->get('path');
 				$name = $this->input->get('name');
@@ -64,6 +68,15 @@ class Sys_filemanager extends MY_Controller {
 	/* 新建文件夹 */
 	function addFolder() {
 		$this->load->view('system/filemanager/mkdir');
+	}
+	/* 新建文件夹 */
+	function addFile() {
+		$this->load->view('system/filemanager/addfile');
+	}
+	function addFileData($file) {
+		$this->load->helper('file');
+		$data = !is_file($file)?write_file($file,''):false;
+		return $data;
 	}
 	/* 上传文件 */
 	function upload() {
