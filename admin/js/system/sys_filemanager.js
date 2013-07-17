@@ -7,6 +7,7 @@ $(function () {
 	//加载文件
 	$.webmis.inc({files:[
 		$webmis_plugin + 'jquery/jquery.form.js',
+		$webmis_plugin + 'tinymce/tinymce.min.js'	//编辑器插件
 	]});
 /*
 列表
@@ -115,7 +116,7 @@ function openDir(path) {
 /* 打开文件 */
 function openFile(path,ext) {
 	var view_img = ['jpg','png','gif','ico'];
-	var view_file = ['php','css','js','htm','html','sql','md']
+	var view_file = ['php','css','js','htm','html','sql','md'];
 	if ($.inArray(ext, view_img) != -1) {
 		$.webmis.win.open({title:'预览图片',width:520,height:400,overflow:true});
 		//图片类
@@ -148,6 +149,40 @@ function openFile(path,ext) {
 		});
 	}else {
 		$.webmis.win.open({content:'<b class="red">该文件不能预览！</b>',AutoClose:3});
+	}
+}
+/* 编辑文件 */
+function editFile(file,ext) {
+	var edit_file = ['php','css','js','htm','html','sql','md'];
+	var edit_tinymce = ['md','txt'];
+	if ($.inArray(ext, edit_file) != -1){
+		$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
+		$.get($base_url+'sys_filemanager.html',{'file':file,'action':'editfile','editor':file_editor},function(data){
+			$.webmis.win.load(data);
+			$('#fileSub').webmis('SubClass');
+			//调用编辑器
+			if ($.inArray(ext, edit_tinymce) != -1) {
+				tinymce.init({
+					selector:'#tinymce',
+					language: "zh_CN",
+					menubar: false,
+					plugins: ["code autoresize"],
+					toolbar1: "code"
+				});
+			}
+			//保存文件
+			$("#fileForm").ajaxForm(function(data) {
+				if(data=='1'){
+					$.webmis.win.close();
+					$.webmis.win.open({content:'<b class="green">编辑成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
+				}else{
+					$.webmis.win.close();
+					$.webmis.win.open({content:'<b class="red">编辑失败</b>',AutoClose:3});
+				}
+			});
+		});
+	}else {
+		$.webmis.win.open({content:'<b class="red">该文件不能编辑！</b>',AutoClose:3});
 	}
 }
 /* 编辑权限 */

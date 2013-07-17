@@ -37,6 +37,9 @@ class Sys_filemanager extends MY_Controller {
 			case 'viewfile':
 				$this->viewFile($this->file_class->file_root);
 				break;
+			case 'editfile':
+				$this->editFile($this->file_class->file_root);
+				break;
 			case 'editor':
 				$data['file_action'] = 'editor';
 				$data['file_editor'] = $this->input->get('editor');
@@ -99,7 +102,32 @@ class Sys_filemanager extends MY_Controller {
 		$file = $file_root.$this->input->get('path');
 
 		$string = read_file($file);
-		echo $string = '<div style="font-size: 14px; line-height: 24px; padding: 0 10px;">'.auto_typography($string).'</div>';
+		echo $string = '<div style="font-size: 12px; line-height: 18px; padding: 0 10px;">'.auto_typography($string).'</div>';
+	}
+	/* 编辑文件 */
+	public function editFile($file_root) {
+		$this->load->helper('file');
+		$this->load->helper('typography');
+		
+		$file = $file_root.$this->input->get('file');
+
+		$string = read_file($file);
+		
+		$data = '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="get" id="fileForm">';
+		$data .= '<textarea id="tinymce" name="file_data" style="width:99%; height:400px; font-size: 12px; line-height: 20px;">'.$string.'</textarea>';
+		$data .= '<div style="text-align: center; padding-top: 5px;">';
+		$data .= '<input type="submit" id="fileSub" value="保存" />';
+		$data .= '<input type="hidden" name="file" value="'.$file.'">';
+		$data .= '</div>';
+		$data .= '</form>';
+		echo $data;
+	}
+	/* 保存文件 */
+	public function saveFile() {
+		$this->load->helper('file');
+		$file = $this->input->get('file');
+		$filedata = $this->input->get('file_data');
+		echo write_file($file,$filedata);
 	}
 }
 ?>

@@ -1,9 +1,9 @@
 $(function(){
 	//加载文件
 	$.webmis.inc({files:[
-		$webmis_root + 'plugin/highcharts/highcharts.js',		//图表插件
-		$webmis_root + 'plugin/jquery/ajaxfileupload.js',		//上传插件
-		$webmis_root + 'plugin/tinymce/tinymce.min.js'	//编辑器插件
+		$webmis_plugin + 'highcharts/highcharts.js',		//图表插件
+		$webmis_plugin + 'jquery/ajaxfileupload.js',		//上传插件
+		$webmis_plugin + 'tinymce/tinymce.min.js'	//编辑器插件
 	]});
 /*
 列表
@@ -95,7 +95,6 @@ function newsForm(){
 	//编辑器
 	tinymce.init({
 		selector:'#tinymce',
-		theme: "modern",
 		language: "zh_CN",
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -103,7 +102,6 @@ function newsForm(){
 			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor",
 			"autoresize"
 		],
-		image_advtab: true,
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
 		file_browser_callback : function(field_name, url, type, win) {
 			var file = $('#'+field_name).val();
