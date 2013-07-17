@@ -14,7 +14,7 @@ if (!empty($_FILES) && $_POST['someKey'] == 'someValue') {
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
 	
 	// Validate the file type
-	$fileTypes = array('jpg','jpeg','gif','png','zip'); // File extensions
+	$fileTypes = array('jpg','jpeg','gif','png','zip','php','html','txt','sql'); // File extensions
 	$fileParts = pathinfo($_FILES['Filedata']['name']);
 	
 	if (in_array($fileParts['extension'],$fileTypes)) {

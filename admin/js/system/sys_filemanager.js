@@ -179,7 +179,7 @@ function editFile(file,ext) {
 	var edit_file = ['php','css','js','htm','html','sql','txt','md'];
 	var edit_tinymce = ['md','txt'];
 	if ($.inArray(ext, edit_file) != -1){
-		$.webmis.win.open({title:'预览文件',width:720,height:500,overflow:true});
+		$.webmis.win.open({title:'编辑文件',width:720,height:500,overflow:true});
 		$.get($base_url+'sys_filemanager.html',{'file':file,'action':'editfile','editor':file_editor},function(data){
 			$.webmis.win.load(data);
 			$('#fileSub').webmis('SubClass');
@@ -190,7 +190,7 @@ function editFile(file,ext) {
 					language: "zh_CN",
 					menubar: false,
 					plugins: ["code autoresize"],
-					toolbar1: "code"
+					toolbar1: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | code"
 				});
 			}
 			//保存文件
