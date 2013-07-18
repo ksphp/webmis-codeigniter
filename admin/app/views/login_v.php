@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="kingsoul" />
-	<title>WebMIS v3.2管理员控制台</title>
+	<title>WebMIS 管理员控制台</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="/webmis/css/admin.css" rel="stylesheet" type="text/css" />
 </head>
@@ -15,7 +15,7 @@
 	<div class="login_body">
 		<div class="login_top">
 			<div class="login_top_logo">&nbsp;</div>
-			<span class="login_top_title">WebMIS v3.2</span>
+			<span id="webmisVersion" class="login_top_title">WebMIS</span>
 		</div>
 		<div class="login_ct">
 			<span class="text"><input type="text" id="uname" /><br>用户名：</span>

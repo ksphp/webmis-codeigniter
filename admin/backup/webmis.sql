@@ -35,7 +35,7 @@ CREATE TABLE `wmis_sys_admin_login_log` (
   `ip` varchar(16) NOT NULL,
   `time` varchar(19) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (1, '登录', 'admin', '127.0.0.1', '2013-07-03 11:22:52');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (2, '退出', 'admin', '127.0.0.1', '2013-07-03 13:34:29');
@@ -56,6 +56,28 @@ INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUE
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (17, '登录', 'admin', '127.0.0.1', '2013-07-07 13:41:59');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (18, '退出', 'Auto Logout', '127.0.0.1', '2013-07-07 14:38:34');
 INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (19, '登录', 'admin', '127.0.0.1', '2013-07-07 14:38:41');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (20, '退出', 'Auto Logout', '127.0.0.1', '2013-07-08 11:58:29');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (21, '登录', 'admin', '127.0.0.1', '2013-07-08 11:58:36');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (22, '退出', 'Auto Logout', '127.0.0.1', '2013-07-08 16:17:14');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (23, '退出', 'Auto Logout', '127.0.0.1', '2013-07-08 16:17:19');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (24, '登录', 'admin', '127.0.0.1', '2013-07-08 16:17:29');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (25, '退出', 'Auto Logout', '127.0.0.1', '2013-07-08 19:54:55');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (26, '登录', 'admin', '127.0.0.1', '2013-07-08 19:55:12');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (27, '退出', 'Auto Logout', '127.0.0.1', '2013-07-10 13:36:46');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (28, '退出', 'Auto Logout', '127.0.0.1', '2013-07-10 13:36:46');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (29, '登录', 'admin', '127.0.0.1', '2013-07-16 10:19:06');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (30, '退出', 'Auto Logout', '127.0.0.1', '2013-07-16 13:17:52');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (31, '退出', 'Auto Logout', '127.0.0.1', '2013-07-16 13:17:58');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (32, '退出', 'Auto Logout', '127.0.0.1', '2013-07-16 13:18:02');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (33, '失败', 'admin', '127.0.0.1', '2013-07-17 08:38:38');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (34, '登录', 'admin', '127.0.0.1', '2013-07-17 08:38:43');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (35, '退出', 'Auto Logout', '127.0.0.1', '2013-07-17 17:26:22');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (36, '失败', 'admin', '127.0.0.1', '2013-07-17 17:26:33');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (37, '失败', 'admin', '127.0.0.1', '2013-07-17 17:26:40');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (38, '登录', 'admin', '127.0.0.1', '2013-07-17 17:26:50');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (39, '失败', 'admin', '127.0.0.1', '2013-07-18 14:00:15');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (40, '登录', 'admin', '127.0.0.1', '2013-07-18 14:00:19');
+INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`) VALUES (41, '登录', 'admin', '127.0.0.1', '2013-07-18 14:34:29');
 
 
 #
@@ -70,7 +92,7 @@ CREATE TABLE `wmis_sys_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_config (`name`, `contnet`) VALUES ('copy', 'Built by KSPHP and the <a href=\"http://www.ksphp.com/\" target=\"_blank\"><b>KSPHP.COM</b></a> community');
-INSERT INTO wmis_sys_config (`name`, `contnet`) VALUES ('title', 'WebMIS v3.0管理员控制台');
+INSERT INTO wmis_sys_config (`name`, `contnet`) VALUES ('title', 'WebMIS 管理员控制台');
 INSERT INTO wmis_sys_config (`name`, `contnet`) VALUES ('backdir', 'backup');
 
 
