@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
-body{background: url("../images/bg.png") #F5F5F5;}
+body{background: url("../images/bg.png") #F2F2F2;}
 img{border: none;}
 ul{list-style: none;}
 em{padding: 4px 10px;}
@@ -53,7 +53,7 @@ input:focus, textarea:focus{
 .login_copy{line-height: 45px; color: #999; text-align: center; background: url("../images/admin_login_line.jpg") 0px -70px repeat-x; border-radius: 5px;}
 
 /* top */
-.top_bg{background: url("../images/admin_top_bg.jpg") top right no-repeat #FFF; padding: 0 10px; min-width: 650px;}
+.top_bg{background: url("../images/admin_top_bg.jpg") top right no-repeat #FFF; border-bottom:#B2B2B2 1px solid; padding: 0 10px; min-width: 650px;}
 .top{height: 60px;}
 .top_logo{float: left; width: 180px; height: 60px; background: url("../images/admin_logo.gif") no-repeat center bottom;}
 .top_link{float: right; color: #666; padding-right: 10px; margin-top: 38px;}
