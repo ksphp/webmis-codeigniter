@@ -1,86 +1,86 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* CodeIgniter
-*
-* An open source application development framework for PHP 5.1.6 or newer
-*
-* @package		CodeIgniter
-* @author		ExpressionEngine Dev Team
-* @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
-* @license		http://codeigniter.com/user_guide/license.html
-* @link		http://codeigniter.com
-* @since		Version 1.0
-* @filesource
-*/
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
 
 // ------------------------------------------------------------------------
 
 /**
-* Input Class
-*
-* Pre-processes global input data for security
-*
-* @package		CodeIgniter
-* @subpackage	Libraries
-* @category	Input
-* @author		ExpressionEngine Dev Team
-* @link		http://codeigniter.com/user_guide/libraries/input.html
-*/
+ * Input Class
+ *
+ * Pre-processes global input data for security
+ *
+ * @package		CodeIgniter
+ * @subpackage	Libraries
+ * @category	Input
+ * @author		ExpressionEngine Dev Team
+ * @link		http://codeigniter.com/user_guide/libraries/input.html
+ */
 class CI_Input {
 
 	/**
-	* IP address of the current user
-	*
-	* @var string
-	*/
+	 * IP address of the current user
+	 *
+	 * @var string
+	 */
 	var $ip_address				= FALSE;
 	/**
-	* user agent (web browser) being used by the current user
-	*
-	* @var string
-	*/
+	 * user agent (web browser) being used by the current user
+	 *
+	 * @var string
+	 */
 	var $user_agent				= FALSE;
 	/**
-	* If FALSE, then $_GET will be set to an empty array
-	*
-	* @var bool
-	*/
+	 * If FALSE, then $_GET will be set to an empty array
+	 *
+	 * @var bool
+	 */
 	var $_allow_get_array		= TRUE;
 	/**
-	* If TRUE, then newlines are standardized
-	*
-	* @var bool
-	*/
+	 * If TRUE, then newlines are standardized
+	 *
+	 * @var bool
+	 */
 	var $_standardize_newlines	= TRUE;
 	/**
-	* Determines whether the XSS filter is always active when GET, POST or COOKIE data is encountered
-	* Set automatically based on config setting
-	*
-	* @var bool
-	*/
+	 * Determines whether the XSS filter is always active when GET, POST or COOKIE data is encountered
+	 * Set automatically based on config setting
+	 *
+	 * @var bool
+	 */
 	var $_enable_xss			= FALSE;
 	/**
-	* Enables a CSRF cookie token to be set.
-	* Set automatically based on config setting
-	*
-	* @var bool
-	*/
+	 * Enables a CSRF cookie token to be set.
+	 * Set automatically based on config setting
+	 *
+	 * @var bool
+	 */
 	var $_enable_csrf			= FALSE;
 	/**
-	* List of all HTTP request headers
-	*
-	* @var array
-	*/
+	 * List of all HTTP request headers
+	 *
+	 * @var array
+	 */
 	protected $headers			= array();
 
-
 	/**
-	* Constructor
-	*
-	* Sets whether to globally enable the XSS processing
-	* and whether to allow the $_GET array
-	*
-	*/
+	 * Constructor
+	 *
+	 * Sets whether to globally enable the XSS processing
+	 * and whether to allow the $_GET array
+	 *
+	 * @return	void
+	 */
 	public function __construct()
 	{
 		log_message('debug', "Input Class Initialized");
@@ -106,16 +106,16 @@ class CI_Input {
 	// --------------------------------------------------------------------
 
 	/**
-	* Fetch from array
-	*
-	* This is a helper function to retrieve values from global arrays
-	*
-	* @access	private
-	* @param	array
-	* @param	string
-	* @param	bool
-	* @return	string
-	*/
+	 * Fetch from array
+	 *
+	 * This is a helper function to retrieve values from global arrays
+	 *
+	 * @access	private
+	 * @param	array
+	 * @param	string
+	 * @param	bool
+	 * @return	string
+	 */
 	function _fetch_from_array(&$array, $index = '', $xss_clean = FALSE)
 	{
 		if ( ! isset($array[$index]))
@@ -306,50 +306,49 @@ class CI_Input {
 	/**
 	* Fetch the IP Address
 	*
-	* @access	public
 	* @return	string
 	*/
-	function ip_address()
+	public function ip_address()
 	{
 		if ($this->ip_address !== FALSE)
 		{
 			return $this->ip_address;
 		}
 
-		if (config_item('proxy_ips') != '' && $this->server('HTTP_X_FORWARDED_FOR') && $this->server('REMOTE_ADDR'))
+		$proxy_ips = config_item('proxy_ips');
+		if ( ! empty($proxy_ips))
 		{
-			$proxies = preg_split('/[\s,]/', config_item('proxy_ips'), -1, PREG_SPLIT_NO_EMPTY);
-			$proxies = is_array($proxies) ? $proxies : array($proxies);
+			$proxy_ips = explode(',', str_replace(' ', '', $proxy_ips));
+			foreach (array('HTTP_X_FORWARDED_FOR', 'HTTP_CLIENT_IP', 'HTTP_X_CLIENT_IP', 'HTTP_X_CLUSTER_CLIENT_IP') as $header)
+			{
+				if (($spoof = $this->server($header)) !== FALSE)
+				{
+					// Some proxies typically list the whole chain of IP
+					// addresses through which the client has reached us.
+					// e.g. client_ip, proxy_ip1, proxy_ip2, etc.
+					if (strpos($spoof, ',') !== FALSE)
+					{
+						$spoof = explode(',', $spoof, 2);
+						$spoof = $spoof[0];
+					}
 
-			$this->ip_address = in_array($_SERVER['REMOTE_ADDR'], $proxies) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+					if ( ! $this->valid_ip($spoof))
+					{
+						$spoof = FALSE;
+					}
+					else
+					{
+						break;
+					}
+				}
+			}
+
+			$this->ip_address = ($spoof !== FALSE && in_array($_SERVER['REMOTE_ADDR'], $proxy_ips, TRUE))
+				? $spoof : $_SERVER['REMOTE_ADDR'];
 		}
-		elseif ($this->server('REMOTE_ADDR') AND $this->server('HTTP_CLIENT_IP'))
-		{
-			$this->ip_address = $_SERVER['HTTP_CLIENT_IP'];
-		}
-		elseif ($this->server('REMOTE_ADDR'))
+		else
 		{
 			$this->ip_address = $_SERVER['REMOTE_ADDR'];
-		}
-		elseif ($this->server('HTTP_CLIENT_IP'))
-		{
-			$this->ip_address = $_SERVER['HTTP_CLIENT_IP'];
-		}
-		elseif ($this->server('HTTP_X_FORWARDED_FOR'))
-		{
-			$this->ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		}
-
-		if ($this->ip_address === FALSE)
-		{
-			$this->ip_address = '0.0.0.0';
-			return $this->ip_address;
-		}
-
-		if (strpos($this->ip_address, ',') !== FALSE)
-		{
-			$x = explode(',', $this->ip_address);
-			$this->ip_address = trim(end($x));
 		}
 
 		if ( ! $this->valid_ip($this->ip_address))
@@ -642,8 +641,8 @@ class CI_Input {
 		$_SERVER['PHP_SELF'] = strip_tags($_SERVER['PHP_SELF']);
 
 
-		// CSRF Protection check
-		if ($this->_enable_csrf == TRUE)
+		// CSRF Protection check on HTTP requests
+		if ($this->_enable_csrf == TRUE && ! $this->is_cli_request())
 		{
 			$this->security->csrf_verify();
 		}
@@ -677,8 +676,8 @@ class CI_Input {
 
 		/* We strip slashes if magic quotes is on to keep things consistent
 
-			NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
-			it will probably not exist in future versions at all.
+		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
+			 it will probably not exist in future versions at all.
 		*/
 		if ( ! is_php('5.4') && get_magic_quotes_gpc())
 		{
@@ -725,7 +724,7 @@ class CI_Input {
 	* @param	string
 	* @return	string
 	*/
-/*	function _clean_input_keys($str)
+	function _clean_input_keys($str)
 	{
 		if ( ! preg_match("/^[a-z0-9:_\/-]+$/i", $str))
 		{
@@ -739,35 +738,20 @@ class CI_Input {
 		}
 
 		return $str;
-	}*/
-	
-	function _clean_input_keys($str) {  
-		$config = &get_config('config');  
-		if ( ! preg_match("/^[".$config['permitted_uri_chars']."]+$/i", rawurlencode($str)))  
-		{  
-			exit('Disallowed Key Characters.');  
-		}  
-	     
-		// Clean UTF-8 if supported
-		if (UTF8_ENABLED === TRUE)
-		{
-			$str = $this->uni->clean_string($str);
-		}
-		return $str;  
 	}
 
 	// --------------------------------------------------------------------
 
 	/**
-	* Request Headers
-	*
-	* In Apache, you can simply call apache_request_headers(), however for
-	* people running other webservers the function is undefined.
-	*
-	* @param	bool XSS cleaning
-	*
-	* @return array
-	*/
+	 * Request Headers
+	 *
+	 * In Apache, you can simply call apache_request_headers(), however for
+	 * people running other webservers the function is undefined.
+	 *
+	 * @param	bool XSS cleaning
+	 *
+	 * @return array
+	 */
 	public function request_headers($xss_clean = FALSE)
 	{
 		// Look at Apache go!
@@ -803,14 +787,14 @@ class CI_Input {
 	// --------------------------------------------------------------------
 
 	/**
-	* Get Request Header
-	*
-	* Returns the value of a single member of the headers class member
-	*
-	* @param 	string		array key for $this->headers
-	* @param	boolean		XSS Clean or not
-	* @return 	mixed		FALSE on failure, string on success
-	*/
+	 * Get Request Header
+	 *
+	 * Returns the value of a single member of the headers class member
+	 *
+	 * @param 	string		array key for $this->headers
+	 * @param	boolean		XSS Clean or not
+	 * @return 	mixed		FALSE on failure, string on success
+	 */
 	public function get_request_header($index, $xss_clean = FALSE)
 	{
 		if (empty($this->headers))
@@ -834,12 +818,12 @@ class CI_Input {
 	// --------------------------------------------------------------------
 
 	/**
-	* Is ajax Request?
-	*
-	* Test to see if a request contains the HTTP_X_REQUESTED_WITH header
-	*
-	* @return 	boolean
-	*/
+	 * Is ajax Request?
+	 *
+	 * Test to see if a request contains the HTTP_X_REQUESTED_WITH header
+	 *
+	 * @return 	boolean
+	 */
 	public function is_ajax_request()
 	{
 		return ($this->server('HTTP_X_REQUESTED_WITH') === 'XMLHttpRequest');
@@ -848,15 +832,15 @@ class CI_Input {
 	// --------------------------------------------------------------------
 
 	/**
-	* Is cli Request?
-	*
-	* Test to see if a request was made from the command line
-	*
-	* @return 	boolean
-	*/
+	 * Is cli Request?
+	 *
+	 * Test to see if a request was made from the command line
+	 *
+	 * @return 	bool
+	 */
 	public function is_cli_request()
 	{
-		return (php_sapi_name() == 'cli') or defined('STDIN');
+		return (php_sapi_name() === 'cli' OR defined('STDIN'));
 	}
 
 }
