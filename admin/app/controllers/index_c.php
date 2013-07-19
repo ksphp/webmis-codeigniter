@@ -46,8 +46,10 @@ class Index_c extends CI_Controller {
 	//记录登录日志
 	private function loginLog($type,$uname){
 		$ip = $this->input->ip_address();
+		$headers = $this->input->request_headers();
+		$agent = $headers['User-agent'];
 		$this->load->model('sys_admin_login_log_m');
-		$this->sys_admin_login_log_m->add($type,$uname,$ip);
+		$this->sys_admin_login_log_m->add($type,$uname,$ip,$agent);
 	}
 	//拆分权限
 	private function splitPerm($perm){

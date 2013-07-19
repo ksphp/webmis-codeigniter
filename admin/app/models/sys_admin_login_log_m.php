@@ -14,10 +14,11 @@ class Sys_admin_login_log_m extends CI_Model {
 		return $this->db->count_all_results($this->table);
 	}
 	//添加
-	function add($type,$uname,$ip){
+	function add($type,$uname,$ip,$agent){
 		$data['type'] = $type;
 		$data['uname'] = $uname;
 		$data['ip'] = $ip;
+		$data['agent'] = $agent;
 		$data['time'] = date('Y-m-d H:i:s');
 		return $this->db->insert($this->table,$data);
 	}

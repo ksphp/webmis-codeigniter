@@ -25,6 +25,12 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="add_right">Agent:</td>
+		<td>
+			<input type="text" name="agent" class="input" style="width: 160px;" />
+		</td>
+	</tr>
+	<tr>
 		<td>&nbsp;</td>
 		<td>
 			<input type="submit" id="seaSub" name="search" value="搜索" />

@@ -8,7 +8,7 @@ $(function(){
 搜索
 */
 	$('.action_sea').click(function(){
-		$.webmis.win.open({title:'搜索',width:340,height:250});
+		$.webmis.win.open({title:'搜索',width:360,height:280});
 		//加载内容
 		$.get($base_url+'sys_admin_login_log/search.html',function(data){
 			$.webmis.win.load(data);   //加载内容
