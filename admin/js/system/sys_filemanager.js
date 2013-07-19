@@ -188,6 +188,7 @@ function editFile(file,ext) {
 				tinymce.init({
 					selector:'#tinymce',
 					language: "zh_CN",
+					convert_urls: false,
 					menubar: false,
 					plugins: ["code autoresize"],
 					toolbar1: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | code"
