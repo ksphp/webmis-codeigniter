@@ -56,17 +56,17 @@ class Sys_db_restore extends MY_Controller {
 		$this->load->helper('file');
 		
 		$file = $this->input->post('file');
+		$data = '{"status":"n"}';
+		//去掉注释部分
 		$content = read_file($file);
-		$content = preg_replace("/#(.*)\s#(.*)TABLE(.*)(.*)\s#/i","",$content);  //去掉注释部分
-		
+		$content = preg_replace("/#(.*)\s#(.*)TABLE(.*)(.*)\s#/i","",$content);
 		$sqls = array_filter(explode(";\n",$content));
 		foreach($sqls as $sql){
 			$sql = trim($sql);
 			if(!empty($sql)){
-				if($this->db->query($sql)){
+				if(@$this->db->query($sql)){
 					$data = '{"status":"y"}';
 				}else{
-					$data = '{"status":"n"}';
 					break;
 				}
 			}
