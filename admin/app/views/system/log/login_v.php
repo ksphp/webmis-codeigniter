@@ -11,11 +11,11 @@
 <table class="table_list">
 	<tr class="title" id="admin_log_table">
 		<td width="20"><a href="#" id="checkboxY">√</a><a href="#" id="checkboxN">×</a></td>
-		<td width="60">ID</td>
-		<td width="60">类型</td>
-		<td width="120">用户名</td>
+		<td width="30">ID</td>
+		<td width="30">类型</td>
+		<td width="100">用户名</td>
 		<td width="120">时间</td>
-		<td width="120">IP</td>
+		<td width="100">IP</td>
 		<td>Agent</td>
 	</tr>
 	<tbody id="listBG">
