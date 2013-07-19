@@ -1,1 +1,0 @@
-<iframe src="http://www.ksphp.com/document.html" class="help"></iframe>
