@@ -23,25 +23,6 @@ INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `departm
 
 
 #
-# TABLE STRUCTURE FOR: wmis_sys_admin_login_log
-#
-
-DROP TABLE IF EXISTS wmis_sys_admin_login_log;
-
-CREATE TABLE `wmis_sys_admin_login_log` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(2) NOT NULL,
-  `uname` varchar(12) NOT NULL,
-  `ip` varchar(16) NOT NULL,
-  `time` varchar(19) NOT NULL,
-  `agent` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`, `agent`) VALUES (1, '登录', 'admin', '127.0.0.1', '2013-07-19 14:38:20', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0');
-
-
-#
 # TABLE STRUCTURE FOR: wmis_sys_config
 #
 
