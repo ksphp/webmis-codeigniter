@@ -92,16 +92,17 @@ $(function(){
 //表单验证
 function newsForm(){
 	$('#newsSub').webmis('SubClass'); //按钮样式
+	$.webmis.win.menu({change:'#newsBody', menus:['基本信息','详细内容']});  //选项卡
 	//编辑器
 	tinymce.init({
 		selector:'#tinymce',
 		language: "zh_CN",
 		convert_urls: false,
+		height: 360,
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen",
-			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor",
-			"autoresize"
+			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor"
 		],
 		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview",
 		file_browser_callback : function(field_name, url, type, win) {

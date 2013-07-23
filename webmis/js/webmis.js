@@ -116,7 +116,35 @@ $(function(){
 	var loadWin = function (data) {
 		$('#WebMisWinCT').html(data);   //加载内容
 	}
-
+	//添加选项卡
+	var addWinMenu = function (options) {
+		var defaults = {change: '#winTopMenuBody', menus: ['选项卡1','选项卡2','选项卡3']}
+		var options = $.extend(defaults, options);
+		//添加选项
+		var menu = options.menus;
+		var html = '<span id="WebMisTopMenu" class="WebMisTopMenu">';
+		var an = 'an1';
+		for (var i=0; i<menu.length; i++) {
+			if (i!=0) {an = 'an2';}
+			html += '<a herf="#" class="'+an+'" num="'+i+'">'+menu[i]+'</a>';
+		}
+		html += '</span>';
+		$('#WebMisWinTop').append(html);
+		//添加事项
+ 		$('#WebMisTopMenu a').click(function() {
+			var num = $(this).attr('num');
+			var n = 0;
+			//初始化
+			$('#WebMisTopMenu a').each(function(){
+				$(this).attr('class','an2');
+				$(options.change+n).hide();
+				n++;
+			});
+			//改变
+			$(this).attr('class','an1');
+			$(options.change+num).show();
+		});
+	}
 /*
 ** WebMis UI插件
 */
@@ -301,7 +329,7 @@ $(function(){
 	*/
 	$.webmis={
 		inc: include,
-		win: {open: openWin, load: loadWin, close: closeWin},
+		win: {open: openWin, load: loadWin, close: closeWin, menu: addWinMenu},
 		test: function () {alert('test');}
 	};
 	

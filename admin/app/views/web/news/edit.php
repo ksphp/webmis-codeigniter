@@ -1,5 +1,6 @@
 <form id="newsForm" action="<?php echo base_url('web_news/editData.html');?>" method="post">
 <table class="table_add">
+	<tbody id="newsBody0">
 	<tr>
 		<td class="add_right add_width">所属:</td>
 		<td>
@@ -32,7 +33,7 @@
 	</tr>
 	<tr>
 		<td class="add_right">摘要:</td>
-		<td><textarea name="summary" style="width: 520px; height: 70px;" maxlength="300"><?php echo $edit->summary;?></textarea><span>&nbsp;&nbsp;1~300字符</span></td>
+		<td><textarea name="summary" style="width: 560px; height: 180px;" maxlength="300"><?php echo $edit->summary;?></textarea><span>&nbsp;&nbsp;1~300字符</span></td>
 	</tr>
 	<tr>
 		<td class="add_right">缩略图:</td>
@@ -43,16 +44,19 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">
-			<textarea id="tinymce" name="content"><?php echo $edit->content;?></textarea>
-		</td>
-	</tr>
-	<tr>
 		<td class="add_right">发布时间:</td>
 		<td>
 			<input type="text" name="ctime" class="input" style="width: 140px;" value="<?php echo $edit->ctime;?>" />
 		</td>
 	</tr>
+	</tbody>
+	<tbody id="newsBody1" style="display: none;">
+	<tr>
+		<td colspan="2">
+			<textarea id="tinymce" name="content"><?php echo $edit->content;?></textarea>
+		</td>
+	</tr>
+	</tbody>
 	<tr>
 		<td>&nbsp;</td>
 		<td>
