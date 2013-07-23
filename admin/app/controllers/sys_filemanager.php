@@ -50,8 +50,8 @@ class Sys_filemanager extends MY_Controller {
 				
 				$path = $this->input->get('path');
 				$file = $this->input->get('file');
-				$dir = substr(dirname($file),7);
-				$path = is_dir($this->file_class->file_root.$dir)?$dir:$path;
+				$dir = $file?substr(dirname($file),7):false;
+				$path = $dir&&is_dir($this->file_class->file_root.$dir)?$dir:$path;
 				
 				$data['filelist'] = $this->file_class->lists($path);
 				$data['js'] = array('js/system/sys_filemanager.js');
