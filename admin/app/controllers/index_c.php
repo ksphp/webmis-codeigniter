@@ -47,7 +47,7 @@ class Index_c extends CI_Controller {
 	private function loginLog($type,$uname){
 		$ip = $this->input->ip_address();
 		$headers = $this->input->request_headers();
-		$agent = $headers['User-agent'];
+		$agent = @$headers['User-agent'];
 		$this->load->model('sys_admin_login_log_m');
 		$this->sys_admin_login_log_m->add($type,$uname,$ip,$agent);
 	}

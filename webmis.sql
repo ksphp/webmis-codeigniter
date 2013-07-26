@@ -34,12 +34,9 @@ CREATE TABLE `wmis_sys_admin_login_log` (
   `uname` varchar(12) NOT NULL,
   `ip` varchar(16) NOT NULL,
   `time` varchar(19) NOT NULL,
-  `agent` varchar(255) NOT NULL,
+  `agent` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-INSERT INTO wmis_sys_admin_login_log (`id`, `type`, `uname`, `ip`, `time`, `agent`) VALUES (1, '登录', 'admin', '127.0.0.1', '2013-07-19 14:38:20', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0');
-
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: wmis_sys_config
