@@ -83,7 +83,7 @@ class Web_news extends MY_Controller {
 		$this->load->library('image');
 		
 		//上传
-		$this->upload_web->upload('../upload/web/images');
+		$this->upload_web->upload('../upload/images');
 		//规格大小
 		if($type == '1'){
 			$width = 110;

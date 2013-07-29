@@ -52,7 +52,8 @@ class file_class{
 			'png'=>'ico_img',
 			'gif'=>'ico_img',
 			'pdf'=>'ico_pdf',
-			'ico'=>'ico_ico'
+			'ico'=>'ico_ico',
+			'zip'=>'action_down',
 		);
 		$date = @$class[$ext]?$class[$ext]:'ico_file';
 		return $date;

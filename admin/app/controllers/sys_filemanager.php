@@ -106,7 +106,7 @@ class Sys_filemanager extends MY_Controller {
 				$this->zip->read_dir($ff.'/',false);
 			}
 		}
-		$this->zip->download('myphotos.zip');
+		$this->zip->download('Down.zip');
 	}
 	/* 打开文件 */
 	public function viewFile($file_root) {
