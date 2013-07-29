@@ -5,7 +5,7 @@
 <p>
 官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br/>
 开源项目：<a href="https://github.com/ksphp/webmis/">WebMIS</a><br/>
-在线体验：<a href="http://www.ksphp.com/">http://webmis.ksphp.com/</a><br/>
+在线体验：<a href="http://webmis.ksphp.com/">http://webmis.ksphp.com/</a><br/>
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
