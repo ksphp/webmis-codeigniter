@@ -3,9 +3,9 @@
 &nbsp;&nbsp;&nbsp; WEBMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
-官方网站：<a herf="http://www.ksphp.com/">灵创网络</a><br/>
-开源项目：<a herf="https://github.com/ksphp/webmis/">WebMIS</a><br/>
-在线体验：<a herf="http://www.ksphp.com/">http://webmis.ksphp.com/</a><br/>
+官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br/>
+开源项目：<a href="https://github.com/ksphp/webmis/">WebMIS</a><br/>
+在线体验：<a href="http://www.ksphp.com/">http://webmis.ksphp.com/</a><br/>
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
@@ -87,5 +87,5 @@ location /admin/ {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }<br />
 </p>
-<p>注意：如果ci无法读取真实URL地址，需要配置 admin/app/config/config.php 文件，如：$config['base_url'] = 'http://www.ksphp.com/admin';</p>
+<p>注意：如果ci无法读取真实URL地址，需要配置 admin/app/config/config.php 文件，如：$config['base_url'] = 'http:\/\/www.ksphp.com/admin';</p>
 </div>
