@@ -87,5 +87,5 @@ location /admin/ {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }<br />
 </p>
-<p>注意：如果ci无法读取真实URL地址，需要配置 admin/app/config/config.php 文件，如：$config['base_url'] = 'http:\/\/www.ksphp.com/admin';</p>
+<p>注意：如果ci无法读取真实URL地址，需要配置 admin/app/config/config.php 文件，如：$config['base_url'] = 'http://www.ksphp.com/admin';</p>
 </div>
