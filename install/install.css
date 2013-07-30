@@ -12,7 +12,7 @@ input{box-shadow 0.2s linear 0s; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inse
 input:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6); outline: 0 none;}
 .UI{background-image:url("../images/ui.jpg"); background-repeat: no-repeat; background-position:0px 0px;}
 
-.body{width: 60%; min-width: 500px; margin: 20px auto;}
+.body{width: 60%; min-width: 500px; margin: 10px auto;}
 .top{width: 100%; display: inline-block;}
 .top_logo{float: left; width: 160px; height: 60px; background:url("../public/images/logo.jpg") no-repeat center center; padding: 5px 0;}
 .top_link{float: right; line-height: 24px; margin-top: 40px; padding-right: 10px;}
@@ -36,7 +36,7 @@ table td{padding: 5px 0; vertical-align: top;}
 .right{float: right;}
 
 .logo{width: 150px; height: 50px; background:url("../public/images/webmis.gif") no-repeat center center;}
-.in_term{height: 240px; overflow-y: auto;}
+.in_term{height: 300px; overflow-y: auto;}
 .in_conf{width: 45%; height: 300px; overflow-y: auto;}
 
 /*Color*/

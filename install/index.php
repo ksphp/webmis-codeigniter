@@ -59,14 +59,12 @@
 							<b>[ Nginx ]</b><br>
 							去除index.php<br><br>
 							location / {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ /index.html;<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/(.*) /index.php last;<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 							}<br>
 							location /admin/ {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ /index.html;<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/admin/(.*) /admin/index.php last;<br>
@@ -88,10 +86,11 @@
 				</tr>
 				<tr>
 					<td colspan="2" id="dataBase" class="code">
-						账户：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="root">&nbsp;&nbsp;
+						<div class="err"><em>&nbsp;</em>请填写数据库信息，并点击“连接”！</div><br>
+						用户名：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="root">&nbsp;&nbsp;
 						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;">&nbsp;&nbsp;
-						<a href="#" id="dataBaseTest" class="an">连接</a>
-						<div class="err">&nbsp;</div>
+						<a href="#" id="dataBaseTest" class="an">连接</a><br><br>
+						数据库：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="webmis">
 					</td>
 				</tr>
 				<tr>
@@ -99,6 +98,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" id="Admin" class="code">
+						<div class="err"><em>&nbsp;</em>请填写管理员信息！</div><br>
 						账户：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="admin">&nbsp;&nbsp;<br><br>
 						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;">&nbsp;&nbsp;<br><br>
 						确认：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;">&nbsp;&nbsp;
@@ -119,7 +119,7 @@
 				<a href="#" class="an" onclick="Next(1);return false;">上一步</a>&nbsp;&nbsp;<a href="#" class="an" onclick="Next(3);return false;">下一步</a>
 			</span>
 			<span id="button3" class="ct_bt_an">
-				<a href="#" class="an" onclick="Next(2);return false;">上一步</a>&nbsp;&nbsp;<a href="#" class="an" onclick="Next(4);return false;">下一步</a>
+				<a href="#" class="an" onclick="Next(2);return false;">上一步</a>&nbsp;&nbsp;<a href="#" class="an">下一步</a>
 			</span>
 			<span id="button4" class="ct_bt_an">
 				<a href="../index.php" class="an">完成</a>
