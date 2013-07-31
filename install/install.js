@@ -24,21 +24,29 @@ function Next(num) {
 	
 	/* 判断文件可读写 */
 	if (num == 3) {
-		$.get('data.php',{'api':'isWrite'},function (data) {
+		$.get('index.php',{'api':'isWrite'},function (data) {
 			$('#isWrite').html(data);
-			//测试数据库
-			$('#dataBaseTest').click(function () {
-				var uname = $('#dataBase input').eq(0).val();
-				var passwd = $('#dataBase input').eq(1).val();
-				alert(uname+passwd);
+			//按钮
+			if ($('#isWrite .err').length != 0) $('#button'+num+' a').eq(1).hide();
+			else $('#button'+num+' a').eq(1).show();
+			//创建管理员
+			
+			//连接数据库
+			$('#isDB').click(function () {
+				var type = $('#dataBase select').val();
+				var host = $('#dataBase input').eq(0).val();
+				var uname = $('#dataBase input').eq(1).val();
+				var passwd = $('#dataBase input').eq(2).val();
+				var dbname = $('#dataBase input').eq(3).val();
+				$.get('index.php',{'api':'isDB','type':type,'host':host,'uname':uname,'passwd':passwd,'dbname':dbname},function (data) {
+					if (data) {
+						$('#dataBase div').html('<span class="err"><em>&nbsp;</em>错误：'+data+'</span>');
+					}else {
+						$('#dataBase div').html('<span class="suc"><em>&nbsp;</em>连接数据库成功！</span>');
+					}
+				});
 				return false;
 			});
-			//按钮
-			if ($('#isWrite .err').length != 0) {
-				$('#button'+num+' a').eq(1).hide();
-			}else {
-				$('#button'+num+' a').eq(1).show();
-			}
 		});
 	}
 }

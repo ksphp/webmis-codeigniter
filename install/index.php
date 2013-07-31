@@ -1,3 +1,28 @@
+<?php
+	$api = $_GET['api'];
+	/* 判断文件读写 */
+	if($api == 'isWrite') {
+		$class = is_writable('../admin/app/config/database.php')?'suc':'err';
+		echo '<div class="'.$class.'"><em>&nbsp;</em>admin/app/config/database.php&nbsp;&nbsp;#后台数据库配置文件</div>';
+		$class = is_writable('../web/config/database.php')?'suc':'err';
+		echo '<div class="'.$class.'"><em>&nbsp;</em>web/config/database.php&nbsp;&nbsp;#网站数据库配置文件</div>';
+		$class = is_writable('webmis.sql')?'suc':'err';
+		echo '<div class="'.$class.'"><em>&nbsp;</em>install/webmis.sql&nbsp;&nbsp;#数据库文件</div>';
+		$class = is_writable('../upload')?'suc':'err';
+		echo '<div class="'.$class.'"><em>&nbsp;</em>upload&nbsp;&nbsp;#文件上传目录</div>';
+	/* 是否可以连接数据库 */
+	}elseif($api == 'isDB') {
+		try {
+			$dsn = $_GET['type'].':dbname='.$_GET['dbname'].';host='.$_GET['host'];
+			$uname = $_GET['uname'];
+			$passwd = $_GET['passwd'];
+			$db = new PDO($dsn,$uname,$passwd);
+		}catch (PDOException $e) {
+		   echo $e->getMessage();
+		   exit;
+		}
+	}else {
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -82,15 +107,21 @@
 					<td colspan="2" id="isWrite" class="code">&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="2"><b>MySQL数据库配置：</b></td>
+					<td colspan="2"><b>数据库配置：</b>采用PHP的PDO类</td>
 				</tr>
 				<tr>
 					<td colspan="2" id="dataBase" class="code">
-						<div class="err"><em>&nbsp;</em>请填写数据库信息，并点击“连接”！</div><br>
+						<div><span class="err"><em>&nbsp;</em>请填写数据库信息，并点击“连接”！</span></div><br>
+						类&nbsp;&nbsp;&nbsp;&nbsp;型：&nbsp;&nbsp; 
+						<select style="width: 110px;">
+							<option value="mysql" >MySQL</option>
+							<option value="mssql" >SQL Server</option>
+						</select> &nbsp;&nbsp;
+						主机：&nbsp;&nbsp; <input type="text" class="input" style="width: 160px;" value="localhost">&nbsp;&nbsp;<br><br>
 						用户名：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="root">&nbsp;&nbsp;
-						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;">&nbsp;&nbsp;
-						<a href="#" id="dataBaseTest" class="an">连接</a><br><br>
-						数据库：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="webmis">
+						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;">&nbsp;&nbsp;<br><br>
+						数据库：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="webmis"><br><br>
+						<a href="#" id="isDB" class="an" style="margin-left: 60px;">连接</a><br><br>
 					</td>
 				</tr>
 				<tr>
@@ -98,10 +129,11 @@
 				</tr>
 				<tr>
 					<td colspan="2" id="Admin" class="code">
-						<div class="err"><em>&nbsp;</em>请填写管理员信息！</div><br>
+						<div class="err"><em>&nbsp;</em>请填写管理员信息，并点击“创建”！</div><br>
 						账户：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="admin">&nbsp;&nbsp;<br><br>
-						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;">&nbsp;&nbsp;<br><br>
-						确认：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;">&nbsp;&nbsp;
+						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;">&nbsp;&nbsp;
+						确认：&nbsp;&nbsp; <input type="password" class="input" style="width: 180px;"><br><br>
+						<a href="#" id="isDB" class="an" style="margin-left: 60px;">创建</a><br><br>
 					</td>
 				</tr>
 				</tbody>
@@ -132,3 +164,4 @@
 <script language="javascript" src="install.js"></script>
 </body>
 </html>
+<?php }?>
