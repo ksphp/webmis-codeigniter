@@ -58,11 +58,9 @@ index.php-------------------------接口文件<br>
 开启重写<br>
 方法一：<br>
 [...]<br>
-<Directory /><br>
 &nbsp;&nbsp;&nbsp;&nbsp;AllowOverride All  #开启重写<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Require all granted<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Options Indexes FollowSymLinks  #浏览目录<br>
-</Directory><br>
 [...]
 </p>
 <p>
