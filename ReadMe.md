@@ -32,22 +32,22 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 <p>
 <b>四、目录说明</b><br />
 admin-----------------------------后台管理项目<br />
-&nbsp;&nbsp;&nbsp; app---------------------------CI项目目录<br />
-&nbsp;&nbsp;&nbsp; backup------------------------数据备份目录 <br />
-&nbsp;&nbsp;&nbsp; js----------------------------后台数据处理的JS文件<br />
-&nbsp;&nbsp;&nbsp; .htaccess---------------------后台重写文件、屏蔽index.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;app---------------------------CI项目目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backup------------------------数据备份目录 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js----------------------------后台数据处理的JS文件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.htaccess---------------------后台重写文件、屏蔽index.php<br />
 install---------------------------安装向导<br />
 public----------------------------网站前台公共目录<br />
-&nbsp;&nbsp;&nbsp; css---------------------------样式目录<br />
-&nbsp;&nbsp;&nbsp; images------------------------图片目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css---------------------------样式目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images------------------------图片目录<br />
 system----------------------------CI框架目录<br />
 upload----------------------------上传目录<br />
 web-------------------------------网站CI项目目录<br />
 webmis----------------------------前端样式插件<br />
-&nbsp;&nbsp;&nbsp; css---------------------------样式目录<br />
-&nbsp;&nbsp;&nbsp; images------------------------图片目录<br />
-&nbsp;&nbsp;&nbsp; js----------------------------JS插件<br />
-&nbsp;&nbsp;&nbsp; plugin------------------------公共插件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css---------------------------样式目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images------------------------图片目录<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js----------------------------JS插件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plugin------------------------公共插件<br />
 index.php-------------------------接口文件<br />
 .htaccess-------------------------前台重写文件、屏蔽index.php
 </p>
