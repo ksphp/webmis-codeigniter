@@ -18,8 +18,7 @@ CREATE TABLE `wmis_sys_admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 26:0 13:19 24:65 25:145 18:319 19:31 21:27 11:1');
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 22:1 26:0 13:19 24:65 25:129 18:319 19:31 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:0 8:31 9:31 10:31 22:1 26:0 13:19 24:65 25:145 18:319 19:31 21:27 11:1');
 
 
 #

@@ -10,9 +10,10 @@ a:hover{color: #FF6600;}
 .input{height: 22px; line-height: 22px; border: #CACCCB 1px solid; background: #FFF; padding: 0 5px;}
 input{box-shadow 0.2s linear 0s; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6); outline: 0 none;}
-.UI{background-image:url("../images/ui.jpg"); background-repeat: no-repeat; background-position:0px 0px;}
+table{width: 100%; border-collapse: collapse;}
+table td{padding: 5px 0; vertical-align: top;}
 
-.body{width: 60%; min-width: 500px; margin: 10px auto;}
+.body{width: 60%; min-width: 600px; margin: 10px auto;}
 .top{width: 100%; display: inline-block;}
 .top_logo{float: left; width: 160px; height: 60px; background:url("../public/images/logo.jpg") no-repeat center center; padding: 5px 0;}
 .top_link{float: right; line-height: 24px; margin-top: 40px; padding-right: 10px;}
@@ -21,7 +22,7 @@ input:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0
 .ct{border: #CACCCB 1px solid; background: url("../webmis/images/msg_bg.jpg") repeat-x #FFF; border-radius: 5px; box-shadow: 1px 1px 1px #CCC;}
 .ct_top{border-bottom: #CACCCB 1px solid; padding: 10px; color: #999;}
 .ct_ct{width: 100%; background-color: #FFF;}
-.ct_ct_body{width: 95%; padding: 20px 0; margin: 0 auto;}
+.ct_ct_body{width: 95%; padding: 10px 0; margin: 0 auto;}
 .ct_bt{width: 100%; border-top: #CACCCB 1px solid; text-align: right; padding: 10px 0; display: inline-block;}
 .ct_bt_msg{float: left; color: #999; padding-left: 10px;}
 .ct_bt_an{float: right; padding-right: 10px; display: none;}
@@ -29,23 +30,19 @@ input:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0
 .an{padding: 3px 15px; border: #CACCCB 1px solid; background-color: #F2F2F2; border-radius: 3px; box-shadow: 1px 1px 0px #999;}
 .an:hover{border: #2C8404 1px solid; background-color: #6FB737; color: #FFF;}
 
-table{width: 100%; border-collapse: collapse;}
-table td{padding: 5px 0; vertical-align: top;}
 .code{border: #CACCCB 1px solid; background-color: #F2F2F2; line-height: 20px; padding: 10px;}
 .left{float: left;}
 .right{float: right;}
 
 .logo{width: 150px; height: 50px; background:url("../public/images/webmis.gif") no-repeat center center;}
-.in_term{height: 300px; overflow-y: auto;}
+.in_term{height: 330px; overflow-y: auto;}
 .in_conf{width: 45%; height: 300px; overflow-y: auto;}
 
-/*Color*/
+/*ICO*/
 .suc{color: #6FB737;}
 .suc em{padding: 2px 10px; background:url("../webmis/images/right.png") no-repeat center center;}
 .err{color: red;}
 .err em{padding: 2px 10px; background:url("../webmis/images/error.png") no-repeat center center;}
-
+.load{color: #6FB737;}
+.load em{padding: 2px 10px; background:url("../webmis/images/onLoad.gif") no-repeat center center;}
 .c666{color: #666;}
-.c999{color: #999;}
-.green{color: green;}
-.red{color: #D34600;}
