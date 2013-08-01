@@ -1,6 +1,6 @@
 <div sytle="font-size: 12px;">
 <p>
-&nbsp;&nbsp;&nbsp; WEBMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WEBMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
 官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br>
@@ -14,10 +14,10 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 </p>
 <p>
 <b>二、安装</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp; 文件解压到网站跟目录；<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>方法一：安装向导</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp; 访问“install”目录<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>方法二：手动安装</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;文件解压到网站跟目录；<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>方法一：安装向导</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;访问“install”目录<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>方法二：手动安装</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;（1）创建数据库、导入“install”下的“webmis.sql”数据库文件； <br>
 &nbsp;&nbsp;&nbsp;&nbsp;（2）修改数据库配置文件；<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理后台：admin/app/config/database.php<br>
