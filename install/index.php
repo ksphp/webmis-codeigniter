@@ -162,21 +162,19 @@
 				<tr>
 					<td colspan="2">
 						<div class="left in_conf code">
-							<b>[ Apache ]</b><br>
-							开启重写<br><br>
-							方法一：<br>
+							<p><b>[ Apache ]</b><br>开启重写</p>
+							<p>方法一：<br>
 							[...]<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;AllowOverride All  #开启重写<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;Options Indexes FollowSymLinks  #浏览目录<br>
-							[...]
-							方法二：<br>
-							> a2enmod rewrite<br><br>
-							然后配置“/”和“amin”下的 .htaccess 文件 <br>
+							[...]</p>
+							<p>方法二：<br>
+							> a2enmod rewrite</p>
+							<p>然后配置“/”和“amin”下的 .htaccess 文件 </p>
 						</div>
 						<div class="right in_conf code">
-							<b>[ Nginx ]</b><br>
-							去除index.php<br><br>
-							location / {<br>
+							<p><b>[ Nginx ]</b><br>去除index.php</p>
+							<p>location / {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/(.*) /index.php last;<br>
@@ -187,7 +185,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/admin/(.*) /admin/index.php last;<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-							}<br>
+							}</p>
 						</div>
 					</td>
 				</tr>

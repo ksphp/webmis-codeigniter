@@ -36,7 +36,7 @@ table td{padding: 5px 0; vertical-align: top;}
 
 .logo{width: 150px; height: 50px; background:url("../public/images/webmis.gif") no-repeat center center;}
 .in_term{height: 330px; overflow-y: auto;}
-.in_conf{width: 45%; height: 300px; overflow-y: auto;}
+.in_conf{width: 45%; height: 320px; overflow-y: auto;}
 
 /*ICO*/
 .suc{color: #6FB737;}
