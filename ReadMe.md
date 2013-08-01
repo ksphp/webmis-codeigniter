@@ -16,7 +16,7 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 二、安装 <br />
 &nbsp;&nbsp;&nbsp;&nbsp; 文件解压到网站跟目录；<br />
 &nbsp;&nbsp;&nbsp;&nbsp; <b>方法一：安装向导</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <a href="install" >install</a>
+&nbsp;&nbsp;&nbsp;&nbsp; 访问“install”目录<br/><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>方法二：手动安装</b><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;（1）创建数据库、导入“install”下的“webmis.sql”数据库文件； <br />
 &nbsp;&nbsp;&nbsp;&nbsp;（2）修改数据库配置文件；<br />
