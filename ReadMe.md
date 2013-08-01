@@ -1,6 +1,6 @@
 <div sytle="font-size: 12px;">
 <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WEBMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
 官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br>
