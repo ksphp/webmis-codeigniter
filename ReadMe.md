@@ -9,12 +9,12 @@
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
-一、下载<br />
+<b>一、下载</b><br />
 https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 </p>
 <p>
-二、安装 <br />
-&nbsp;&nbsp;&nbsp;&nbsp; 文件解压到网站跟目录；<br />
+<b>二、安装</b><br />
+&nbsp;&nbsp;&nbsp;&nbsp; 文件解压到网站跟目录；<br/><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>方法一：安装向导</b><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; 访问“install”目录<br/><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>方法二：手动安装</b><br/>
@@ -25,12 +25,12 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；
 </p>
 <p>
-三、测试<br />
+<b>三、测试</b><br />
 &nbsp;&nbsp;&nbsp;&nbsp;网站前台：http://localhost/web<br />
 &nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：webmis 密码：ksphp.com)
 </p>
 <p>
-四、目录说明<br />
+<b>四、目录说明</b><br />
 admin-----------------------------后台管理项目<br />
 &nbsp;&nbsp;&nbsp; app---------------------------CI项目目录<br />
 &nbsp;&nbsp;&nbsp; backup------------------------数据备份目录 <br />
