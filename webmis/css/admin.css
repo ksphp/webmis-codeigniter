@@ -9,16 +9,9 @@ em{padding: 4px 10px;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 textarea{border: #999 1px solid; background: #EFF4FA;}
-input, textarea{
-    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-}
-input:focus, textarea:focus{
-    border-color: rgba(153, 153, 153, 0.8);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6);
-    outline: 0 none;
-}
-.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA; display: inline-block;}
+input, textarea{box-shadow 0.2s linear 0s; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
+input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6); outline: 0 none;}
+.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA; display: inline-block; padding: 0 5px;}
 
 .UI{background-image:url("../images/admin_ui.png"); background-repeat: no-repeat; background-position:0px 0px;}
 
