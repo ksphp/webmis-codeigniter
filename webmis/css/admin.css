@@ -24,6 +24,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .c999{color: #999;}
 .green{color: green;}
 .red{color: #D34600;}
+.code{border: #CCC 1px dashed; background: #F2F2F2; padding: 10px;}
 
 /* login */
 .login_bg{background: url("../images/admin_login_bg.gif") top repeat-x #B6B6B6;}
