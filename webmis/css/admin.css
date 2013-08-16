@@ -24,7 +24,10 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .c999{color: #999;}
 .green{color: green;}
 .red{color: #D34600;}
-.code{border: #CCC 1px dashed; background: #F2F2F2; padding: 10px;}
+.code{border: #CCC 1px dashed; background: #F2F2F2; padding: 5px 10px; overflow-y: auto;}
+.table{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid;}
+.table td{border: #CFCFCF 1px solid; padding: 0 5px;}
+.table .title{background: #F2F2F2;}
 
 /* login */
 .login_bg{background: url("../images/admin_login_bg.gif") top repeat-x #B6B6B6;}
