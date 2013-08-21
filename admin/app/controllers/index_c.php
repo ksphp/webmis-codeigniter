@@ -2,8 +2,13 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Index_c extends CI_Controller {
-
+	/*首页*/
 	public function index(){
+		$this->load->library('user_agent');
+		if($this->agent->is_mobile()) {
+			echo $agent = $this->agent->mobile();
+		}
+		//echo $agent = $_SERVER['HTTP_USER_AGENT'];
 		$this->load->view('login_v');
 	}
 	/*登录*/
@@ -46,8 +51,7 @@ class Index_c extends CI_Controller {
 	/*记录登录日志*/
 	private function loginLog($type,$uname){
 		$ip = $this->input->ip_address();
-		$headers = $this->input->request_headers();
-		$agent = @$headers['User-agent'];
+		$agent = $_SERVER['HTTP_USER_AGENT'];
 		$this->load->model('sys_admin_login_log_m');
 		$this->sys_admin_login_log_m->add($type,$uname,$ip,$agent);
 	}
