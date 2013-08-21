@@ -124,7 +124,6 @@ $mobiles = array(
 					'spv'				=> "SPV",
 					'zte'				=> "ZTE",
 					'sendo'				=> "Sendo",
-					'huawei'				=> "HUAWEI",
 
 					// Operating Systems
 					'symbian'				=> "Symbian",
