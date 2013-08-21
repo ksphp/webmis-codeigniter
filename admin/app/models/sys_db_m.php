@@ -1,6 +1,6 @@
 <?php
 class Sys_db_m extends CI_Model {
-	//数据库表
+	/*数据库表*/
 	public function getTableList(){
 		$table = $this->db->list_tables();
 		foreach($table as $val){

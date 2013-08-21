@@ -6,7 +6,7 @@ class Index_c extends CI_Controller {
 	public function index(){
 		$this->load->view('login_v');
 	}
-	//登录
+	/*登录*/
 	public function login(){
 		$this->load->model('sys_admin_m');
 		$uname = $this->input->post('uname');
@@ -35,7 +35,7 @@ class Index_c extends CI_Controller {
 			echo false;
 		}
 	}
-	//退出登录
+	/*退出登录*/
 	public function loginOut(){
 		session_start();
 		$uname = $_SESSION['uinfo']['uname']?$_SESSION['uinfo']['uname']:'Auto Logout';
@@ -43,7 +43,7 @@ class Index_c extends CI_Controller {
 		session_destroy();
 		header('location: '.base_url());
 	}
-	//记录登录日志
+	/*记录登录日志*/
 	private function loginLog($type,$uname){
 		$ip = $this->input->ip_address();
 		$headers = $this->input->request_headers();
@@ -51,7 +51,7 @@ class Index_c extends CI_Controller {
 		$this->load->model('sys_admin_login_log_m');
 		$this->sys_admin_login_log_m->add($type,$uname,$ip,$agent);
 	}
-	//拆分权限
+	/*拆分权限*/
 	private function splitPerm($perm){
 		if($perm){
 			$arr = explode(' ', $perm);

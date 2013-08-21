@@ -1,19 +1,19 @@
 <?php
 class Web_book_m extends CI_Model {
 	var $table = 'web_book';
-	//分页
+	/*分页*/
 	function page($num, $offset, $like=''){
 		$this->db->order_by('id desc');
 		if($like){$this->db->like($like);}
 		$query = $this->db->get($this->table,$num,$offset);
 		return $query->result();
 	}
-	//数据表条数
+	/*数据表条数*/
 	function count_all($like=''){
 		if($like){$this->db->like($like);}
 		return $this->db->count_all_results($this->table);
 	}
-	//查询一条数据
+	/*查询一条数据*/
 	function getOne(){
 		$id = $this->input->post('id');
 		if($id){
@@ -21,8 +21,7 @@ class Web_book_m extends CI_Model {
 			return $query->result_array();
 		}
 	}
-	
-	//更新
+	/*更新*/
 	function update(){
 		$id = $this->input->post('id');
 		if($id){
@@ -34,8 +33,7 @@ class Web_book_m extends CI_Model {
 			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
-	
-	//删除
+	/*删除*/
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
@@ -52,6 +50,5 @@ class Web_book_m extends CI_Model {
 			return $data;
 		}
 	}
-	
 }
 ?>

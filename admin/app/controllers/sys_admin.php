@@ -1,16 +1,16 @@
 <?php
 class Sys_admin extends MY_Controller {
-	//首页
+	/*首页*/
 	public function index(){
 		$data = $this->Page('sys_admin/index.html','sys_admin_m');
 		$data['js'] = array('js/system/sys_admin.js');
 		$this->MyView('system/admin/index',$data);
 	}
-	//搜索
+	/*搜索*/
 	public function search(){
 		$this->load->view('system/admin/sea');
 	}
-	//添加
+	/*添加*/
 	public function add(){
 		$this->load->view('system/admin/add');
 	}
@@ -18,7 +18,7 @@ class Sys_admin extends MY_Controller {
 		$this->load->model('sys_admin_m');
 		echo $this->sys_admin_m->add()?'{"status":"y"}':'{"status":"n"}';
 	}
-	//编辑
+	/*编辑*/
 	public function edit(){
 		$this->load->model('sys_admin_m');
 		$data = $this->sys_admin_m->getOne();
@@ -28,17 +28,17 @@ class Sys_admin extends MY_Controller {
 		$this->load->model('sys_admin_m');
 		echo $this->sys_admin_m->update()?'{"status":"y"}':'{"status":"n"}';
 	}
-	//删除
+	/*删除*/
 	public function delData(){
 		$this->load->model('sys_admin_m');
 		echo $this->sys_admin_m->del();
 	}
-	//用户名查询
+	/*用户名查询*/
 	public function uname(){
 		$this->load->model('sys_admin_m');
 		echo $this->sys_admin_m->uname()?'该用户存在！':'y';
 	}
-	//编辑权限
+	/*编辑权限*/
 	public function editPerm(){
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
@@ -81,7 +81,7 @@ class Sys_admin extends MY_Controller {
 		$data['menusHtml'] = $html;
 		$this->load->view('system/admin/perm',$data);
 	}
-	//拆分权限
+	/*拆分权限*/
 	public function splitPerm($perm){
 		if($perm){
 			$arr = explode(' ', $perm);
@@ -92,7 +92,7 @@ class Sys_admin extends MY_Controller {
 			return $permArr;
 		}
 	}
-	//更新权限
+	/*更新权限*/
 	public function permData(){
 		$this->load->model('sys_admin_m');
 		echo $this->sys_admin_m->updatePerm();

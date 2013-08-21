@@ -1,20 +1,20 @@
 <?php
 class Web_news extends MY_Controller {
-	//首页
+	/*首页*/
 	public function index(){
 		$data = $this->Page('web_news/index.html','web_news_m','page',array('in'=>array('0','1','2')),'id desc');
 		$data['js'] = array('js/web/web_news.js');
-		//分类信息
+		/*分类信息*/
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
 		
 		$this->MyView('web/news/index',$data);
 	}
-	//搜索
+	/*搜索*/
 	public function search(){
 		$this->load->view('web/news/sea');
 	}
-	//添加
+	/*添加*/
 	public function add(){
 		$this->load->view('web/news/add');
 	}
@@ -24,14 +24,14 @@ class Web_news extends MY_Controller {
 			echo $this->web_news_m->add()?'{"status":"y"}':'{"status":"n"}';
 		}
 	}
-	//查询菜单
+	/*查询菜单*/
 	public function getMenu(){
 		$this->load->model('web_class_m');
 		$fid = $this->input->post('fid');
 		$data = $this->web_class_m->getMenus($fid);
 		echo json_encode($data);
 	}
-	//编辑
+	/*编辑*/
 	public function edit(){
 		$this->load->model('web_news_m');
 		$menus = $this->web_news_m->getOne();
@@ -44,17 +44,17 @@ class Web_news extends MY_Controller {
 			echo $this->web_news_m->update()?'{"status":"y"}':'{"status":"n"}';
 		}
 	}
-	//删除
+	/*删除*/
 	public function delData(){
 		$this->load->model('web_news_m');
 		echo $this->web_news_m->del();
 	}
-	//审核
+	/*审核*/
 	public function auditData(){
 		$this->load->model('web_news_m');
 		echo $this->web_news_m->audit();
 	}
-	//图表
+	/*图表*/
 	public function chartData() {
 		$this->load->model('web_class_m');
 		$this->load->model('web_news_m');
@@ -67,9 +67,9 @@ class Web_news extends MY_Controller {
 		}
 		$html .= ']';
 		echo $html;
-		//echo '[["分类1",0],["分类2",0],["分类3",0],["分类4",0]]';
+		/*echo '[["分类1",0],["分类2",0],["分类3",0],["分类4",0]]';*/
 	}
-	//预览
+	/*预览*/
 	public function show(){
 		$this->load->model('web_news_m');
 		$menus = $this->web_news_m->getOne();
@@ -77,19 +77,18 @@ class Web_news extends MY_Controller {
 		
 		$this->load->view('web/news/show',$data);
 	}
-	//文件上传
+	/*文件上传*/
 	function upload($type='none'){
 		$this->load->library('upload_web');
 		$this->load->library('image');
-		
-		//上传
+		/*上传*/
 		$this->upload_web->upload('../upload/images');
-		//规格大小
+		/*规格大小*/
 		if($type == '1'){
 			$width = 110;
 			$height = 100;
 		}
-		//缩略图
+		/*缩略图*/
 		$imgInfo = $this->image->Info($this->upload_web->url);
 		$this->image->thumb($this->upload_web->url,$width,$height);
 	}

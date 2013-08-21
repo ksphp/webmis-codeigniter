@@ -1,7 +1,7 @@
 <?php
 class Sys_config_m extends CI_Model {
 	var $table = 'sys_config';
-	//返回配置信息
+	/*返回配置信息*/
 	function getVal(){
 		$query = $this->db->get($this->table);
 		$row = $query->result();
@@ -10,8 +10,7 @@ class Sys_config_m extends CI_Model {
 		}
 		return $data;
 	}
-	
-	//更新
+	/*更新*/
 	function update(){
 		$rt=false;
 		$post = $this->input->post();

@@ -12,10 +12,11 @@ class Image{
 		$this->__construct();
 	}
 	
-	//缩略图
+	/*缩略图*/
 	function thumb($image, $thumb_width = 300, $thumb_height = 225){
 		$info = $this->info($image);
-		$scale = min(1, min($thumb_width / $info['width'], $thumb_height / $info['height'])); //按比例缩放
+		/*按比例缩放*/
+		$scale = min(1, min($thumb_width / $info['width'], $thumb_height / $info['height']));
 		$thumb_width = intval($info['width'] * $scale);
 		$thumb_height = intval($info['height'] * $scale);
 		$createfunc = 'imagecreatefrom' . ($info['type'] == 'jpg' ? 'jpeg' : $info['type']);
@@ -36,7 +37,7 @@ class Image{
 		return $info['path'] . $thumbname;
 	}
 	
-	//添加水印
+	/*添加水印*/*
 	function watermark($image, $pos = 9, $watermarkimg = '../upload/logo.gif', $pct = 70, $text = '', $w_font = 5, $w_color = '#ff0000'){
 		$imageinfo = $this->info($image);
 		$source_w = $imageinfo['width'];
@@ -44,7 +45,7 @@ class Image{
 		$imagecreatefunc = 'imagecreatefrom' . ($imageinfo['type'] == 'jpg' ? 'jpeg' : $imageinfo['type']);
 		$im = $imagecreatefunc($image);
 		if (!empty($watermarkimg) && file_exists($watermarkimg)) {
-			//添加图片水印
+			/*添加图片水印*/
 			$iswaterimage = true;
 			$watermarkinfo = $this->info($watermarkimg);
 			$width = $watermarkinfo['width'];
@@ -53,7 +54,7 @@ class Image{
 				'jpeg' : $watermarkinfo['type']);
 			$watermark_im = $watermarkcreatefunc($watermarkimg);
 		} else {
-			//添加文字水印
+			/*添加文字水印*/
 			$iswaterimage = false;
 			if (!empty($w_color) && strlen($w_color) == 7) {
 				$r = hexdec(substr($w_color, 1, 2));
@@ -122,7 +123,7 @@ class Image{
 		return true;
 	}
 	
-	//获取图片信息
+	/*获取图片信息*/
 	function info($image){
 		$info = array();
 		$info['size'] = filesize($image);
@@ -134,7 +135,7 @@ class Image{
 		unset($imageinfo);
 		$imageinfo = pathinfo($image);
 		$info['path'] = $imageinfo['dirname'] . '/';
-		$info['type'] = strtolower($imageinfo['extension']); //图片类型，不含'.'
+		$info['type'] = strtolower($imageinfo['extension']);
 		$info['name'] = $imageinfo['filename'];
 		unset($imageinfo, $name);
 		$this->info = $info;

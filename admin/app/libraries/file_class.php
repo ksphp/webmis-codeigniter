@@ -123,7 +123,7 @@ class file_class{
 		return chmod($dir,$perm);
 	}
 
-	//文件夹大小
+	/*文件夹大小*/
 	function dirsize($dir) {
 		$handle=opendir($dir);
 		$size = 0;
@@ -135,24 +135,24 @@ class file_class{
 		closedir($handle);
 		return $size;
 	}
-	//文件大小
+	/*文件大小*/
 	function size($f='') {
 		return filesize($f);
 	}
 
-	//文件权限
+	/*文件权限*/
 	function perm($f='') {
 		return substr(sprintf('%o', fileperms($f)), -4);
 	}
-	//创建时间
+	/*创建时间*/
 	function getctime($f='') {
 		return date("Y-m-d H:i:s",filectime($f));
 	}
-	//修改时间
+	/*修改时间*/
 	function getmtime($f='') {
 		return date("Y-m-d H:i:s",filemtime($f));
 	}
-	//转换
+	/*转换*/
 	private function formatBytes($bytes){
 		if($bytes >= 1073741824){
 			$bytes = round($bytes / 1073741824 * 100) / 100 . ' GB';

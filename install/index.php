@@ -40,7 +40,7 @@
 				echo '<p class="err"><em>&nbsp;</em>打开失败：webmis.sql</p>';
 			}else {
 				echo '<p class="suc"><em>&nbsp;</em>打开成功：webmis.sql</p>';
-				$content = preg_replace("/#(.*)/i","",$content);
+				$content = preg_replace("/#\n# TABLE(.*)\s#\n/i","",$content);
 				$content = preg_replace("/'admin'/","'".$admin."'",$content);
 				$content = preg_replace("/'21232f297a57a5a743894a0e4a801fc3'/","'".$adminPWD."'",$content);
 				echo '<p class="suc"><em>&nbsp;</em>写入管理员信息！</p>';

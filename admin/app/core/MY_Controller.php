@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class MY_Controller extends CI_Controller {
-	//公共变量
+	/*公共变量*/
 	var $Cid;
 	var $Title;
 	var $NavId;
@@ -9,19 +9,19 @@ class MY_Controller extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
-		//公共加载
+		/*公共加载*/
 		$this->load->helper('my');
-		//是否登录
+		/*是否登录*/
 		session_start();
 		$logged = $_SESSION['uinfo']['logged_in'];
 		if(!$logged){
 			header('location: '.base_url().'index_c/loginOut.html');
 		}
-		//菜单信息
+		/*菜单信息*/
 		$Cname = $this->router->class;
 		$Aname = $this->router->method;
 		$this->getMenuInfo($Cname);
-		//权限判断
+		/*权限判断*/
 		$this->menuPrem($this->Cid);
 		if($Aname){$this->actionPrem($Aname);}
 	}
@@ -31,18 +31,18 @@ class MY_Controller extends CI_Controller {
 	public function Page($url,$model,$type='page',$where='',$order=''){
 		$this->load->library('pagination');
 		$this->load->model($model);
-		//搜索条件
+		/*搜索条件*/
 		$get_url = '?';
 		if(isset($_GET['search'])){
 			$like = $this->input->get();
 			unset($like['per_page']);
-			//组合url
+			/*组合url*/
 			foreach($like as $key=>$val){$get_url .= $key.'='.$val.'&';}
-			//清除search和空值
+			/*清除search和空值*/
 			unset($like['search']);
 			$like = array_filter($like);
 		}else{$like = array();}
-		//配置
+		/*配置*/
 		$config['base_url'] = base_url().$url.$get_url;
 		$config['total_rows'] = $this->$model->count_all($like,$where);
 		$config['page_query_string'] = TRUE;
@@ -64,10 +64,10 @@ class MY_Controller extends CI_Controller {
 		$config['num_tag_open'] = '<span>';
 		$config['num_tag_close'] = '</span>';
 		$this->pagination->initialize($config);
-		//返回数据
+		/*返回数据*/
 		$per_page = $this->input->get('per_page');
 		$data['list'] = $this->$model->$type($config['per_page'],$per_page,$like,$where,$order);
-		//其他信息
+		/*其他信息*/
 		$data['page'] = $this->pagination->create_links();
 		$data['total'] = '共<b> '.$config['total_rows'].' </b>条';
 		$data['key'] = $like;
@@ -79,16 +79,16 @@ class MY_Controller extends CI_Controller {
 * 自定义3层视图
 -------------------------------------------------------------------*/
 	public function MyView($url,$data=''){
-		//配置信息
+		/*配置信息*/
 		$this->load->model('sys_config_m');
 		$data['config'] = $this->sys_config_m->getval();
-		//用户信息
+		/*用户信息*/
 		$data['uinfo']=array(
 			'uname'=>$_SESSION['uinfo']['uname'],
 			'name'=>$_SESSION['uinfo']['name'],
 			'department'=>$_SESSION['uinfo']['department']
 		);
-		//头部数据
+		/*头部数据*/
 		$data['base_url']=base_url();
 		$data['NavId']=$this->NavId;
 		$data['MenuTwoId']=$this->MenuTwoId;
@@ -96,6 +96,7 @@ class MY_Controller extends CI_Controller {
 		$data['navHtml']=$this->getNavHtml();
 		$data['menuHtml']=$this->getMenuHtml(0);
 		$data['actionHtml']=$this->actionHtml();
+		/*视图*/
 		$this->load->view('inc/top',$data);
 		$this->load->view($url);
 		$this->load->view('inc/bottom');
@@ -147,12 +148,12 @@ class MY_Controller extends CI_Controller {
 		}
 		return $html;
 	}
-	//查询菜单
+	/*查询菜单*/
 	private function getMenus($fid){
 		$this->load->model('sys_menus_m');
 		return $this->sys_menus_m->getMenus($fid);
 	}
-	//菜单信息
+	/*菜单信息*/
 	private function getMenuInfo($url){
 		$this->load->model('sys_menus_m');
 		$fid = $this->sys_menus_m->getMenusUrl($url);
@@ -199,7 +200,7 @@ class MY_Controller extends CI_Controller {
 * 动作权限
 -------------------------------------------------------------------*/
 	private function actionPrem($Aname){
-		//echo $Aname.$permArr[$this->Cid];
+		/*echo $Aname.$permArr[$this->Cid];*/
 	}
 /*------------------------------------------------------------------
 * 状态名称
