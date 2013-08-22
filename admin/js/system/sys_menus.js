@@ -58,7 +58,7 @@ $(function(){
 	
 });
 
-//表单验证
+/*表单验证*/
 function menusForm(){
 	$('#menusSub').webmis('SubClass'); //按钮样式
 	//验证提交
@@ -86,7 +86,7 @@ function menusForm(){
 	});
 }
 
-//分类联动
+/*分类联动*/
 function menusClass(){
 	$('#menusClass').webmis('AutoSelect',{
 		url:$base_url+'sys_menus/getMenu.html',

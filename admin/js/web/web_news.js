@@ -89,7 +89,7 @@ $(function(){
 	
 });
 
-//表单验证
+/*表单验证*/
 function newsForm(){
 	$('#newsSub').webmis('SubClass'); //按钮样式
 	$.webmis.win.menu({change:'#newsBody', menus:['基本信息','详细内容']});  //选项卡
@@ -135,7 +135,7 @@ function newsForm(){
 	});
 }
 
-//分类联动
+/*分类联动*/
 function newsClass(){
 	$('#newsClass').webmis('AutoSelect',{
 		url:$base_url+'web_news/getMenu.html',
@@ -145,7 +145,7 @@ function newsClass(){
 		getVal:'#menus_fid'
 	});
 }
-//上传缩略图
+/*上传缩略图*/
 function ajaxFileUpload(){
 	var type = '1';
 	$.ajaxFileUpload({
@@ -162,7 +162,7 @@ function ajaxFileUpload(){
 			}
 		});
 }
-//显示详细信息
+/*显示详细信息*/
 function newsShow(id){
 	$.webmis.win.open({title:'预览',width:720,height:580,overflow:true});
 	//加载内容

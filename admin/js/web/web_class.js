@@ -59,7 +59,7 @@ $(function(){
 	
 });
 
-//表单验证
+/*表单验证*/
 function classForm(){
 	$('#classSub').webmis('SubClass'); //按钮样式
 	//验证提交
@@ -79,7 +79,7 @@ function classForm(){
 	});
 }
 
-//分类联动
+/*分类联动*/
 function newsClass(){
 	$('#newsClass').webmis('AutoSelect',{
 		url:$base_url+'web_class/getMenu.html',

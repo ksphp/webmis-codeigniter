@@ -44,7 +44,7 @@ $(function(){
 	
 });
 
-//表单验证
+/*表单验证*/
 function bookForm(){
 	$('#bookSub').webmis('SubClass'); //按钮样式
 	//验证提交
@@ -64,7 +64,7 @@ function bookForm(){
 	});
 }
 
-//详细信息
+/*详细信息*/
 function bookShow(id){
 	$.webmis.win.open({title:'预览',width:500,height:420,overflow:true});
 	//加载内容

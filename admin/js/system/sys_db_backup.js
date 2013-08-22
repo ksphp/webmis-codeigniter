@@ -22,7 +22,7 @@ $(function(){
 	});
 });
 
-//表单验证
+/*表单验证*/
 function expForm(){
 	$('#expSub').webmis('SubClass'); //按钮样式
 	//验证提交

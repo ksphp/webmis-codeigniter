@@ -56,7 +56,7 @@ $(function(){
 	
 });
 
-//表单验证
+/*表单验证*/
 function adminForm(){
 	$('#adminSub').webmis('SubClass'); //按钮样式
 	//验证提交

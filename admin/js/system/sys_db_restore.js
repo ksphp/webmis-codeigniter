@@ -47,7 +47,7 @@ $(function(){
 	});
 });
 
-//表单验证
+/*表单验证*/
 function impForm(){
 	$('#impSub').webmis('SubClass'); //按钮样式
 	$("#restoreForm").Validform({
