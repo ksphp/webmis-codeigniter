@@ -47,7 +47,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .login_ct_an .an1{background:url("../images/admin_ui.jpg") -22px -15px;}
 .login_ct_an .an2{background:url("../images/admin_ui.jpg") -98px -15px;}
 
-.login_copy{line-height: 45px; color: #999; text-align: center; background: url("../images/admin_login_line_x.png") 0px 1px repeat-x; border-radius: 5px;}
+.login_copy{line-height: 20px; color: #999; text-align: center; background: url("../images/admin_login_line_x.png") 0px 1px repeat-x; padding: 15px 0; border-radius: 5px;}
 
 /* top */
 .top_bg{background: url("../images/admin_top_bg.jpg") top right no-repeat #FFF; border-bottom:#B2B2B2 1px solid; padding: 0 10px; min-width: 650px;}

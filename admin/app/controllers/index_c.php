@@ -6,7 +6,12 @@ class Index_c extends CI_Controller {
 	public function index(){
 		/*是否手机设备*/
 		$this->load->library('user_agent');
-		$_SESSION['uinfo']['is_mobile'] = $this->agent->is_mobile();
+		$mode = $this->input->get('mode');
+		if($mode) {
+			$_SESSION['uinfo']['is_mobile'] = $mode=='mobile'?true:false;
+		}else {
+			$_SESSION['uinfo']['is_mobile'] = $this->agent->is_mobile();
+		}
 		
 		if($_SESSION['uinfo']['is_mobile']) {
 			$this->load->view('login_v_mo');

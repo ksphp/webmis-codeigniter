@@ -23,7 +23,10 @@
 			<a href="#" id="adminLogin">登&nbsp;&nbsp;录</a>
 		</div>
 	</div>
-	<div class="login_copy">Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a></div>
+	<div class="login_copy">
+		Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a><br>
+		<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
+	</div>
 </div>
 <script language="javascript" src="../webmis/plugin/jquery/jquery-2.0.3.min.js"></script>
 <script language="javascript" src="../webmis/js/webmis_mo.js"></script>

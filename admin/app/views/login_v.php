@@ -25,7 +25,10 @@
 				<span class="an"><input type="submit" id="adminLogin" class="an1" value="" /></span>
 			</div>
 		</div>
-		<div class="login_copy">Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a> All rights are reserved.</div>
+		<div class="login_copy">
+			Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a> All rights are reserved.<br>
+			<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
+		</div>
 	</div>
 </div>
 <script language="javascript" src="../webmis/plugin/jquery/jquery-1.10.2.min.js"></script>

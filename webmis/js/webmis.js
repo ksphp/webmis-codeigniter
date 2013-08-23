@@ -13,7 +13,7 @@ var $webmis_plugin = $webmis_root+'plugin/';
 
 $(function(){
 	$base_url = $('#base_url').text();			//网址
-	$('#webmisVersion').text('WebMIS v3.2');	//版本
+	$('#webmisVersion').text('WebMIS v4.0');	//版本
 	/*
 	** 加载 css,js
 	*/
