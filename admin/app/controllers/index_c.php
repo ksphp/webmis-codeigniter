@@ -4,12 +4,15 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index_c extends CI_Controller {
 	/*首页*/
 	public function index(){
+		/*是否手机设备*/
 		$this->load->library('user_agent');
-		if($this->agent->is_mobile()) {
-			echo $agent = $this->agent->mobile();
+		$_SESSION['uinfo']['is_mobile'] = $this->agent->is_mobile();
+		
+		if($_SESSION['uinfo']['is_mobile']) {
+			$this->load->view('login_v_mo');
+		}else {
+			$this->load->view('login_v');
 		}
-		//echo $agent = $_SERVER['HTTP_USER_AGENT'];
-		$this->load->view('login_v');
 	}
 	/*登录*/
 	public function login(){
