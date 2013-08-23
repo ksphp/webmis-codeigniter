@@ -1,8 +1,8 @@
 $(function(){
 	var doch = $(document).height();
 	var bodyh = $('body').height();
-	var mtop = (doch-bodyh)/2;
-	$('.login_body').css({'margin-top':mtop});
+	var mtop = (doch-bodyh)/4;
+	$('.login_body').css({'padding-top':mtop});
 	//登录
 	$('#adminLogin').click(function(){
 		var uname = $('#uname').val();

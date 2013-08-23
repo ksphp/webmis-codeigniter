@@ -1,4 +1,8 @@
 $(function(){
+	var doch = $(document).height();
+	var bodyh = $('body').height();
+	var mtop = (doch-bodyh)/4;
+	$('.login_body').css({'padding-top':mtop});
 	//登录事项
 	$('#adminLogin').hover(
 		function () {
