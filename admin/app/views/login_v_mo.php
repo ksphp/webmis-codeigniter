@@ -20,13 +20,13 @@
 		<div class="text"><input type="text" id="uname" /><br>用户名：</div>
 		<div class="text"><input type="password" id="passwd" /><br>密码：</div>
 		<div class="login_an">
-			<a href="" >登&nbsp;&nbsp;录</a>
+			<a href="#" id="adminLogin">登&nbsp;&nbsp;录</a>
 		</div>
 	</div>
 	<div class="login_copy">Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a></div>
 </div>
 <script language="javascript" src="../webmis/plugin/jquery/jquery-2.0.3.min.js"></script>
-<script language="javascript" src="../webmis/js/webmis.mo.js"></script>
-<script language="javascript" src="../webmis/js/admin.login.mo.js"></script>
+<script language="javascript" src="../webmis/js/webmis_mo.js"></script>
+<script language="javascript" src="../webmis/js/admin.login_mo.js"></script>
 </body>
 </html>
