@@ -34,7 +34,7 @@ $(function(){
 /*
 ** 信息提示框
 */
-	/*关闭窗口*
+	/*关闭窗口*/
 	var closeWin = function (target) {
 		$('#WebMisWin').slideUp('fast');
 		$('#WebMisWinBg').remove();
