@@ -31,7 +31,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 
 /* login */
 .login_bg{background: url("../images/admin_login_bg_mo.png") top repeat-x #CCC;}
-.login_body{width: 240px; margin: 0 auto;}
+.login_body{width: 90%; margin: 0 auto;}
 .login_top{height: 60px;}
 .login_top_logo{float: left; width: 160px; height: 60px; background: url("../images/admin_logo.gif") no-repeat center bottom;}
 .login_top_title{float: right; font-weight: bold; color: #666; padding: 38px 5px 0 0;}
