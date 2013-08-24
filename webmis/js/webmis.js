@@ -14,9 +14,9 @@ var $webmis_plugin = $webmis_root+'plugin/';
 $(function(){
 	$base_url = $('#base_url').text();			//网址
 	$('#webmisVersion').text('WebMIS v4.0');	//版本
-	/*
-	** 加载 css,js
-	*/
+/*
+** 加载 css,js
+*/
 	var include = function (options) {
 		var defaults = {files: '', doc: 'body'}
 		var options = $.extend(defaults, options);
@@ -31,11 +31,10 @@ $(function(){
 			$(options.doc).append("<" + tag + attr + link + "></" + tag + ">");
 		}
 	}
-
-	/*
-	** 信息提示框
-	*/
-	//关闭窗口
+/*
+** 信息提示框
+*/
+	/*关闭窗口*
 	var closeWin = function (target) {
 		$('#WebMisWin').slideUp('fast');
 		$('#WebMisWinBg').remove();
@@ -44,7 +43,7 @@ $(function(){
 		}
 		clearInterval(WebMisInt);
 	}
-	//打开窗口
+	/*打开窗口*/
 	var openWin = function (options) {
 		var defaults = {
 			title:'信息提示',
@@ -79,7 +78,6 @@ $(function(){
 			$(document).keydown(function(e){
 				if(e.which == 27){closeWin(options.target);}
 			});
-			
 			//获取参数
 			var winWindt = $(window).width();
 			var winHeight = $(window).height();
@@ -97,8 +95,7 @@ $(function(){
 			//添加移动
 			WebMisWinMove('#WebMisWinTop','#WebMisWin');
 		}
-
-		//提示框类型
+		//类型
 		if(options.overflow){
 			options.content = '<div id="WebMisWinCT" style="width: 100%; height: '+(options.height-55)+'px; overflow: auto;">'+options.content+'</div>';
 		}else if(options.AutoClose){
@@ -112,11 +109,11 @@ $(function(){
 		}
 		creatWinbox();
 	}
-	//加载内容
+	/*加载内容*/
 	var loadWin = function (data) {
 		$('#WebMisWinCT').html(data);   //加载内容
 	}
-	//添加选项卡
+	/*添加选项卡*/
 	var addWinMenu = function (options) {
 		var defaults = {change: '#winTopMenuBody', menus: ['选项卡1','选项卡2','选项卡3']}
 		var options = $.extend(defaults, options);
@@ -150,7 +147,6 @@ $(function(){
 */
 	$.fn.webmis = function (effect,options) {
 		var $this = this;
-		
 		/*
 		** ******联动菜单******
 		** url:数据源
@@ -304,7 +300,7 @@ $(function(){
 		}
 
 		/*
-		** ******命名空间******
+		** 命名空间
 		*/
 		switch (effect){
 			case 'AutoSelect':
@@ -324,9 +320,9 @@ $(function(){
 			break;
 		};
 	};
-	/*
-	** ******命名空间******
-	*/
+/*
+** 命名空间
+*/
 	$.webmis={
 		inc: include,
 		win: {open: openWin, load: loadWin, close: closeWin, menu: addWinMenu},
