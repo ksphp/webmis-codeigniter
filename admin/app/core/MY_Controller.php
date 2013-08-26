@@ -6,6 +6,7 @@ class MY_Controller extends CI_Controller {
 	var $Title;
 	var $NavId;
 	var $MenuTwoId;
+	var $IsMobile;
 	
 	function __construct(){
 		parent::__construct();
@@ -14,6 +15,7 @@ class MY_Controller extends CI_Controller {
 		/*是否登录*/
 		session_start();
 		$logged = $_SESSION['uinfo']['logged_in'];
+		$this->IsMobile = $_SESSION['uinfo']['is_mobile'];
 		if(!$logged){
 			header('location: '.base_url().'index_c/loginOut.html');
 		}
@@ -89,17 +91,22 @@ class MY_Controller extends CI_Controller {
 			'department'=>$_SESSION['uinfo']['department']
 		);
 		/*头部数据*/
-		$data['base_url']=base_url();
 		$data['NavId']=$this->NavId;
 		$data['MenuTwoId']=$this->MenuTwoId;
 		$data['title']=$this->Title;
-		$data['navHtml']=$this->getNavHtml();
-		$data['menuHtml']=$this->getMenuHtml(0);
-		$data['actionHtml']=$this->actionHtml();
 		/*视图*/
-		$this->load->view('inc/top',$data);
-		$this->load->view($url);
-		$this->load->view('inc/bottom');
+		if($this->IsMobile) {
+			$this->load->view('inc/top_mo',$data);
+			$this->load->view($url);
+			$this->load->view('inc/bottom_mo');
+		}else {
+			$data['navHtml']=$this->getNavHtml();
+			$data['menuHtml']=$this->getMenuHtml(0);
+			$data['actionHtml']=$this->actionHtml();
+			$this->load->view('inc/top',$data);
+			$this->load->view($url);
+			$this->load->view('inc/bottom');
+		}
 	}
 /*------------------------------------------------------------------
 * 导航菜单

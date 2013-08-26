@@ -4,7 +4,7 @@
 	</table>
 </div>
 <div class="copy"><?php echo $config['copy'];?></div>
-<div id="base_url" style="display: none;"><?php echo $base_url; ?></div>
+<div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
 <div id="NavId" style="display: none;"><?php echo $NavId; ?></div>
 <div id="MenuTwoId" style="display: none;"><?php echo $MenuTwoId; ?></div>

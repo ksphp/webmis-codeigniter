@@ -11,6 +11,7 @@
 
 <body class="login_bg">
 <div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
+<div id="is_mobile" style="display: none;"><?php echo $is_mobile; ?></div>
 <div class="login_top_bg">
 	<div class="login_body">
 		<div class="login_top">

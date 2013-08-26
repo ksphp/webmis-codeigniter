@@ -14,11 +14,12 @@ $(function(){
 	).click(function(){
 		var uname = $('#uname').val();
 		var passwd = $('#passwd').val();
+		var is_mobile = $('#is_mobile').text();
 		if(uname.length < 1 || passwd.length < 1){
 			$.webmis.win.open({content:'<b class="red">帐号或密码为空！</b>',AutoClose:3});
 			return false;
 		}else{
-			$.post($base_url+'index_c/login.html',{'uname':uname,'passwd':passwd},function(data){
+			$.post($base_url+'index_c/login.html',{'uname':uname,'passwd':passwd,'is_mobile':is_mobile},function(data){
 				if(data == 1){
 					$.webmis.win.close('welcome.html');
 				}else if(data == 2){

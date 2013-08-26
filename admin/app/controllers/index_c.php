@@ -4,19 +4,12 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index_c extends CI_Controller {
 	/*首页*/
 	public function index(){
-		/*是否手机设备*/
-		$this->load->library('user_agent');
-		$mode = $this->input->get('mode');
-		if($mode) {
-			$_SESSION['uinfo']['is_mobile'] = $mode=='mobile'?true:false;
-		}else {
-			$_SESSION['uinfo']['is_mobile'] = $this->agent->is_mobile();
-		}
+		$data['is_mobile'] = $this->IsMobile();
 		
-		if($_SESSION['uinfo']['is_mobile']) {
-			$this->load->view('login_v_mo');
+		if($data['is_mobile']) {
+			$this->load->view('login_v_mo',$data);
 		}else {
-			$this->load->view('login_v');
+			$this->load->view('login_v',$data);
 		}
 	}
 	/*登录*/
@@ -27,16 +20,13 @@ class Index_c extends CI_Controller {
 		$uinfo = $this->sys_admin_m->login($uname,$passwd);
 		if($uinfo){
 			if($uinfo[0]->state == 1){
-				$this->load->library('Session');
-				$udata = array(
-					'uname'  => $uinfo[0]->uname,
-					'name'  => $uinfo[0]->name,
-					'department'  => $uinfo[0]->department,
-					'logged_in' => TRUE,
-					'permArr' => $this->splitPerm($uinfo[0]->perm)
-				);
 				session_start();
-				$_SESSION['uinfo']=$udata;
+				$_SESSION['uinfo']['uname'] = $uinfo[0]->uname;
+				$_SESSION['uinfo']['name'] = $uinfo[0]->name;
+				$_SESSION['uinfo']['department'] = $uinfo[0]->department;
+				$_SESSION['uinfo']['logged_in'] = TRUE;
+				$_SESSION['uinfo']['is_mobile'] = $this->input->post('is_mobile');
+				$_SESSION['uinfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
 				$this->loginLog('登录',$uname);
 				echo true;
 			}else{
@@ -73,6 +63,18 @@ class Index_c extends CI_Controller {
 			}
 			return $permArr;
 		}
+	}
+	/*是否手机设备*/
+	private function IsMobile() {
+		/*是否手机设备*/
+		$this->load->library('user_agent');
+		$mode = $this->input->get('mode');
+		if($mode) {
+			$data = $mode=='mobile'?true:false;
+		}else {
+			$data = $this->agent->is_mobile();
+		}
+		return $data;
 	}
 }
 ?>
