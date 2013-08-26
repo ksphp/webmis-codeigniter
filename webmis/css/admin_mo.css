@@ -55,7 +55,8 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .nav span{float: left; font-size: 12px; font-weight: bold;}
 .nav .null{border-right: #DADCDE 1px solid;}
 .nav span a{padding: 0 6px; display: block; border-right: #DADCDE 1px solid;}
-.nav .an{color: #FFF; background: url("../images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
+.nav .an1{color: #FFF; background: url("../images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
+.nav .an2{color: #333;}
 
 /* Content */
 .copy{line-height: 30px; color: #999; text-align: center; border-top: #DADCDF 1px solid;}
