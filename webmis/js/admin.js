@@ -39,7 +39,7 @@ $(function(){
 /*
 ** ******菜单操作******
 */
-//点击一级菜单
+/*点击一级菜单*/
 function menuOne(id){
 	var title = $('#nav_'+id).text();
 	$('#menu_title').text(title);
@@ -63,7 +63,7 @@ function menuOne(id){
 		}
 	);
 }
-//点击二级菜单
+/*点击二级菜单*/
 function menuTwo(id){
 	//显示对应菜单
 	var p = $('#menuThree_'+id);
@@ -78,7 +78,7 @@ function menuTwo(id){
 /*
 ** ******动作******
 */
-//删除
+/*删除*/
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
@@ -101,7 +101,7 @@ function actionDel(dataUrl,targetUrl) {
 		$.webmis.win.open({content:'<b class="red">请选择！</b>',AutoClose:3});
 	}
 }
-//审核
+/*审核*/
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){

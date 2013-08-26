@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
-body{background: url("../images/bg.png") #E3E3E3;}
+body{background: url("../images/bg.png") #F4F7FA;}
 img{border: none;}
 ul{list-style: none;}
 em{padding: 4px 10px;}
