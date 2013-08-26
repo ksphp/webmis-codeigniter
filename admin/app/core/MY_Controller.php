@@ -96,6 +96,9 @@ class MY_Controller extends CI_Controller {
 		$data['title']=$this->Title;
 		/*视图*/
 		if($this->IsMobile) {
+			$data['navHtml']=$this->getNavHtml('mobile');
+			$data['menuHtml']=$this->getMenuHtmlMo(0);
+			$data['actionHtml']=$this->actionHtml();
 			$this->load->view('inc/top_mo',$data);
 			$this->load->view($url);
 			$this->load->view('inc/bottom_mo');
@@ -111,14 +114,18 @@ class MY_Controller extends CI_Controller {
 /*------------------------------------------------------------------
 * 导航菜单
 -------------------------------------------------------------------*/
-	private function getNavHtml(){
+	private function getNavHtml($mode='pc'){
 		$permArr = $_SESSION['uinfo']['permArr'];
 		$nav = $this->getMenus(0);
 		$html = '';
 		foreach($nav as $val){
 			if(isset($permArr[$val->id])){
-				$html .= '<span id="nav_'.$val->id.'" class="nav_an2"><a href="#" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></span>';
-				$html .= '<div class="line UI">&nbsp;</div>';
+				if($mode=='mobile') {
+					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="an2" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></li>';
+				}else {
+					$html .= '<span id="nav_'.$val->id.'" class="nav_an2"><a href="#" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></span>';
+					$html .= '<div class="line UI">&nbsp;</div>';
+				}
 			}
 		}
 		return $html;
@@ -126,6 +133,33 @@ class MY_Controller extends CI_Controller {
 /*------------------------------------------------------------------
 * 左侧菜单
 -------------------------------------------------------------------*/
+	private function getMenuHtmlMo($fid){
+		$this->load->model('sys_menus_m');
+		$permArr = $_SESSION['uinfo']['permArr'];
+		$one = $this->sys_menus_m->getMenus($fid);
+		$html = '';
+		foreach($one as $val1){
+			if(isset($permArr[$val1->id])){
+				$html .= '<div id="menuOne_'.$val1->id.'" class="nav_two">';
+				$two = $this->sys_menus_m->getMenus($val1->id);
+				foreach($two as $val2){
+					if(isset($permArr[$val2->id])){
+						$html .= '<div class="title">'.$val2->title.'</div>';
+						$html .= '<ul class="nav_three">';
+						$three = $this->sys_menus_m->getMenus($val2->id);
+						foreach($three as $val3){
+							if(isset($permArr[$val3->id])){
+								$html .= '<li><a href="'.base_url($val3->url.'.html').'" >'.$val3->title.'</a></li>';
+							}
+						}
+						$html .= '</ul>';
+					}
+				}
+				$html .= '</div>';
+			}
+		}
+		return $html;
+	}
 	private function getMenuHtml($fid){
 		$this->load->model('sys_menus_m');
 		$permArr = $_SESSION['uinfo']['permArr'];
