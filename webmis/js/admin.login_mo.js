@@ -2,6 +2,7 @@ $(function(){
 	var doch = $(document).height();
 	var bodyh = $('body').height();
 	var mtop = (doch-bodyh)/4;
+	alert(mtop);
 	$('.login_body').css({'padding-top':mtop});
 	//登录
 	$('#adminLogin').click(function(){
