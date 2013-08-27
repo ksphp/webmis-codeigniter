@@ -42,7 +42,7 @@
 		<td colspan="4" align="left"><b>服务器信息</b></td>
 	</tr>
 	<tr>
-		<td align="right">服务器IP地址:</td>
+		<td align="right">IP地址:</td>
 		<td><?php echo $server['ip']; ?></td>
 		<td align="right">服务器端口:</td>
 		<td><?php echo $server['port']; ?></td>

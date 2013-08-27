@@ -21,11 +21,11 @@
 		<td colspan="2" align="left"><b>用户信息</b></td>
 	</tr>
 	<tr>
-		<td width="80" align="right">IP地址:</td>
+		<td width="70" align="right">IP地址:</td>
 		<td><?php echo $user['ip']; ?></td>
 	</tr>
 	<tr>
-		<td width="80" align="right">操作系统:</td>
+		<td align="right">操作系统:</td>
 		<td><?php echo $user['platform']; ?></td>
 	</tr>
 	<tr>
@@ -46,7 +46,7 @@
 		<td colspan="2" align="left"><b>服务器信息</b></td>
 	</tr>
 	<tr>
-		<td align="right">服务器IP地址:</td>
+		<td align="right">IP地址:</td>
 		<td><?php echo $server['ip']; ?></td>
 	</tr>
 	<tr>

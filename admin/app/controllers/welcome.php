@@ -10,12 +10,12 @@ class Welcome extends MY_Controller {
 		$data['user']['version'] = $this->agent->version();
 		$data['user']['agent'] = $this->agent->agent_string();
 		
-		$data['server']['ip'] = $_SERVER['SERVER_ADDR'];
-		$data['server']['port'] = $_SERVER['SERVER_PORT'];
-		$data['server']['name'] = $_SERVER['SERVER_NAME'];
-		$data['server']['admin'] = $_SERVER['HTTP_REFERER'];
-		$data['server']['soft'] = $_SERVER['SERVER_SOFTWARE'];
-		$data['server']['url'] = $_SERVER['REDIRECT_URL'];
+		$data['server']['ip'] = @$_SERVER['SERVER_ADDR'];
+		$data['server']['port'] = @$_SERVER['SERVER_PORT'];
+		$data['server']['name'] = @$_SERVER['SERVER_NAME'];
+		$data['server']['admin'] = @$_SERVER['HTTP_REFERER'];
+		$data['server']['soft'] = @$_SERVER['SERVER_SOFTWARE'];
+		$data['server']['url'] = @$_SERVER['REDIRECT_URL'];
 		
 		$data['db']['dbdriver'] = $this->db->dbdriver;
 		$data['db']['hostname'] = $this->db->hostname;
