@@ -2,7 +2,35 @@
 class Welcome extends MY_Controller {
 	/*首页*/
 	public function index(){
-		$this->MyView('welcome_v');
+		$this->load->library('user_agent');
+		
+		$data['user']['ip'] = $this->input->ip_address();
+		$data['user']['platform'] = $this->agent->platform();
+		$data['user']['browser'] = $this->agent->browser();
+		$data['user']['version'] = $this->agent->version();
+		$data['user']['agent'] = $this->agent->agent_string();
+		
+		$data['server']['ip'] = $_SERVER['SERVER_ADDR'];
+		$data['server']['port'] = $_SERVER['SERVER_PORT'];
+		$data['server']['name'] = $_SERVER['SERVER_NAME'];
+		$data['server']['admin'] = $_SERVER['HTTP_REFERER'];
+		$data['server']['soft'] = $_SERVER['SERVER_SOFTWARE'];
+		$data['server']['url'] = $_SERVER['REDIRECT_URL'];
+		
+		$data['db']['dbdriver'] = $this->db->dbdriver;
+		$data['db']['hostname'] = $this->db->hostname;
+		$data['db']['username'] = $this->db->username;
+		$data['db']['database'] = $this->db->database;
+		$data['db']['dbprefix'] = $this->db->dbprefix;
+		$data['db']['char_set'] = $this->db->char_set;
+		
+		if($this->IsMobile) {
+			$data['js'] = array('js/system/welcome_mo.js');
+			$this->MyView('welcome_v_mo',$data);
+		}else {
+			$data['js'] = array('js/system/welcome.js');
+			$this->MyView('welcome_v',$data);
+		}
 	}
 }
 ?>

@@ -146,6 +146,42 @@ $(function(){
 */
 	$.fn.webmis = function (effect,options) {
 		var $this = this;
+
+		/* 表格隔行换色 */
+		var TableOddColor = function (options) {
+			var defaults = {oddClass:'TableTrBg1',overClass:'TableTrBg2'}
+			var options = $.extend(defaults, options);
+			//隔行变色
+			$this.children('tr:odd').addClass(options.oddClass);
+			//鼠标经过样式变化处
+			$this.children('tr').hover(
+				function () { 
+					$(this).addClass(options.overClass);
+				},
+				function () { 
+					$(this).removeClass(options.overClass);
+				}
+			);
+		}
+
+		/* 命名空间 */
+		switch (effect){
+			case 'AutoSelect':
+				AutoSelect(options);
+			break;
+			case 'GetInputID':
+				return GetInputID(options);
+			break;
+			case 'SubClass':
+				SubClass(options);
+			break;
+			case 'TableOddColor':
+				TableOddColor(options);
+			break;
+			case 'TableAdjust':
+				TableAdjust();
+			break;
+		};
 	}
 /*
 ** 命名空间

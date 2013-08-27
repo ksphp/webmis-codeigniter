@@ -22,7 +22,7 @@
 </ul>
 <div id="NavBody" class="nav_body">
 	<?php echo $menuHtml;?>
-	<div class="nav_hide"><a href="#" id="NavHide">====== 隐藏 ======</a></div>
+	<div class="nav_hide"><a href="#" id="NavHide">============ 隐藏 ============</a></div>
 </div>
 <div class="ct_body">
 	<!-- 二级菜单 -->
