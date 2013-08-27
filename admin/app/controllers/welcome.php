@@ -13,7 +13,7 @@ class Welcome extends MY_Controller {
 		$data['server']['ip'] = @$_SERVER['SERVER_ADDR'];
 		$data['server']['port'] = @$_SERVER['SERVER_PORT'];
 		$data['server']['name'] = @$_SERVER['SERVER_NAME'];
-		$data['server']['admin'] = @$_SERVER['HTTP_REFERER'];
+		$data['server']['admin'] = base_url();
 		$data['server']['soft'] = @$_SERVER['SERVER_SOFTWARE'];
 		$data['server']['url'] = @$_SERVER['REDIRECT_URL'];
 		
