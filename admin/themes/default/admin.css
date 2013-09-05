@@ -144,10 +144,10 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .ico-web:before {content: "\e1a6";}
 .ico-help:before {content: "\e0eb";}
 
-.ic0-disktop:before {content: "\e201";}
-.ic0-user:before {content: "\e06b";}
-.ic0-user1:before {content: "\e066";}
-.ic0-pwd:before {content: "\e07c";}
+.ico-disktop:before {content: "\e201";}
+.ico-user:before {content: "\e06b";}
+.ico-user1:before {content: "\e066";}
+.ico-pwd:before {content: "\e07c";}
 
 .ico-system1:before {content: "\e084";}
 .ico-system2:before {content: "\e080";}
