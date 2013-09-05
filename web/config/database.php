@@ -4,8 +4,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'webmis';
-$db['default']['password'] = 'www.ksphp.com';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'eckingsoul';
 $db['default']['database'] = 'webmis';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'wmis_';
