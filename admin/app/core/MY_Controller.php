@@ -124,12 +124,12 @@ class MY_Controller extends CI_Controller {
 				}else {
 					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="menu" onclick="return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
 					$two = $this->getMenus($val->id);
-					$html .= $two?'<ul>':'';
+					$html .= $two?'<ul style="display: none;">':'';
 					foreach($two as $val2){
 						if(isset($permArr[$val2->id])){
 							$html .= '<li><a href="#" onclick="return false;"><em class="'.$val2->ico.'">&nbsp;</em>'.$val2->title.'<em class="menuTitle">&nbsp;</em></a>';
 							$three = $this->getMenus($val2->id);
-							$html .= $three?'<ul>':'';
+							$html .= $three?'<ul style="display: none;">':'';
 							foreach($three as $val3){
 								if(isset($permArr[$val3->id])){
 									$html .= '<li><a href="'.base_url($val3->url.'.html').'"><em class="'.$val3->ico.'">&nbsp;</em>'.$val3->title.'</a>';
