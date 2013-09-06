@@ -1,4 +1,5 @@
 var moWidth = $(document).width()-20;
+if (moWidth > 360) {moWidth = 360}
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
