@@ -1,9 +1,9 @@
+var moWidth = $(document).width()-20;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
 	//内容区域
-	var dwidth = $(document).width()-20;
-	$('#NavBody').css({'width':dwidth});
+	$('#NavBody').css({'width':moWidth});
 	//菜单操作
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();

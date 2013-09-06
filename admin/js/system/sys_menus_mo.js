@@ -5,7 +5,7 @@ $(function(){
 	$('#menus_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:240,height:280});
+		$.webmis.win('open',{title:'搜索',width:moWidth-20,height:280});
 		//加载内容
 		$.get($base_url+'sys_menus/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
