@@ -1,10 +1,10 @@
 var moWidth = $(document).width()-20;
-if (moWidth > 360) {moWidth = 360}
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
 	//内容区域
 	$('#NavBody').css({'width':moWidth});
+	if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
 	//菜单操作
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();
