@@ -27,7 +27,7 @@
 	<tr>
 		<td class="right">图标:</td>
 		<td>
-			<input type="text" name="ico" class="input" style="width: 80%;" />
+			<input type="text" name="ico" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
