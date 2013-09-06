@@ -14,7 +14,11 @@ class Sys_menus extends MY_Controller {
 	}
 	/*搜索*/
 	public function search(){
-		$this->load->view('system/menus/sea');
+		if($this->IsMobile) {
+			$this->load->view('system/menus/sea_mo');
+		}else {
+			$this->load->view('system/menus/sea');
+		}
 	}
 	/*添加*/
 	public function add(){
