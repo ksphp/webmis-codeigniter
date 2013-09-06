@@ -9,13 +9,13 @@
 	<tr>
 		<td class="right">菜单名:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 95%;" />
+			<input type="text" name="title" class="input" style="width: 90%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">URL:</td>
 		<td>
-			<input type="text" name="url" class="input" style="width: 95%;" />
+			<input type="text" name="url" class="input" style="width: 90%;" />
 		</td>
 	</tr>
 	<tr>

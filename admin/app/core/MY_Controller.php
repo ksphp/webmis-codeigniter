@@ -167,7 +167,7 @@ class MY_Controller extends CI_Controller {
 						$three = $this->getMenus($val2->id);
 						foreach($three as $val3){
 							if(isset($permArr[$val3->id])){
-								$html .= '<li><a href="'.base_url($val3->url.'.html').'" class="'.$val3->ico.'">'.$val3->title.'</a></li>';
+								$html .= '<li><a href="'.base_url($val3->url.'.html').'" class="'.$val3->ico.'">&nbsp;'.$val3->title.'</a></li>';
 							}
 						}
 						$html .= '</ul>';
