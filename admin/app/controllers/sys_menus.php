@@ -24,7 +24,11 @@ class Sys_menus extends MY_Controller {
 	public function add(){
 		$this->load->model('sys_menus_action_m');
 		$data['action'] = $this->sys_menus_action_m->getAll();
-		$this->load->view('system/menus/add',$data);
+		if($this->IsMobile) {
+			$this->load->view('system/menus/add_mo',$data);
+		}else {
+			$this->load->view('system/menus/add',$data);
+		}
 	}
 	public function addData(){
 		$this->load->model('sys_menus_m');

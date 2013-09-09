@@ -15,7 +15,7 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		$.webmis.win('open',{title:'添加',width:640,height:450});
+		$.webmis.win('open',{title:'添加',width:moWidth,height:450,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_menus/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
