@@ -123,7 +123,7 @@ class MY_Controller extends CI_Controller {
 				if($mode=='mobile') {
 					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="an2" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></li>';
 				}else {
-					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an1" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
+					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an2" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
 					$html .= '<li class="UI lines">&nbsp;</li>';
 				}
 			}
