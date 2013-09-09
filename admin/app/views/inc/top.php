@@ -24,4 +24,18 @@
 		<div class="other"><a href="#" id="TopMenus" class="UI" title="显示/隐藏">&nbsp;</a></div>
 	</div>
 	<div class="top_nav_bg">&nbsp;</div>
+	<table class="tb_ct">
+		<tr>
+			<td id="tb_left" class="tb_left">
+				<div id="menus" class="menu">
+					<div class="menu_title">------ <span id="menu_title">Menu</span> ------</div>
+					<div class="menu_ct">
+						<?php echo $menuHtml; ?>
+					</div>
+				</div>
+			</td>
+			<td class="tb_line">
+				<div id="LeftMenus" class="UI tu" title="显示/隐藏">&nbsp;</div>
+			</td>
+			<td class="tb_right">
 			

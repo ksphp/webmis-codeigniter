@@ -2,23 +2,23 @@
 <div id="file_action" style="display: none;"><?php echo $file_action; ?></div>
 <div id="file_editor" style="display: none;"><?php echo $file_editor; ?></div>
 <!-- Action -->
-<table class="ct_table">
+<table class="action">
 	<tr>
-		<td class="ct_table_left">
-			<ul class="action">
-				<li class="title"><?php echo $title; ?></li>
-				<li class="action_ct">
-					<a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back">&nbsp;</em><br>返回上级</a><br>
-					<a href="#" id="ico-addfolder"><em class="ico-addfolder">&nbsp;</em><br>新建文件夹</a><br>
-					<a href="#" id="ico-addfile"><em class="ico-addfile">&nbsp;</em><br>新建文件</a><br>
-					<a href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="ico-refresh">&nbsp;</em><br>刷新</a><br>
-					<a href="#" id="ico-upload"><em class="ico-upload">&nbsp;</em><br>上传</a><br>
-					<a href="#" id="ico-down"><em class="ico-down">&nbsp;</em><br>下载</a><br>
-					<a href="#" id="ico-fdel"><em class="ico-fdel">&nbsp;</em><br>删除</a><br>
-				</li>
+		<td class="title"><?php echo $title; ?></td>
+		<td>
+			<ul class="action_ct">
+				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back">&nbsp;</em>返回上级</a></li>
+				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder">&nbsp;</em>新建文件夹</a><br></li>
+				<li><a href="#" id="ico-addfile"><em class="ico-addfile">&nbsp;</em>新建文件</a><br></li>
+				<li><a href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="ico-refresh">&nbsp;</em>刷新</a></li>
+				<li><a href="#" id="ico-upload"><em class="ico-upload">&nbsp;</em>上传</a></li>
+				<li><a href="#" id="ico-down"><em class="ico-down">&nbsp;</em>下载</a></li>
+				<li><a href="#" id="ico-fdel"><em class="ico-fdel">&nbsp;</em>删除</a></li>
 			</ul>
 		</td>
-		<td class="ct_table_right">
+	</tr>
+</table>
+<div class="line">&nbsp;</div>
 <!-- Content -->
 <table class="table_list">
 	<tr>
@@ -69,6 +69,3 @@
 	大小：<?php echo $filelist['size']; ?>
 </div>
 <!-- Content End -->
-		</td>
-	</tr>
-</table>

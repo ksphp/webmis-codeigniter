@@ -3,22 +3,24 @@ $(function(){
 	$('#webmisVersion').webmisVersion();
 	//导航菜单
 	var NavId = $('#NavId').text();
-	var Nav = $('#webmis_menu');
-	$('#nav_'+NavId).addClass('nav_an');
-	Nav.webmis('menu');
-	Nav.find('.menu').hover(function(){
-		Nav.find('.nav_an').removeClass('nav_an');
-		$(this).addClass('nav_an');
-	},function(){
-		//$(this).removeClass('nav_an');
-		//$('#nav_'+NavId).addClass('nav_an');
-	});
+	var MenuTwoId = $('#MenuTwoId').text();
+	menuOne(NavId);
+	menuTwo(MenuTwoId);
 	//显示、隐藏头部
 	$('#TopMenus').click(function(){
 		if($("#top").is(":hidden")){
 			$("#top").slideDown('fast');
 		}else{
 			$("#top").slideUp('fast');
+		}
+		return false;
+	});
+	//显示、隐藏左侧菜单
+	$('#LeftMenus').click(function(){
+		if($("#tb_left").is(":hidden")){
+			$("#tb_left").show();
+		}else{
+			$("#tb_left").hide();
 		}
 		return false;
 	});
@@ -35,6 +37,37 @@ $(function(){
 		return false;
 	});
 });
+/*点击一级菜单*/
+function menuOne(id){
+	var title = $('#nav_'+id).text();
+	$('#menu_title').text(title);
+	//导航样式
+	$('#webmis_menu').find('a').attr('class','nav_an2');
+	$('#nav_'+id).attr('class','nav_an1');
+	//隐藏二级菜单
+	$('#menus').find('.menuOne').hide();
+	//显示对应菜单
+	$('#menuOne_'+id).show().find('div').hover( 
+		function () { 
+			$(this).attr('class','menu_an_bg2 UI');
+		},
+		function () { 
+			$(this).attr('class','menu_an_bg1 UI');
+		}
+	);
+}
+/*点击二级菜单*/
+function menuTwo(id){
+	//显示对应菜单
+	var p = $('#menuThree_'+id);
+	if(p.is(':hidden')){
+		p.slideDown('fast');
+		$('#menuTwo_'+id).find('#tu').attr('class','jian UI');
+	}else{
+		p.slideUp('fast');
+		$('#menuTwo_'+id).find('#tu').attr('class','jia UI');
+	}
+}
 /*
 ** ******动作******
 */

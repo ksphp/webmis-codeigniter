@@ -46,7 +46,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .login_copy b{color: #999;}
 
 /* top */
-.top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat #FFF; border-bottom:#B2B2B2 1px solid; padding: 0 10px 10px 10px; min-width: 600px;}
+.top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat #FFF; border-bottom:#B2B2B2 1px solid; padding: 0 10px; min-width: 600px;}
 .top{height: 60px;}
 .top_logo{float: left; width: 180px; height: 60px; background: url("images/admin_logo.gif") no-repeat center bottom;}
 .top_link{float: right; color: #666; padding-right: 10px; margin-top: 38px;}
@@ -58,17 +58,27 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .top_nav .nav{float: left; border-left: #6FB737 1px solid;}
 .top_nav .nav_menu{font-size: 13px;}
 .top_nav .nav_menu li{float: left;}
+.top_nav .nav_menu li a{line-height: 28px; padding: 0 8px; display: inline-block;}
 .top_nav .nav_menu .lines{width: 5px; background-position: -20px -80px;}
-.top_nav .nav_menu .menu{height: 30px; line-height: 30px; padding: 0 10px; display: block;}
-.top_nav .nav_menu ul li a{line-height: 30px; border-bottom: #BBB 1px solid; background-color: #F4F7FA; color: #666;}
-.top_nav .nav_menu ul li a em{color: #666;}
-.top_nav .nav_menu ul li a:hover{color: #6FB737; background-color: #E2ECF7;}
-.top_nav .nav_menu ul li a:hover em{color: #6FB737;}
 
-.nav_an{color: #FFF; background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
-.nav_an em{color: #FFF;}
-.nav_an:hover{color: #FFF;}
-.nav_an:hover em{color: #FFF;}
+.nav_an1{color: #FFF; background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
+.nav_an1 em{color: #FFF;}
+.nav_an1:hover{color: #FFFF00;}
+.nav_an1:hover em{color: #FFFF00;}
+.nav_an2{color: #333;}
+.nav_an2:hover{color: #FF6600;}
+
+.menu_title{line-height: 26px; text-align: center; color: #999; border-bottom: #DADCDF 1px solid; background: url("images/admin_top_nav_x.jpg") repeat-x;}
+.menu_ct{padding-bottom: 15px;}
+.menu_ct div div{height: 28px; line-height: 28px; font-weight: bold; padding: 0 5px;}
+.menu_ct .title{cursor: pointer; width: 140px; color: #666; display: inline-block;}
+.menu_ct .jian{cursor: pointer; background-position: -306px -82px; padding: 0 5px;}
+.menu_ct .jia{cursor: pointer; background-position: -306px -57px; padding: 0 5px;}
+.menu_an_bg1{background-position: 0px -120px;}
+.menu_an_bg2{background-position: 0px -155px;}
+.menu_list li{padding: 6px; font-weight: normal; border: none;}
+.menuTwo{display: none;}
+.menu_list{display: none;}
 
 .top_nav .other{float: right; width: 25px; text-align: center; border-left: #6FB737 1px solid;}
 .top_nav .other a{padding: 3px 6px; background-position: -329px -53px;}
@@ -78,9 +88,13 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .copy{line-height: 30px; color: #999; text-align: center; border-top: #DADCDF 1px solid;}
 .line{height: 10px; background: url("images/admin_top_nav_x.jpg") 0 -71px repeat-x; border-radius: 3px;}
 .fileImgView{width: 100%; height: 340px; border-collapse: collapse; text-align: center; background: url("images/bg.png") #333; margin: 0 auto;}
-.ct_table{width: 100%; border-collapse: collapse;}
-.ct_table_left{width: 100px; vertical-align: top;}
-.ct_table_right{padding-left: 10px; vertical-align: top;}
+.delData{padding: 20px 0; text-align: center;}
+
+.tb_ct{width: 100%; border-collapse: collapse; background: #F4F7FA;}
+.tb_left{width: 170px; vertical-align: top; border-top: #DADCDF 1px solid; border-left: #DADCDF 1px solid; border-right: #6FB737 1px solid;}
+.tb_line{width: 16px; vertical-align: top; background: url("../images/admin_tb_line_y.jpg") repeat-y #FFF;}
+.tb_line .tu{cursor: pointer; position: relative; top: -1px; width: 12px; height: 80px; background-position: -200px -110px;}
+.tb_right{ vertical-align: top; background: #FFF;}
 
 /* Show */
 .show_body{padding: 20px;}
@@ -105,7 +119,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 
 /* Table */
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF; box-shadow: 1px 1px 3px #BBB;}
-.table_list td{border: #BBB 1px solid; padding: 8px 5px;}
+.table_list td{border: #BBB 1px solid; padding: 6px 5px;}
 .table_list .title{color: #666; font-weight: bold; background: url("images/admin_tb_x.jpg") repeat-x #F4F7FA;}
 
 .table_list_show{width: 100%; border-collapse: collapse; text-align: center; background: #FFF; margin: 0 auto;}
@@ -122,21 +136,11 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .SubClass2{background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
 
 /* Action */
-.delData{padding: 20px 0; text-align: center;}
-.action{border: #BBB 1px solid; color: #666; border-radius: 3px 3px 0 0; box-shadow: 1px 1px 3px #BBB;}
-.action li{text-align: center;}
-.action .title{line-height: 32px; font-weight: bold; border-bottom: #6FB737 2px solid; background: url("images/admin_top_nav_x.jpg") repeat-x;}
-.action_ct{}
-.action li a{width: 100%; color: #007568; border-bottom: #BBB 1px solid; background: #F4F7FA; text-align: center; padding: 8px 0; display: inline-block;}
-.action li a:hover{color: #FFF; border-bottom: #FFF 1px solid; background: #6FB737;}
-.action li a:hover em{color: #F2F2F2;}
-.action li a em{line-height: 32px; font-size: 20px; color: #6FB737;}
-.action li a em:hover{}
-
-.action1{width: 100%; border-collapse: collapse; line-height: 30px; border: #BBB 1px solid; background: #F4F7FA; color: #999; border-radius: 3px 0 0 3px;}
-.action1 td{padding: 0 5px;}
-.action1 .title{width: 60px; color: #666; text-align: center; font-weight: bold; border-right: #BBB 1px solid; background: #FFF;}
-.action1_ct li{float: left; padding: 0 5px;}
+.action{width: 100%; border-collapse: collapse; line-height: 30px; border: #BBB 1px solid; background: #F4F7FA; color: #999; border-radius: 3px 0 0 3px;}
+.action td{padding: 0 5px;}
+.action .title{width: 80px; color: #666; text-align: center; font-weight: bold; border-right: #BBB 1px solid; background: #FFF;}
+.action_ct li{float: left; padding: 0 8px;}
+.action_ct li a:hover em{color: #FF6600;}
 
 /* ICO */
 .ico-home:before {content: "\e000";}

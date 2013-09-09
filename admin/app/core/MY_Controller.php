@@ -104,6 +104,7 @@ class MY_Controller extends CI_Controller {
 			$this->load->view('inc/bottom_mo');
 		}else {
 			$data['navHtml']=$this->getNavHtml();
+			$data['menuHtml']=$this->getMenuHtml(0);
 			$data['actionHtml']=$this->actionHtml();
 			$this->load->view('inc/top',$data);
 			$this->load->view($url);
@@ -122,26 +123,7 @@ class MY_Controller extends CI_Controller {
 				if($mode=='mobile') {
 					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="an2" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></li>';
 				}else {
-					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="menu" onclick="return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
-					$two = $this->getMenus($val->id);
-					$html .= $two?'<ul style="display: none;">':'';
-					foreach($two as $val2){
-						if(isset($permArr[$val2->id])){
-							$html .= '<li><a href="#" onclick="return false;"><em class="'.$val2->ico.'">&nbsp;</em>'.$val2->title.'<em class="menuTitle">&nbsp;</em></a>';
-							$three = $this->getMenus($val2->id);
-							$html .= $three?'<ul style="display: none;">':'';
-							foreach($three as $val3){
-								if(isset($permArr[$val3->id])){
-									$html .= '<li><a href="'.base_url($val3->url.'.html').'"><em class="'.$val3->ico.'">&nbsp;</em>'.$val3->title.'</a>';
-									$html .= '</li>';
-								}
-							}
-							$html .= $three?'</ul>':'';
-							$html .= '</li>';
-						}
-					}
-					$html .= $two?'</ul>':'';
-					$html .= '</li>';
+					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an1" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
 					$html .= '<li class="UI lines">&nbsp;</li>';
 				}
 			}
@@ -152,6 +134,35 @@ class MY_Controller extends CI_Controller {
 /*------------------------------------------------------------------
 * 分类菜单
 -------------------------------------------------------------------*/
+	private function getMenuHtml($fid){
+		$this->load->model('sys_menus_m');
+		$permArr = $_SESSION['uinfo']['permArr'];
+		$one = $this->getMenus($fid);
+		$html = '';
+		foreach($one as $val1){
+			if(isset($permArr[$val1->id])){
+				$html .= "\n\t\t\t\t\t\t".'<!-- '.$val1->url.' -->'."\n\t\t\t\t\t\t";
+				$html .= '<div id="menuOne_'.$val1->id.'" class="menuOne">'."\n\t\t\t\t\t\t\t";
+				$two = $this->getMenus($val1->id);
+				foreach($two as $val2){
+					if(isset($permArr[$val2->id])){
+						$html .= '<div id="menuTwo_'.$val2->id.'" class="menu_an_bg1 UI" onclick="menuTwo(\''.$val2->id.'\')"><span class="title">'.$val2->title.'</span><span id="tu" class="jia UI">&nbsp;</span></div>'."\n\t\t\t\t\t\t\t\t";
+						$html .= '<ul id="menuThree_'.$val2->id.'" class="menu_list">'."\n\t\t\t\t\t\t\t\t";
+						$three = $this->getMenus($val2->id);
+						foreach($three as $val3){
+							if(isset($permArr[$val3->id])){
+								$html .= '<li><a href="'.base_url($val3->url.'.html').'"><em class="'.$val3->ico.'">&nbsp;</em>'.$val3->title.'</a></li>'."\n\t\t\t\t\t\t\t\t";
+							}
+						}
+						$html .= '</ul>'."\n\t\t\t\t\t\t\t";
+					}
+				}
+				$html .= '</div>'."\n\t\t\t\t\t\t";
+				$html .= '<!-- '.$val1->url.' End -->'."\n";
+			}
+		}
+		return $html;
+	}
 	private function getMenuHtmlMo($fid){
 		$permArr = $_SESSION['uinfo']['permArr'];
 		$one = $this->getMenus($fid);
@@ -209,13 +220,13 @@ class MY_Controller extends CI_Controller {
 					if($mode=='mobile') {
 						$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 					}else {
-						$html .= '<a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em><br>'.$val->name.'</a><br>';
+						$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 					}
 				}else{
 					if($mode=='mobile') {
 						$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 					}else {
-						$html .= '<a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em><br>'.$val->name.'</a><br>';
+						$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 					}
 				}
 			}

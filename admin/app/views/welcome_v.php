@@ -1,12 +1,14 @@
-<table class="ct_table">
+<table class="action">
 	<tr>
-		<td class="ct_table_left">
-			<ul class="action">
-				<li class="title"><?php echo $title; ?></li>
-				<li class="action_ct"><?php echo $actionHtml; ?></li>
+		<td class="title"><?php echo $title; ?></td>
+		<td>
+			<ul class="action_ct">
+				<?php echo $actionHtml; ?>
 			</ul>
 		</td>
-		<td class="ct_table_right">
+	</tr>
+</table>
+<div class="line">&nbsp;</div>
 <!-- Content -->
 <table class="table_list">
 	<tr>
@@ -90,6 +92,3 @@
 </table>
 <br><br>
 <!-- Content End -->
-		</td>
-	</tr>
-</table>

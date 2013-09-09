@@ -1,14 +1,15 @@
-<table class="ct_table">
+<table class="action">
 	<tr>
-		<td class="ct_table_left">
-			<ul class="action">
-				<li class="title"><?php echo $title; ?></li>
-				<li class="action_ct"><?php echo $actionHtml; ?></li>
+		<td class="title"><?php echo $title; ?></td>
+		<td>
+			<ul class="action_ct">
+				<?php echo $actionHtml; ?>
 			</ul>
 		</td>
-		<td class="ct_table_right">
+	</tr>
+</table>
+<div class="line">&nbsp;</div>
 <!-- Content -->
-<div class="right_ct">
 <form action="<?php echo base_url('sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
 	<tr>
@@ -40,8 +41,4 @@
 	</tr>
 </table>
 </form>
-</div>
 <!-- Content End -->
-		</td>
-	</tr>
-</table>

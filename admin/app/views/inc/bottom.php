@@ -1,4 +1,7 @@
 
+			</td>
+		</tr>
+	</table>
 </div>
 <div class="copy"><?php echo $config['copy'];?></div>
 <div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
