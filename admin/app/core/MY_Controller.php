@@ -217,17 +217,9 @@ class MY_Controller extends CI_Controller {
 		foreach($action as $val){
 			if(intval($permArr[$this->Cid])&intval($val->perm)){
 				if($i == 1){
-					if($mode=='mobile') {
-						$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
-					}else {
-						$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
-					}
+					$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 				}else{
-					if($mode=='mobile') {
-						$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
-					}else {
-						$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
-					}
+					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
 				}
 			}
 			$i++;
