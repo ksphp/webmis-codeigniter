@@ -6,7 +6,6 @@ $(function(){
 	//内容区域
 	$('#NavBody').css({'width':moWidth});
 	if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
-	alert(moHeight);
 	//菜单操作
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();
