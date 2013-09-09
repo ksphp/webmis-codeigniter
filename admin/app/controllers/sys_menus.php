@@ -47,7 +47,11 @@ class Sys_menus extends MY_Controller {
 		$this->load->model('sys_menus_action_m');
 		$data['edit'] = $this->sys_menus_m->getOne();
 		$data['action'] = $this->sys_menus_action_m->getAll();
-		$this->load->view('system/menus/edit',$data);
+		if($this->IsMobile) {
+			$this->load->view('system/menus/edit_mo',$data);
+		}else {
+			$this->load->view('system/menus/edit',$data);
+		}
 	}
 	public function editData(){
 		$this->load->model('sys_menus_m');
