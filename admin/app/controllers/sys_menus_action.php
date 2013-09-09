@@ -3,16 +3,29 @@ class Sys_menus_action extends MY_Controller {
 	/*首页*/
 	public function index(){
 		$data = $this->Page('sys_menus_action/index.html','sys_menus_action_m');
-		$data['js'] = array('js/system/sys_menus_action.js');
-		$this->MyView('system/menus/action/index',$data);
+		if($this->IsMobile) {
+			$data['js'] = array('js/system/sys_menus_action_mo.js');
+			$this->MyView('system/menus/action/index_mo',$data);
+		}else {
+			$data['js'] = array('js/system/sys_menus_action.js');
+			$this->MyView('system/menus/action/index',$data);
+		}
 	}
 	/*搜索*/
 	public function search(){
-		$this->load->view('system/menus/action/sea');
+		if($this->IsMobile) {
+			$this->load->view('system/menus/action/sea_mo');
+		}else {
+			$this->load->view('system/menus/action/sea');
+		}
 	}
 	/*添加*/
 	public function add(){
-		$this->load->view('system/menus/action/add');
+		if($this->IsMobile) {
+			$this->load->view('system/menus/action/add_mo');
+		}else {
+			$this->load->view('system/menus/action/add');
+		}
 	}
 	public function addData(){
 		$this->load->model('sys_menus_action_m');
@@ -27,7 +40,11 @@ class Sys_menus_action extends MY_Controller {
 	public function edit(){
 		$this->load->model('sys_menus_action_m');
 		$data['edit'] = $this->sys_menus_action_m->getOne();
-		$this->load->view('system/menus/action/edit',$data);
+		if($this->IsMobile) {
+			$this->load->view('system/menus/action/edit_mo',$data);
+		}else {
+			$this->load->view('system/menus/action/edit',$data);
+		}
 	}
 	public function editData(){
 		$this->load->model('sys_menus_action_m');
