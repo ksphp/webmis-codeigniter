@@ -4,7 +4,7 @@
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="add_width add_right">权限:</td>
+		<td class="width right">权限:</td>
 		<td>
 			<input type="text" id="file_perm" name="perm" class="input" style="width: 100px;" maxlength="4" />
 		</td>

@@ -16,21 +16,21 @@
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="add_width add_right">用户名:</td>
+		<td class="width right">用户名:</td>
 		<td>
 			<b id="uname"><?php echo $uinfo['uname']; ?></b>
 			<input type="hidden" name="uname" value="<?php echo $uinfo['uname']; ?>" />
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">新密码:</td>
+		<td class="right">新密码:</td>
 		<td>
 			<input type="password" name="passwd" class="input" style="width: 180px;" datatype="*6-16" errormsg="6~16位之间！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="add_width add_right">确认密码:</td>
+		<td class="right">确认密码:</td>
 		<td>
 			<input type="password" class="input" style="width: 180px;" datatype="*" errormsg="密码不一致！" recheck="passwd" />
 			<span class="Validform_checktip"></span>

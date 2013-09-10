@@ -1,14 +1,14 @@
 <form action="<?php echo base_url('sys_db_backup/expData.html');?>" method="post" id="backForm">
 <table class="table_add">
 	<tr>
-		<td class="add_width add_right">文件名:</td>
+		<td class="width right">文件名:</td>
 		<td>
 			<input type="text" name="name" class="input" style="width: 200px;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">格式:</td>
+		<td class="right">格式:</td>
 		<td>
 			<select name="format">
 				<option value="sql">.sql</option>
@@ -19,7 +19,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">目录:</td>
+		<td class="right">目录:</td>
 		<td>
 			<select name="dir">
 				<option value="<?php echo $backdir;?>"><?php echo $backdir;?></option>
@@ -27,7 +27,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">内容:</td>
+		<td class="right">内容:</td>
 		<td>
 			<textarea name="table" style="width: 320px; height: 120px;"><?php echo $table;?></textarea>
 		</td>

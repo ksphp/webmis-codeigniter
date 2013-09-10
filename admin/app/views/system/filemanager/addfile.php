@@ -4,7 +4,7 @@
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="add_width add_right">文件:</td>
+		<td class="width right">文件:</td>
 		<td>
 			<input type="text" name="file" class="input" value="test.txt" style="width: 200px;" maxlength="19" />
 			<span class="Validform_checktip"></span>

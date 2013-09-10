@@ -1,10 +1,3 @@
-<style type="text/css">
-.news_body{padding: 20px;}
-.news_title{height: 50px; line-height: 50px; text-align: center; font-size: 16px; font-weight: bold;}
-.news_other{text-align: center; color: #999; padding: 5px 0;}
-.news_key{line-height: 24px; border: #CCC 1px solid; background: #F2F2F2; padding: 10px;}
-.news_ct{line-height: 24px; font-size: 14px; padding-top: 10px;}
-</style>
 <div class="show_body">
 	<div class="show_title"><?php echo $show->title;?></div>
 	<div class="show_other">

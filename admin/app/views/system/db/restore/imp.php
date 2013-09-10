@@ -1,7 +1,7 @@
 <form action="<?php echo base_url('sys_db_restore/impData.html');?>" method="post" id="restoreForm">
 <table class="table_add">
 	<tr>
-		<td class="add_width add_right">恢复文件:</td>
+		<td class="width right">恢复文件:</td>
 		<td>
 			<input type="text" name="file" class="input" style="width: 280px;" value="<?php echo $file;?>" />
 		</td>

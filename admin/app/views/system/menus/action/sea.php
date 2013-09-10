@@ -1,19 +1,19 @@
 <form action="<?php echo base_url('sys_menus_action/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
-		<td class="add_width add_right">名称:</td>
+		<td class="width right">名称:</td>
 		<td>
 			<input type="text" name="name" class="input" style="width: 160px;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">权限:</td>
+		<td class="right">权限:</td>
 		<td>
 			<input type="text" name="perm" class="input" style="width: 160px;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="add_right">图标:</td>
+		<td class="right">图标:</td>
 		<td>
 			<input type="text" name="ico" class="input" style="width: 160px;" />
 		</td>
