@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width right">文件名:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 80%;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
+			<input type="text" name="name" class="input" style="width: 90%;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
@@ -29,7 +29,7 @@
 	<tr>
 		<td class="right">内容:</td>
 		<td>
-			<textarea name="table" style="width: 90%; height: 120px;"><?php echo $table;?></textarea>
+			<textarea name="table" style="width: 95%; height: 120px;"><?php echo $table;?></textarea>
 		</td>
 	</tr>
 	<tr>

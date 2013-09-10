@@ -17,7 +17,6 @@
 		<td>类型</td>
 		<td>用户名</td>
 		<td>时间</td>
-		<td>IP</td>
 		<td>Agent</td>
 	</tr>
 	<tbody id="listBG">
@@ -28,7 +27,6 @@
 		<td><?php echo keyHH($val->type, @$key['type']);?></td>
 		<td><?php echo keyHH($val->uname, @$key['uname']);?></td>
 		<td><?php echo keyHH($val->time, @$key['time']);?></td>
-		<td><?php echo keyHH($val->ip, @$key['ip']);?></td>
 		<td align="left"><?php echo keyHH($val->agent, @$key['agent']);?></td>
 	</tr>
 	<?php } ?>
