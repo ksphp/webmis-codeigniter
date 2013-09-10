@@ -62,17 +62,30 @@ class Sys_filemanager extends MY_Controller {
 				$data['file_editor'] = '';
 				$path = $this->input->get('path');
 				$data['filelist'] = $this->file_class->lists($path);
-				$data['js'] = array('js/system/sys_filemanager.js');
-				$this->MyView('system/filemanager/index',$data);
+				if($this->IsMobile) {
+					$data['js'] = array('js/system/sys_filemanager_mo.js');
+					$this->MyView('system/filemanager/index_mo',$data);
+				}else {
+					$data['js'] = array('js/system/sys_filemanager.js');
+					$this->MyView('system/filemanager/index',$data);
+				}
 		}
 	}
 	/* 新建文件夹 */
 	function addFolder() {
-		$this->load->view('system/filemanager/mkdir');
+		if($this->IsMobile) {
+			$this->load->view('system/filemanager/mkdir_mo');
+		}else {
+			$this->load->view('system/filemanager/mkdir');
+		}
 	}
 	/* 新建文件夹 */
 	function addFile() {
-		$this->load->view('system/filemanager/addfile');
+		if($this->IsMobile) {
+			$this->load->view('system/filemanager/addfile_mo');
+		}else {
+			$this->load->view('system/filemanager/addfile');
+		}
 	}
 	function addFileData($file) {
 		$this->load->helper('file');
