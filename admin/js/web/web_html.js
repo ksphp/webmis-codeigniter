@@ -20,7 +20,7 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		if(IsMobile){moWidth = 820; moHeight= 550;}
+		if(!IsMobile){moWidth = 820; moHeight= 550;}
 		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_html/add.html',function(data){
