@@ -5,7 +5,8 @@ $(function(){
 	$('#class_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:340,height:250});
+		if(!IsMobile){moWidth = 340;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:250});
 		//加载内容
 		$.get($base_url+'web_class/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -15,7 +16,8 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		$.webmis.win('open',{title:'添加',width:500,height:380});
+		if(!IsMobile){moWidth = 500; moHeight= 380;}
+		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_class/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -29,7 +31,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'编辑',width:500,height:380,overflow:true});
+			if(!IsMobile){moWidth = 500; moHeight= 380;}
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_class/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容

@@ -13,28 +13,28 @@
 	<tr>
 		<td class="right">用户名:</td>
 		<td>
-			<input type="text" name="uname" class="input" style="width: 80px;" datatype="*3-16" errormsg="3~16位之间！" />
+			<input type="text" name="uname" class="input" style="width: 50%;" datatype="*3-16" errormsg="3~16位之间！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">密码:</td>
 		<td>
-			<input type="password" name="passwd" class="input" style="width: 180px;" datatype="*6-16" errormsg="6~16位之间！" />
+			<input type="password" name="passwd" class="input" style="width: 80%;" datatype="*6-16" errormsg="6~16位之间！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">确认密码:</td>
 		<td>
-			<input type="password" class="input" style="width: 180px;" datatype="*" errormsg="密码不一致！" recheck="passwd" />
+			<input type="password" class="input" style="width: 80%;" datatype="*" errormsg="密码不一致！" recheck="passwd" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">邮箱:</td>
 		<td>
-			<input type="text" name="email" class="input" style="width: 180px;" datatype="e" errormsg="格式有误！" />
+			<input type="text" name="email" class="input" style="width: 80%;" datatype="e" errormsg="格式有误！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
@@ -44,19 +44,19 @@
 	<tr>
 		<td class="right">姓名:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 80px;" />
+			<input type="text" name="name" class="input" style="width: 30%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">部门:</td>
 		<td>
-			<input type="text" name="department" class="input" style="width: 120px;" />
+			<input type="text" name="department" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">职务:</td>
 		<td>
-			<input type="text" name="position" class="input" style="width: 120px;" />
+			<input type="text" name="position" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>

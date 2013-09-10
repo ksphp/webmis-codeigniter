@@ -5,7 +5,8 @@ $(function(){
 	$('#admin_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:380,height:350});
+		if(!IsMobile){moWidth = 380; moHeight= 340;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_admin/search.html',function(data){
 			$.webmis.win('load',data);	//加载内容
@@ -15,7 +16,8 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		$.webmis.win('open',{title:'添加',width:420,height:420});
+		if(!IsMobile){moWidth = 420; moHeight= 420;}
+		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_admin/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -27,7 +29,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'编辑',width:420,height:380});
+			if(!IsMobile){moWidth = 420; moHeight= 380;}
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'sys_admin/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -70,7 +73,8 @@ function adminForm(){
 /*编辑权限*/
 function editPerm(id){
 	var perm = $('#editPerm'+id).attr('title');
-	$.webmis.win('open',{title:'编辑权限',width:640,height:480,overflow:true});
+	if(!IsMobile){moWidth = 640; moHeight= 480;}
+	$.webmis.win('open',{title:'编辑权限',width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'sys_admin/editPerm.html',{'perm':perm},function(data){
 		$.webmis.win('load',data);   //加载内容

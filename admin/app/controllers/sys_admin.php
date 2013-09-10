@@ -3,29 +3,20 @@ class Sys_admin extends MY_Controller {
 	/*首页*/
 	public function index(){
 		$data = $this->Page('sys_admin/index.html','sys_admin_m');
+		$data['js'] = array('js/system/sys_admin.js');
 		if($this->IsMobile) {
-			$data['js'] = array('js/system/sys_admin_mo.js');
 			$this->MyView('system/admin/index_mo',$data);
 		}else {
-			$data['js'] = array('js/system/sys_admin.js');
 			$this->MyView('system/admin/index',$data);
 		}
 	}
 	/*搜索*/
 	public function search(){
-		if($this->IsMobile) {
-			$this->load->view('system/admin/sea_mo');
-		}else {
-			$this->load->view('system/admin/sea');
-		}
+		$this->load->view('system/admin/sea');
 	}
 	/*添加*/
 	public function add(){
-		if($this->IsMobile) {
-			$this->load->view('system/admin/add_mo');
-		}else {
-			$this->load->view('system/admin/add');
-		}
+		$this->load->view('system/admin/add');
 	}
 	public function addData(){
 		$this->load->model('sys_admin_m');
@@ -35,11 +26,7 @@ class Sys_admin extends MY_Controller {
 	public function edit(){
 		$this->load->model('sys_admin_m');
 		$data['edit'] = $this->sys_admin_m->getOne();
-		if($this->IsMobile) {
-			$this->load->view('system/admin/edit_mo',$data);
-		}else {
-			$this->load->view('system/admin/edit',$data);
-		}
+		$this->load->view('system/admin/edit',$data);
 	}
 	public function editData(){
 		$this->load->model('sys_admin_m');

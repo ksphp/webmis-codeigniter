@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width right">标题:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 180px;" />
+			<input type="text" name="title" class="input" style="width: 90%;" />
 		</td>
 	</tr>
 	<tr>

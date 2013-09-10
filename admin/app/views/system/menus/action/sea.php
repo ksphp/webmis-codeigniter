@@ -3,19 +3,19 @@
 	<tr>
 		<td class="width right">名称:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 160px;" />
+			<input type="text" name="name" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">权限:</td>
 		<td>
-			<input type="text" name="perm" class="input" style="width: 160px;" />
+			<input type="text" name="perm" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">图标:</td>
 		<td>
-			<input type="text" name="ico" class="input" style="width: 160px;" />
+			<input type="text" name="ico" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>

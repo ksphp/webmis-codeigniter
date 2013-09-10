@@ -14,37 +14,37 @@
 	<tr>
 		<td class="right">用户名:</td>
 		<td>
-			<input type="text" name="uname" class="input" style="width: 120px;" />
+			<input type="text" name="uname" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">邮箱:</td>
 		<td>
-			<input type="text" name="email" class="input" style="width: 180px;" />
+			<input type="text" name="email" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">姓名:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 60px;" />
+			<input type="text" name="name" class="input" style="width: 30%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">部门:</td>
 		<td>
-			<input type="text" name="department" class="input" style="width: 120px;" />
+			<input type="text" name="department" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">职务:</td>
 		<td>
-			<input type="text" name="position" class="input" style="width: 120px;" />
+			<input type="text" name="position" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">注册时间:</td>
 		<td>
-			<input type="text" name="rtime" class="input" style="width: 120px;" />
+			<input type="text" name="rtime" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>

@@ -24,11 +24,10 @@ class Welcome extends MY_Controller {
 		$data['db']['dbprefix'] = $this->db->dbprefix;
 		$data['db']['char_set'] = $this->db->char_set;
 		
+		$data['js'] = array('js/index/welcome.js');
 		if($this->IsMobile) {
-			$data['js'] = array('js/system/welcome_mo.js');
 			$this->MyView('welcome_v_mo',$data);
 		}else {
-			$data['js'] = array('js/system/welcome.js');
 			$this->MyView('welcome_v',$data);
 		}
 	}

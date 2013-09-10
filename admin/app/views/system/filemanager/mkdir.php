@@ -6,14 +6,14 @@
 	<tr>
 		<td class="width right">名称:</td>
 		<td>
-			<input type="text" name="name" class="input" value="新建文件夹" maxlength="16" />
+			<input type="text" name="name" class="input"  style="width: 80%;" value="新建文件夹" maxlength="16" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">权限:</td>
 		<td>
-			<input type="text" name="perm" class="input" value="0755" style="width: 60px;" maxlength="4" />
+			<input type="text" name="perm" class="input" value="0755" style="width: 30%;" maxlength="4" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

@@ -14,7 +14,8 @@ $(function () {
 	$('#table').webmis('TableAdjust');  //调整宽度
 /*新建文件夹*/
 	$('#ico-addfolder').click(function () {
-		$.webmis.win('open',{title:'新建文件夹',width:360,height:240});
+		if(!IsMobile){moWidth = 360;}
+		$.webmis.win('open',{title:'新建文件夹',width:moWidth,height:210});
 		//加载内容
 		$.get($base_url+'sys_filemanager/addFolder.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -35,7 +36,8 @@ $(function () {
 	});
 /*新建文件*/
 	$('#ico-addfile').click(function () {
-		$.webmis.win('open',{title:'新建文件',width:320,height:200});
+		if(!IsMobile){moWidth = 320;}
+		$.webmis.win('open',{title:'新建文件',width:moWidth,height:180});
 		//加载内容
 		$.get($base_url+'sys_filemanager/addFile.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -61,7 +63,8 @@ $(function () {
 			$webmis_plugin + 'uploadify/jquery.uploadify.min.js',
 			$webmis_plugin + 'uploadify/uploadify.css'
 		]});
-		$.webmis.win('open',{title:'上传文件',width:480,height:360,overflow:true});
+		if(!IsMobile){moWidth = 480; moHeight= 360;}
+		$.webmis.win('open',{title:'上传文件',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_filemanager/upload.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -133,15 +136,16 @@ function openFile(path,ext) {
 	var view_img = ['jpg','png','gif','ico'];
 	var view_file = ['php','css','js','htm','html','sql','txt','md'];
 	if ($.inArray(ext, view_img) != -1) {
-		$.webmis.win('open',{title:'预览图片',width:520,height:400,overflow:true});
+		if(!IsMobile){moWidth = 520; moHeight= 400;}
+		$.webmis.win('open',{title:'预览图片',width:moWidth,height:moHeight,overflow:true});
 		//图片类
 		var img = new Image();
 		img.src = file_root+path;
 		// 加载完成执行
 		img.onload = function(){
 			//压缩比例
-			var maxWidth = 520;
-			var maxHeight = 340;
+			var maxWidth = moWidth
+			var maxHeight = moHeight-60;
 			var Ratio = 1;
 			var w = img.width;
 			var h = img.height;
@@ -158,7 +162,8 @@ function openFile(path,ext) {
 			$.webmis.win('load','<table class="fileImgView"><tr><td><img src="'+img.src+'" width="'+w+'" height="'+h+'"></td></tr></table>');
 		};
 	}else if ($.inArray(ext, view_file) != -1){
-		$.webmis.win('open',{title:'预览文件',width:720,height:500,overflow:true});
+		if(!IsMobile){moWidth = 720; moHeight= 500;}
+		$.webmis.win('open',{title:'预览文件',width:moWidth,height:moHeight,overflow:true});
 		$.get($base_url+'sys_filemanager.html',{'path':path,'action':'viewfile','editor':file_editor},function(data){
 			$.webmis.win('load',data);
 		});
@@ -171,7 +176,8 @@ function editFile(file,ext) {
 	var edit_file = ['php','css','js','htm','html','sql','txt','md'];
 	var edit_tinymce = ['md','txt'];
 	if ($.inArray(ext, edit_file) != -1){
-		$.webmis.win('open',{title:'编辑文件',width:720,height:500,overflow:true});
+		if(!IsMobile){moWidth = 720; moHeight= 500;}
+		$.webmis.win('open',{title:'编辑文件',width:moWidth,height:moHeight,overflow:true});
 		$.get($base_url+'sys_filemanager.html',{'file':file,'action':'editfile','editor':file_editor},function(data){
 			$.webmis.win('load',data);
 			$('#fileSub').webmis('SubClass');
@@ -224,7 +230,8 @@ function editPerm(name,perm) {
 }
 /* 重命名 */
 function reName(name) {
-	$.webmis.win('open',{title:'重命名',width:320,height:200});
+	if(!IsMobile){moWidth = 320;}
+	$.webmis.win('open',{title:'重命名',width:moWidth,height:200});
 	//加载内容
 	$.get($base_url+'sys_filemanager/reName.html',function(data){
 		$.webmis.win('load',data);   //加载内容

@@ -3,30 +3,30 @@
 	<tr>
 		<td class="width right">标题:</td>
 		<td>
-			<?php echo $title;?>
+			<?php echo $edit->title;?>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">发布时间:</td>
 		<td>
-			<?php echo $ctime;?>
+			<?php echo $edit->ctime;?>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">留言内容:</td>
-		<td><?php echo $content;?></td>
+		<td><?php echo $edit->content;?></td>
 	</tr>
 	<tr>
 		<td class="right">回复:</td>
 		<td>
-			<textarea name="reply" style="width: 360px; height: 160px;" datatype="s2-100" errormsg="至少2个字符,最多100个字符！"><?php echo $reply;?></textarea>
+			<textarea name="reply" style="width: 95%; height: 160px;" datatype="s2-100" errormsg="至少2个字符,最多100个字符！"><?php echo $edit->reply;?></textarea>
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">回复人:</td>
 		<td>
-			<input name="admin" class="input" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $admin;?>" />
+			<input name="admin" class="input" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $edit->admin;?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

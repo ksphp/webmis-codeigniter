@@ -10,7 +10,8 @@ $(function(){
 	$('#news_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:360,height:280});
+		if(!IsMobile){moWidth = 360;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:280});
 		//加载内容
 		$.get($base_url+'web_news/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -20,7 +21,8 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		$.webmis.win('open',{title:'添加',width:840,height:580,overflow:true});
+		if(!IsMobile){moWidth = 820; moHeight= 580;}
+		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_news/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -33,7 +35,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'编辑',width:840,height:580,overflow:true});
+			if(!IsMobile){moWidth = 820; moHeight= 580;}
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_news/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -58,7 +61,8 @@ $(function(){
 	});
 /*图表*/
 	$('#ico-chart').click(function(){
-		$.webmis.win('open',{title:'统计图',width:620,height:450,overflow:true});
+		if(!IsMobile){moWidth = 620; moHeight= 450;}
+		$.webmis.win('open',{title:'统计图',width:moWidth,height:moHeight,overflow:true});
 		//获取数据
 		$.post($base_url+'web_news/chartData.html',function(data){
 			//创建图表
@@ -80,6 +84,7 @@ function newsForm(){
 	$('#newsSub').webmis('SubClass'); //按钮样式
 	$.webmis.win('menu',{change:'#newsBody', menus:['基本信息','详细内容']});  //选项卡
 	//编辑器
+	if(!IsMobile){moWidth = 900;}
 	tinymce.init({
 		selector:'#tinymce',
 		language: "zh_CN",
@@ -97,7 +102,7 @@ function newsForm(){
    			url: $base_url+'sys_filemanager.html?action=editor&editor='+field_name+'&file='+file,
    			title: 'FileManager',
    			classes:'filemanager',
-				width: 900,
+				width: moWidth,
 				height: 560
 			}, {
 				custom_param: 1
@@ -132,7 +137,8 @@ function newsClass(){
 }
 /*显示详细信息*/
 function newsShow(id){
-	$.webmis.win('open',{title:'预览',width:720,height:580,overflow:true});
+	if(!IsMobile){moWidth = 720; moHeight= 580;}
+	$.webmis.win('open',{title:'预览',width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'web_news/show.html',{'id':id},function(data){
 		$.webmis.win('load',data);

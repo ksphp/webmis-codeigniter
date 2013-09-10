@@ -4,7 +4,11 @@ class Sys_admin_login_log extends MY_Controller {
 	public function index(){
 		$data = $this->Page('sys_admin_login_log/index.html','sys_admin_login_log_m');
 		$data['js'] = array('js/system/sys_admin_login_log.js');
-		$this->MyView('system/logs/login_v',$data);
+		if($this->IsMobile) {
+			$this->MyView('system/logs/login_v_mo',$data);
+		}else {
+			$this->MyView('system/logs/login_v',$data);
+		}
 	}
 	/*搜索*/
 	public function search(){

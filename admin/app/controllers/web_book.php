@@ -4,8 +4,11 @@ class Web_book extends MY_Controller {
 	public function index(){
 		$data = $this->Page('web_book/index.html','web_book_m');
 		$data['js'] = array('js/web/web_book.js');
-		
-		$this->MyView('web/book/index',$data);
+		if($this->IsMobile) {
+			$this->MyView('web/book/index_mo',$data);
+		}else {
+			$this->MyView('web/book/index',$data);
+		}
 	}
 	/*搜索*/
 	public function search(){

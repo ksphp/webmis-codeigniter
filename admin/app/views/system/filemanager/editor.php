@@ -14,11 +14,11 @@
 <div id="file_action" style="display: none;"><?php echo $file_action; ?></div>
 <div id="file_editor" style="display: none;"><?php echo $file_editor; ?></div>
 <!-- Action -->
-<table class="action1">
+<table class="action">
 	<tr>
 		<td class="title">文件管理</td>
 		<td>
-			<ul class="action1_ct">
+			<ul class="action_ct">
 				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back">&nbsp;</em>返回上级</a></li>
 				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder">&nbsp;</em>新建文件夹</a></li>
 				<li><a href="#" id="ico-addfile"><em class="ico-addfile">&nbsp;</em>新建文件</a></li>

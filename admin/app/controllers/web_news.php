@@ -3,12 +3,15 @@ class Web_news extends MY_Controller {
 	/*首页*/
 	public function index(){
 		$data = $this->Page('web_news/index.html','web_news_m','page',array('in'=>array('0','1','2')),'id desc');
-		$data['js'] = array('js/web/web_news.js');
 		/*分类信息*/
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
-		
-		$this->MyView('web/news/index',$data);
+		$data['js'] = array('js/web/web_news.js');
+		if($this->IsMobile) {
+			$this->MyView('web/news/index_mo',$data);
+		}else {
+			$this->MyView('web/news/index',$data);
+		}
 	}
 	/*搜索*/
 	public function search(){

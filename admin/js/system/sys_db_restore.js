@@ -7,7 +7,8 @@ $(function(){
 	$('#ico-imp').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'导入',width:420,height:160});
+			if(!IsMobile){moWidth = 420;}
+			$.webmis.win('open',{title:'导入',width:moWidth,height:180});
 			$.post($base_url+'sys_db_restore/imp.html',{'file':id},function(data){
 				$.webmis.win('load',data);   //加载内容
 				impForm();  //表单验证

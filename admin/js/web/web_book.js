@@ -5,7 +5,8 @@ $(function(){
 	$('#book_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:340,height:260});
+		if(!IsMobile){moWidth = 340;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:260});
 		//加载内容
 		$.get($base_url+'web_book/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -17,7 +18,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'编辑',width:500,height:420});
+			if(!IsMobile){moWidth = 500; moHeight= 420;}
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_book/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -59,7 +61,8 @@ function bookForm(){
 
 /*详细信息*/
 function bookShow(id){
-	$.webmis.win('open',{title:'预览',width:500,height:420,overflow:true});
+	if(!IsMobile){moWidth = 500; moHeight= 420;}
+	$.webmis.win('open',{title:'预览',width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'web_book/show.html',{'id':id},function(data){
 		$.webmis.win('load',data);

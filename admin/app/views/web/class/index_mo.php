@@ -11,25 +11,21 @@
 <div class="line">&nbsp;</div>
 <!-- Content -->
 <table class="table_list">
-	<tr class="title" id="book_table">
+	<tr class="title" id="class_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
-		<td width="40">ID</td>
-		<td>标题</td>
-		<td>留言内容</td>
-		<td width="120">发布时间</td>
-		<td width="100">回复人</td>
-		<td width="120">回复时间</td>
+		<td>ID</td>
+		<td>FID</td>
+		<td>菜单名</td>
+		<td>URL</td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
-		<td style="text-align: left;"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a></td>
-		<td><?php echo sysSubStr($val->content,42,true);?></td>
-		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td><?php echo keyHH($val->admin, @$key['admin']);?></td>
-		<td><?php echo keyHH($val->rtime, @$key['rtime']);?></td>
+		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
+		<td><?php echo keyHH($val->title, @$key['title']);?></td>
+		<td><?php echo keyHH($val->url, @$key['url']);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

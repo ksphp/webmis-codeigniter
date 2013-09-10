@@ -6,7 +6,7 @@
 	<tr>
 		<td class="width right">文件:</td>
 		<td>
-			<input type="text" name="file" class="input" value="test.txt" style="width: 200px;" maxlength="19" />
+			<input type="text" name="file" class="input" value="test.txt" style="width: 80%;" maxlength="19" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

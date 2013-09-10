@@ -3,12 +3,16 @@ class Web_html extends MY_Controller {
 	/*首页*/
 	public function index(){
 		$data = $this->Page('web_html/index.html','web_html_m','page',array('in'=>array('0','1','2')),'id desc');
-		$data['js'] = array('js/web/web_html.js');
 		/*分类信息*/
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
 		
-		$this->MyView('web/html/index',$data);
+		$data['js'] = array('js/web/web_html.js');
+		if($this->IsMobile) {
+			$this->MyView('web/html/index_mo',$data);
+		}else {
+			$this->MyView('web/html/index',$data);
+		}
 	}
 	/*搜索*/
 	public function search(){

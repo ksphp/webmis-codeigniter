@@ -90,7 +90,8 @@ class MY_Controller extends CI_Controller {
 			'name'=>$_SESSION['uinfo']['name'],
 			'department'=>$_SESSION['uinfo']['department']
 		);
-		/*头部数据*/
+		/*公共信息*/
+		$data['IsMobile']=$this->IsMobile;
 		$data['NavId']=$this->NavId;
 		$data['MenuTwoId']=$this->MenuTwoId;
 		$data['title']=$this->Title;

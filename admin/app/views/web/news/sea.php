@@ -3,31 +3,31 @@
 	<tr>
 		<td class="width right">所属:</td>
 		<td>
-			<input type="text" name="class" class="input" style="width: 60px;" /><span class="c666">&nbsp;&nbsp;如：:3:9:12:</span>
+			<input type="text" name="class" class="input" style="width: 40%;" /><span class="c666">&nbsp;&nbsp;如：:3:9:12:</span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">标题:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 180px;" />
+			<input type="text" name="title" class="input" style="width: 90%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">来源:</td>
 		<td>
-			<input type="text" name="source" class="input" style="width: 120px;" />
+			<input type="text" name="source" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">作者:</td>
 		<td>
-			<input type="text" name="author" class="input" style="width: 120px;" />
+			<input type="text" name="author" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">发布时间:</td>
 		<td>
-			<input type="text" name="ctime" class="input" style="width: 120px;" />
+			<input type="text" name="ctime" class="input" style="width: 60%;" />
 		</td>
 	</tr>
 	<tr>

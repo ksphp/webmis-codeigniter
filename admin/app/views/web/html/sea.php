@@ -9,19 +9,19 @@
 	<tr>
 		<td class="right">标题:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 180px;" />
+			<input type="text" name="title" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">创建人:</td>
 		<td>
-			<input type="text" name="uname" class="input" style="width: 120px;" />
+			<input type="text" name="uname" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">创建时间:</td>
 		<td>
-			<input type="text" name="ctime" class="input" style="width: 120px;" />
+			<input type="text" name="ctime" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>

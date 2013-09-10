@@ -3,31 +3,31 @@
 	<tr>
 		<td class="width right">类型:</td>
 		<td>
-			<input type="text" name="type" class="input" style="width: 60px;" />
+			<input type="text" name="type" class="input" style="width: 40%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">用户名:</td>
 		<td>
-			<input type="text" name="uname" class="input" style="width: 160px;" />
+			<input type="text" name="uname" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">时间:</td>
 		<td>
-			<input type="text" name="time" class="input" style="width: 160px;" />
+			<input type="text" name="time" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">IP:</td>
 		<td>
-			<input type="text" name="ip" class="input" style="width: 160px;" />
+			<input type="text" name="ip" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">Agent:</td>
 		<td>
-			<input type="text" name="agent" class="input" style="width: 160px;" />
+			<input type="text" name="agent" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>

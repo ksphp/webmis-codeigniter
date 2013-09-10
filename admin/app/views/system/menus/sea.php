@@ -3,31 +3,31 @@
 	<tr>
 		<td class="width right">FID:</td>
 		<td>
-			<input type="text" name="fid" class="input" style="width: 60px;" />
+			<input type="text" name="fid" class="input" style="width: 30%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">菜单名:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 180px;" />
+			<input type="text" name="title" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">URL:</td>
 		<td>
-			<input type="text" name="url" class="input" style="width: 120px;" />
+			<input type="text" name="url" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">动作值:</td>
 		<td>
-			<input type="text" name="perm" class="input" style="width: 60px;" />
+			<input type="text" name="perm" class="input" style="width: 50%;" />
 		</td>
 	</tr>
 	<tr>
 		<td class="right">图标:</td>
 		<td>
-			<input type="text" name="ico" class="input" style="width: 120px;" />
+			<input type="text" name="ico" class="input" style="width: 50%;" />
 		</td>
 	</tr>
 	<tr>

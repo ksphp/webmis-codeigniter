@@ -10,21 +10,21 @@
 	<tr>
 		<td class="right">菜单名:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 180px;" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $edit->title;?>" />
+			<input type="text" name="title" class="input" style="width: 70%;" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $edit->title;?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">URL:</td>
 		<td>
-			<input type="text" name="url" class="input" style="width: 180px;" value="<?php echo $edit->url;?>" datatype="*1-32" errormsg="至少1个字符,最多32个字符！" />
+			<input type="text" name="url" class="input" style="width: 70%;" value="<?php echo $edit->url;?>" datatype="*1-32" errormsg="至少1个字符,最多32个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">图标:</td>
 		<td>
-			<input type="text" name="ico" class="input" style="width: 120px;" value="<?php echo $edit->ico;?>" />
+			<input type="text" name="ico" class="input" style="width: 30%;" value="<?php echo $edit->ico;?>" />
 		</td>
 	</tr>
 	<tr>
@@ -39,13 +39,13 @@
 	<tr>
 		<td class="right">备注:</td>
 		<td>
-			<textarea name="remark" style="width: 460px; height: 120px;"><?php echo $edit->remark;?></textarea>
+			<textarea name="remark" style="width: 95%; height: 120px;"><?php echo $edit->remark;?></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td class="right">排序:</td>
 		<td>
-			<input type="text" name="sort" style="width: 60px;" value="<?php echo $edit->sort;?>" />
+			<input type="text" name="sort" style="width: 30%;" value="<?php echo $edit->sort;?>" />
 		</td>
 	</tr>
 	<tr>

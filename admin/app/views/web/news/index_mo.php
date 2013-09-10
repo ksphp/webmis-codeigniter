@@ -11,25 +11,31 @@
 <div class="line">&nbsp;</div>
 <!-- Content -->
 <table class="table_list">
-	<tr class="title" id="book_table">
+	<tr class="title" id="news_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
-		<td width="40">ID</td>
+		<td>ID</td>
 		<td>标题</td>
-		<td>留言内容</td>
-		<td width="120">发布时间</td>
-		<td width="100">回复人</td>
-		<td width="120">回复时间</td>
+		<td>所属</td>
+		<td>审核</td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
-		<td style="text-align: left;"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a></td>
-		<td><?php echo sysSubStr($val->content,42,true);?></td>
-		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td><?php echo keyHH($val->admin, @$key['admin']);?></td>
-		<td><?php echo keyHH($val->rtime, @$key['rtime']);?></td>
+		<td style="text-align: left;">
+			<a href="#" onclick="newsShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a>
+			<?php echo $val->img?' <span class="c666">[ 图 ]</span>':'';?>
+		</td>
+		<td style="text-align: left;">
+			<?php
+			$arr = array_filter(explode(':', $val->class));
+			foreach($arr as $val1){
+				echo $class[$val1].'('.$val1.') > ';
+			}
+			?>
+		</td>
+		<td><?php echo MY_Controller::stateName($val->state);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

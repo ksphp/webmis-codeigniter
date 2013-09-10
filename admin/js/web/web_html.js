@@ -9,7 +9,8 @@ $(function(){
 	$('#table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:340,height:250});
+		if(!IsMobile){moWidth = 340;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:250});
 		//加载内容
 		$.get($base_url+'web_html/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -19,7 +20,8 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		$.webmis.win('open',{title:'添加',width:840,height:550,overflow:true});
+		if(IsMobile){moWidth = 820; moHeight= 550;}
+		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_html/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -32,7 +34,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			$.webmis.win('open',{title:'编辑',width:840,height:550,overflow:true});
+			if(!IsMobile){moWidth = 820; moHeight= 550;}
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_html/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -63,6 +66,7 @@ function htmlForm(){
 	$('#htmlSub').webmis('SubClass'); //按钮样式
 	$.webmis.win('menu',{change:'#htmlBody', menus:['基本信息','详细内容']});  //选项卡
 	//编辑器
+	if(!IsMobile){moWidth = 900;}
 	tinymce.init({
 		selector:'#tinymce',
 		language: "zh_CN",
@@ -81,7 +85,7 @@ function htmlForm(){
    			url: $base_url+'sys_filemanager.html?action=editor&editor='+field_name+'&file='+file,
    			title: 'FileManager',
    			classes:'filemanager',
-				width: 900,
+				width: moWidth,
 				height: 580
 			}, {
 				custom_param: 1
@@ -116,7 +120,8 @@ function htmlClass(){
 }
 /* 显示详细信息 */
 function htmlShow(id){
-	$.webmis.win('open',{title:'预览',width:720,height:580,overflow:true});
+	if(!IsMobile){moWidth = 720; moHeight= 580;}
+	$.webmis.win('open',{title:'预览',width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'web_html/show.html',{'id':id},function(data){
 		$.webmis.win('load',data);

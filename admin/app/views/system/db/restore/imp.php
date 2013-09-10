@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width right">恢复文件:</td>
 		<td>
-			<input type="text" name="file" class="input" style="width: 280px;" value="<?php echo $file;?>" />
+			<input type="text" name="file" class="input" style="width: 90%;" value="<?php echo $file;?>" />
 		</td>
 	</tr>
 	<tr>

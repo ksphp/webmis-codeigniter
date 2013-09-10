@@ -4,7 +4,8 @@ $(function(){
 	$('#admin_log_table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		$.webmis.win('open',{title:'搜索',width:360,height:280});
+		if(!IsMobile){moWidth = 360;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:280});
 		//加载内容
 		$.get($base_url+'sys_admin_login_log/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
