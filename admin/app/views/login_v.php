@@ -23,7 +23,7 @@
 			<span class="text"><input type="text" id="uname" /><br>用户名：</span>
 			<span class="text"><input type="password" id="passwd" /><br>密码：</span>
 			<div class="login_ct_an">
-				<span class="line UI">&nbsp;</span>
+				<span class="line1 UI">&nbsp;</span>
 				<span id="adminLogin" class="an">&nbsp;</span>
 			</div>
 		</div>

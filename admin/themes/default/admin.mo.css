@@ -87,8 +87,8 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 
 /* Table */
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF; box-shadow: 1px 1px 3px #BBB;}
-.table_list td{border: #BBB 1px solid; padding: 7px 5px;}
-.table_list .title{color: #666; font-weight: bold; background: url("images/admin_tb_x.jpg") repeat-x #F4F7FA;}
+.table_list td{border: #BBB 1px solid; line-height: 30px; padding: 0 5px;}
+.table_list .title{height: 30px; color: #666; font-weight: bold; background: url("images/admin_tb_x.jpg") repeat-x #F4F7FA;}
 .table_add{width: 100%; border-collapse: collapse;}
 .table_add td{padding: 5px;}
 .table_add td .Validform_checktip{padding-left: 20px;}
