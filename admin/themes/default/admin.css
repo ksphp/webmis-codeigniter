@@ -56,9 +56,9 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .top_nav .title{float: left; width: 180px; color: #666; text-align: center;}
 .top_nav .title b{color: #6EB737;}
 .top_nav .nav{float: left; border-left: #6FB737 1px solid;}
-.top_nav .nav_menu{font-size: 13px;}
-.top_nav .nav_menu li{float: left;}
-.top_nav .nav_menu li a{line-height: 28px; padding: 0 8px; display: inline-block;}
+.top_nav .nav_menu{float: left; height: 30px; font-size: 13px;}
+.top_nav .nav_menu li{float: left; height: 30px;}
+.top_nav .nav_menu li a{height: 30px; padding: 0 8px; display: inline-block;}
 .top_nav .nav_menu .lines{width: 5px; background-position: -20px -80px;}
 
 .nav_an1{color: #FFF; background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
