@@ -124,7 +124,7 @@ class MY_Controller extends CI_Controller {
 				if($mode=='mobile') {
 					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="an2" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></li>';
 				}else {
-					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an2" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'">&nbsp;</em>'.$val->title.'</a>';
+					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an2" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'"></em>&nbsp;'.$val->title.'</a>';
 					$html .= '<li class="UI lines">&nbsp;</li>';
 				}
 			}
@@ -152,7 +152,7 @@ class MY_Controller extends CI_Controller {
 						$three = $this->getMenus($val2->id);
 						foreach($three as $val3){
 							if(isset($permArr[$val3->id])){
-								$html .= '<li><a href="'.base_url($val3->url.'.html').'"><em class="'.$val3->ico.'">&nbsp;</em>'.$val3->title.'</a></li>'."\n\t\t\t\t\t\t\t\t";
+								$html .= '<li><a href="'.base_url($val3->url.'.html').'"><em class="'.$val3->ico.'"></em>&nbsp;&nbsp;'.$val3->title.'</a></li>'."\n\t\t\t\t\t\t\t\t";
 							}
 						}
 						$html .= '</ul>'."\n\t\t\t\t\t\t\t";
@@ -218,9 +218,9 @@ class MY_Controller extends CI_Controller {
 		foreach($action as $val){
 			if(intval($permArr[$this->Cid])&intval($val->perm)){
 				if($i == 1){
-					$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
+					$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>&nbsp;&nbsp;'.$val->name.'</a></li>';
 				}else{
-					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'">&nbsp;</em>'.$val->name.'</a></li>';
+					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>&nbsp;&nbsp;'.$val->name.'</a></li>';
 				}
 			}
 			$i++;
