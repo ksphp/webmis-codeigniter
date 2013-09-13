@@ -19,6 +19,12 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="right">图标:</td>
+		<td>
+			<input type="text" name="ico" class="input" style="width: 30%;" />
+		</td>
+	</tr>
+	<tr>
 		<td class="right">备注:</td>
 		<td>
 			<input type="text" name="remark" class="input" style="width: 80%;" />

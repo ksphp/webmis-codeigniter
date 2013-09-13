@@ -22,6 +22,12 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="right">图标:</td>
+		<td>
+			<input type="text" name="ico" class="input" style="width: 60px;" />
+		</td>
+	</tr>
+	<tr>
 		<td class="right">备注:</td>
 		<td>
 			<textarea name="remark" style="width: 95%; height: 120px;"></textarea>

@@ -88,7 +88,7 @@ class MY_Controller extends CI_Controller {
 		foreach($one as $val1){
 			$NavClass = $val1->id==$this->Cid?'nav_an1':'nav_an2';
 			$NavUrl = ($val1->url=='index_c.html')?base_url():base_url($val1->url);
-			$html .= '<li><a href="'.$NavUrl.'" class="'.@$NavClass.'" ><em></em><h1>'.$val1->title.'</h1></a>';
+			$html .= '<li><a href="'.$NavUrl.'" class="'.@$NavClass.'" ><em class="'.$val1->ico.'"></em><h1>'.$val1->title.'</h1></a>';
 			$two = $this->getMenus($val1->id);
 			if($two) {
 				$html .= '<ul>';

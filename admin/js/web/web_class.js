@@ -6,7 +6,7 @@ $(function(){
 /*搜索*/
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 340;}
-		$.webmis.win('open',{title:'搜索',width:moWidth,height:250});
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:280});
 		//加载内容
 		$.get($base_url+'web_class/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -16,7 +16,7 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		if(!IsMobile){moWidth = 500; moHeight= 380;}
+		if(!IsMobile){moWidth = 500; moHeight= 420;}
 		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_class/add.html',function(data){
@@ -31,7 +31,7 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 500; moHeight= 380;}
+			if(!IsMobile){moWidth = 500; moHeight= 420;}
 			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_class/edit.html',{'id':id},function(data){

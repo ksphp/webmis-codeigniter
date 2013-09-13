@@ -17,6 +17,7 @@
 		<td width="40">FID</td>
 		<td width="120">菜单名</td>
 		<td>URL</td>
+		<td>图标</td>
 		<td width="120">创建时间</td>
 		<td>备注</td>
 		<td width="30">排序</td>
@@ -29,6 +30,7 @@
 		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
 		<td><?php echo keyHH($val->title, @$key['title']);?></td>
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
+		<td><?php echo keyHH($val->ico, @$key['ico']);?></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>

@@ -45,6 +45,7 @@ class Web_class_m extends CI_Model {
 			$data['title'] = $title;
 			$data['fid'] = $this->input->post('fid');
 			$data['url'] = trim($this->input->post('url'));
+			$data['ico'] = trim($this->input->post('ico'));
 			$data['remark'] = $this->input->post('remark');
 			$data['sort'] = trim($this->input->post('sort'));
 			$data['ctime'] = date('Y-m-d H:i:s');
@@ -59,6 +60,7 @@ class Web_class_m extends CI_Model {
 			$data['title'] = trim($this->input->post('title'));
 			$data['fid'] = $this->input->post('fid');
 			$data['url'] = trim($this->input->post('url'));
+			$data['ico'] = trim($this->input->post('ico'));
 			$data['remark'] = $this->input->post('remark');
 			$data['sort'] = trim($this->input->post('sort'));
 			

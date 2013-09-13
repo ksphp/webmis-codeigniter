@@ -22,6 +22,12 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="right">图标:</td>
+		<td>
+			<input type="text" name="ico" class="input" style="width: 60px;" value="<?php echo $edit->ico;?>" />
+		</td>
+	</tr>
+	<tr>
 		<td class="right">备注:</td>
 		<td>
 			<textarea name="remark" style="width: 95%; height: 120px;"><?php echo $edit->remark;?></textarea>
@@ -30,7 +36,7 @@
 	<tr>
 		<td class="right">排序:</td>
 		<td>
-			<input type="text" name="sort" style="width: 60px;" value="<?php echo $edit->sort;?>" />
+			<input type="text" name="sort" class="input" style="width: 60px;" value="<?php echo $edit->sort;?>" />
 		</td>
 	</tr>
 	<tr>
