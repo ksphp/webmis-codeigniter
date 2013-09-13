@@ -19,11 +19,27 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<meta name="keywords" content="<?php echo $key;?>" />
 	<meta  name="description"  content="<?php echo $dsp;?>"/>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link href="<?php echo base_url('public/css/default.css');?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('webmis/themes/default/webmis.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('themes/default/web.css');?>" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
-	<div class="content">
-		<h2>头部内容</h2>
+<div class="top">
+	<div class="ct">
+		<div class="logo"><a href="<?php echo base_url();?>" title="WebMIS" ><img src="<?php echo base_url('themes/default/images/webmis.gif');?>" width="123" height="42" alt="WebMIS" ></a></div>
+		<ul class="top_sea">
+			<li class="links"><a href="" >关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="" >联系方式</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="" >在线帮助</a></li>
+			<li><input type="text" /></li>
+			<li><a href="" class="sea_an" >搜索</a></li>
+		</ul>
 	</div>
+</div>
+<div class="top_nav">
+	<div class="ct">
+		<span id="webmisVersion" class="version">WebMIS</span>
+		<ul id="nav" class="nav">
+			<?php echo $navHtml;?>
+		</ul>
+	</div>
+</div>
+	

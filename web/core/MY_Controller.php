@@ -2,16 +2,20 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
-	//公共变量
+	/*公共变量*/
 	var $Cid;
 	var $navName;
+	var $IsMobile;
 	
 	function __construct(){
 		parent::__construct();
-
-		//公共加载
-		$this->load->library('session');
-		//菜单信息
+		/*公共变量*/
+		session_start();
+		if(!isset($_SESSION['uinfo']['is_mobile'])) {
+			$_SESSION['uinfo']['is_mobile'] = $this->IsMobile();
+		}
+		$this->IsMobile = $_SESSION['uinfo']['is_mobile'];
+		/*菜单信息*/
 		$Cname = $this->router->class;
 		$this->getMenuInfo($Cname);
 	}
@@ -24,7 +28,7 @@ class MY_Controller extends CI_Controller {
 		
 		$get_url = '?';
 		
-		//配置
+		/*配置*/
 		$config['base_url'] = base_url().$url.$get_url;
 		$config['total_rows'] = $this->$model->count_all($where,$like);
 		$config['page_query_string'] = TRUE;
@@ -47,7 +51,7 @@ class MY_Controller extends CI_Controller {
 		$config['num_tag_close'] = '</span>';
 		$this->pagination->initialize($config);
 		
-		//返回数据
+		/*返回数据*/
 		$per_page = $this->input->get('per_page');
 		$data['list'] = $this->$model->$type($config['per_page'],$per_page,$where,$like,$order);
 		$data['page'] = $this->pagination->create_links();
@@ -59,77 +63,76 @@ class MY_Controller extends CI_Controller {
 * 自定义3层视图
 -------------------------------------------------------------------*/
 	public function MyView($url,$data=''){
-		//头部数据
+		/*头部数据*/
 		$data['navHtml']=$this->getNavHtml();
 		$data['navName']=$this->navName;
-		
-		$this->load->view('inc/top',$data);
-		$this->load->view($url);
-		$this->load->view('inc/bottom');
+		/*公共信息*/
+		$data['IsMobile']=$this->IsMobile;
+		/*视图*/
+		if($this->IsMobile) {
+			$this->load->view('inc/top',$data);
+			$this->load->view($url);
+			$this->load->view('inc/bottom');
+		}else {
+			$this->load->view('inc/top',$data);
+			$this->load->view($url);
+			$this->load->view('inc/bottom');
+		}
 	}
 /*------------------------------------------------------------------
 * 导航菜单
 -------------------------------------------------------------------*/
 	private function getNavHtml(){
-		$nav = $this->getMenus(0);
+		$one = $this->getMenus(0);
 		$html = '';
-		foreach($nav as $val){
-			//按钮样式、屏蔽index_c
-			if($val->id==$this->Cid) {
-				$class = 'nav_an1';
-				$mark = 'id="nav_mark"';
-			}else {
-				$class = 'nav_an2';
-				$mark = '';
-			}
-			//是否是首页
-			//$url = ($val->url=='index_c.html')?base_url():base_url($val->url);
-			if($val->url=='index_c.html') {
-				$val->url = '';
-				$val->title = '<span>&nbsp;</span>';
-			}
-			//导航
-			$html .= '<li '.$mark.'>';
-			//二级分类
-			$nav2 = $this->getMenus($val->id);
-			if($nav2){
-				$html .= '	<ul class="nav_two">';
-				foreach($nav2 as $val2){
-					$html .= '		<li><a href="'.base_url($val2->url).'"><h2>'.$val2->title.'</h2></a></li>';
+		foreach($one as $val1){
+			$NavClass = $val1->id==$this->Cid?'nav_an1':'nav_an2';
+			$NavUrl = ($val1->url=='index_c.html')?base_url():base_url($val1->url);
+			$html .= '<li><a href="'.$NavUrl.'" class="'.@$NavClass.'" ><em></em><h1>'.$val1->title.'</h1></a>';
+			$two = $this->getMenus($val1->id);
+			if($two) {
+				$html .= '<ul>';
+				foreach($two as $val2){
+					$html .= '<li><a href="'.base_url($val2->url).'" ><em></em>&nbsp;'.$val2->title.'<em class="menuTitle"></em></a>';
+					$three = $this->getMenus($val2->id);
+					if($three) {
+						$html .= '<ul>';
+						foreach($two as $val2){
+							$html .= '<li><a href="'.base_url($val3->url).'" ><em></em>&nbsp;'.$val3->title.'<em class="menuTitle"></em></a></li>';
+						}
+						$html .= '</ul>';
+					}
+					$html .= '</li>';
 				}
-				$html .= '	</ul>';
+				$html .= '</ul>';
 			}
-			$html .= '	<a href="'.base_url($val->url).'" id="navTitle" class="'.$class.'"><h1>'.$val->title.'</h1></a>';
 			$html .= '</li>';
-			
-			/*//二级分类
-			$nav2 = $this->getMenus($val->id);
-			$h2 .= '<li id="nav_menu_'.$i.'" class="'.$mclass.'">';
-			if($nav2 && $val->url != 'index_c.html'){
-				$h2 .= '|&nbsp;&nbsp;';
-				foreach($nav2 as $val2){
-					$h2 .= '<a href="'.base_url($val2->url).'" >'.$val2->title.'</a>&nbsp;&nbsp;|&nbsp;&nbsp;';
-				}
-			}else {
-				$h2 .= '<marquee scrolldelay="160">首页文本提示！</marquee>';
-			}
-			$h2 .= '</li>';
-			$i ++;*/
 		}
-		
 		return $html;
 	}
-	//查询菜单
+	/*查询菜单*/
 	private function getMenus($fid){
 		$this->load->model('class_m');
 		return $this->class_m->getMenus($fid);
 	}
-	//菜单信息
+	/*菜单信息*/
 	private function getMenuInfo($url){
 		$this->load->model('class_m');
 		$fid = $this->class_m->getMenusUrl($url.'.html');
 		$this->Cid = $fid[0]->id;
 		$this->navName = $fid[0]->title;
+	}
+	/*是否手机设备*/
+	private function IsMobile() {
+		/*是否手机设备*/
+		$this->load->library('user_agent');
+		$mode = $this->input->get('mode');
+		if($mode) {
+			$data = $mode=='mobile'?true:false;
+		}else {
+			$data = $this->agent->is_mobile();
+		}
+		return $data;
 	}
 }
 ?>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* 初始化 */
+body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
+body,textarea{font: 12px/20px arial, helvetica, verdana, tahoma, sans-serif;}
+body{background: #818181;}
+img{border: none;}
+ul{list-style: none;}
+a{color: #333; text-decoration: none;}
+a:hover{color: #FF6600; text-decoration: none;}
+textarea{border: #999 1px solid; background: #EFF4FA;}
+.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA;}
+input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6); outline: 0 none;}
+
+.UI{background-image:url("images/ui.png"); background-repeat: no-repeat; background-position:0px 0px;}
+.line{height: 10px; line-height: 10px; background: url("images/line.png") repeat-x;}
+.left{float: left;}
+.right{float: right;}
+.ct{width: 980px; padding: 0 10px; margin: 0 auto;}
+
+/*Bottom*/
+.bottom{padding: 10px 0;}
+
+/*Top*/
+.top{height: 70px; border-bottom: #6FB737 2px solid; background: #FFF;}
+.logo{float: left; width: 180px; height: 40px; margin-top: 25px;}
+
+.top_sea{float: right; width: 300px; margin-top: 10px;}
+.top_sea li{float: left; line-height: 24px;}
+.top_sea .links{width: 100%;}
+.top_sea li input{width: 220px; height: 24px; line-height: 24px; border: #BBB 1px solid; background-color: #F2F6F7; padding: 0 5px;}
+.top_sea li .sea_an{line-height: 26px; background-color: #6FB737; color: #FFF; padding: 0 15px; display: inline-block;}
+
+.top_nav{height: 36px; line-height: 36px; border-bottom: #BBB 1px solid; background-color: #F7F7F7;}
+.top_nav .version{float: right; font-size: 11px; border-left: #BBB 1px solid; padding: 0 20px;}
+/*Nav*/
+.nav{float: left; border-left: #BBB 1px solid;}
+.nav li{float: left; border-left: #FFF 1px solid; border-right: #BBB 1px solid;}
+.nav li a{display: inline-block;}
+.nav li a h1{font-size: 14px;}
+.nav li ul li{border: none; border-bottom: #FF6600;}
+.nav li ul li a{color: #666; line-height: 30px;}
+.nav li ul li a:hover{color: #FFF; background: #6FB737;}
+.nav li ul li .menuTitle{padding-right: 5px;}
+
+.nav_an1{color: #FFF; background-color: #6FB737; padding: 0 15px;}
+.nav_an1:hover{color: #FFFF00;}
+.nav_an1:hover em{color: #FFFF00;}
+.nav_an2{color: #666; padding: 0 15px;}
+.nav_an2:hover{color: #FF6600;}
+.nav_an2:hover em{color: #FF6600;}
+
+/*Content*/
+.content{background: url("images/bg.png") #F2F6F7;}
+.content .ct{padding: 10px;}
+
+/*Index*/
+.index_ad{height: 120px; background-color: #FFF;}
