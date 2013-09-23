@@ -25,7 +25,7 @@
 
 /* Menu */
 .NavMenu em{font-family: 'icomoon'; font-style: normal; font-weight: normal;}
-.NavMenu ul{display: none; position: absolute; z-index: 100; width: 150px; border: #BBB 1px solid; background: #FAFAFA; color: #666; box-shadow: 2px 2px 3px #BBB;}
+.NavMenu ul{display: none; position: absolute; z-index: 100; width: 150px; border: #FFF 1px solid; background: #FAFAFA; color: #666; box-shadow: 1px 1px 2px #000;}
 .NavMenu ul li{position:relative; width: 100%;}
 .NavMenu ul li a{width: 100%; display: block;}
 .NavMenu ul li em{padding-left: 10px;}
