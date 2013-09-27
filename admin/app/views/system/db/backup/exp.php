@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width right">文件名:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 90%;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
+			<input type="text" name="name" class="input" style="width: 70%;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

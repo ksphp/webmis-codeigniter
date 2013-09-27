@@ -16,7 +16,7 @@ class News_m extends CI_Model {
 		$this->db->like($like);
 		return $this->db->count_all_results($this->table);
 	}
-	/*分页*/
+	/*搜索*/
 	function search($num, $offset, $like){
 		$this->db->order_by('id desc');
 		$this->db->or_like($like);

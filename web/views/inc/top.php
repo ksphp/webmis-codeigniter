@@ -1,7 +1,7 @@
 <?php
-$title = '灵创网络—网站建设、企业管理系统开发、Linux服务器架构';
-$key = '网站关键字';
-$dsp = '内容简介部分';
+$title = 'WEBMIS是免费开源PHP开发底层系统';
+$key = 'WEBMIS,灵创网络,免费开源,PHP开发底层系统,多用户、多权限解决方案';
+$dsp = 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！';
 
 if($navName){
 	$title = $navName=='首页'?$title:$navName.'_'.$title;
@@ -28,7 +28,7 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<div class="ct">
 		<div class="logo"><a href="<?php echo base_url();?>" title="WebMIS" ><img src="<?php echo base_url('themes/default/images/webmis.gif');?>" width="123" height="42" alt="WebMIS" ></a></div>
 		<ul class="top_sea">
-			<li class="links"><a href="" >关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="" >联系方式</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="" >在线帮助</a></li>
+			<li class="links"><a href="<?php echo base_url('online/show/about.html');?>" >关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('online/show/contact.html');?>" >联系方式</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.ksphp.com/document.html" target="_black">WebMIS文档</a></li>
 			<li><input type="text" /></li>
 			<li><a href="" class="sea_an" >搜索</a></li>
 		</ul>
