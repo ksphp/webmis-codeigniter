@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font: 12px/20px arial, helvetica, verdana, tahoma, sans-serif;}
-body{background: #818181;}
+body{}
 img{border: none;}
 ul{list-style: none;}
 a{color: #333; text-decoration: none;}
@@ -33,10 +33,10 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .top_nav{height: 32px; line-height: 32px; border-bottom: #BBB 1px solid; background-color: #F7F7F7;}
 .top_nav .version{float: right; font-size: 11px; border-left: #BBB 1px solid; padding: 0 20px;}
 /*Nav*/
-.nav{float: left; border-left: #BBB 1px solid;}
-.nav li{float: left; border-left: #FFF 1px solid; border-right: #BBB 1px solid;}
+.nav{float: left; border-left: #6FB737 1px solid;}
+.nav li{float: left; border-right: #6FB737 1px solid;}
 .nav li a{display: inline-block;}
-.nav li a h1{font-size: 14px;}
+.nav li a h1{font-size: 14px; font-weight: normal;}
 .nav li ul li{border: none; border-bottom: #FF6600;}
 .nav li ul li a{color: #666; line-height: 30px;}
 .nav li ul li a:hover{color: #FFF; background: #6FB737;}
@@ -50,8 +50,27 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .nav_an2:hover em{color: #FF6600;}
 
 /*Content*/
-.content{background: url("images/bg1.png") #F2F6F7;}
-.content .ct{padding: 10px;}
+.content{background: url("images/bg1.png") #FFF;}
+.content .ct{padding-bottom: 10px; background-color: #FFF;}
+.content .display{width: 100%; display: inline-block;}
+.content .ct_l{width: 740px;}
+.content .ct_r{width: 230px;}
+
+/*Box*/
+.box{}
+.box_top{width: 100%; line-height: 24px; border-bottom: #DADEDF 1px solid; display: inline-block;}
+.box_top h2{font-size: 12px;}
+.box_top span{padding: 0 5px;}
+.box_top .title{float: left; border-right: #DADEDF 1px dashed;}
+.box_top .title a{color: #4183C4;}
+.box_top .title a:hover{color: #FF6600;}
+.box_top .class{float: left; color: #999;}
+.box_top .right{color: #999;}
+.box_top .more{float: right; font-size: 11px;}
+
+/*News*/
+.news_list{}
+.news_list li{border-bottom: #DADEDF 1px dashed;}
 
 /*Index*/
 .ad_bg{background: url("images/ad/ad_x.jpg") repeat-x #4B4B4B; border-bottom: #333 1px solid; box-shadow: 0px 1px 2px #333;}

@@ -37,6 +37,7 @@
 		</div>
 	</div>
 </div>
+<div class="line">&nbsp;</div>
 <div class="content">
 	<div class="ct">
 		<?php echo $test;?><br><br><br><br><br><br><br><br><br><br><br><br>

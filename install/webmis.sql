@@ -16,7 +16,7 @@ CREATE TABLE `wmis_sys_admin` (
   `state` varchar(1) NOT NULL DEFAULT '0',
   `perm` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:145 18:319 19:31 27:63 21:27 11:1');
 
@@ -157,20 +157,21 @@ CREATE TABLE `wmis_web_class` (
   `fid` int(3) NOT NULL,
   `title` varchar(12) NOT NULL,
   `url` varchar(32) NOT NULL,
+  `ico` varchar(12) DEFAULT NULL,
   `remark` varchar(30) NOT NULL,
   `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
   `sort` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (1, 0, '首页', 'index_c.html', '网站首页！', '2012-06-01 14:28:17', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (2, 0, '新闻中心', 'news.html', '网站分类！', '2012-06-01 17:17:07', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (3, 2, '行业新闻', 'news/list/industry.html', '行业新闻！', '2012-11-02 11:26:09', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (4, 2, '企业动向', 'news/list/enterprise.html', '企业动向！', '2012-11-02 11:27:10', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (5, 7, '关于我们', 'online/show/about.html', '关于我们！', '2012-11-07 10:32:34', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (6, 0, '产品中心', 'pro.html', '产品中心！', '2012-11-07 10:56:50', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (7, 0, '在线联系', 'online.html', '在线联系！', '2012-11-07 11:43:31', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `remark`, `ctime`, `sort`) VALUES (8, 7, '联系方式', 'online/show/contact.html', '联系方式！', '2013-09-04 10:24:55', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (3, 2, '行业新闻', 'news/list/industry.html', NULL, '行业新闻！', '2012-11-02 11:26:09', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (4, 2, '企业动向', 'news/list/enterprise.html', NULL, '企业动向！', '2012-11-02 11:27:10', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (5, 7, '关于我们', 'online/show/about.html', NULL, '关于我们！', '2012-11-07 10:32:34', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (6, 0, '产品中心', 'pro.html', NULL, '产品中心！', '2012-11-07 10:56:50', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (7, 0, '在线联系', 'online.html', NULL, '在线联系！', '2012-11-07 11:43:31', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0);
 
 
 #
@@ -192,7 +193,7 @@ CREATE TABLE `wmis_web_html` (
   `summary` varchar(300) DEFAULT NULL,
   `content` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: wmis_web_news
