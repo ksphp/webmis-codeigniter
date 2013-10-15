@@ -1,9 +1,9 @@
 <form action="<?php echo base_url('web_book/editData.html');?>" method="post" id="bookForm">
 <table class="table_add">
 	<tr>
-		<td class="width right">标题:</td>
+		<td class="width right">昵称:</td>
 		<td>
-			<?php echo $edit->title;?>
+			<?php echo $edit->name;?>
 		</td>
 	</tr>
 	<tr>

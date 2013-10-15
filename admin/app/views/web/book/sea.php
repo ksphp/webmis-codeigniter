@@ -1,9 +1,9 @@
 <form action="<?php echo base_url('web_book/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
-		<td class="width right">标题:</td>
+		<td class="width right">昵称:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 90%;" />
+			<input type="text" name="name" class="input" style="width: 120px;" />
 		</td>
 	</tr>
 	<tr>

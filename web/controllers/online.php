@@ -60,5 +60,23 @@ class Online extends MY_Controller {
 		
 		$this->MyView('online/index',$data);
 	}
+
+	/* zi  */
+	public function message() {
+		$this->load->helper('my');
+		$this->load->model('class_m');
+		$this->load->model('news_m');
+		$this->load->model('book_m');
+		/*查找全部*/
+		$url = 'online/message.html';
+		$data = $this->Page($url,'book_m',10);
+		/* 分类 */
+		$data['class'] = $this->class_m->getMenus($this->Cid);
+		/* 最新资讯 */
+		$data['news']['tu'] = $this->news_m->getN(2,0,array('LENGTH(img) >'=>'0','state'=>'1'),array('class'=>':2:'));
+		$data['news']['text'] = $this->news_m->getN(8,0,array('state'=>'1'),array('class'=>':2:'));
+		
+		$this->MyView('online/message',$data);
+	}
 }
 ?>

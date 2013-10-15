@@ -19,7 +19,7 @@ CREATE TABLE `wmis_sys_admin` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:145 18:319 19:31 27:63 28:63 21:27 11:1');
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:129 18:319 19:31 27:63 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:129 18:319 19:31 27:63 28:63 21:27 11:1');
 
 
 #
@@ -120,7 +120,7 @@ DROP TABLE IF EXISTS wmis_web_book;
 
 CREATE TABLE `wmis_web_book` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL,
+  `name` varchar(12) NOT NULL,
   `content` text NOT NULL,
   `ctime` varchar(19) NOT NULL,
   `reply` text NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE `wmis_web_book` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_book (`id`, `title`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (1, '灵创留言板正式启动', '欢迎各位网友对灵创提出宝贵的意见，我们将在虚心听取中成长！', '2012-04-12 16:28:55', '灵创网络', '灵创网络', '2012-08-16 14:03:03');
+INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (1, '灵创留言板正式启动', '欢迎各位网友对灵创提出宝贵的意见，我们将在虚心听取中成长！', '2012-04-12 16:28:55', '灵创网络', '灵创网络', '2012-08-16 14:03:03');
 
 
 #
@@ -148,7 +148,7 @@ CREATE TABLE `wmis_web_class` (
   `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
   `sort` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0);
 INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0);
@@ -160,6 +160,7 @@ INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime
 INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0);
 INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook.html', '', '笔记本电脑！', '2013-09-27 14:02:21', 0);
 INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (10, 6, '时尚服装', 'pro/lists/dress.html', '', '时尚服装！', '2013-09-27 14:03:55', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (11, 7, '在线留言', 'online/message.html', '', '在线留言！', '2013-10-15 09:04:28', 0);
 
 
 #
@@ -212,8 +213,8 @@ CREATE TABLE `wmis_web_news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, '0', ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/80961368671891.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 144, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, '0', ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/36831368672071.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 140, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03', '1');
+INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, '0', ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/80961368671891.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 145, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16', '1');
+INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, '0', ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/36831368672071.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 156, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03', '1');
 
 
 #

@@ -14,7 +14,7 @@
 	<tr class="title" id="book_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td width="40">ID</td>
-		<td>标题</td>
+		<td>昵称</td>
 		<td>留言内容</td>
 		<td width="120">发布时间</td>
 		<td width="100">回复人</td>
@@ -25,7 +25,7 @@
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
-		<td style="text-align: left;"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a></td>
+		<td style="text-align: left;"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->name, @$key['name']);?></a></td>
 		<td><?php echo sysSubStr($val->content,42,true);?></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 		<td><?php echo keyHH($val->admin, @$key['admin']);?></td>

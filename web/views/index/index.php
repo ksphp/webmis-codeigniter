@@ -84,20 +84,15 @@
 		<!-- 在线留言 -->
 		<div class="right in_msg box">
 			<div class="box_top">
-				<span class="title"><a href="<?php echo base_url('pro.html');?>" ><h2>在线留言</h2></a></span>
+				<span class="title"><a href="<?php echo base_url('online/message.html');?>" ><h2>在线留言</h2></a></span>
 				<span class="class">发布留言！</span>
-				<span class="more"><a href="<?php echo base_url('pro.html');?>" title="更多" >More</a></span>
+				<span class="more"><a href="<?php echo base_url('online/message.html');?>" title="更多" >More</a></span>
 			</div>
 			<div id="inMsg" class="in_msg_ct">
 				<ul class="JQ-slide-content">
-					<li>留言内容1</li>
-					<li>留言内容2</li>
-					<li>留言内容3</li>
-					<li>留言内容4</li>
-					<li>留言内容5</li>
-					<li>留言内容6</li>
-					<li>留言内容7</li>
-					<li>留言内容8</li>
+<?php foreach($msg as $val){ ?>
+					<li><a href="#" ><b><?php echo $val->name;?></b></a>：<br><?php echo $val->content;?></li>
+<?php }?>
 				</ul>
 			</div>
 		</div>

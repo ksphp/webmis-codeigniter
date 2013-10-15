@@ -7,7 +7,7 @@
 </style>
 <div class="book_body">
 	<div class="book_top">
-		<span class="title">标题：<b><?php echo $show->title;?></b></span>
+		<span class="title">昵称：<b><?php echo $show->name;?></b></span>
 		<span class="time">发布时间：<?php echo $show->ctime;?></span>
 	</div>
 	<div class="book_ct"><?php echo $show->content;?></div>
