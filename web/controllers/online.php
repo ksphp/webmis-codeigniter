@@ -61,7 +61,7 @@ class Online extends MY_Controller {
 		$this->MyView('online/index',$data);
 	}
 
-	/* zi  */
+	/* 在线留言  */
 	public function message() {
 		$this->load->helper('my');
 		$this->load->model('class_m');
@@ -76,7 +76,12 @@ class Online extends MY_Controller {
 		$data['news']['tu'] = $this->news_m->getN(2,0,array('LENGTH(img) >'=>'0','state'=>'1'),array('class'=>':2:'));
 		$data['news']['text'] = $this->news_m->getN(8,0,array('state'=>'1'),array('class'=>':2:'));
 		
+		$data['js'] = array('/themes/default/js/message.js');
 		$this->MyView('online/message',$data);
+	}
+	public function messageAdd() {
+		$this->load->model('book_m');
+		echo $this->book_m->add()?true:false;
 	}
 }
 ?>

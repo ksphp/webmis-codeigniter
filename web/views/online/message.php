@@ -41,21 +41,34 @@
 					<span class="title"><a href="<?php echo base_url('online.html');?>" ><h2><?php echo $navName;?></h2></a></span>
 					<span class="class">在线留言</span>
 				</div>
-				<ul class="msg">
 <?php foreach($list as $val){?>
-					<li><span class="left">昵称：<b><?php echo $val->name;?></b></span><span class="right"><?php echo $val->ctime;?></span></li>
-					<li class="msgCT">
-						<div class="msgBody">
-							<div><?php echo $val->content;?></div>
+				<div class="msgCT">
+					<div class="msg_top">昵称：<b><?php echo $val->name;?></b></span><span class="right"><?php echo $val->ctime;?></span></div>
+					<div><?php echo $val->content;?></div>
 <?php if($val->reply) {?>
-							<div class="reply"><span class="left">回复人：<b><?php echo $val->admin;?></b></span><span class="right"><?php echo $val->rtime;?></span></div>
-							<div><?php echo $val->reply;?></div>
+					<div class="msg_top"><span class="left">回复人：<b><?php echo $val->admin;?></b></span><span class="right"><?php echo $val->rtime;?></span></div>
+					<div><?php echo $val->reply;?></div>
 <?php } ?>
-						</div>
-					</li>
+				</div>
 <?php } ?>
-				</ul>
 				<div class="page"><div class="pagelist"><?php echo $page.'<span>'.$total.'</span>'; ?></div></div>
+				<table class="msg_add">
+					<tr>
+						<td colspan="2"><div class="title"><b>发表留言</b>：<span id="msgBody" class="c999">发表自己的看法！</span></div></td>
+					</tr>
+					<tr>
+						<td width="80" align="right">昵称( <span class="red">*</span> )：</td>
+						<td><input type="text" id="msg_name" class="input" style="width: 200px;"></td>
+					</tr>
+					<tr>
+						<td align="right">内容( <span class="red">*</span> )：</td>
+						<td><textarea id="msg_content" style="width: 80%; height: 120px;" maxlength="300"></textarea></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><a href="#" id="msgADD" class="msg_an" >发表留言</a></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		</div>
