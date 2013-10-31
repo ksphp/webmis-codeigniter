@@ -58,7 +58,7 @@
 					</tr>
 					<tr>
 						<td width="80" align="right">昵称( <span class="red">*</span> )：</td>
-						<td><input type="text" id="msg_name" class="input" style="width: 200px;"></td>
+						<td><input type="text" id="msg_name" class="input" style="width: 200px;" maxlength="12"></td>
 					</tr>
 					<tr>
 						<td align="right">内容( <span class="red">*</span> )：</td>

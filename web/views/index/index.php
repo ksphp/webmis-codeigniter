@@ -50,9 +50,9 @@
 				</div>
 				<ul class="in_news_one">
 <?php foreach($news['tu'] as $val){ ?>
-					<li class="tu"><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>"><img src="<?php echo base_url($val->img);?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="100" height="65" /></a></li>
+					<li class="tu"><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>"><img src="<?php echo $val->img;?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="100" height="65" /></a></li>
 					<li class="text">
-						<a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,18); ?></a><br>
+						<a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,24,true); ?></a><br>
 						<?php echo sysSubStr($val->summary,120,true); ?> 
 					</li>
 <?php }?>
