@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font: 12px/20px arial, helvetica, verdana, tahoma, sans-serif;}
-body{background: url("images/bg1.png") #FFF;}
+body{min-width: 1020px; background: url("images/bg1.png") #FFF;}
 img{border: none;}
 ul{list-style: none;}
 a{color: #333; text-decoration: none;}
