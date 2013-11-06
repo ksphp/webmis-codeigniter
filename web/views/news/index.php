@@ -11,7 +11,7 @@
 				<ul class="news_list">
 <?php foreach($list as $val){?>
 					<li>
-						<a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img;?>" width="120" height="80" alt="<?php echo $val->title;?>" ></a>
+						<a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img?$val->img:'/upload/null.png';?>" width="120" height="80" alt="<?php echo $val->title;?>" ></a>
 						<div class="news_list_ct">
 							<h3><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" ><?php echo $val->title;?></a></h3>
 							<div class="other">发布时间：<?php echo $val->ctime;?>&nbsp;&nbsp;|&nbsp;&nbsp;来源：<?php echo $val->source;?>&nbsp;&nbsp;|&nbsp;&nbsp;作者：<?php echo $val->author;?>&nbsp;&nbsp;|&nbsp;&nbsp;浏览：<?php echo $val->click;?></div>
