@@ -58,7 +58,6 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 
 /*Content*/
 .content{}
-.content .ct{padding-bottom: 10px;}
 .content .display{width: 100%; display: inline-block;}
 .content .ct_l{width: 740px;}
 .content .ct_r{width: 230px;}
@@ -122,7 +121,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 
 /*Index*/
 .ad_bg{background: url("images/ad/ad_x.jpg") repeat-x #4B4B4B; border-bottom: #333 1px solid; box-shadow: 0px 1px 2px #333;}
-.ad_ct{width: 1000px; height:360px; background: url("images/ad/ad_bg.jpg") no-repeat center bottom; margin: 0 auto;}
+.ad_ct{width: 1000px; height:360px; background: url("images/ad/ad_bg.jpg") no-repeat center bottom; margin: 0 auto; padding: 0 10px;}
 /* Slides */
 #slides{width: 1000px; display: none;}
 #slides .slidesjs-control{background: #FFF;}
