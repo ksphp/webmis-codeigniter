@@ -27,7 +27,7 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 <p>
 <b>三、测试</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;网站前台：http://localhost/web<br>
-&nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：webmis 密码：ksphp.com)
+&nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：admin 密码：admin)
 </p>
 <p>
 <b>四、目录说明</b><br>
