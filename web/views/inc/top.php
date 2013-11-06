@@ -1,7 +1,7 @@
 <?php
-$title = 'WEBMIS是免费开源PHP开发底层系统';
+$title = 'WEBMIS是免费开源PHP开发框架系统';
 $key = 'WEBMIS,灵创网络,免费开源,PHP开发底层系统,多用户、多权限解决方案';
-$dsp = 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！';
+$dsp = 'WEBMIS是免费开源PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！';
 
 if($navName){
 	$title = $navName=='首页'?$title:$navName.'_'.$title;

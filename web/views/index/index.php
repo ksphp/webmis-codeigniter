@@ -6,8 +6,8 @@
 			<div class="ad1">
 				<div class="ad1_ct">
 					<div class="ad1_text">
-						<h2>最快速、最实用的PHP开发底层系统</h2>
-						WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！
+						<h2>最快速、最实用的PHP开发框架系统</h2>
+						WEBMIS是免费开源PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！
 					</div>
 					<div class="ad1_ct2">
 						<div class="ad1_an"><a class="an1" target="_black" href="https://github.com/ksphp/webmis">&nbsp;</a>&nbsp;&nbsp;<a class="an2" target="_black" href="http://webmis.ksphp.com/admin">&nbsp;</a></div>
