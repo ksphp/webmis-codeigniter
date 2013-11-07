@@ -14,7 +14,7 @@
 <div class="top_bg">
 	<div id="top" class="top">
 		<div class="top_logo">&nbsp;</div>
-		<span class="top_link">管理员：<a href="#"><?php echo $uinfo['uname']; ?></a>&nbsp;&nbsp;[&nbsp;&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;&nbsp;]&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
+		<span class="top_link"><a href="#"><b><?php echo $uinfo['uname']; ?></b></a>&nbsp;&nbsp;[&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('sys_change_passwd.html');?>">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
 	</div>
 	<div class="top_nav">
 		<div class="title"><a href="http://www.ksphp.com/" target="_blank"><b id="webmisVersion">WebMIS</b> [ {elapsed_time} ]</a></div>
