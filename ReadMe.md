@@ -22,7 +22,8 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;（2）修改数据库配置文件；<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理后台：admin/app/config/database.php<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站前台：web/config/database.php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；
+&nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br>
+<b>注意：如果不是在根目录下安装，必须更改.htaccess 如：“/目录名/”与“/目录名/admin/”</b>
 </p>
 <p>
 <b>三、测试</b><br>
