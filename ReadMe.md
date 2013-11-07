@@ -1,6 +1,6 @@
 <div sytle="font-size: 12px;">
 <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebMIS是PHP底层开发系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
 官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br>
@@ -22,8 +22,8 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;（2）修改数据库配置文件；<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理后台：admin/app/config/database.php<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站前台：web/config/database.php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br>
-<b>注意：如果不是在根目录下安装，必须更改.htaccess 如：“/目录名/”与“/目录名/admin/”</b>
+&nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>注意：如果不是在根目录下安装，必须更改.htaccess 如：“/目录名/”与“/目录名/admin/”</b>
 </p>
 <p>
 <b>三、测试</b><br>
@@ -38,17 +38,17 @@ admin-----------------------------<b>后台管理</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js----------------------------后台数据处理的JS文件<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.htaccess---------------------后台重写文件、屏蔽index.php<br>
 install---------------------------安装向导<br>
-public----------------------------网站前台公共目录<br>
+system----------------------------CI框架目录<br>
+themes----------------------------前台样式目录<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css---------------------------样式目录<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images------------------------图片目录<br>
-system----------------------------CI框架目录<br>
 upload----------------------------上传目录<br>
 web-------------------------------<b>网站前台</b><br>
 webmis----------------------------前端样式插件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css---------------------------样式目录<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images------------------------图片目录<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js----------------------------JS插件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plugin------------------------公共插件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plugin------------------------第三方插件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;src---------------------------JS插件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;themes------------------------样式目录<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jquery.webmis.js--------------webmis插件<br>
 index.php-------------------------接口文件<br>
 .htaccess-------------------------前台重写文件、屏蔽index.php
 </p>
