@@ -1,19 +1,19 @@
 <?php
 class Sys_menus_action_m extends CI_Model {
 	var $table = 'sys_menus_action';
-	/*分页*/
+	/* Page */
 	function page($num, $offset, $like=''){
 		$this->db->order_by("id");
 		if($like){$this->db->like($like);}
 		$query = $this->db->get($this->table,$num,$offset);
 		return $query->result();
 	}
-	/*数据表条数*/
+	/* Count All */
 	function count_all($like=''){
 		if($like){$this->db->like($like);}
 		return $this->db->count_all_results($this->table);
 	}
-	/*查询一条数据*/
+	/* GetOne */
 	function getOne(){
 		$id = $this->input->post('id');
 		if($id){
@@ -22,12 +22,12 @@ class Sys_menus_action_m extends CI_Model {
 			return $data[0];
 		}
 	}
-	/*查询全部*/
+	/* Get All */
 	function getAll(){
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
-	/*添加*/
+	/* Add */
 	function add(){
 		$name = $this->input->post('name');
 		if($name){
@@ -38,7 +38,7 @@ class Sys_menus_action_m extends CI_Model {
 			return $this->db->insert($this->table,$data)?true:false;
 		}
 	}
-	/*更新*/
+	/* Update */
 	function update(){
 		$id = $this->input->post('id');
 		if($id){
@@ -50,7 +50,7 @@ class Sys_menus_action_m extends CI_Model {
 			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
-	/*删除*/
+	/* Delete */
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){

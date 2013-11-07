@@ -2,7 +2,7 @@
 class file_class{
 	var $file_root = '.';
 	
-	/* 文件列表 */
+	/* Lists */
 	function lists($c='/') {
 		$c = $c?$c:'/';
 		$c = preg_replace('/\.\.\/|\.\/|\.\./','',$c);
@@ -44,7 +44,7 @@ class file_class{
 		return $data;
 	}
 
-	/* 文件图标 */
+	/* File Ico */
 	private function ico_class($ext='file') {
 		$class = array(
 			'file'=>'ico-file',
@@ -69,19 +69,19 @@ class file_class{
 		return $date;
 	}
 
-	/* 新建文件夹 */
+	/* Mkdir */
 	function addDir($path,$perm=0755) {
 		return mkdir($this->file_root.$path, octdec($perm));
 	}
 
-	/* 重命名 */
+	/* Rename */
 	function reName($rename,$name) {
 		$ff = $this->file_root.$rename;
 		$f = $this->file_root.$name;
 		return rename($ff,$f);
 	}
 
-	/* 删除文件夹和文件 */
+	/* Delete folder and file */
 	function del($path,$f) {
 		$data = false;
 		$arr = array_filter(explode(',', $f));
@@ -108,7 +108,7 @@ class file_class{
 		return rmdir($dir);
 	}
 
-	/* 编辑权限 */
+	/* EditPerm */
 	function editPerm($path,$perm) {
 		$ff = $this->file_root.$path;
 		$perm = octdec($perm);
@@ -133,7 +133,7 @@ class file_class{
 		return chmod($dir,$perm);
 	}
 
-	/*文件夹大小*/
+	/* Folder Size */
 	function dirsize($dir) {
 		$handle=opendir($dir);
 		$size = 0;
@@ -145,24 +145,24 @@ class file_class{
 		closedir($handle);
 		return $size;
 	}
-	/*文件大小*/
+	/* File Size */
 	function size($f='') {
 		return filesize($f);
 	}
 
-	/*文件权限*/
+	/* File Perm */
 	function perm($f='') {
 		return substr(sprintf('%o', fileperms($f)), -4);
 	}
-	/*创建时间*/
+	/* Ctime */
 	function getctime($f='') {
 		return date("Y-m-d H:i:s",filectime($f));
 	}
-	/*修改时间*/
+	/* Mtime */
 	function getmtime($f='') {
 		return date("Y-m-d H:i:s",filemtime($f));
 	}
-	/*转换*/
+	/* Format Byte */
 	private function formatBytes($bytes){
 		if($bytes >= 1073741824){
 			$bytes = round($bytes / 1073741824 * 100) / 100 . ' GB';

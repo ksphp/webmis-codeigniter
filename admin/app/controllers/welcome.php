@@ -1,6 +1,6 @@
 <?php
 class Welcome extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$this->load->library('user_agent');
 		

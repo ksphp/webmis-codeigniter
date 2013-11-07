@@ -1,18 +1,18 @@
 <?php
 class Sys_db_backup extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$this->load->model('sys_db_m');
 		$data['table'] = $this->sys_db_m->getTableList();
 		$data['js'] = array('js/system/sys_db_backup.js',);
 		$this->MyView('system/db/backup/index',$data);
 	}
-	/*导出*/
+	/* Export */
 	public function exp(){
-		/*系统配置*/
+		/* System Config*/
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
-		/*参数*/
+		/*Config*/
 		$data['fname'] = 'Data_'.date('Y_m_d_His');
 		$data['backdir'] = $config['backdir'];
 		$data['table'] = $this->input->post('table');
@@ -21,15 +21,14 @@ class Sys_db_backup extends MY_Controller {
 	public function expData(){
 		$this->load->dbutil();
 		$this->load->helper('file');
-		
-		/*获取表单*/
+		/* Post */
 		$dir = $this->input->post('dir');
 		$name = $this->input->post('name');
 		$format = $this->input->post('format');
 		$table = array_filter(explode(' ', $this->input->post('table')));
-		/*创建目录*/
+		/* Mkdir */
 		if(!is_dir($dir)){@mkdir($dir,0777);}
-		/*配置*/
+		/* Config */
 		$prefs = array(
 			'tables'      => $table,
 			'ignore'      => array(),

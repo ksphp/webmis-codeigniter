@@ -1,6 +1,6 @@
 $(function(){
 	$.webmis.inc({files:[$webmis_plugin+'Validform.min.js']});
-	$('#changeSub').webmis('SubClass'); //按钮样式
+	$('#changeSub').webmis('SubClass');
 	//表单验证
 	$("#changePWdForm").Validform({
 		ajaxPost:true,

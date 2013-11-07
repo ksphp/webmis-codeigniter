@@ -1,11 +1,11 @@
 <?php
 class Sys_db_restore extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$this->load->helper('my');
 		$this->load->helper('file');
 		$this->load->model('sys_db_m');
-		/*系统配置*/
+		/* System config */
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
 		
@@ -14,21 +14,21 @@ class Sys_db_restore extends MY_Controller {
 		
 		$this->MyView('system/db/restore/index',$data);
 	}
-	/*下载*/
+	/* Download */
 	public function down(){
 		$this->load->helper('download');
-		/*系统配置*/
+		/* System config */
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
-		/*读文件内容*/
+		/* Read File */
 		$fname = $this->input->get('name');
 		$data = file_get_contents($config['backdir'].'/'.$fname);
 
 		force_download($fname, $data); 
 	}
-	/*删除*/
+	/* Delete */
 	public function delData(){
-		/*系统配置*/
+		/* System config */
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
 		
@@ -43,12 +43,12 @@ class Sys_db_restore extends MY_Controller {
 		}
 		echo $data;
 	}
-	/*导入*/
+	/* Import */
 	public function imp(){
-		/*系统配置*/
+		/* System config */
 		$this->load->model('sys_config_m');
 		$config = $this->sys_config_m->getval();
-		/*参数*/
+		/* Config */
 		$data['file'] = $config['backdir'].'/'.$this->input->post('file');
 		$this->load->view('system/db/restore/imp',$data);
 	}
@@ -57,7 +57,7 @@ class Sys_db_restore extends MY_Controller {
 		
 		$file = $this->input->post('file');
 		$data = '{"status":"n"}';
-		/*去掉注释部分*/
+		/* Remove Notes */
 		$content = read_file($file);
 		$content = preg_replace("/#\n# TABLE(.*)\s#\n/i","",$content);
 		$sqls = array_filter(explode(";\n",$content));

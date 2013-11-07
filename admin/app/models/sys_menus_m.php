@@ -1,19 +1,19 @@
 <?php
 class Sys_menus_m extends CI_Model {
 	var $table = 'sys_menus';
-	/*分页*/
+	/* Page */
 	function page($num, $offset, $like=''){
 		$this->db->order_by('fid desc,sort desc');
 		if($like){$this->db->like($like);}
 		$query = $this->db->get($this->table,$num,$offset);
 		return $query->result();
 	}
-	/*数据表条数*/
+	/* Count All */
 	function count_all($like=''){
 		if($like){$this->db->like($like);}
 		return $this->db->count_all_results($this->table);
 	}
-	/*查询一条数据*/
+	/* Get One */
 	function getOne(){
 		$id = $this->input->post('id');
 		if($id){
@@ -22,23 +22,23 @@ class Sys_menus_m extends CI_Model {
 			return $data[0];
 		}
 	}
-	/*根据fid查询菜单*/
+	/* Get Menus */
 	function getMenus($fid){
 		$this->db->order_by('sort asc,id asc');
 		$query = $this->db->get_where($this->table,array('fid' => $fid));
 		return $query->result();
 	}
-	/*根据fid查询菜单*/
+	/* Get Menus One */
 	function getMenuOne($id){
 		$query = $this->db->get_where($this->table,array('id' => $id));
 		return $query->result();
 	}
-	/*获取FID*/
+	/* Get Menus Fid */
 	function getMenusUrl($url){
 		$query = $this->db->get_where($this->table,array('url' => $url));
 		return $query->result();
 	}
-	/*添加*/
+	/* Add */
 	function add(){
 		$title = trim($this->input->post('title'));
 		if($title){
@@ -54,7 +54,7 @@ class Sys_menus_m extends CI_Model {
 			return $this->db->insert($this->table,$data)?true:false;
 		}
 	}
-	/*更新*/
+	/* Update */
 	function update(){
 		$id = $this->input->post('id');
 		if($id){
@@ -70,7 +70,7 @@ class Sys_menus_m extends CI_Model {
 			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
-	/*删除*/
+	/* Delete */
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){

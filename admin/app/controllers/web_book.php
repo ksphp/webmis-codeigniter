@@ -1,6 +1,6 @@
 <?php
 class Web_book extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$data = $this->Page('web_book/index.html','web_book_m');
 		$data['js'] = array('js/web/web_book.js');
@@ -10,11 +10,11 @@ class Web_book extends MY_Controller {
 			$this->MyView('web/book/index',$data);
 		}
 	}
-	/*搜索*/
+	/* Search */
 	public function search(){
 		$this->load->view('web/book/sea');
 	}
-	/*编辑*/
+	/* Edit */
 	public function edit(){
 		$this->load->model('web_book_m');
 		$data['edit'] = $this->web_book_m->getOne();
@@ -24,12 +24,12 @@ class Web_book extends MY_Controller {
 		$this->load->model('web_book_m');
 		echo $this->web_book_m->update()?'{"status":"y"}':'{"status":"n"}';
 	}
-	/*删除*/
+	/* Delete */
 	public function delData(){
 		$this->load->model('web_book_m');
 		echo $this->web_book_m->del();
 	}
-	/*预览*/
+	/* View */
 	public function show(){
 		$this->load->model('web_book_m');
 		$data['show'] = $this->web_book_m->getOne();

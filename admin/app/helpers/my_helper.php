@@ -1,6 +1,6 @@
 <?php
 /**
-* 关键字高亮
+* Key Highlight
 */
 if ( ! function_exists('keyHH')){
 	
@@ -17,7 +17,7 @@ if ( ! function_exists('keyHH')){
 	}
 }
 /**
-* 截取字符
+* SubStr
 */
 if ( ! function_exists('sysSubStr')){
 	function sysSubStr($String,$Length,$Append = false){
@@ -47,7 +47,7 @@ if ( ! function_exists('sysSubStr')){
 	} 
 }
 /**
-* 字节转换
+* Format Byte
 */
 if ( ! function_exists('formatBytes')){
 	function formatBytes($bytes){

@@ -1,19 +1,19 @@
 <?php
 class Sys_admin_login_log_m extends CI_Model {
 	var $table = 'sys_admin_login_log';
-	/*分页*/
+	/* Page */
 	function page($num, $offset, $like=''){
 		$this->db->order_by("id",'desc');
 		if($like){$this->db->like($like);}
 		$query = $this->db->get($this->table,$num,$offset);
 		return $query->result();
 	}
-	/*数据表条数*/
+	/* Count All*/
 	function count_all($like=''){
 		if($like){$this->db->like($like);}
 		return $this->db->count_all_results($this->table);
 	}
-	/*添加*/
+	/* Add */
 	function add($type,$uname,$ip,$agent){
 		$data['type'] = $type;
 		$data['uname'] = $uname;
@@ -22,7 +22,7 @@ class Sys_admin_login_log_m extends CI_Model {
 		$data['time'] = date('Y-m-d H:i:s');
 		return $this->db->insert($this->table,$data);
 	}
-	/*删除*/
+	/* Delete */
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){

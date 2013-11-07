@@ -1,6 +1,6 @@
 <?php
 class Web_class extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$data = $this->Page('web_class/index.html','web_class_m');
 		$data['js'] = array('js/web/web_class.js');
@@ -10,11 +10,11 @@ class Web_class extends MY_Controller {
 			$this->MyView('web/class/index',$data);
 		}
 	}
-	/*搜索*/
+	/* Search */
 	public function search(){
 		$this->load->view('web/class/sea');
 	}
-	/*添加*/
+	/* Add */
 	public function add(){
 		$this->load->view('web/class/add');
 	}
@@ -22,14 +22,14 @@ class Web_class extends MY_Controller {
 		$this->load->model('web_class_m');
 		echo $this->web_class_m->add()?'{"status":"y"}':'{"status":"n"}';
 	}
-	/*查询菜单*/
+	/* GetMenu */
 	public function getMenu(){
 		$this->load->model('web_class_m');
 		$fid = $this->input->post('fid');
 		$data = $this->web_class_m->getMenus($fid);
 		echo json_encode($data);
 	}
-	/*编辑*/
+	/* Edit */
 	public function edit(){
 		$this->load->model('web_class_m');
 		$data['edit'] = $this->web_class_m->getOne();
@@ -39,7 +39,7 @@ class Web_class extends MY_Controller {
 		$this->load->model('web_class_m');
 		echo $this->web_class_m->update()?'{"status":"y"}':'{"status":"n"}';
 	}
-	/*删除*/
+	/* Delete */
 	public function delData(){
 		$this->load->model('web_class_m');
 		echo $this->web_class_m->del();

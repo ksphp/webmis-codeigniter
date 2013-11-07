@@ -1,6 +1,6 @@
 <?php
 class Sys_filemanager extends MY_Controller {
-	/* 首页 */
+	/* Index */
 	function index(){
 		$this->load->library('file_class');
 		
@@ -70,11 +70,11 @@ class Sys_filemanager extends MY_Controller {
 				}
 		}
 	}
-	/* 新建文件夹 */
+	/* Create Folder */
 	function addFolder() {
 		$this->load->view('system/filemanager/mkdir');
 	}
-	/* 新建文件夹 */
+	/* Create File */
 	function addFile() {
 		$this->load->view('system/filemanager/addfile');
 	}
@@ -83,19 +83,19 @@ class Sys_filemanager extends MY_Controller {
 		$data = !is_file($file)?write_file($file,''):false;
 		return $data;
 	}
-	/* 上传文件 */
+	/* Upload */
 	function upload() {
 		$this->load->view('system/filemanager/upload');
 	}
-	/* 编辑权限 */
+	/* EditPerm */
 	function editPerm() {
 		$this->load->view('system/filemanager/edit_perm');
 	}
-	/* 重命名 */
+	/* Rename */
 	function reName() {
 		$this->load->view('system/filemanager/rename');
 	}
-	/* 下载 */
+	/* Download */
 	public function down($file_root){
 		$this->load->library('zip');
 
@@ -112,7 +112,7 @@ class Sys_filemanager extends MY_Controller {
 		}
 		$this->zip->download('Down.zip');
 	}
-	/* 打开文件 */
+	/* ViewFile */
 	public function viewFile($file_root) {
 		$this->load->helper('file');
 		$this->load->helper('typography');
@@ -122,7 +122,7 @@ class Sys_filemanager extends MY_Controller {
 		$string = read_file($file);
 		echo $string = '<div style="font-size: 12px; line-height: 18px; padding: 0 10px;">'.auto_typography($string).'</div>';
 	}
-	/* 编辑文件 */
+	/* EditFile */
 	public function editFile($file_root) {
 		$this->load->helper('file');
 		$this->load->helper('typography');
@@ -140,7 +140,7 @@ class Sys_filemanager extends MY_Controller {
 		$data .= '</form>';
 		echo $data;
 	}
-	/* 保存文件 */
+	/* SaveFile */
 	public function saveFile() {
 		$this->load->helper('file');
 		$file = $this->input->get('file');

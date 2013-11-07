@@ -1,6 +1,6 @@
 <?php
 class Sys_menus extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$data = $this->Page('sys_menus/index.html','sys_menus_m');
 		$data['js'] = array('js/system/sys_menus.js');
@@ -10,11 +10,11 @@ class Sys_menus extends MY_Controller {
 			$this->MyView('system/menus/index',$data);
 		}
 	}
-	/*搜索*/
+	/* Search */
 	public function search(){
 		$this->load->view('system/menus/sea');
 	}
-	/*添加*/
+	/* Add */
 	public function add(){
 		$this->load->model('sys_menus_action_m');
 		$data['action'] = $this->sys_menus_action_m->getAll();
@@ -24,14 +24,14 @@ class Sys_menus extends MY_Controller {
 		$this->load->model('sys_menus_m');
 		echo $this->sys_menus_m->add()?'{"status":"y"}':'{"status":"n"}';
 	}
-	/*查询菜单*/
+	/* GetMenu */
 	public function getMenu(){
 		$this->load->model('sys_menus_m');
 		$fid = $this->input->post('fid');
 		$data = $this->sys_menus_m->getMenus($fid);
 		echo json_encode($data);
 	}
-	/*编辑*/
+	/* Edit */
 	public function edit(){
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
@@ -47,7 +47,7 @@ class Sys_menus extends MY_Controller {
 		$this->load->model('sys_menus_m');
 		echo $this->sys_menus_m->update()?'{"status":"y"}':'{"status":"n"}';
 	}
-	/*删除*/
+	/* Delete */
 	public function delData(){
 		$this->load->model('sys_menus_m');
 		echo $this->sys_menus_m->del();

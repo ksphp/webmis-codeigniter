@@ -1,7 +1,7 @@
 <?php
 class Web_html_m extends CI_Model {
 	var $table = 'web_html';
-	/*分页*/
+	/* Page */
 	function page($num, $offset, $like='',$where='',$order=''){
 		$this->db->from($this->table);
 		$this->db->order_by($order);
@@ -11,13 +11,13 @@ class Web_html_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	/*数据表条数*/
+	/* Count All */
 	function count_all($like='',$where=''){
 		if($like){$this->db->like($like);}
 		if($where) {$this->db->where_in('state', $where['in']);}
 		return $this->db->count_all_results($this->table);
 	}
-	/*查询一条数据*/
+	/* Get One */
 	function getOne(){
 		$id = $this->input->post('id');
 		if($id){
@@ -26,7 +26,7 @@ class Web_html_m extends CI_Model {
 			return $data[0];
 		}
 	}
-	/*添加*/
+	/* Add */
 	function add(){
 		$title = trim($this->input->post('title'));
 		if($title){
@@ -42,7 +42,7 @@ class Web_html_m extends CI_Model {
 			return $this->db->insert($this->table,$data)?true:false;
 		}
 	}
-	/*更新*/
+	/* Update */
 	function update(){
 		$id = $this->input->post('id');
 		if($id){
@@ -58,7 +58,7 @@ class Web_html_m extends CI_Model {
 			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
-	/*删除*/
+	/* Delete */
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
@@ -75,14 +75,14 @@ class Web_html_m extends CI_Model {
 			return $data;
 		}
 	}
-	/*审核*/
+	/* Audit */
 	function audit(){
 		$id = trim($this->input->post('id'));
 		if($id){
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
 				$data['state'] = $this->input->post('state');
-				/*执行*/
+				/* run */
 				$this->db->where('id', $val);
 				if($this->db->update($this->table,$data)){
 					$rt = true;

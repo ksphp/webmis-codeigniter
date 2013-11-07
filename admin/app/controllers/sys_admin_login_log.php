@@ -1,6 +1,6 @@
 <?php
 class Sys_admin_login_log extends MY_Controller {
-	/*首页*/
+	/* Index */
 	public function index(){
 		$data = $this->Page('sys_admin_login_log/index.html','sys_admin_login_log_m');
 		$data['js'] = array('js/system/sys_admin_login_log.js');
@@ -10,11 +10,11 @@ class Sys_admin_login_log extends MY_Controller {
 			$this->MyView('system/logs/login_v',$data);
 		}
 	}
-	/*搜索*/
+	/* Search */
 	public function search(){
 		$this->load->view('system/logs/login_sea');
 	}
-	/*删除*/
+	/* Delete */
 	public function delData(){
 		$this->load->model('sys_admin_login_log_m');
 		echo $this->sys_admin_login_log_m->del();
