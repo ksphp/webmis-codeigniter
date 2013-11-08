@@ -8,7 +8,7 @@ $(function(){
 	var NavId = $('#NavId').text();
 	var MenuTwoId = $('#MenuTwoId').text();
 	menuOne(NavId);
-	menuTwo(MenuTwoId);
+	menuTwo(MenuTwoId,true);
 	//显示、隐藏头部
 	$('#TopMenus').click(function(){
 		if($("#top").is(":hidden")){
@@ -60,11 +60,11 @@ function menuOne(id){
 	);
 }
 /*点击二级菜单*/
-function menuTwo(id){
+function menuTwo(id,type){
 	//显示对应菜单
 	var p = $('#menuThree_'+id);
 	if(p.is(':hidden')){
-		p.slideDown('fast');
+		if(type){p.show();}else{p.slideDown('fast');}
 		$('#menuTwo_'+id).find('#tu').attr('class','jian UI');
 	}else{
 		p.slideUp('fast');
