@@ -1,5 +1,5 @@
 /**
- * @license Highcharts JS v3.0.1 (2013-04-09)
+ * @license Highcharts JS v3.0.7 (2013-10-24)
  * MooTools adapter
  *
  * (c) 2010-2013 Torstein Hønsi
@@ -79,7 +79,7 @@ win.HighchartsAdapter = {
 		// This currently works for getting inner width and height. If adding
 		// more methods later, we need a conditional implementation for each.
 		if (method === 'width' || method === 'height') {
-			return parseInt($(el).getStyle(method), 10);
+			return parseInt(document.id(el).getStyle(method), 10);
 		}
 	},
 
@@ -120,6 +120,9 @@ win.HighchartsAdapter = {
 			};
 			// dirty hack to trick Moo into handling el as an element wrapper
 			el.$family = function () { return true; };
+			el.getComputedStyle = function () {
+				return el.element.getComputedStyle.apply(el.element, arguments);
+			};
 		}
 
 		// stop running animations
@@ -127,7 +130,7 @@ win.HighchartsAdapter = {
 
 		// define and run the effect
 		effect = new Fx.Morph(
-			isSVGElement ? el : $(el),
+			isSVGElement ? el : document.id(el),
 			$extend({
 				transition: Fx.Transitions.Quad.easeInOut
 			}, options)
@@ -187,7 +190,7 @@ win.HighchartsAdapter = {
 	 * Return the index of an item in an array, or -1 if not matched
 	 */
 	inArray: function (item, arr, from) {
-		return arr.indexOf(item, from);
+		return arr ? arr.indexOf(item, from) : -1;
 	},
 
 	/**
@@ -209,7 +212,7 @@ win.HighchartsAdapter = {
 		// like series or point
 		if (!el.addEvent) {
 			if (el.nodeName) {
-				el = $(el); // a dynamically generated node
+				el = document.id(el); // a dynamically generated node
 			} else {
 				$extend(el, new Events()); // a custom object
 			}
