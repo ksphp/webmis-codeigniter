@@ -2,7 +2,7 @@
 	$api = $_GET['api'];
 	/* 判断文件读写 */
 	if($api == 'isWrite') {
-		$class = is_writable('../admin/app/config/database.php')?'suc':'err';
+		$class = is_writable('../admin/config/database.php')?'suc':'err';
 		echo '<div class="'.$class.'"><em>&nbsp;</em>admin/app/config/database.php&nbsp;&nbsp;#后台数据库配置文件</div>';
 		$class = is_writable('../web/config/database.php')?'suc':'err';
 		echo '<div class="'.$class.'"><em>&nbsp;</em>web/config/database.php&nbsp;&nbsp;#网站数据库配置文件</div>';
@@ -61,7 +61,7 @@
 			}
 
 			/* CI数据库配置文件 */
-			$file1 = '../admin/app/config/database.php';
+			$file1 = '../admin/config/database.php';
 			$file2 = '../web/config/database.php';
 			$ct1 = file_get_contents($file1);
 			$ct2 = file_get_contents($file2);
