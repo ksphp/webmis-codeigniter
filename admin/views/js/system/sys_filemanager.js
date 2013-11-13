@@ -6,7 +6,7 @@ var fileGetUrl = '&action='+file_action+'&editor='+file_editor
 $(function () {
 	//加载文件
 	$.webmis.inc({files:[
-		$webmis_plugin + 'jquery/jquery.form.js',
+		$webmis_plugin + 'jquery.form.js',
 		$webmis_plugin + 'tinymce/tinymce.min.js'	//编辑器插件
 	]});
 /*列表*/
