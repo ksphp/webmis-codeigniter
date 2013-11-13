@@ -2,14 +2,13 @@
 class Sys_config extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->load->library('file_class');
+		$this->load->helper('file');
 		/* Admin Themes */
-		$data['admin_themes'] = $this->file_class->lists('views/themes/');
+		$data['admin_themes'] = get_dir_file_info('views/themes');
 		/* WebMIS Themes */
-		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'];
-		$data['webmis_themes'] = $this->file_class->lists('webmis/themes/');
+		$data['webmis_themes'] = get_dir_file_info('../webmis/themes');
 		/* Jquery */
-		$data['jquery'] = $this->file_class->lists('webmis/plugin/jquery/');
+		$data['jquery'] = get_dir_file_info('../webmis/plugin/jquery');
 
 		$data['js'] = array('js/system/sys_config.js',);
 		if($this->IsMobile) {
