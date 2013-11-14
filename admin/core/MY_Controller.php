@@ -112,26 +112,6 @@ class MY_Controller extends CI_Controller {
 		}
 	}
 /*------------------------------------------------------------------
-* Nav
--------------------------------------------------------------------*/
-	private function getNavHtml($mode='pc'){
-		$permArr = $_SESSION['uinfo']['permArr'];
-		$nav = $this->getMenus(0);
-		$html = $mode!='mobile'?'<ul id="webmis_menu" class="nav_menu">':'';
-		foreach($nav as $val){
-			if(isset($permArr[$val->id])){
-				if($mode=='mobile') {
-					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="an2" onclick="menuOne(\''.$val->id.'\');return false;">'.$val->title.'</a></li>';
-				}else {
-					$html .= '<li><a href="#" id="nav_'.$val->id.'" class="nav_an2" onclick="menuOne(\''.$val->id.'\');return false;"><em class="'.$val->ico.'"></em>&nbsp;'.$val->title.'</a>';
-					$html .= '<li class="UI lines">&nbsp;</li>';
-				}
-			}
-		}
-		$html .= $mode!='mobile'?'</ul>':'';
-		return $html;
-	}
-/*------------------------------------------------------------------
 * Menu
 -------------------------------------------------------------------*/
 	private function getMenu($fid){

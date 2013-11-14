@@ -68,7 +68,7 @@
 	</tr>
 	<tr>
 		<td align="right">配置文件:</td>
-		<td colspan="3" align="left"><?php echo base_url('app/config/database.php'); ?></td>
+		<td colspan="3" align="left"><?php echo base_url('config/database.php'); ?></td>
 	</tr>
 	<tr>
 		<td align="right">数据库类型:</td>
