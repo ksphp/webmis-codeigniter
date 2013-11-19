@@ -10,7 +10,7 @@
 </table>
 <div class="line">&nbsp;</div>
 <!-- Content -->
-<form action="<?php echo base_url('sys_config/editData.html');?>" method="post" id="configForm">
+<form action="<?php echo base_url('index.php/sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">配置文件：</td>
