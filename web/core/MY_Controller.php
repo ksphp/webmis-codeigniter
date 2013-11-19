@@ -83,22 +83,17 @@ class MY_Controller extends CI_Controller {
 * 导航菜单
 -------------------------------------------------------------------*/
 	private function getMenu($fid){
-		$permArr = $_SESSION['uinfo']['permArr'];
 		$one = $this->getMenus($fid);
 		$data = '';
 		foreach($one as $key1=>$val1){
-			if(isset($permArr[$val1->id])){
-				$data[$key1] = $val1;
-				$two = $this->getMenus($val1->id);
-				foreach($two as $key2=>$val2){
-					if(isset($permArr[$val2->id])){
-						$data[$key1]->menus[] = $val2;
-						$three = $this->getMenus($val2->id);
-						foreach($three as $key3=>$val3){
-							if(isset($permArr[$val3->id])){
-								$data[$key1]->menus[$key2]->menus[] = $val3;
-							}
-						}
+			$data[$key1] = $val1;
+			$two = $this->getMenus($val1->id);
+			foreach($two as $key2=>$val2){
+				$data[$key1]->menus[] = $val2;
+				$three = $this->getMenus($val2->id);
+				foreach($three as $key3=>$val3){
+					if(isset($permArr[$val3->id])){
+						$data[$key1]->menus[$key2]->menus[] = $val3;
 					}
 				}
 			}
