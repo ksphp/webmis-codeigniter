@@ -24,14 +24,14 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理后台：admin/app/config/database.php<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站前台：web/config/database.php<br>
 &nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>2、二级目录安装</b>
-&nbsp;&nbsp;&nbsp;&nbsp;(1) 编辑“/”下的“.htaccess”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(2) 编辑“/admin/”下的“.htaccess”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/admin/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(3) 编辑“/webmis/”下的“jquery.webmis.js”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$webmis_root = '/二级目录/webmis/';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(4) 编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>2、二级目录安装</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;（1）编辑“/”下的“.htaccess”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;（2）编辑“/admin/”下的“.htaccess”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/admin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;（3）编辑“/webmis/”下的“jquery.webmis.js”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$webmis_root = '/二级目录/webmis/';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;（4）编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
 &nbsp;&nbsp;&nbsp;&nbsp;$upload = '/二级目录/upload';<br><br>
 </p>
 <p>
