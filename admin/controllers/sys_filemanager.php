@@ -3,9 +3,11 @@ class Sys_filemanager extends MY_Controller {
 	/* Index */
 	function index(){
 		$this->load->library('file_class');
-		
+		/* Upload Dir */
+		$upload = '/upload';
+
 		$editor = $this->input->get('editor');
-		$data['file_root'] = $editor?'/upload':'';
+		$data['file_root'] = $editor?$upload:'';
 		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'].$data['file_root'];
 		
 		$action = $this->input->get('action');
@@ -50,8 +52,7 @@ class Sys_filemanager extends MY_Controller {
 				
 				$path = $this->input->get('path');
 				$file = $this->input->get('file');
-				$dir = $file?substr(dirname($file),7):false;
-				$path = $dir&&is_dir($this->file_class->file_root.$dir)?$dir:$path;
+				$path = is_file($_SERVER["DOCUMENT_ROOT"].$file)?ltrim(dirname($file),$data['file_root']):$path;
 				
 				$data['filelist'] = $this->file_class->lists($path);
 				$data['js'] = array('js/system/sys_filemanager.js');

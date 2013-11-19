@@ -26,13 +26,15 @@ $(function(){
 			var options = $.extend(defaults, options);
 			var files = options.files;
 			for (var i=0; i<files.length; i++) {
-				var att = files[i].replace(/^\s|\s$/g, "").split('.');
-				var ext = att[att.length - 1].toLowerCase();
-				var isCSS = ext == "css";
-				var tag = isCSS ? "link" : "script";
-				var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
-				var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
-				$(options.doc).append("<" + tag + attr + link + "></" + tag + ">");
+				if(files[i]){
+					var att = files[i].replace(/^\s|\s$/g, "").split('.');
+					var ext = att[att.length - 1].toLowerCase();
+					var isCSS = ext == "css";
+					var tag = isCSS ? "link" : "script";
+					var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
+					var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
+					$(options.doc).append("<" + tag + attr + link + "></" + tag + ">");
+				}
 			}
 		},
 		//弹出式窗口
