@@ -135,7 +135,6 @@ class MY_Controller extends CI_Controller {
 				}
 			}
 		}
-		//print_r($data);
 		return $data;
 	}
 	/* GetMenu */

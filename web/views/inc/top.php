@@ -38,7 +38,29 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<div class="ct">
 		<span id="webmisVersion" class="version">WebMIS</span>
 		<ul id="nav" class="nav">
-			<?php echo $navHtml;?>
+<?php
+foreach (@$Menu as $val1) {
+	$NavUrl = ($val1->url=='index_c.html')?base_url():base_url($val1->url);
+	$NavClass = $val1->id==$this->Cid?'nav_an1':'nav_an2';
+?>
+			<li><a href="<?php echo $NavUrl;?>" class="<?php echo $NavClass;?>" ><em class="<?php echo $val1->ico;?>"></em><h1><?php echo $val1->title;?></h1></a>
+<?php if(@$val1->menus){?>
+				<ul>
+<?php foreach ($val1->menus as $val2) {?>
+					<li><a href="<?php echo base_url($val2->url);?>" ><em></em>&nbsp;<?php echo $val2->title;?><em class="menuTitle"></em></a>
+<?php if(@$val2->menus){?>
+						<ul>
+<?php foreach ($val2->menus as $val3) {?>
+							<li><a href="<?php echo base_url($val3->url);?>" ><em></em>&nbsp;<?php echo $val3->title;?><em class="menuTitle"></em></a></li>
+<?php }?>
+						</ul>
+<?php }?>
+					</li>
+<?php }?>
+				</ul>
+<?php }?>
+			</li>
+<?php }?>
 		</ul>
 	</div>
 </div>

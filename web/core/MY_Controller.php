@@ -64,10 +64,10 @@ class MY_Controller extends CI_Controller {
 -------------------------------------------------------------------*/
 	public function MyView($url,$data=''){
 		/*头部数据*/
-		$data['navHtml']=$this->getNavHtml();
 		$data['navName']=$this->navName;
 		/*公共信息*/
 		$data['IsMobile']=$this->IsMobile;
+		$data['Menu']=$this->getMenu(0);
 		/*视图*/
 		if($this->IsMobile) {
 			$this->load->view('inc/top',$data);
@@ -82,33 +82,28 @@ class MY_Controller extends CI_Controller {
 /*------------------------------------------------------------------
 * 导航菜单
 -------------------------------------------------------------------*/
-	private function getNavHtml(){
-		$one = $this->getMenus(0);
-		$html = '';
-		foreach($one as $val1){
-			$NavClass = $val1->id==$this->Cid?'nav_an1':'nav_an2';
-			$NavUrl = ($val1->url=='index_c.html')?base_url():base_url($val1->url);
-			$html .= '<li><a href="'.$NavUrl.'" class="'.@$NavClass.'" ><em class="'.$val1->ico.'"></em><h1>'.$val1->title.'</h1></a>';
-			$two = $this->getMenus($val1->id);
-			if($two) {
-				$html .= '<ul>';
-				foreach($two as $val2){
-					$html .= '<li><a href="'.base_url($val2->url).'" ><em></em>&nbsp;'.$val2->title.'<em class="menuTitle"></em></a>';
-					$three = $this->getMenus($val2->id);
-					if($three) {
-						$html .= '<ul>';
-						foreach($two as $val2){
-							$html .= '<li><a href="'.base_url($val3->url).'" ><em></em>&nbsp;'.$val3->title.'<em class="menuTitle"></em></a></li>';
+	private function getMenu($fid){
+		$permArr = $_SESSION['uinfo']['permArr'];
+		$one = $this->getMenus($fid);
+		$data = '';
+		foreach($one as $key1=>$val1){
+			if(isset($permArr[$val1->id])){
+				$data[$key1] = $val1;
+				$two = $this->getMenus($val1->id);
+				foreach($two as $key2=>$val2){
+					if(isset($permArr[$val2->id])){
+						$data[$key1]->menus[] = $val2;
+						$three = $this->getMenus($val2->id);
+						foreach($three as $key3=>$val3){
+							if(isset($permArr[$val3->id])){
+								$data[$key1]->menus[$key2]->menus[] = $val3;
+							}
 						}
-						$html .= '</ul>';
 					}
-					$html .= '</li>';
 				}
-				$html .= '</ul>';
 			}
-			$html .= '</li>';
 		}
-		return $html;
+		return $data;
 	}
 	/*查询菜单*/
 	private function getMenus($fid){
