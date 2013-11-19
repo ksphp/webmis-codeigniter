@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('web_book/editData.html');?>" method="post" id="bookForm">
+<form action="<?php echo base_url('index.php/web_book/editData.html');?>" method="post" id="bookForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">昵称:</td>

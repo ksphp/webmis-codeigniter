@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_admin_login_log/index.html');?>" method="get">
+<form action="<?php echo base_url('index.php/sys_admin_login_log/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
 		<td class="width right">类型:</td>

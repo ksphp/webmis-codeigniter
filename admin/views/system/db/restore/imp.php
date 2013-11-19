@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_db_restore/impData.html');?>" method="post" id="restoreForm">
+<form action="<?php echo base_url('index.php/sys_db_restore/impData.html');?>" method="post" id="restoreForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">恢复文件:</td>

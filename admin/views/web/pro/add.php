@@ -1,4 +1,4 @@
-<form id="proForm" action="<?php echo base_url('web_pro/addData.html');?>" method="post">
+<form id="proForm" action="<?php echo base_url('index.php/web_pro/addData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="proBody0">
 	<tr>

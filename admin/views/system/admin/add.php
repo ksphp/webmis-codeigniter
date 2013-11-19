@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_admin/addData.html');?>" method="post" id="adminForm">
+<form action="<?php echo base_url('index.php/sys_admin/addData.html');?>" method="post" id="adminForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">状态:</td>

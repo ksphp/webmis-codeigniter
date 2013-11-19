@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_filemanager.html');?>" method="get" id="fileForm">
+<form action="<?php echo base_url('index.php/sys_filemanager.html');?>" method="get" id="fileForm">
 <table class="table_add">
 	<tr>
 		<td colspan="2">&nbsp;</td>

@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('web_class/addData.html');?>" method="post" id="classForm">
+<form action="<?php echo base_url('index.php/web_class/addData.html');?>" method="post" id="classForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">所属:</td>

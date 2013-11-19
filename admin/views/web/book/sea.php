@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('web_book/index.html');?>" method="get">
+<form action="<?php echo base_url('index.php/web_book/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
 		<td class="width right">昵称:</td>

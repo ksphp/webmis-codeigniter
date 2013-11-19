@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('web_class/index.html');?>" method="get">
+<form action="<?php echo base_url('index.php/web_class/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
 		<td class="width right">FID:</td>

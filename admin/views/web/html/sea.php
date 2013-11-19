@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('web_html/index.html');?>" method="get">
+<form action="<?php echo base_url('index.php/web_html/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
 		<td class="width right">所属:</td>

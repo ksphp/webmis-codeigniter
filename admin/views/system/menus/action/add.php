@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('sys_menus_action/addData.html');?>" method="post" id="menusACTForm">
+<form action="<?php echo base_url('index.php/sys_menus_action/addData.html');?>" method="post" id="menusACTForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">动作名称:</td>

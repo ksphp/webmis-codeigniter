@@ -1,4 +1,4 @@
-<form id="htmlForm" action="<?php echo base_url('web_html/addData.html');?>" method="post">
+<form id="htmlForm" action="<?php echo base_url('index.php/web_html/addData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="htmlBody0">
 	<tr>

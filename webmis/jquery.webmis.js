@@ -1,5 +1,5 @@
 ﻿/**
- * jQuery WebMIS 4.1
+ * jQuery WebMIS 4.2
  * Copyright (c) 2010-2013 www.ksphp.com. All rights reserved.
  * Date: 2013-08-28
  */
