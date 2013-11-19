@@ -32,7 +32,7 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;（3）编辑“/webmis/”下的“jquery.webmis.js”文件<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$webmis_root = '/二级目录/webmis/';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;（4）编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$upload = '/二级目录/upload';<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$upload = '/二级目录/upload';<br><br>
 </p>
 <p>
 <b>三、测试</b><br>
