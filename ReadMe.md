@@ -13,8 +13,8 @@
 https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 </p>
 <p>
-<b>二、安装</b><br><br>
-文件解压到网站跟目录；<br>
+<b>二、安装</b><br>
+文件解压到网站跟目录；<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>方法一：安装向导</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;访问“install”目录<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>方法二：手动安装</b><br>
