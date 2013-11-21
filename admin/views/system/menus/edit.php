@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('index.php/sys_menus/editData.html');?>" method="post" id="menusForm">
+<form action="<?php echo base_url($this->config->config['index_url'].'sys_menus/editData.html');?>" method="post" id="menusForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">所属:</td>

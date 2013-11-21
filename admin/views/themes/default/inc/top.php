@@ -42,7 +42,7 @@
 								<div id="menuTwo_<?php echo $val2->id;?>" class="menu_an_bg1 UI" onclick="menuTwo('<?php echo $val2->id;?>')"><span class="title"><?php echo $val2->title;?></span><span id="tu" class="jia UI">&nbsp;</span></div>
 								<ul id="menuThree_<?php echo $val2->id;?>" class="menu_list">
 <?php foreach (@$val2->menus as $val3) {?>
-									<li><a href="<?php echo base_url($val3->url.'.html');?>"><em class="<?php echo $val3->ico;?>"></em>&nbsp;&nbsp;<?php echo $val3->title;?></a></li>
+									<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url.'.html');?>"><em class="<?php echo $val3->ico;?>"></em>&nbsp;&nbsp;<?php echo $val3->title;?></a></li>
 <?php }?>
 								</ul>
 <?php }?>

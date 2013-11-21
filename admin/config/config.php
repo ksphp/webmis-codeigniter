@@ -8,6 +8,7 @@ $config['backup'] = 'backup';
 $config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';
 $config['jquery'] = 'jquery-1.10.2.min.js';
+$config['index_url'] = '';  // not Rewrite 'index.php/'
 
 $config['base_url']	= '';
 $config['index_page'] = '';

@@ -1,4 +1,4 @@
-<form id="newsForm" action="<?php echo base_url('index.php/web_news/addData.html');?>" method="post">
+<form id="newsForm" action="<?php echo base_url($this->config->config['index_url'].'web_news/addData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="newsBody0">
 	<tr>

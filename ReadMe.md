@@ -33,14 +33,10 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;（4）编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$upload = '/二级目录/upload';<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>问题2、环境不支持重写</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;（1）编辑“/webmis/”下的“jquery.webmis.js”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$base_url = $('#base_url').text()+'index.php/';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（2）编辑“/admin/views/themes/default/inc/”下的“top.php”和“top_mo.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val3->url.'.html');<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（3）编辑“/web/views/inc/”下的“top.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val1->url);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val2->url);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val3->url);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;（1）编辑“/admin/config/”下的“config.php”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$config['index_url'] = 'index.php/';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;（2）编辑“/web/config/”下的“config.php”文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$config['index_url'] = 'index.php/';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现“403”错误，更改为“index.php?/”<br><br>
 </p>
 <p>

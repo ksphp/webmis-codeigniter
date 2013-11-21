@@ -45,7 +45,7 @@ class MY_Controller extends CI_Controller {
 			$like = array_filter($like);
 		}else{$like = array();}
 		/* Config */
-		$config['base_url'] = base_url().$url.$get_url;
+		$config['base_url'] = base_url().$this->config->config['index_url'].$url.$get_url;
 		$config['total_rows'] = $this->$model->count_all($like,$where);
 		$config['page_query_string'] = TRUE;
 		$config['per_page'] = 15;
@@ -165,7 +165,7 @@ class MY_Controller extends CI_Controller {
 		foreach($action as $val){
 			if(intval($permArr[$this->Cid])&intval($val->perm)){
 				if($i == 1){
-					$html .= '<li><a href="'.base_url().$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
+					$html .= '<li><a href="'.base_url().$this->config->config['index_url'].$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
 				}else{
 					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
 				}

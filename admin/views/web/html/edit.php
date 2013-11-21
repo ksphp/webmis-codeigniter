@@ -1,4 +1,4 @@
-<form id="htmlForm" action="<?php echo base_url('index.php/web_html/editData.html');?>" method="post">
+<form id="htmlForm" action="<?php echo base_url($this->config->config['index_url'].'web_html/editData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="htmlBody0">
 	<tr>

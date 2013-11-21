@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //ini_set('date.timezone','Asia/Shanghai');//时区
 date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
+$config['index_url'] = '';  // not Rewrite 'index.php/'
 
 $config['base_url']	= '';
 $config['index_page'] = '';

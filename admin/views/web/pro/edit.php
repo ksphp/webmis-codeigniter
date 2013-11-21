@@ -1,4 +1,4 @@
-<form id="proForm" action="<?php echo base_url('index.php/web_pro/editData.html');?>" method="post">
+<form id="proForm" action="<?php echo base_url($this->config->config['index_url'].'web_pro/editData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="proBody0">
 	<tr>

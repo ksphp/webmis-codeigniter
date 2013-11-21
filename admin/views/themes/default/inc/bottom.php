@@ -4,7 +4,7 @@
 	</table>
 </div>
 <div class="copy"><?php echo $this->config->config['copy'];?></div>
-<div id="base_url" style="display: none;"><?php echo base_url(); ?></div>
+<div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
 <div id="IsMobile" style="display: none;"><?php echo $IsMobile; ?></div>
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
 <div id="NavId" style="display: none;"><?php echo $NavId; ?></div>

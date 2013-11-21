@@ -1,4 +1,4 @@
-<form action="<?php echo base_url('index.php/sys_db_backup/expData.html');?>" method="post" id="backForm">
+<form action="<?php echo base_url($this->config->config['index_url'].'sys_db_backup/expData.html');?>" method="post" id="backForm">
 <table class="table_add">
 	<tr>
 		<td class="width right">文件名:</td>

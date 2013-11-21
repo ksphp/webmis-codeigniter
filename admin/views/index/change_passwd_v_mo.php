@@ -10,7 +10,7 @@
 </table>
 <div class="line">&nbsp;</div>
 <!-- Content -->
-<form action="<?php echo base_url('index.php/sys_change_passwd/changePasswd.html');?>" method="post" id="changePWdForm">
+<form action="<?php echo base_url($this->config->config['index_url'].'sys_change_passwd/changePasswd.html');?>" method="post" id="changePWdForm">
 <table class="table_add">
 	<tr>
 		<td colspan="2">&nbsp;</td>
