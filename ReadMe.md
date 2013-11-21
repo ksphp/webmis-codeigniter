@@ -41,7 +41,7 @@ https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val1->url);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val2->url);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url('index.php/'.$val3->url);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现“403”错误，更改为“/index.php?/”<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现“403”错误，更改为“index.php?/”<br><br>
 </p>
 <p>
 <b>三、测试</b><br>
