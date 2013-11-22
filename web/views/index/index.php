@@ -44,22 +44,22 @@
 		<!-- 最新资讯 -->
 			<div class="left in_news box">
 				<div class="box_top">
-					<span class="title"><a href="<?php echo base_url('news.html');?>" ><h2>最新资讯</h2></a></span>
+					<span class="title"><a href="<?php echo base_url($this->config->config['index_url'].'news.html');?>" ><h2>最新资讯</h2></a></span>
 					<span class="class">新闻资讯展示</span>
-					<span class="more"><a href="<?php echo base_url('news.html');?>" title="更多" >More</a></span>
+					<span class="more"><a href="<?php echo base_url($this->config->config['index_url'].'news.html');?>" title="更多" >More</a></span>
 				</div>
 				<ul class="in_news_one">
 <?php foreach($news['tu'] as $val){ ?>
-					<li class="tu"><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>"><img src="<?php echo $val->img;?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="100" height="65" /></a></li>
+					<li class="tu"><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>"><img src="<?php echo $val->img;?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="100" height="65" /></a></li>
 					<li class="text">
-						<a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,24,true); ?></a><br>
+						<a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,24,true); ?></a><br>
 						<?php echo sysSubStr($val->summary,120,true); ?> 
 					</li>
 <?php }?>
 				</ul>
 				<ul class="in_news_list">
 <?php foreach($news['text'] as $val){?>
-					<li><span class="title"><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,48,true);?></a></span><span class="time"><?php echo sysSubStr($val->ctime,10);?></span></li>
+					<li><span class="title"><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" ><?php echo sysSubStr($val->title,48,true);?></a></span><span class="time"><?php echo sysSubStr($val->ctime,10);?></span></li>
 <?php }?>
 				</ul>
 			</div>
@@ -67,15 +67,15 @@
 		<!-- 产品展示 -->
 		<div class="left in_pro box">
 			<div class="box_top">
-				<span class="title"><a href="<?php echo base_url('pro.html');?>" ><h2>产品展示</h2></a></span>
+				<span class="title"><a href="<?php echo base_url($this->config->config['index_url'].'pro.html');?>" ><h2>产品展示</h2></a></span>
 				<span class="class">热卖商品展示！</span>
-				<span class="more"><a href="<?php echo base_url('pro.html');?>" title="更多" >More</a></span>
+				<span class="more"><a href="<?php echo base_url($this->config->config['index_url'].'pro.html');?>" title="更多" >More</a></span>
 			</div>
 			<ul id="taobaoPro" class="in_pro_list">
 <?php foreach($pro as $val){ ?>
 				<li>
-					<a href="<?php echo base_url('pro/show/'.$val->id.'.html');?>" class="tu" ><img src="<?php echo $val->img;?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="110" height="80" ></a>
-					<div class="text"><a href="<?php echo base_url('pro/show/'.$val->id.'.html');?>" ><?php echo sysSubStr($val->title,16,true);?></a></div>
+					<a href="<?php echo base_url($this->config->config['index_url'].'pro/show/'.$val->id.'.html');?>" class="tu" ><img src="<?php echo $val->img;?>" alt="<?php echo $val->title;?>" title="<?php echo $val->title;?>" width="110" height="80" ></a>
+					<div class="text"><a href="<?php echo base_url($this->config->config['index_url'].'pro/show/'.$val->id.'.html');?>" ><?php echo sysSubStr($val->title,16,true);?></a></div>
 				</li>
 <?php }?>
 			</ul>
@@ -84,9 +84,9 @@
 		<!-- 在线留言 -->
 		<div class="right in_msg box">
 			<div class="box_top">
-				<span class="title"><a href="<?php echo base_url('online/message.html');?>" ><h2>在线留言</h2></a></span>
+				<span class="title"><a href="<?php echo base_url($this->config->config['index_url'].'online/message.html');?>" ><h2>在线留言</h2></a></span>
 				<span class="class">发布留言！</span>
-				<span class="more"><a href="<?php echo base_url('online/message.html');?>" title="更多" >More</a></span>
+				<span class="more"><a href="<?php echo base_url($this->config->config['index_url'].'online/message.html');?>" title="更多" >More</a></span>
 			</div>
 			<div id="inMsg" class="in_msg_ct">
 				<ul class="JQ-slide-content">

@@ -6,7 +6,7 @@
 			<div class="box">
 				<div class="box_top">
 					<span class="title">当前位置：</span>
-					<span class="class"><a href="<?php echo base_url('news.html');?>" ><?php echo $navName;?></a>&nbsp;&nbsp;>&nbsp;&nbsp;详细信息</span>
+					<span class="class"><a href="<?php echo base_url($this->config->config['index_url'].'news.html');?>" ><?php echo $navName;?></a>&nbsp;&nbsp;>&nbsp;&nbsp;详细信息</span>
 				</div>
 				<div class="show_ct">
 					<div class="body">
@@ -28,12 +28,12 @@
 				</div>
 				<ul class="news_right_tu">
 <?php foreach($news1['tu'] as $val){ ?>
-					<li><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img;?>" alt="" width="90" height="60" ></a></li>
+					<li><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img;?>" alt="" width="90" height="60" ></a></li>
 <?php } ?>
 				</ul>
 				<ul class="news_right_list">
 <?php foreach($news1['text'] as $val){ ?>
-					<li><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" class="title"><?php echo sysSubStr($val->title,42,true);?></a></li>
+					<li><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" class="title"><?php echo sysSubStr($val->title,42,true);?></a></li>
 <?php } ?>
 				</ul>
 			</div>
@@ -46,12 +46,12 @@
 				</div>
 				<ul class="news_right_tu">
 <?php foreach($news2['tu'] as $val){ ?>
-					<li><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img;?>" alt="" width="90" height="60" ></a></li>
+					<li><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" class="tu"><img src="<?php echo $val->img;?>" alt="" width="90" height="60" ></a></li>
 <?php } ?>
 				</ul>
 				<ul class="news_right_list">
 <?php foreach($news2['text'] as $val){ ?>
-					<li><a href="<?php echo base_url('news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" class="title"><?php echo sysSubStr($val->title,42,true);?></a></li>
+					<li><a href="<?php echo base_url($this->config->config['index_url'].'news/show/'.$val->id.'.html');?>" title="<?php echo $val->title;?>" class="title"><?php echo sysSubStr($val->title,42,true);?></a></li>
 <?php } ?>
 				</ul>
 			</div>
