@@ -12,7 +12,7 @@ WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权
 <p>
 <h2>安装和配置</h2>
 <h3>一、下载</h3>
-https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
+https://github.com/ksphp/webmis/releases
 </p>
 <p>
 <h3>二、安装</h3>
