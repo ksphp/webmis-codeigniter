@@ -10,12 +10,12 @@ WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
-<h1>安装和配置</h1>
-<h2>一、下载</h2>
+<h2>安装和配置</h2>
+<h3>一、下载</h3>
 https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 </p>
 <p>
-<h2>二、安装</h2>
+<h3>二、安装</h3>
 文件解压到网站跟目录；<br><br>
 <b>方法一：安装向导</b><br>
 访问“install”目录<br><br>
@@ -42,12 +42,12 @@ $config['index_url'] = 'index.php/';<br>
 注意：如果出现“403”错误，更改为“index.php?/”<br><br>
 </p>
 <p>
-<h2>三、测试</h2>
+<h3>三、测试</h3>
 &nbsp;&nbsp;&nbsp;&nbsp;网站前台：http://localhost/web<br>
 &nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：admin 密码：admin)
 </p>
 <p>
-<h1>目录说明</h1>
+<h2>目录说明</h2>
 admin-----------------------------<b>后台管理</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backup------------------------数据备份目录 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;config------------------------配置文件<br>
@@ -69,8 +69,8 @@ index.php-------------------------接口文件<br>
 .htaccess-------------------------前台重写文件、屏蔽index.php
 </p>
 <p>&nbsp;</p>
-<h1>去除index.php的方法</h1>
-<h2>一、Apache</h2>
+<h2>去除index.php的方法</h2>
+<h3>一、Apache</h3>
 <p>
 开启重写<br>
 方法一：<br>
@@ -87,7 +87,7 @@ index.php-------------------------接口文件<br>
 <p>
 然后配置根目录和amin下的 .htaccess 文件 <br>
 </p>
-<h2>二、Nginx</h2>
+<h3>二、Nginx</h3>
 <p>
 location / {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ /index.html;<br>
