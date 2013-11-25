@@ -1,6 +1,7 @@
 <div sytle="font-size: 12px;">
 <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
+<h1>WebMIS 4.2</h1>
+WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
 官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br>
@@ -9,43 +10,44 @@
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
-<b>一、下载</b><br>
+<h1>安装和配置</h1>
+<h2>一、下载</h2>
 https://github.com/ksphp/webmis(点击右下角的&ldquo;ZIP&rdquo;图标下载)
 </p>
 <p>
-<b>二、安装</b><br>
+<h2>二、安装</h2>
 文件解压到网站跟目录；<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>方法一：安装向导</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;访问“install”目录<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>方法二：手动安装</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;（1）创建数据库、导入“install”下的“webmis.sql”数据库文件； <br>
-&nbsp;&nbsp;&nbsp;&nbsp;（2）修改数据库配置文件；<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理后台：admin/app/config/database.php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站前台：web/config/database.php<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>问题1、二级目录 或 多级目录</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;（1）编辑“/”下的“.htaccess”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（2）编辑“/admin/”下的“.htaccess”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RewriteBase /二级目录/admin/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（3）编辑“/webmis/”下的“jquery.webmis.js”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$webmis_root = '/二级目录/webmis/';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（4）编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$upload = '/二级目录/upload';<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<b>问题2、环境不支持重写</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;（1）编辑“/admin/config/”下的“config.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$config['index_url'] = 'index.php/';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;（2）编辑“/web/config/”下的“config.php”文件<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$config['index_url'] = 'index.php/';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现“403”错误，更改为“index.php?/”<br><br>
+<b>方法一：安装向导</b><br>
+访问“install”目录<br><br>
+<b>方法二：手动安装</b><br>
+（1）创建数据库、导入“install”下的“webmis.sql”数据库文件； <br>
+（2）修改数据库配置文件；<br>
+管理后台：admin/app/config/database.php<br>
+网站前台：web/config/database.php<br>
+（3）修改 &ldquo;/&rdquo; 根目录和 &ldquo;/admin&rdquo; 下面的 .htaccess 文件（必须支持重写）；<br><br>
+<b>问题1、二级目录 或 多级目录</b><br>
+（1）编辑“/”下的“.htaccess”文件<br>
+RewriteBase /二级目录/<br>
+（2）编辑“/admin/”下的“.htaccess”文件<br>
+RewriteBase /二级目录/admin/<br>
+（3）编辑“/webmis/”下的“jquery.webmis.js”文件<br>
+$webmis_root = '/二级目录/webmis/';<br>
+（4）编辑“/admin/controllers/”下的“sys_filemanager.php”文件<br>
+$upload = '/二级目录/upload';<br><br>
+<b>问题2、环境不支持重写</b><br>
+（1）编辑“/admin/config/”下的“config.php”文件<br>
+$config['index_url'] = 'index.php/';<br>
+（2）编辑“/web/config/”下的“config.php”文件<br>
+$config['index_url'] = 'index.php/';<br>
+注意：如果出现“403”错误，更改为“index.php?/”<br><br>
 </p>
 <p>
-<b>三、测试</b><br>
+<h2>三、测试</h2>
 &nbsp;&nbsp;&nbsp;&nbsp;网站前台：http://localhost/web<br>
 &nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：admin 密码：admin)
 </p>
 <p>
-<b>四、目录说明</b><br>
+<h1>目录说明</h1>
 admin-----------------------------<b>后台管理</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backup------------------------数据备份目录 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;config------------------------配置文件<br>
@@ -67,8 +69,8 @@ index.php-------------------------接口文件<br>
 .htaccess-------------------------前台重写文件、屏蔽index.php
 </p>
 <p>&nbsp;</p>
-<p><b>去除index.php的方法</b></p>
-<p><b>一、Apache</b></p>
+<h1>去除index.php的方法</h1>
+<h2>一、Apache</h2>
 <p>
 开启重写<br>
 方法一：<br>
@@ -85,7 +87,7 @@ index.php-------------------------接口文件<br>
 <p>
 然后配置根目录和amin下的 .htaccess 文件 <br>
 </p>
-<p><b>二、Nginx</b></p>
+<h2>二、Nginx</h2>
 <p>
 location / {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ /index.html;<br>
