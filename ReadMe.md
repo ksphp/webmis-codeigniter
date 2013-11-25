@@ -43,8 +43,8 @@ $config['index_url'] = 'index.php/';<br>
 </p>
 <p>
 <h3>三、测试</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;网站前台：http://localhost/web<br>
-&nbsp;&nbsp;&nbsp;&nbsp;管理员后台：http://localhost/admin (帐号：admin 密码：admin)
+网站前台：http://localhost/web<br>
+管理员后台：http://localhost/admin (帐号：admin 密码：admin)
 </p>
 <p>
 <h2>目录说明</h2>
