@@ -23,7 +23,7 @@
 <?php foreach($Nav as $val){?>
 				<li><a href="#" id="nav_<?php echo $val->id;?>" class="nav_an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><em class="<?php echo $val->ico;?>"></em>&nbsp;<?php echo $val->title;?></a>
 				<li class="UI lines">&nbsp;</li>
-<?}?>
+<?php }?>
 			</ul>
 		</div>
 		<div class="other"><a href="#" id="TopMenus" class="UI" title="显示/隐藏">&nbsp;</a></div>

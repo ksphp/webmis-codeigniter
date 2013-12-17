@@ -21,7 +21,7 @@
 	<li class="null">&nbsp;</li>
 <?php foreach($Nav as $val){?>
 	<li><a href="#" id="nav_<?php echo $val->id;?>" class="an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><?php echo $val->title;?></a></li>
-<?}?>
+<?php }?>
 </ul>
 <div id="NavBody" class="nav_body">
 <?php foreach (@$Menu as $val1) {?>
