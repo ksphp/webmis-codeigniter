@@ -21,6 +21,8 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .green{color: green;}
 .red{color: #D34600;}
 .code{border: #CCC 1px dashed; background: #F2F2F2; padding: 5px 10px; overflow-y: auto;}
+.h3_ccc{font-size: 12px; border-bottom: #ccc 1px solid;}
+.h3_ccc span{font-weight: normal; color: #999;}
 
 .suc{color: #6FB737;}
 .suc em:before {color: #6FB737; content: "\e0f2";}

@@ -71,6 +71,9 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2"><h3 class="h3_ccc">&nbsp;</h3></td>
+	</tr>
+	<tr>
 		<td>&nbsp;</td>
 		<td>
 			<input type="submit" id="editSub" value="保存配置" />
