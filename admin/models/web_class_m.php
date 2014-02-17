@@ -85,5 +85,24 @@ class Web_class_m extends CI_Model {
 			return $data;
 		}
 	}
+	/* Audit */
+	function audit(){
+		$id = trim($this->input->post('id'));
+		if($id){
+			$arr = array_filter(explode(' ', $id));
+			foreach($arr as $val){
+				$data['state'] = $this->input->post('state');
+				/*执行*/
+				$this->db->where('id', $val);
+				if($this->db->update($this->table,$data)){
+					$rt = true;
+				}else{
+					$rt = false;
+					break;
+				}
+			}
+			return $rt;
+		}
+	}
 }
 ?>

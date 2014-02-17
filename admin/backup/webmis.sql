@@ -18,8 +18,8 @@ CREATE TABLE `wmis_sys_admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:145 18:319 19:31 27:63 28:63 21:27 11:1');
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:129 18:319 19:31 27:63 28:63 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:145 18:319 19:63 27:63 28:63 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '测试部', '测试员', '2013-03-25 13:57:03', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:15 9:15 10:15 22:1 26:1 13:3 24:65 25:145 18:319 19:63 27:63 28:63 21:27 11:1');
 
 
 #
@@ -59,7 +59,7 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (16, 0, '网站', '#', '0', 'ico-web', '网站导航！', '2012-03-31 09:10:58', 3);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (17, 16, '内容管理', '#', '0', '', '内容管理！', '2012-03-31 09:42:59', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (18, 17, '新闻管理', 'web_news', '319', NULL, '新闻内容管理！', '2012-03-31 10:53:01', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (19, 17, '导航管理', 'web_class', '31', '', '网站所有新闻分类！', '2012-03-31 10:45:05', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (19, 17, '导航管理', 'web_class', '63', '', '网站所有新闻分类！', '2012-03-31 10:45:05', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (20, 16, '留言系统', '#', '0', '', '留言系统！', '2012-03-31 10:49:07', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (21, 20, '留言管理', 'web_book', '27', '', '网站留言管理！', '2012-03-31 10:30:09', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (22, 5, '系统配置', 'sys_config', '1', 'ico-system2', '系统配置！', '2012-05-30 19:12:52', 0);
@@ -133,20 +133,21 @@ CREATE TABLE `wmis_web_class` (
   `remark` varchar(30) NOT NULL,
   `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
   `sort` int(3) NOT NULL DEFAULT '0',
+  `state` varchar(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (3, 2, '行业新闻', 'news/lists/industry.html', '', '行业新闻！', '2012-11-02 11:26:09', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (4, 2, '企业动向', 'news/lists/enterprise.html', '', '企业动向！', '2012-11-02 11:27:10', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (5, 7, '关于我们', 'online/show/about.html', NULL, '关于我们！', '2012-11-07 10:32:34', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (6, 0, '产品中心', 'pro.html', NULL, '产品中心！', '2012-11-07 10:56:50', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (7, 0, '在线联系', 'online.html', NULL, '在线联系！', '2012-11-07 11:43:31', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook.html', '', '笔记本电脑！', '2013-09-27 14:02:21', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (10, 6, '时尚服装', 'pro/lists/dress.html', '', '时尚服装！', '2013-09-27 14:03:55', 0);
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`) VALUES (11, 7, '在线留言', 'online/message.html', '', '在线留言！', '2013-10-15 09:04:28', 0);
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (3, 2, '行业新闻', 'news/lists/industry.html', '', '行业新闻！', '2012-11-02 11:26:09', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (4, 2, '企业动向', 'news/lists/enterprise.html', '', '企业动向！', '2012-11-02 11:27:10', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (5, 7, '关于我们', 'online/show/about.html', NULL, '关于我们！', '2012-11-07 10:32:34', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (6, 0, '产品中心', 'pro.html', NULL, '产品中心！', '2012-11-07 10:56:50', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (7, 0, '在线联系', 'online.html', NULL, '在线联系！', '2012-11-07 11:43:31', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook.html', '', '笔记本电脑！', '2013-09-27 14:02:21', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (10, 6, '时尚服装', 'pro/lists/dress.html', '', '时尚服装！', '2013-09-27 14:03:55', 0, '1');
+INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (11, 7, '在线留言', 'online/message.html', '', '在线留言！', '2013-10-15 09:04:28', 0, '1');
 
 
 #

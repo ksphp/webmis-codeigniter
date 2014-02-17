@@ -44,5 +44,10 @@ class Web_class extends MY_Controller {
 		$this->load->model('web_class_m');
 		echo $this->web_class_m->del();
 	}
+	/* Audit */
+	public function auditData(){
+		$this->load->model('web_class_m');
+		echo $this->web_class_m->audit();
+	}
 }
 ?>

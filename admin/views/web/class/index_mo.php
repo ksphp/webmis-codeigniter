@@ -17,6 +17,7 @@
 		<td>FID</td>
 		<td>菜单名</td>
 		<td>URL</td>
+		<td>审核</td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
@@ -26,6 +27,7 @@
 		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
 		<td><?php echo keyHH($val->title, @$key['title']);?></td>
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
+		<td><?php echo MY_Controller::stateName($val->state);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

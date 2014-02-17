@@ -50,6 +50,11 @@ $(function(){
 		actionDel('web_class/delData.html','web_class.html');
 		return false;
 	});
+/*审核*/
+	$('#ico-audit').click(function(){
+		actionAudit('web_class/auditData.html','web_class.html');
+		return false;
+	});
 	
 });
 

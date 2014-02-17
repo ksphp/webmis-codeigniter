@@ -21,6 +21,7 @@
 		<td width="120">创建时间</td>
 		<td>备注</td>
 		<td width="30">排序</td>
+		<td width="40">审核</td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
@@ -34,6 +35,7 @@
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>
+		<td><?php echo MY_Controller::stateName($val->state);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>
