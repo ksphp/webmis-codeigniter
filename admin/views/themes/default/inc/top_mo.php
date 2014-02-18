@@ -19,7 +19,7 @@
 </div>
 <ul id="Nav" class="nav_one">
 	<li class="null">&nbsp;</li>
-<?php foreach($Nav as $val){?>
+<?php foreach($Menu as $val){?>
 	<li><a href="#" id="nav_<?php echo $val->id;?>" class="an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><?php echo $val->title;?></a></li>
 <?php }?>
 </ul>

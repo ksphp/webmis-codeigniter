@@ -92,20 +92,14 @@ class MY_Controller extends CI_Controller {
 		$data['NavId']=$this->NavId;
 		$data['MenuTwoId']=$this->MenuTwoId;
 		$data['title']=$this->Title;
+		$data['Menu']=$this->getMenu(0);
+		$data['actionHtml']=$this->actionHtml();
 		/* View */
 		if($this->IsMobile) {
-			$data['Nav']=$this->getMenus(0);
-			$data['Menu']=$this->getMenu(0);
-			$data['actionHtml']=$this->actionHtml();
-
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top_mo',$data);
 			$this->load->view($url);
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom_mo');
 		}else {
-			$data['Nav']=$this->getMenus(0);
-			$data['Menu']=$this->getMenu(0);
-			$data['actionHtml']=$this->actionHtml();
-
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top',$data);
 			$this->load->view($url);
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom');

@@ -20,7 +20,7 @@
 		<div class="title"><a href="http://www.ksphp.com/" target="_blank"><b id="webmisVersion">WebMIS</b> [ {elapsed_time} ]</a></div>
 		<div id="nav" class="nav">
 			<ul id="webmis_menu" class="nav_menu">
-<?php foreach($Nav as $val){?>
+<?php foreach($Menu as $val){?>
 				<li><a href="#" id="nav_<?php echo $val->id;?>" class="nav_an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><em class="<?php echo $val->ico;?>"></em>&nbsp;<?php echo $val->title;?></a>
 				<li class="UI lines">&nbsp;</li>
 <?php }?>
