@@ -4,8 +4,9 @@ class MY_Controller extends CI_Controller {
 	/* Public Variables */
 	var $Cid;
 	var $Title;
-	var $NavId;
-	var $MenuTwoId;
+	var $FId1;
+	var $FId2;
+	var $FId3;
 	var $IsMobile;
 	
 	function __construct(){
@@ -88,11 +89,8 @@ class MY_Controller extends CI_Controller {
 			'department'=>$_SESSION['uinfo']['department']
 		);
 		/* Public */
-		$data['IsMobile']=$this->IsMobile;
-		$data['NavId']=$this->NavId;
-		$data['MenuTwoId']=$this->MenuTwoId;
 		$data['title']=$this->Title;
-		$data['Menu']=$this->getMenu(0);
+		$data['Menu']=$this->getMenu();
 		$data['actionHtml']=$this->actionHtml();
 		/* View */
 		if($this->IsMobile) {
@@ -108,21 +106,23 @@ class MY_Controller extends CI_Controller {
 /*------------------------------------------------------------------
 * Menu
 -------------------------------------------------------------------*/
-	private function getMenu($fid){
+	private function getMenu(){
 		$permArr = $_SESSION['uinfo']['permArr'];
-		$one = $this->getMenus($fid);
+		$one = $this->getMenus($this->Fid1);
 		$data = '';
 		foreach($one as $key1=>$val1){
 			if(isset($permArr[$val1->id])){
 				$data[$key1] = $val1;
-				$two = $this->getMenus($val1->id);
-				foreach($two as $key2=>$val2){
-					if(isset($permArr[$val2->id])){
-						$data[$key1]->menus[] = $val2;
-						$three = $this->getMenus($val2->id);
-						foreach($three as $key3=>$val3){
-							if(isset($permArr[$val3->id])){
-								$data[$key1]->menus[$key2]->menus[] = $val3;
+				if($val1->id == $this->Fid2){
+					$two = $this->getMenus($this->Fid2);
+					foreach($two as $key2=>$val2){
+						if(isset($permArr[$val2->id])){
+							$data[$key1]->menus[] = $val2;
+							$three = $this->getMenus($val2->id);
+							foreach($three as $key3=>$val3){
+								if(isset($permArr[$val3->id])){
+									$data[$key1]->menus[$key2]->menus[] = $val3;
+								}
 							}
 						}
 					}
@@ -139,18 +139,38 @@ class MY_Controller extends CI_Controller {
 	/* GetMenuInfo */
 	private function getMenuInfo($url){
 		$this->load->model('sys_menus_m');
-		$fid = $this->sys_menus_m->getMenusUrl($url);
-		$navid = $this->sys_menus_m->getMenuOne($fid[0]->fid);
-		$nav = $this->sys_menus_m->getMenuOne($navid[0]->fid);
-		$this->Title = $fid[0]->title;
-		$this->Cid = $fid[0]->id;
-		$this->MenuTwoId = $navid[0]->id;
-		$this->NavId = $nav[0]->id;
+		$M1 = $this->sys_menus_m->getMenusUrl($url);
+		// Public
+		$this->Cid = $M1->id;
+		$this->Title = $M1->title;
+		//Fid
+		$this->Fid1 = false;
+		$this->Fid2 = false;
+		$this->Fid3 = false;
+		if($M1->fid != 0){
+			$M2 = $this->sys_menus_m->getMenuOne($M1->fid);
+			if($M2->fid != 0){
+				$M3 = $this->sys_menus_m->getMenuOne($M2->fid);
+				if($M3->fid != 0){
+					echo '四级菜单';
+				}else{
+					$this->Fid1 = $M3->fid;
+					$this->Fid2 = $M2->fid;
+					$this->Fid3 = $M1->fid;
+				}
+			}else{
+				$this->Fid1 = $M2->fid;
+				$this->Fid2 = $M1->fid;
+			}
+		}else{
+			$this->Fid1 = $M1->fid;
+			$this->Fid2 = $M1->id;
+		}
 	}
 /*------------------------------------------------------------------
 * Action
 -------------------------------------------------------------------*/
-	private function actionHtml($mode='pc'){
+	private function actionHtml(){
 		$this->load->model('sys_menus_action_m');
 		$permArr = $_SESSION['uinfo']['permArr'];
 		$action = $this->sys_menus_action_m->getAll();
@@ -159,7 +179,7 @@ class MY_Controller extends CI_Controller {
 		foreach($action as $val){
 			if(intval($permArr[$this->Cid])&intval($val->perm)){
 				if($i == 1){
-					$html .= '<li><a href="'.base_url().$this->config->config['index_url'].$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
+					$html .= '<li><a href="'.base_url().$this->config->config['index_url'].$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>'.$val->name.'</a></li>';
 				}else{
 					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
 				}
@@ -190,6 +210,12 @@ class MY_Controller extends CI_Controller {
 	public function stateName($type){
 		$arr = array('<span class="c999">未提交</span>','<span class="green">通过</span>','<span class="red">未通过</span>','<span class="red">未审核</span>');
 		return $arr[$type];
+	}
+/*------------------------------------------------------------------
+* Display
+-------------------------------------------------------------------*/
+	public function DisplayTop($val=''){
+		$_SESSION['DisplayTop'] = $val;
 	}
 }
 ?>

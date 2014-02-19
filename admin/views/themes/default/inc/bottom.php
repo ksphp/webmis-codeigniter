@@ -1,14 +1,11 @@
 
-			</td>
-		</tr>
-	</table>
-</div>
-<div class="copy"><?php echo $this->config->config['copy'];?></div>
+	</section>
+</section>
+<footer class="copy"><?php echo $this->config->config['copy'];?></footer>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
-<div id="IsMobile" style="display: none;"><?php echo $IsMobile; ?></div>
+<div id="IsMobile" style="display: none;"><?php echo $this->IsMobile; ?></div>
+<div id="DisplayTop" style="display: none;"><?php echo @$_SESSION['DisplayTop']; ?></div>
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
-<div id="NavId" style="display: none;"><?php echo $NavId; ?></div>
-<div id="MenuTwoId" style="display: none;"><?php echo $MenuTwoId; ?></div>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/'.$this->config->config['jquery']); ?>"></script>
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin.js'); ?>"></script>

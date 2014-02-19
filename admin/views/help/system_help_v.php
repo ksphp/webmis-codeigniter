@@ -1,28 +1,22 @@
-<table class="action">
-	<tr>
-		<td class="title"><?php echo $title; ?></td>
-		<td>
-			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
-			</ul>
-		</td>
-	</tr>
-</table>
-<div class="line">&nbsp;</div>
 <!-- Content -->
 <table class="table_list">
 	<tr>
-		<td class="title" style="font-weight: normal;" align="left">
-			WebMIS 相关信息
+		<td class="title" align="left">
+			<?php echo $title;?>
 		</td>
 	</tr>
 	<tbody id="listBG1">
 	<tr>
-		<td align="left">
-			<p><b>帮助文档:</b>&nbsp;&nbsp;<a href="http://www.ksphp.com/document.html">http://www.ksphp.com/document.html</a></p>
-			<p><b>项目地址:</b>&nbsp;&nbsp;<a href="https://github.com/ksphp/webmis">https://github.com/ksphp/webmis</a></p>
-			<p><b>下载地址:</b>&nbsp;&nbsp;<a href="https://github.com/ksphp/webmis-version">https://github.com/ksphp/webmis-version</a></p>
-			<p><b>QQ群:</b>&nbsp;&nbsp;206642028</p>
+		<td class="text">
+			WEBMIS是免费开源PHP开发CMS系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！<br />
+			<h2>使用说明：</h2>
+			一、后台布局（后台共分三个区域）<br />
+			1、头部导航：包括Logo、当前用户信息、安全退出、一级导航等<br />
+			2、左侧导航菜单：包括二级菜单和三级菜单<br />
+			3、右侧内容：包括操作权限（列表、添加、编辑、删除等）、详细内容<br />
+			二、操作说明<br />
+			登录后台：在浏览器访问后台地址（如：http://www.XXX.com/admin）,输入默认帐号密码：admin（为了网站安全请在成功登陆后，对该用户进行修改密码、禁用、删除等操作）
+			<br /><br />
 		</td>
 	</tr>
 	</tbody>

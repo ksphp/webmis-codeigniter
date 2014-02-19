@@ -12,7 +12,7 @@ var $webmis_plugin = $webmis_root+'plugin/';
 $(function(){
 	/*版本信息*/
 	$.fn.webmisVersion = function (options) {
-		var defaults = {version: 'WebMIS v4.2'}
+		var defaults = {version: 'WebMIS v5.0'}
 		var options = $.extend(defaults, options);
 		this.text(options.version);
 	}

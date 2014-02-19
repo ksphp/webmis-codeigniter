@@ -4,26 +4,45 @@ var moHeight = $(window).height()-60;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
-	//导航菜单
-	var NavId = $('#NavId').text();
-	var MenuTwoId = $('#MenuTwoId').text();
-	menuOne(NavId);
-	menuTwo(MenuTwoId,true);
+	//隐藏头部
+	
+	//自动调整大小
+	var autoSize = function(size){
+		var height = $(window).height()-125;
+		var DisplayTop = $("#DisplayTop").text();
+		if(DisplayTop == 'hide'){
+			$("#top").hide();
+		}else{
+			$("#top").show();
+		}
+		if(size){height = height+size;}else if(DisplayTop == 'hide'){height = height+50;}
+		//调整高
+		$(".ct_left,.ct_right").height(height);
+		$(".web_iframe").height(height);
+	}
+	autoSize();
+	$(window).resize(autoSize);
 	//显示、隐藏头部
 	$('#TopMenus').click(function(){
 		if($("#top").is(":hidden")){
 			$("#top").slideDown('fast');
+			$.get($base_url+'welcome/DisplayTop/show');
+			$("#DisplayTop").text('show');
+			autoSize();
 		}else{
-			$("#top").slideUp('fast');
+			$("#top").hide();
+			$.get($base_url+'welcome/DisplayTop/hide');
+			$("#DisplayTop").text('hide');
+			autoSize(50)
 		}
 		return false;
 	});
 	//显示、隐藏左侧菜单
 	$('#LeftMenus').click(function(){
-		if($("#tb_left").is(":hidden")){
-			$("#tb_left").show();
+		if($(".ct_left").is(":hidden")){
+			$(".ct_left").show();
 		}else{
-			$("#tb_left").hide();
+			$(".ct_left").hide();
 		}
 		return false;
 	});
@@ -40,35 +59,16 @@ $(function(){
 		return false;
 	});
 });
-/*点击一级菜单*/
-function menuOne(id){
-	var title = $('#nav_'+id).text();
-	$('#menu_title').text(title);
-	//导航样式
-	$('#webmis_menu').find('a').attr('class','nav_an2');
-	$('#nav_'+id).attr('class','nav_an1');
-	//隐藏二级菜单
-	$('#menus').find('.menuOne').hide();
-	//显示对应菜单
-	$('#menuOne_'+id).show().find('div').hover( 
-		function () { 
-			$(this).attr('class','menu_an_bg2 UI');
-		},
-		function () { 
-			$(this).attr('class','menu_an_bg1 UI');
-		}
-	);
-}
 /*点击二级菜单*/
 function menuTwo(id,type){
 	//显示对应菜单
 	var p = $('#menuThree_'+id);
 	if(p.is(':hidden')){
-		if(type){p.show();}else{p.slideDown('fast');}
-		$('#menuTwo_'+id).find('#tu').attr('class','jian UI');
+		p.slideDown('fast');
+		type.find('#tu').attr('class','jian UI');
 	}else{
 		p.slideUp('fast');
-		$('#menuTwo_'+id).find('#tu').attr('class','jia UI');
+		type.find('#tu').attr('class','jia UI');
 	}
 }
 /*

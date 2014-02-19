@@ -8,8 +8,8 @@
 		<td>
 			<ul class="action_ct">
 				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back">&nbsp;</em>返回上级</a></li>
-				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder">&nbsp;</em>新建文件夹</a><br></li>
-				<li><a href="#" id="ico-addfile"><em class="ico-addfile">&nbsp;</em>新建文件</a><br></li>
+				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder">&nbsp;</em>新建文件夹</a></li>
+				<li><a href="#" id="ico-addfile"><em class="ico-addfile">&nbsp;</em>新建文件</a></li>
 				<li><a href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="ico-refresh">&nbsp;</em>刷新</a></li>
 				<li><a href="#" id="ico-upload"><em class="ico-upload">&nbsp;</em>上传</a></li>
 				<li><a href="#" id="ico-down"><em class="ico-down">&nbsp;</em>下载</a></li>

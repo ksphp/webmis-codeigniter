@@ -7,7 +7,7 @@ $(function(){
 	var mtop = (doch-bodyh)/6;
 	$('.login_body').css({'padding-top':mtop});
 	//登录
-	$('#adminLogin').click(function(){
+	var login = function(){
 		var uname = $('#uname').val();
 		var passwd = $('#passwd').val();
 		var is_mobile = $('#is_mobile').text();
@@ -25,5 +25,9 @@ $(function(){
 				}
 			});
 		}
-	});
+	}
+	//回车触发
+	$(document).keypress(function(e){if(e.which == 13){login();}});
+	//点击按钮触发
+	$('#adminLogin').click(login);
 });

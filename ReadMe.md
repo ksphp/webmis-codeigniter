@@ -1,18 +1,18 @@
 <div sytle="font-size: 12px;">
 <p>
-<h1>WebMIS 4.2</h1>
-WebMIS是PHP开发框架系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，tinymce编辑器等插件、实现简洁、美观的弹框效果！
+<h1>WebMIS简介</h1>
+WEBMIS是免费开源PHP开发CMS系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！
 </p>
 <p>
-官方网站：<a href="http://www.ksphp.com/">灵创网络</a><br>
-开源项目：<a href="https://github.com/ksphp/webmis/">WebMIS</a><br>
-在线体验：<a href="http://webmis.ksphp.com/admin">http://webmis.ksphp.com/admin</a><br>
+官方网站：<a href="http://www.ksphp.com/" target="_blank">灵创网络</a><br>
+开源项目：<a href="https://github.com/ksphp/webmis/" target="_blank">WebMIS</a><br>
+在线体验：<a href="http://webmis.ksphp.com/admin" target="_blank">http://webmis.ksphp.com/admin</a><br>
 账户：webmis&nbsp;&nbsp;&nbsp;&nbsp;密码：ksphp.com
 </p>
 <p>
 <h2>安装和配置</h2>
 <h3>一、下载</h3>
-https://github.com/ksphp/webmis/releases
+<a href="https://github.com/ksphp/webmis/releases" target="_blank">https://github.com/ksphp/webmis/releases</a>
 </p>
 <p>
 <h3>二、安装</h3>

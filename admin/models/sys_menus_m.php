@@ -31,12 +31,14 @@ class Sys_menus_m extends CI_Model {
 	/* Get Menus One */
 	function getMenuOne($id){
 		$query = $this->db->get_where($this->table,array('id' => $id));
-		return $query->result();
+		$data = $query->result();
+		return @$data[0];
 	}
 	/* Get Menus Fid */
 	function getMenusUrl($url){
 		$query = $this->db->get_where($this->table,array('url' => $url));
-		return $query->result();
+		$data = $query->result();
+		return @$data[0];
 	}
 	/* Add */
 	function add(){
