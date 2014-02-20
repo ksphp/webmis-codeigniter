@@ -18,7 +18,7 @@ $(function(){
 		if(size){height = height+size;}else if(DisplayTop == 'hide'){height = height+50;}
 		//调整高
 		$(".ct_left,.ct_right").height(height);
-		$(".web_iframe").height(height);
+		$(".web_iframe").height(height-10);
 	}
 	autoSize();
 	$(window).resize(autoSize);
