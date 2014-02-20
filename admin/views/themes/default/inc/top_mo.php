@@ -14,7 +14,7 @@
 <div class="top">
 	<span class="cp"><b id="webmisVersion">WebMIS</b></span>
 	<span class="out"><a href="<?php echo base_url('index_c/loginOut.html');?>" >注销</a></span>
-	<span class="info"><a href="#"><?php echo $uinfo['uname']; ?></a>(<?php echo $uinfo['name']; ?>)</a> | <a href="https://me.alipay.com/webmis" target="_blank"><em class="ico-heart"></em>捐赠</a> | </span>
+	<span class="info"><a href="#"><?php echo $uinfo['uname']; ?></a>(<a href="https://me.alipay.com/webmis" target="_blank"> 捐赠 </a>)</span>
 	
 </div>
 <ul id="Nav" class="nav_one">

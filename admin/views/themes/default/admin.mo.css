@@ -5,7 +5,7 @@ body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
 body{background: url("images/bg.png") #F4F7FA;}
 img{border: none;}
 ul{list-style: none;}
-em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal;}
+em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal; padding: 0 4px;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 textarea{border: #999 1px solid; background: #EFF4FA;}
