@@ -61,6 +61,7 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .top{height: 50px;}
 .top_logo{float: left; width: 180px; height: 50px; background: url("images/admin_logo.gif") no-repeat center 12px;}
 .top_link{float: right; color: #666; padding-right: 10px; margin-top: 28px;}
+
 /* Top_Nav */
 .top_nav_bg{height: 10px; background: url("images/admin_top_nav_x.jpg") 0 -70px repeat-x;}
 .top_nav{height: 30px; line-height: 30px; border: #BBB 1px solid; border-top: #6FB737 2px solid; background: url("images/admin_top_nav_x.jpg") repeat-x; border-radius: 3px 3px 0 0;}
@@ -169,6 +170,8 @@ input:focus, textarea:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 
 .action_ct li a:hover em{color: #FFF;}
 
 /* ICO */
+.ico-heart:before {content: "\e0c5";}
+
 .ico-home:before {content: "\e000";}
 .ico-system:before {content: "\e085";}
 .ico-web:before {content: "\e1a6";}

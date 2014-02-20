@@ -32,6 +32,6 @@
 </div>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/'.$this->config->config['jquery']); ?>"></script>
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
-<script language="javascript" src="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin_login.mo.js'); ?>"></script>
+<script language="javascript" src="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin_login.js'); ?>"></script>
 </body>
 </html>
