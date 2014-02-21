@@ -4,7 +4,7 @@ var openWin = function (options) {
 		title:'信息提示',
 		width:240,
 		height:150,
-		content:'<div class="load"><span class="onLoad">&nbsp;</span><span class="text">正在加载</span></div>',
+		content:'<section class="load"><span class="onLoad">&nbsp;</span><span class="text">正在加载</span></section>',
 		target:false,
 		overflow:false,
 		AutoClose:false,
@@ -14,13 +14,13 @@ var openWin = function (options) {
 	//创建
 	var creatWinbox=function(){
 		var html = '<div id="WebMisWinBg" class="WebMisWinBg">&nbsp;</div>';
-		html += '<span id="WebMisWin" class="WebMisWin" style="width:'+options.width+'px;height:'+options.height+'px">';
-		html += '  <div id="WebMisWinTop" class="WebMisWin_top">';
+		html += '<section id="WebMisWin" class="WebMisWin" style="width:'+options.width+'px;height:'+options.height+'px">';
+		html += '  <header id="WebMisWinTop" class="WebMisWin_top">';
 		html += '    <span class="title">'+options.title+'</span>';
 		html += '    <a href="#" class="close">&nbsp;</a>';
-		html += '  </div>';
-		html += '  <div class="WebMisWin_ct">'+options.content+'</div>';
-		html += '</span>';
+		html += '  </header>';
+		html += '  <section class="WebMisWin_ct">'+options.content+'</section>';
+		html += '</section>';
 		//加载信息框
 		$('#WebMisWin').remove();
 		$('body').prepend(html);

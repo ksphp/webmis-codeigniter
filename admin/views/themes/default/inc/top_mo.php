@@ -8,22 +8,21 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin.mo.css'); ?>" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 9]><script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
 </head>
 
 <body>
-<div class="top">
+<header class="top">
 	<span class="cp"><b id="webmisVersion">WebMIS</b></span>
-	<span class="out"><a href="<?php echo base_url('index_c/loginOut.html');?>" >注销</a></span>
-	<span class="info"><a href="#"><?php echo $uinfo['uname']; ?></a>(<a href="https://me.alipay.com/webmis" target="_blank"> 捐赠 </a>)</span>
-	
-</div>
+	<span class="info"><a href="#"><?php echo $uinfo['uname']; ?></a>(<a href="https://me.alipay.com/webmis" target="_blank">&nbsp;<em class="ico-heart"></em>捐赠&nbsp;</a>)&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>" class="out">注销</a></span>
+</header>
 <ul id="Nav" class="nav_one">
 	<li class="null">&nbsp;</li>
 <?php foreach($Menu as $val){?>
 	<li><a href="#" id="nav_<?php echo $val->id;?>" class="an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><?php echo $val->title;?></a></li>
 <?php }?>
 </ul>
-<div id="NavBody" class="nav_body">
+<section id="NavBody" class="nav_body">
 <?php foreach (@$Menu as $val1) {?>
 	<div id="menuOne_<?php echo $val1->id;?>" class="nav_two">
 <?php foreach (@$val1->menus as $val2) {?>
@@ -37,5 +36,5 @@
 	</div>
 <?php }?>
 	<div class="nav_hide"><a href="#" id="NavHide">============ 隐藏 ============</a></div>
-</div>
-<div class="ct_body">
+</section>
+<section class="ct_body">

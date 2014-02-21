@@ -13,24 +13,24 @@
 
 <body class="login_bg">
 <section class="login_top_bg">
-	<div class="login_body">
+	<section class="login_body">
 		<header class="login_top">
 			<div class="login_top_logo">&nbsp;</div>
 			<span id="webmisVersion" class="login_top_title">WebMIS</span>
 		</header>
-		<div class="login_ct">
+		<aside class="login_ct">
 			<span class="text"><input type="text" id="uname" /><br>用户名：</span>
 			<span class="text"><input type="password" id="passwd" /><br>密码：</span>
 			<div class="login_ct_an">
 				<span class="line1 UI">&nbsp;</span>
 				<span id="adminLogin" class="an">&nbsp;</span>
 			</div>
-		</div>
+		</aside>
 		<footer class="login_copy">
 			<?php echo $this->config->config['copy'];?><br>
 			<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
 		</footer>
-	</div>
+	</section>
 </section>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
 <div id="is_mobile" style="display: none;"><?php echo $is_mobile; ?></div>

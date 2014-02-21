@@ -41,8 +41,8 @@
 		<td class="right">主题：</td>
 		<td>
 			<select name="admin_themes">
-<?php foreach ($admin_themes['folder'] as $val) {?>
-				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['admin_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo $val['size'];?>)</option>
+<?php foreach ($admin_themes as $val) {?>
+				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['admin_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }?>
 			</select>
 			<br/><span class="c999"><?php echo base_url('views/themes/');?></span>
@@ -52,8 +52,8 @@
 		<td class="right">WebMIS：</td>
 		<td>
 			<select name="webmis_themes">
-<?php foreach ($webmis_themes['folder'] as $val) {?>
-				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['webmis_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo $val['size'];?>)</option>
+<?php foreach ($webmis_themes as $val) {?>
+				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['webmis_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }?>
 			</select>
 			<br/><span class="c999"> webmis/themes/</span>
@@ -63,8 +63,8 @@
 		<td class="right">Jquery：</td>
 		<td>
 			<select name="jquery">
-<?php foreach ($jquery['files'] as $val) {?>
-				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['jquery']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo $val['size'];?>)</option>
+<?php foreach ($jquery as $val) {?>
+				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['jquery']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo formatBytes($val['size']);?>)</option>
 <?php }?>
 			</select>
 			<br/><span class="c999"> webmis/plugin/jquery/</span>

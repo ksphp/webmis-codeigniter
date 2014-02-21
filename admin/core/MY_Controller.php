@@ -90,14 +90,15 @@ class MY_Controller extends CI_Controller {
 		);
 		/* Public */
 		$data['title']=$this->Title;
-		$data['Menu']=$this->getMenu();
 		$data['actionHtml']=$this->actionHtml();
 		/* View */
 		if($this->IsMobile) {
+			$data['Menu']=$this->getMenuMo(0);
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top_mo',$data);
 			$this->load->view($url);
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom_mo');
 		}else {
+			$data['Menu']=$this->getMenu();
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top',$data);
 			$this->load->view($url);
 			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom');
@@ -123,6 +124,29 @@ class MY_Controller extends CI_Controller {
 								if(isset($permArr[$val3->id])){
 									$data[$key1]->menus[$key2]->menus[] = $val3;
 								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return $data;
+	}
+	private function getMenuMo($fid){
+		$permArr = $_SESSION['uinfo']['permArr'];
+		$one = $this->getMenus($fid);
+		$data = '';
+		foreach($one as $key1=>$val1){
+			if(isset($permArr[$val1->id])){
+				$data[$key1] = $val1;
+				$two = $this->getMenus($val1->id);
+				foreach($two as $key2=>$val2){
+					if(isset($permArr[$val2->id])){
+						$data[$key1]->menus[] = $val2;
+						$three = $this->getMenus($val2->id);
+						foreach($three as $key3=>$val3){
+							if(isset($permArr[$val3->id])){
+								$data[$key1]->menus[$key2]->menus[] = $val3;
 							}
 						}
 					}
@@ -181,7 +205,7 @@ class MY_Controller extends CI_Controller {
 				if($i == 1){
 					$html .= '<li><a href="'.base_url().$this->config->config['index_url'].$this->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>'.$val->name.'</a></li>';
 				}else{
-					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>&nbsp;'.$val->name.'</a></li>';
+					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>'.$val->name.'</a></li>';
 				}
 			}
 			$i++;
