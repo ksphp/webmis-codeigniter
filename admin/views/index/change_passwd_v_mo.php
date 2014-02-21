@@ -1,19 +1,8 @@
-<table class="action">
-	<tr>
-		<td class="title"><?php echo $title; ?></td>
-		<td>
-			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
-			</ul>
-		</td>
-	</tr>
-</table>
-<div class="line">&nbsp;</div>
 <!-- Content -->
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_change_passwd/changePasswd.html');?>" method="post" id="changePWdForm">
 <table class="table_add">
 	<tr>
-		<td colspan="2">&nbsp;</td>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $title;?></h3><br></td>
 	</tr>
 	<tr>
 		<td class="width right">用户名:</td>

@@ -1,17 +1,9 @@
-<table class="action">
-	<tr>
-		<td class="title"><?php echo $title; ?></td>
-		<td>
-			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
-			</ul>
-		</td>
-	</tr>
-</table>
-<div class="line">&nbsp;</div>
 <!-- Content -->
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
+	<tr>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $title;?><span>（系统常规参数）</span></h3><br></td>
+	</tr>
 	<tr>
 		<td class="width right">配置文件：</td>
 		<td>
