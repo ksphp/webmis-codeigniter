@@ -25,7 +25,7 @@
 		</div>
 	</aside>
 	<footer class="login_copy">
-		Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a><br>
+		Copyright © <?php echo $this->config->config['copy'];?><br>
 		<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
 	</footer>
 </section>

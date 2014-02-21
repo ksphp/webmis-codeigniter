@@ -3,7 +3,7 @@
 date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
 
 $config['title'] = 'WebMIS 管理员控制台';
-$config['copy'] = 'Copyright © <a href="http://www.ksphp.com/" target="_blank"><b>www.ksphp.com</b></a> All rights are reserved.';
+$config['copy'] = '<a href="http://www.ksphp.com/" target="_blank"><b>ksphp.com</b></a>';
 $config['backup'] = 'backup';
 $config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';

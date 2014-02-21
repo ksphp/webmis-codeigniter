@@ -27,7 +27,7 @@
 			</div>
 		</aside>
 		<footer class="login_copy">
-			<?php echo $this->config->config['copy'];?><br>
+			Copyright © <?php echo $this->config->config['copy'];?> All rights are reserved.<br>
 			<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
 		</footer>
 	</section>

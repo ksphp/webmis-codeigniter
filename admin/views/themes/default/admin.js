@@ -4,8 +4,6 @@ var moHeight = $(window).height()-60;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
-	//隐藏头部
-	
 	//自动调整大小
 	var autoSize = function(size){
 		var height = $(window).height()-125;

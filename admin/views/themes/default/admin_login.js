@@ -3,7 +3,7 @@ $(function(){
 	$('#webmisVersion').webmisVersion();
 	//登录框位置
 	var autoSize = function(size){
-		var top = $(window).height()/6;
+		var top = $(window).height()/7;
 		$('.login_body').css({'top':top});
 	}
 	autoSize();
