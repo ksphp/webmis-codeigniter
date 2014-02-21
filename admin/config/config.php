@@ -7,7 +7,7 @@ $config['copy'] = 'Copyright © <a href="http://www.ksphp.com/" target="_blank">
 $config['backup'] = 'backup';
 $config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';
-$config['jquery'] = 'jquery-1.10.2.min.js';
+$config['jquery'] = 'jquery-1.11.0.min.js';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
 
 $config['base_url']	= '';
