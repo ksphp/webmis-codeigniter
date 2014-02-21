@@ -2,10 +2,12 @@ $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
 	//登录框位置
-	var doch = $(document).height();
-	var bodyh = $('body').height();
-	var mtop = (doch-bodyh)/6;
-	$('.login_body').css({'padding-top':mtop});
+	var autoSize = function(size){
+		var top = $(window).height()/6;
+		$('.login_body').css({'top':top});
+	}
+	autoSize();
+	$(window).resize(function(){autoSize();});
 	//登录
 	var login = function(){
 		var uname = $('#uname').val();

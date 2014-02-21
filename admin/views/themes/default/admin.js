@@ -21,7 +21,7 @@ $(function(){
 		$(".web_iframe").height(height-10);
 	}
 	autoSize();
-	$(window).resize(autoSize);
+	$(window).resize(function(){autoSize();});
 	//显示、隐藏头部
 	$('#TopMenus').click(function(){
 		if($("#top").is(":hidden")){

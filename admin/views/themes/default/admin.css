@@ -19,7 +19,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 /* login */
 .login_bg{background: url("images/admin_login_bg.gif") top repeat-x #B6B6B6;}
 .login_top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat;}
-.login_body{width: 350px; margin: 0 auto;}
+.login_body{position: relative; z-index: 1; width: 350px; margin: 0 auto;}
 .login_top{height: 60px;}
 .login_top_logo{float: left; width: 260px; height: 60px; background: url("images/admin_logo.gif") no-repeat center bottom;}
 .login_top_title{float: right; font-weight: bold; color: #666; padding: 38px 5px 0 0;}
