@@ -28,8 +28,10 @@
 <?php foreach (@$val1->menus as $val2) {?>
 		<div class="title"><?php echo $val2->title;?></div>
 		<ul class="nav_three">
-<?php foreach (@$val2->menus as $val3) {?>
-			<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url.'.html');?>" class="<?php echo $val3->ico;?>">&nbsp;<?php echo $val3->title;?></a></li>
+<?php foreach (@$val2->menus as $val3) {
+	$ico = $val3->ico?'<em class="'.$val3->ico.'"></em>':'';
+?>
+			<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url.'.html');?>"><?php echo $ico.$val3->title;?></a></li>
 <?php }?>
 		</ul>
 <?php }?>
