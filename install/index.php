@@ -255,7 +255,7 @@
 	</div>
 	<div class="copy">Built by KSPHP and the <b><a href="http://www.ksphp.com" >KSPHP.COM</a></b> community</div>
 </div>
-<script language="javascript" src="../webmis/plugin/jquery/jquery-1.10.2.min.js"></script>
+<script language="javascript" src="../webmis/plugin/jquery/jquery-1.11.0.min.js"></script>
 <script language="javascript" src="install.js"></script>
 </body>
 </html>
