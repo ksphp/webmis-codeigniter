@@ -1,5 +1,5 @@
 ﻿/**
- * jQuery WebMIS 4.2
+ * jQuery WebMIS 2014
  * Copyright (c) 2010-2013 www.ksphp.com. All rights reserved.
  * Date: 2013-08-28
  */
@@ -12,7 +12,7 @@ var $webmis_plugin = $webmis_root+'plugin/';
 $(function(){
 	/*版本信息*/
 	$.fn.webmisVersion = function (options) {
-		var defaults = {version: 'WebMIS v5.0'}
+		var defaults = {version: 'WebMIS 2014'}
 		var options = $.extend(defaults, options);
 		this.text(options.version);
 	}
