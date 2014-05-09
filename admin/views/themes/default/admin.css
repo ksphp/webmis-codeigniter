@@ -88,6 +88,10 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .ct_left{float: left; width: 180px; border: #DADCDF 1px solid; border-right: #6FB737 1px solid; border-bottom: none; background: #F4F7FA; box-shadow: 0 0 3px #666;}
 .ct_right{overflow-y: auto; background: #FFF;}
 
+.left_copy{width: 90%; line-height: 28px; font-size: 11px; color: #999; text-align: center; border-top: #CCC 1px solid; box-shadow: inset 0 1px 0 #FFF; margin: 0 auto;}
+.left_copy a{color: #999;}
+.left_copy a:hover{color: #FF6600;}
+
 /*
 Content UI
 */

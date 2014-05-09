@@ -56,6 +56,7 @@
 			</div>
 <?php }}?>
 		</div>
+		<div class="left_copy"><?php echo date('Y');?> &copy; <?php echo $this->config->config['copy'];?></div>
 	</aside>
 	<section class="ct_line"><div id="LeftMenus" class="UI tu" title="显示/隐藏">&nbsp;</div></section>
 	<section class="ct_right">
