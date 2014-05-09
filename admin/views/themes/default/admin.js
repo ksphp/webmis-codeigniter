@@ -6,7 +6,7 @@ $(function(){
 	$('#webmisVersion').webmisVersion();
 	//自动调整大小
 	var autoSize = function(size){
-		var height = $(window).height()-125;
+		var height = $(window).height()-96;
 		var DisplayTop = $("#DisplayTop").text();
 		if(DisplayTop == 'hide'){
 			$("#top").hide();

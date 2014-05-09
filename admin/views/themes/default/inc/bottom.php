@@ -1,7 +1,6 @@
 
 	</section>
 </section>
-<footer class="copy"><?php echo $this->config->config['copy'];?></footer>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
 <div id="IsMobile" style="display: none;"><?php echo $this->IsMobile; ?></div>
 <div id="DisplayTop" style="display: none;"><?php echo @$_SESSION['DisplayTop']; ?></div>
