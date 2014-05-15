@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
-body{min-width: 800px; background: url("images/bg.jpg") #FFF;}
+body{min-width: 800px; background: #F2F2F2;}
 header,section,footer,aside{display: block;}
 img{border: none;}
 ul{list-style: none;}
@@ -17,6 +17,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA; display: inline-block; padding: 0 5px;}
 
 /* login */
+.login_bg{background: url("images/bg.jpg") #FFF;}
 .login_top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat;}
 .login_body{position: relative; z-index: 1; width: 360px; margin: 0 auto;}
 .login_top{height: 60px;}
@@ -37,7 +38,8 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .login_copy b{color: #999;}
 
 /*Top*/
-.top_ct{height: 50px; border-bottom: #555 1px solid; box-shadow: 0 1px 0 #000;}
+.top_bg{background: #F2F2F2;}
+.top_ct{height: 50px; border-bottom: #555 1px solid; background: url("images/bg.jpg") #FFF; box-shadow: 0 1px 0 #000;}
 .top_logo{float: left; padding-top: 5px;}
 .top_logo a{width: 180px; height: 40px; background: url("images/logo.png") no-repeat 0 -6px; display: inline-block;}
 .top_link{position: absolute; z-index: 1; right: 0px; line-height: 50px; color: #999; padding: 0 10px;}

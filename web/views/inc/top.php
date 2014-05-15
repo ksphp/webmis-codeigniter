@@ -21,47 +21,8 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('webmis/themes/default/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('themes/default/web.css');?>" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 9]><script src="<?php echo base_url('webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
 </head>
 
 <body>
-<div class="top">
-	<div class="ct">
-		<div class="logo"><a href="<?php echo base_url();?>" title="WebMIS" ><img src="<?php echo base_url('themes/default/images/webmis.gif');?>" width="123" height="42" alt="WebMIS" ></a></div>
-		<ul class="top_sea">
-			<li class="links"><a href="<?php echo base_url($this->config->config['index_url'].'online/show/about.html');?>" >关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url($this->config->config['index_url'].'online/show/contact.html');?>" >联系方式</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.ksphp.com/document.html" target="_black">WebMIS文档</a></li>
-			<li><input type="text" /></li>
-			<li><a href="" class="sea_an" >搜索</a></li>
-		</ul>
-	</div>
-</div>
-<div class="top_nav">
-	<div class="ct">
-		<span id="webmisVersion" class="version">WebMIS</span>
-		<ul id="nav" class="nav">
-<?php
-foreach (@$Menu as $val1) {
-	$NavUrl = ($val1->url=='index_c.html')?base_url():base_url($this->config->config['index_url'].$val1->url);
-	$NavClass = $val1->id==$this->Cid?'nav_an1':'nav_an2';
-?>
-			<li><a href="<?php echo $NavUrl;?>" class="<?php echo $NavClass;?>" ><em class="<?php echo $val1->ico;?>"></em><h1><?php echo $val1->title;?></h1></a>
-<?php if(@$val1->menus){?>
-				<ul>
-<?php foreach ($val1->menus as $val2) {?>
-					<li><a href="<?php echo base_url($this->config->config['index_url'].$val2->url);?>" ><em></em>&nbsp;<?php echo $val2->title;?><em class="menuTitle"></em></a>
-<?php if(@$val2->menus){?>
-						<ul>
-<?php foreach ($val2->menus as $val3) {?>
-							<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url);?>" ><em></em>&nbsp;<?php echo $val3->title;?><em class="menuTitle"></em></a></li>
-<?php }?>
-						</ul>
-<?php }?>
-					</li>
-<?php }?>
-				</ul>
-<?php }?>
-			</li>
-<?php }?>
-		</ul>
-	</div>
-</div>
 	
