@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
-body{min-width: 800px; background: url("images/bg.png") #F2F2F2;}
+body{min-width: 800px; background: url("images/bg.png") #E2E4E6;}
 header,section,footer,aside{display: block;}
 img{border: none;}
 ul{list-style: none;}
@@ -14,10 +14,10 @@ input, textarea{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
 /*Footer*/
-.copy{line-height: 30px; color: #666; text-align: center;}
+.copy{line-height: 24px; color: #666; text-align: center;}
 
 /*Top*/
-.content{width: 240px; margin: 0 auto;}
-.content .logo{height: 80px;}
-.content .link{line-height: 30px; text-align: center; }
+.content{width: 320px; margin: 0 auto;}
+.content .logo{height: 80px; background: url("images/logo.png") center center no-repeat;}
+.content .link{font-size: 14px; text-align: center;}
 
