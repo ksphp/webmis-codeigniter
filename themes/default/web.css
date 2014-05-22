@@ -19,5 +19,4 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 /*Top*/
 .content{width: 320px; margin: 0 auto;}
 .content .logo{height: 80px; background: url("images/logo.png") center center no-repeat;}
-.content .link{font-size: 14px; text-align: center;}
-
+.content .link{font-size: 13px; text-align: center;}
