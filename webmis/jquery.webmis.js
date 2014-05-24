@@ -57,8 +57,13 @@ $(function(){
 				break;
 			}
 		},
-		//测试
-		test: function () {alert('test');}
+		//视频窗口
+		vod: function (options) {
+			var file = $webmis_src + 'jquery.vod.js';
+			if ($('script[src="'+file+'"]').length == 0) {$.webmis.inc({files:[file]});}
+			//APP
+			openVod(options);
+		}
 	};
 	$.fn.webmis = function (effect,options) {
 		var effect = effect.toLowerCase();
