@@ -71,6 +71,9 @@ $(function(){
 		if ($('script[src="'+file+'"]').length == 0) {$.webmis.inc({files:[file]});}
 		//APP
 		switch (effect){
+			case 'msg':
+				msgCreate(options,this);
+			break;
 			case 'menu':
 				menuCreate(options,this);
 			break;
