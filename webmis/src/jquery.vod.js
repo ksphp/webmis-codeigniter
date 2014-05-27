@@ -8,7 +8,7 @@ var openVod = function (options) {
 		controls:true,
 		preload:true,
 		autoplay:true,
-		AlphaBG:0.6
+		AlphaBG:0.5
 	}
 	var options = $.extend(defaults, options);
 	//创建
