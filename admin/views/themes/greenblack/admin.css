@@ -39,7 +39,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 /*Top*/
 .top_ct{height: 50px; background: url("images/bg.jpg"); border-bottom: #555 1px solid; box-shadow: 0 1px 0 #000;}
 .top_logo{float: left; padding-top: 5px;}
-.top_logo a{width: 180px; height: 40px; background: url("images/logo.png") no-repeat 0 5px; display: inline-block;}
+.top_logo a{width: 180px; height: 40px; background: url("images/logo.png") no-repeat center 4px; display: inline-block;}
 .top_link{position: absolute; z-index: 1; right: 0px; line-height: 50px; color: #999; padding: 0 10px;}
 .top_link a{color: #999;}
 .top_link a:hover{color: #FF6600;}
