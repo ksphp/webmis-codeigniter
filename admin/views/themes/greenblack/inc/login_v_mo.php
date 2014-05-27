@@ -15,9 +15,9 @@
 <section class="login_body">
 	<header class="login_top">
 		<div class="login_top_logo">&nbsp;</div>
-		<span id="webmisVersion" class="login_top_title">WebMIS</span>
 	</header>
 	<aside class="login_ct">
+		<div id="webmisVersion" class="login_title">WebMIS</div>
 		<div class="text"><input type="text" id="uname" /><br>用户名：</div>
 		<div class="text"><input type="password" id="passwd" /><br>密码：</div>
 		<div class="login_an">
