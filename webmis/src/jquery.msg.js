@@ -47,5 +47,7 @@ var msgCreate = function (options,obj) {
 		obj.find('.msgShowBG').show();
 	},function(){
 		obj.find('.msgShowBG').hide();
+	}).click(function(){
+		obj.find('.msgShowBG').hide();
 	});
 }
