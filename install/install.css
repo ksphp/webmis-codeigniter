@@ -23,7 +23,7 @@ table td{padding: 5px 0; vertical-align: top;}
 .ct_top{border-bottom: #CACCCB 1px solid; padding: 10px; color: #999;}
 .ct_ct{width: 100%; background-color: #FFF;}
 .ct_ct_body{width: 95%; padding: 10px 0; margin: 0 auto;}
-.ct_bt{width: 100%; border-top: #CACCCB 1px solid; text-align: right; padding: 10px 0; display: inline-block;}
+.ct_bt{width: 100%; border-top: #CACCCB 1px solid; text-align: right; padding: 20px 0; display: inline-block;}
 .ct_bt_msg{float: left; color: #999; padding-left: 10px;}
 .ct_bt_an{float: right; padding-right: 10px; display: none;}
 .tab{color: #6FB737; font-weight: bold;}
@@ -35,7 +35,7 @@ table td{padding: 5px 0; vertical-align: top;}
 .right{float: right;}
 
 .in_show{line-height: 20px;}
-.in_term{height: 330px; overflow-y: auto;}
+.in_term{height: 300px; overflow-y: auto;}
 .in_conf{width: 45%; height: 320px; overflow-y: auto;}
 
 /*ICO*/
