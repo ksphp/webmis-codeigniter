@@ -16,8 +16,8 @@
 .err em:before {color: red; content: "\e0ed";}
 
 /* WebMisMsg */
-.WebMisWinBg{position: fixed; z-index: 99; top: 0; left: 0; background: #000; display: none;}
-.WebMisWin{position: fixed; z-index: 100; border: #FFF 2px solid; background: url("images/msg_bg.jpg") repeat-x #FFF; border-radius: 6px 6px 0 0; box-shadow: 0px 0px 3px #000; display: none;}
+#WebMisWinBg{position: fixed; z-index:100; width: 100%; display: none;}
+#WebMisWin{position: fixed; z-index:101; background: url("images/msg_bg.jpg") repeat-x #FFF; margin: 0 auto; border-radius: 6px 6px 0 0; box-shadow: 0px 0px 6px #000;}
 .WebMisWin_top{cursor: all-scroll; height: 30px; line-height: 30px;  border-bottom: #6FB737 2px solid; padding: 0 5px; border-radius: 3px 3px 0 0;}
 .WebMisWin_top .title{float: left; font-size: 13px; font-weight: bold; color: #666; padding: 0 10px;}
 .WebMisWin_top .close{float: right; font-family: 'icomoon'; font-style: normal; color: #999;}

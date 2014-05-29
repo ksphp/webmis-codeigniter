@@ -8,22 +8,32 @@ var openWin = function (options) {
 		target:false,
 		overflow:false,
 		AutoClose:false,
-		AlphaBG:0.4
+		AlphaBG:0.4,
+		AlphaBG:0.5
 	}
 	var options = $.extend(defaults, options);
 	//创建
 	var creatWinbox=function(){
-		var html = '<div id="WebMisWinBg" class="WebMisWinBg">&nbsp;</div>';
-		html += '<section id="WebMisWin" class="WebMisWin" style="width:'+options.width+'px;height:'+options.height+'px">';
+		var w = $(window).width();
+		var h = $(window).height();
+		var dh = $(document).height();
+		var ww = (w-options.width)/2;
+		var wh = (h-options.height)/2;
+		
+		if(wh < 10){wh = 10;}
+		//内容
+		var html = '<section id="WebMisWinBg" style="height: '+dh+'px; background-color: rgba(0,0,0,'+options.AlphaBG+');">';
+		html += '<section id="WebMisWin" style="width:'+options.width+'px; height:'+options.height+'px; left:'+ww+'px; top:'+wh+'px;">';
 		html += '  <header id="WebMisWinTop" class="WebMisWin_top">';
 		html += '    <span class="title">'+options.title+'</span>';
 		html += '    <a href="#" class="close">&nbsp;</a>';
 		html += '  </header>';
 		html += '  <section class="WebMisWin_ct">'+options.content+'</section>';
-		html += '</section>';
+		html += '</section></section>';
 		//加载信息框
 		$('#WebMisWin').remove();
 		$('body').prepend(html);
+		$('#WebMisWinBg').fadeIn();
 		//点击关闭窗口
 		$('#WebMisWin .close').click(function(){
 			closeWin(options.target);
@@ -33,24 +43,11 @@ var openWin = function (options) {
 		$(document).keydown(function(e){
 			if(e.which == 27){closeWin(options.target);}
 		});
-		//获取参数
-		var winWindt = $(window).width();
-		var winHeight = $(window).height();
-		var bodyWidth = $(document).width();
-		var bodyHeight = $(document).height();
-		var Win = $('#WebMisWin');
-		//计算垂直居中位置
-		var mleft = (winWindt-Win.width())/2-10;
-		var mtop = (winHeight-Win.height())/2;
-		//限制顶部
-		if(mtop < 10){mtop = 10;}
-		//显示信息框
-		Win.css({'left':mleft+"px",'top':mtop+"px"}).slideDown('fast');
-		$('#WebMisWinBg').css({'width':bodyWidth+"px",'height':bodyHeight+"px"}).fadeTo("slow",options.AlphaBG);
 		//添加移动
 		WebMisWinMove('#WebMisWinTop','#WebMisWin');
 	}
-	//类型
+	
+	//窗口类型
 	if(options.overflow){
 		options.content = '<div id="WebMisWinCT" style="width: 100%; height: '+(options.height-55)+'px; overflow: auto;">'+options.content+'</div>';
 	}else if(options.AutoClose){
@@ -67,8 +64,8 @@ var openWin = function (options) {
 
 /*关闭窗口*/
 var closeWin = function (target) {
-	$('#WebMisWin').slideUp('fast');
-	$('#WebMisWinBg').remove();
+	$('#WebMisWinBg').fadeOut(function(){$(this).remove();});
+	//跳转
 	if(target && target!='false'){
 		window.location.href = $base_url+target;
 	}
