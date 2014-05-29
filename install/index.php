@@ -134,8 +134,8 @@
 		<div class="top_logo">&nbsp;</div>
 		<span class="top_link">
 			<a href="http://www.ksphp.com" target="_black" >官方网站</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="http://www.ksphp.com/document.html" target="_black" >WebMIS文档</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="http://www.ksphp.com/helps.html" target="_black" >帮助</a>
+			<a href="http://webmis.ksphp.com" target="_black" >在线体验</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="http://www.ksphp.com" target="_black" >帮助</a>
 		</span>
 	</div>
 	<div class="ct">
@@ -146,21 +146,20 @@
 			<table id="install">
 				<tbody id="install1">
 				<tr>
-					<td class="logo">&nbsp;</td>
-					<td>WebMIS-快速、实用、免费开源的PHP开发底层系统。基于CI的MVC模式开发的多用户、多权限解决方案，整合了Jquery、TinyMCE编辑器等插件、简洁美观的弹框效果；</td>
+					<td class="in_show">WebMIS-快速、实用、免费开源的PHP开发底层系统。基于CI的MVC模式开发的多用户、多权限解决方案，整合了Jquery、TinyMCE编辑器等插件、简洁美观的弹框效果；</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td>
 						<div class="code in_term"><?php echo file_get_contents('GPL.txt');?></div>
 					</td>
 				</tr>
 				</tbody>
 				<tbody id="install2" style="display: none;">
 				<tr>
-					<td colspan="2"><b>服务器环境配置：</b>必须开启重写</td>
+					<td><b>服务器环境配置：</b>必须开启重写</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td>
 						<div class="left in_conf code">
 							<p><b>[ Apache ]</b><br>开启重写</p>
 							<p>方法一：<br>
@@ -192,16 +191,16 @@
 				</tbody>
 				<tbody id="install3" style="display: none;">
 				<tr>
-					<td colspan="2"><b>文件是否可写：</b></td>
+					<td><b>文件是否可写：</b></td>
 				</tr>
 				<tr>
-					<td colspan="2" id="isWrite" class="code">&nbsp;</td>
+					<td id="isWrite" class="code">&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="2"><b>数据库配置：</b>&nbsp;&nbsp;&nbsp;&nbsp;1、采用PHP的PDO类；&nbsp;&nbsp;&nbsp;&nbsp;2、创建数据库，编码“UTF-8”</td>
+					<td><b>数据库配置：</b>&nbsp;&nbsp;&nbsp;&nbsp;1、采用PHP的PDO类；&nbsp;&nbsp;&nbsp;&nbsp;2、创建数据库，编码“UTF-8”</td>
 				</tr>
 				<tr>
-					<td colspan="2" id="dataBase" class="code">
+					<td id="dataBase" class="code">
 						<div><span class="err"><em>&nbsp;</em>请填写数据库信息，并点击“连接”！</span></div>
 						<p>类&nbsp;&nbsp;&nbsp;&nbsp;型：&nbsp;&nbsp; 
 						<select style="width: 110px;">
@@ -216,10 +215,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><b>系统管理员：</b></td>
+					<td><b>系统管理员：</b></td>
 				</tr>
 				<tr>
-					<td colspan="2" id="Admin" class="code">
+					<td id="Admin" class="code">
 						<div><span class="err"><em>&nbsp;</em>请填写管理员信息！</span></div>
 						<p>用户名：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="admin" maxlength="16"></p>
 						<p>密&nbsp;&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;" maxlength="16">&nbsp;&nbsp;
@@ -229,7 +228,7 @@
 				</tbody>
 				<tbody id="install4" style="display: none;">
 					<tr>
-					<td colspan="2" id="istallInfo"><p class="load"><em>&nbsp;</em>正在安装...</p></td>
+					<td id="istallInfo"><p class="load"><em>&nbsp;</em>正在安装...</p></td>
 				</tr>
 				</tbody>
 			</table>
@@ -237,7 +236,7 @@
 		</div>
 		<!-- 安装说明 End -->
 		<div id="button" class="ct_bt">
-			<font class="ct_bt_msg">提示：如果看不出“圆角框”，请升级或更换浏览器！</font>
+			<font class="ct_bt_msg">提示：如果看不出“阴影”，请升级或更换浏览器！</font>
 			<span id="button1" class="ct_bt_an" style="display: block;">
 				<label><input type="checkbox" />&nbsp;&nbsp;同意服务条款</label>&nbsp;&nbsp;
 				<a href="#" class="an" onclick="Next(2);return false;" style="display: none;">下一步</a>
