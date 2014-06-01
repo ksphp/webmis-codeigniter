@@ -2,10 +2,10 @@
 var openVod = function (options) {
 	var defaults = {
 		title:'Html5 视频播放器',
-		src:'http://www.ksphp.com/upload/vod/test.webm',
+		src:'http://www.ksphp.com/upload/vod/test.mp4',
 		poster:'http://www.ksphp.com/upload/vod/test.jpg',
-		width:640,
-		height:390,
+		width:680,
+		height:420,
 		controls:'controls',
 		preload:'preload',
 		autoplay:'',
