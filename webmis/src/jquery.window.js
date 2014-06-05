@@ -31,7 +31,7 @@ var openWin = function (options) {
 		html += '  <section class="WebMisWin_ct">'+options.content+'</section>';
 		html += '</section></section>';
 		//加载信息框
-		$('#WebMisWin').remove();
+		$('#WebMisWinBg').remove();
 		$('body').prepend(html);
 		$('#WebMisWinBg').fadeIn();
 		//点击关闭窗口
