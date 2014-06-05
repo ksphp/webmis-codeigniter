@@ -33,7 +33,8 @@ $(function(){
 					var tag = isCSS ? "link" : "script";
 					var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
 					var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
-					$(options.doc).append("<" + tag + attr + link + "></" + tag + ">");
+					var f = "<" + tag + attr + link + "></" + tag + ">";
+					if ($('script[src="'+files[i]+'"]').length == 0 && $('link[href="'+files[i]+'"]').length == 0) {$(options.doc).append(f);}
 				}
 			}
 		},
