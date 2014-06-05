@@ -146,7 +146,7 @@
 			<table id="install">
 				<tbody id="install1">
 				<tr>
-					<td class="in_show">WebMIS-快速、实用、免费开源的PHP开发底层系统。基于CI的MVC模式开发的多用户、多权限解决方案，整合了Jquery、TinyMCE编辑器等插件、简洁美观的弹框效果；</td>
+					<td class="in_show">WEBMIS是免费开源PHP开发CMS系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！</td>
 				</tr>
 				<tr>
 					<td>
