@@ -9,12 +9,12 @@ ul{list-style: none;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal; padding-right: 5px;}
-textarea{border: #999 1px solid; background: #EFF4FA;}
+textarea{border: #999 1px solid; background: #FFF;}
 input, textarea{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
 .UI{background-image:url("images/admin_ui.png"); background-repeat: no-repeat; background-position:0px 0px;}
-.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #EFF4FA; display: inline-block; padding: 0 5px;}
+.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
 
 /* login */
 .login_bg{background: url("images/admin_login_bg.gif") top repeat-x #B6B6B6;}
