@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
-body,textarea{font-family: arial,simsun,宋体,sans-serif; font-size: 12px;}
+body,textarea{font-family: arial; font-size: 12px;}
 body{min-width: 800px; background: url("images/bg.png") #E2E4E6;}
 header,section,footer,aside{display: block;}
 img{border: none;}

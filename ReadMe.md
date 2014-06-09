@@ -85,7 +85,7 @@ index.php-------------------------接口文件<br>
 > a2enmod rewrite
 </p>
 <p>
-然后配置根目录和amin下的 .htaccess 文件 <br>
+然后配置根目录和admin下的 .htaccess 文件 <br>
 </p>
 <h3>二、Nginx</h3>
 <p>
