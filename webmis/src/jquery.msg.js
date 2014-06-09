@@ -7,7 +7,8 @@ var msgCreate = function (options,obj) {
 		arrowLeft: 70,
 		arrowStyle: true,
 		reverse: true,
-		bgColor: 'rgba(100,100,100,0.8)'
+		bgColor: 'rgba(100,100,100,0.8)',
+		arrowColor: 'rgba(0,0,0,0.6)'
 	}
 	var options = $.extend(defaults, options);
 	//
@@ -23,7 +24,7 @@ var msgCreate = function (options,obj) {
 	//Html5 画图
 	c = obj.find("#msgArrow")[0];
 	cxt=c.getContext("2d");
-	cxt.fillStyle="rgba(0,0,0,0.6)";
+	cxt.fillStyle = options.arrowColor;
 	if (options.arrowStyle && options.reverse) {
 		cxt.moveTo(20,20);
 		cxt.lineTo(60,0);
