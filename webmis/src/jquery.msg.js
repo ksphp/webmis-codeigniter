@@ -13,12 +13,12 @@ var msgCreate = function (options,obj) {
 	//
 	obj.find('.msgShowBG').css({
 		width:options.width, height:options.height, margin: options.top+'px 0 0 '+options.left+'px', 'background-color':options.bgColor,
-		display:'none', position:'fixed', 'z-index':100, 'line-height':'24px', 'padding':'10px', 'border-radius':'6px', 'box-shadow':'1px 1px 2px #000'
+		display:'none', position:'absolute', 'z-index':100, 'line-height':'24px', 'padding':'10px', 'border-radius':'6px', 'box-shadow':'1px 1px 2px #000'
 	});
 	//添加箭头
 	var atop = options.height+10;
 	if (options.reverse) {atop = -30;}
-	var html = '<canvas id="msgArrow" width="100" height="20" style="position: fixed; z-index: 101; margin: '+atop+'px 0 0 '+options.arrowLeft+'px">Html5标签</canvas>';
+	var html = '<canvas id="msgArrow" width="100" height="20" style="position: absolute; z-index: 101; margin: '+atop+'px 0 0 '+options.arrowLeft+'px">Html5标签</canvas>';
 	obj.find('.msgShowBG').prepend(html);
 	//Html5 画图
 	c = obj.find("#msgArrow")[0];

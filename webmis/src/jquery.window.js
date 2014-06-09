@@ -8,7 +8,6 @@ var openWin = function (options) {
 		target:false,
 		overflow:false,
 		AutoClose:false,
-		AlphaBG:0.4,
 		AlphaBG:0.5
 	}
 	var options = $.extend(defaults, options);

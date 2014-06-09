@@ -11,6 +11,7 @@
 .red{color: red;}
 .green{color: green;}
 .suc{color: #6FB737;}
+.suc em,.err em{padding-right: 6px;}
 .suc em:before {color: #6FB737; content: "\e0f2";}
 .err{color: red;}
 .err em:before {color: red; content: "\e0ed";}
@@ -48,9 +49,9 @@
 .NavMenu em{font-family: 'icomoon'; font-style: normal; font-weight: normal;}
 .NavMenu ul{display: none; position: absolute; z-index: 100; width: 150px; border: #FFF 1px solid; background: #FAFAFA; color: #666; box-shadow: 1px 1px 2px #000;}
 .NavMenu ul li{position:relative; width: 100%;}
-.NavMenu ul li a{width: 100%; display: block;}
+.NavMenu ul li a{display: block;}
 .NavMenu ul li em{padding-left: 10px;}
-.NavMenu_img .menuTitle{float: right; font-size: 10px;}
+.NavMenu_img .menuTitle{float: right; font-size: 10px; color: #999;}
 .NavMenu_img .menuTitle:before {content: "\e10f";}
 
 /* Table */
