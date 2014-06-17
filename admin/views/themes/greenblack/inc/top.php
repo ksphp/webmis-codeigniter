@@ -22,7 +22,7 @@
 		<li><a href="<?php echo base_url($val->url.'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val->title;?></a></li>
 <?php }?>
 	</ul>
-	<span class="top_link"><a href="#"><b><?php echo $uinfo['uname']; ?></b></a>&nbsp;&nbsp;[&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://me.alipay.com/webmis" target="_blank"><em class="ico-heart"></em>捐赠</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
+	<span class="top_link"><a href="#"><b><?php echo $uinfo['uname']; ?></b></a>&nbsp;&nbsp;[&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
 </header>
 <section class="ct_body">
 	<aside class="ct_left">
