@@ -1,4 +1,20 @@
 #
+# TABLE STRUCTURE FOR: wmis_log_admin_login
+#
+
+DROP TABLE IF EXISTS wmis_log_admin_login;
+
+CREATE TABLE `wmis_log_admin_login` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `type` varchar(2) NOT NULL,
+  `uname` varchar(12) NOT NULL,
+  `ip` varchar(16) NOT NULL,
+  `time` varchar(19) NOT NULL,
+  `agent` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
 # TABLE STRUCTURE FOR: wmis_sys_admin
 #
 
@@ -18,24 +34,8 @@ CREATE TABLE `wmis_sys_admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 3:0 4:0 14:0 5:0 12:0 23:0 17:0 20:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 13:19 24:65 25:145 18:319 19:31 27:63 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '29:0 1:0 2:0 16:0 3:0 12:0 4:0 14:0 5:0 23:0 17:0 20:0 6:0 13:19 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 11:1');
 
-
-#
-# TABLE STRUCTURE FOR: wmis_sys_admin_login_log
-#
-
-DROP TABLE IF EXISTS wmis_sys_admin_login_log;
-
-CREATE TABLE `wmis_sys_admin_login_log` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(2) NOT NULL,
-  `uname` varchar(12) NOT NULL,
-  `ip` varchar(16) NOT NULL,
-  `time` varchar(19) NOT NULL,
-  `agent` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: wmis_sys_menus
@@ -54,11 +54,11 @@ CREATE TABLE `wmis_sys_menus` (
   `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
   `sort` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (1, 0, '首页', 'welcome', '0', 'ico-home', '首页！', '2010-01-01 08:00:00', 1);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (2, 0, '系统', 'system', '0', 'ico-system', '系统！', '2010-01-01 08:00:00', 2);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (3, 0, '帮助', 'help', '0', 'ico-help', '帮助文档！', '2010-01-01 08:00:00', 4);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (3, 0, '帮助', 'help', '0', 'ico-help', '帮助文档！', '2010-01-01 08:00:00', 5);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (4, 1, '桌面', '#', '0', 'ico-disktop', '系统桌面！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (5, 2, '系统管理', '#', '0', 'ico-system1', '系统高级管理！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (6, 3, '帮助文档', '#', '0', '', '帮助文档！', '2010-01-01 08:00:00', 0);
@@ -67,8 +67,8 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (9, 5, '菜单动作', 'sys_menus_action', '31', 'ico-menuA', '系统菜单动作管理！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (10, 5, '系统用户', 'sys_admin', '31', 'ico-admin', '系统用户管理！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (11, 6, '系统帮助', 'system_help', '1', NULL, '系统帮助文档！', '2010-01-01 08:00:00', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (12, 2, '系统日志', '#', '0', 'ico-logs', '系统日志！', '2012-03-30 09:03:18', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (13, 12, '登录日志', 'sys_admin_login_log', '19', 'ico-logs1', '系统用户登录日志！', '2012-03-30 09:29:20', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (12, 29, '系统日志', '#', '0', 'ico-logs', '系统日志！', '2012-03-30 09:03:18', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (13, 12, '管理员登录', 'log_admin_login', '19', 'ico-logs1', '系统用户登录日志！', '2012-03-30 09:29:20', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (14, 1, '帐号管理', '#', '0', 'ico-user', '帐号管理！', '2012-03-30 14:49:29', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (15, 14, '修改密码', 'sys_change_passwd', '1', 'ico-pwd', '修改密码！', '2012-03-30 14:37:30', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (16, 0, '网站', 'web', '0', 'ico-web', '网站导航！', '2012-03-31 09:10:58', 3);
@@ -84,6 +84,7 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (26, 5, '文件管理', 'sys_filemanager', '1', 'ico-fileM', '文件管理器！', '2013-07-03 13:33:29', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (27, 17, '静态页面', 'web_html', '63', '', '静态页面！', '2013-09-04 10:00:12', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (28, 17, '产品管理', 'web_pro', '63', '', '产品中心！', '2013-09-27 13:06:27', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (29, 0, '日志', 'log', '0', 'ico-logs', '日志！', '2014-06-25 12:30:26', 4);
 
 
 #

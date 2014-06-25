@@ -50,8 +50,8 @@ class Index_c extends CI_Controller {
 	private function loginLog($type,$uname){
 		$ip = $this->input->ip_address();
 		$agent = $_SERVER['HTTP_USER_AGENT'];
-		$this->load->model('sys_admin_login_log_m');
-		$this->sys_admin_login_log_m->add($type,$uname,$ip,$agent);
+		$this->load->model('log_admin_login_m');
+		$this->log_admin_login_m->add($type,$uname,$ip,$agent);
 	}
 	/* SplitPerm */
 	private function splitPerm($perm){

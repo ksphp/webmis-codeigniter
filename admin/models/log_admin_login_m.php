@@ -1,6 +1,6 @@
 <?php
-class Sys_admin_login_log_m extends CI_Model {
-	var $table = 'sys_admin_login_log';
+class Log_admin_login_m extends CI_Model {
+	var $table = 'log_admin_login';
 	/* Page */
 	function page($num, $offset, $like=''){
 		$this->db->order_by("id",'desc');
