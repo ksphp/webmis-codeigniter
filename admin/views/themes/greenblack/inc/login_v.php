@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="kingsoul" />
+	<meta name="author" content="Unknown" />
 	<title><?php echo $this->config->config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
 			<span class="text"><input type="text" id="uname" /><br>用户名：</span>
 			<span class="text"><input type="password" id="passwd" /><br>密码：</span>
 			<div class="login_ct_an">
-				<a href="#" id="adminLogin">登&nbsp;&nbsp;录</a>
+				<a href="#" id="adminLogin">登录</a>
 			</div>
 		</aside>
 		<footer class="login_copy">

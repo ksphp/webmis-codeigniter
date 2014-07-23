@@ -1,5 +1,5 @@
 <?php
-	$api = $_GET['api'];
+	$api = @$_GET['api'];
 	/* 判断文件读写 */
 	if($api == 'isWrite') {
 		$class = is_writable('../admin/config/database.php')?'suc':'err';
@@ -122,7 +122,7 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="kingsoul" />
+	<meta name="author" content="Unknown" />
 	<title>WebMIS-安装向导</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="install.css" rel="stylesheet" type="text/css" />
