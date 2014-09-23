@@ -26,7 +26,6 @@ class MY_Controller extends CI_Controller {
 		$this->getMenuInfo($Cname);
 		/* Prem */
 		$this->menuPrem($this->Cid);
-		if($Aname){$this->actionPrem($Aname);}
 	}
 /*------------------------------------------------------------------
 * Page
@@ -221,19 +220,6 @@ class MY_Controller extends CI_Controller {
 			header('location: '.base_url().$this->dirName.'index_c/loginOut.html');
 			exit();
 		}
-	}
-/*------------------------------------------------------------------
-* Prem Action
--------------------------------------------------------------------*/
-	private function actionPrem($Aname){
-		/*echo $Aname.$permArr[$this->Cid];*/
-	}
-/*------------------------------------------------------------------
-* State Name
--------------------------------------------------------------------*/
-	public function stateName($type){
-		$arr = array('<span class="c999">未提交</span>','<span class="green">通过</span>','<span class="red">未通过</span>','<span class="red">未审核</span>');
-		return $arr[$type];
 	}
 /*------------------------------------------------------------------
 * Display

@@ -15,24 +15,25 @@ var openWin = function (options) {
 	var creatWinbox=function(){
 		var w = $(window).width();
 		var h = $(window).height();
+		var hh = $(document).height();
 		var dh = $(document).height();
 		var ww = (w-options.width)/2;
 		var wh = (h-options.height)/2;
 		
 		if(wh < 10){wh = 10;}
 		//内容
-		var html = '<section id="WebMisWinBg" style="height: '+dh+'px; background-color: rgba(0,0,0,'+options.AlphaBG+');">';
+		var html = '<section id="WebMisWinBg" style="height: '+dh+'px; background-color: #000;"></section>';
 		html += '<section id="WebMisWin" style="width:'+options.width+'px; height:'+options.height+'px; left:'+ww+'px; top:'+wh+'px;">';
 		html += '  <header id="WebMisWinTop" class="WebMisWin_top">';
 		html += '    <span class="title">'+options.title+'</span>';
-		html += '    <a href="#" class="close">&nbsp;</a>';
+		html += '    <a href="#" class="close"><em></em><!--[if lt IE 9]>关闭<![endif]--></a>';
 		html += '  </header>';
 		html += '  <section class="WebMisWin_ct">'+options.content+'</section>';
-		html += '</section></section>';
+		html += '</section>';
 		//加载信息框
-		$('#WebMisWinBg').remove();
+		$('#WebMisWinBg,#WebMisWin').remove();
 		$('body').prepend(html);
-		$('#WebMisWinBg').fadeIn();
+		$('#WebMisWinBg').fadeTo("slow",options.AlphaBG);
 		//点击关闭窗口
 		$('#WebMisWin .close').click(function(){
 			closeWin(options.target);
@@ -63,7 +64,7 @@ var openWin = function (options) {
 
 /*关闭窗口*/
 var closeWin = function (target) {
-	$('#WebMisWinBg').fadeOut(function(){$(this).remove();});
+	$('#WebMisWinBg,#WebMisWin').fadeOut(function(){$(this).remove();});
 	//跳转
 	if(target && target!='false'){
 		window.location.href = $base_url+target;

@@ -27,7 +27,7 @@
 		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
 		<td><?php echo keyHH($val->title, @$key['title']);?></td>
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
-		<td><?php echo MY_Controller::stateName($val->state);?></td>
+		<td><?php echo $adminState[$val->state];?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

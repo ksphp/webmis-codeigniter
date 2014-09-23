@@ -2,7 +2,9 @@
 class Web_class extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->library('menus');
 		$data = $this->Page('web_class/index.html','web_class_m');
+		$data['adminState'] = $this->menus->getMenu('adminState');
 		$data['js'] = array('js/web/web_class.js');
 		if($this->IsMobile) {
 			$this->MyView('web/class/index_mo',$data);

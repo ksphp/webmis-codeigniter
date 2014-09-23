@@ -28,7 +28,6 @@ em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: norm
 .WebMisWin_ct{padding: 10px 0;}
 .WebMisWin_ct .load{text-align: center;}
 .WebMisWin_ct .onLoad{padding: 5px 10px; background:url(images/onLoad.gif) no-repeat center center;}
-.WebMisWin_ct .text{color: #666;}
 
 .WebMisTopMenu a{cursor: pointer; height: 20px; line-height: 20px; display: inline-block; margin: 9px 2px 0px 2px; padding: 0 20px; border-radius: 3px 3px 0 0; box-shadow: 0px 0px 1px #999;}
 .WebMisTopMenu .an1{border: #3F9707 1px solid; border-bottom: none; background-color: #6FB737; color: #FFF;}

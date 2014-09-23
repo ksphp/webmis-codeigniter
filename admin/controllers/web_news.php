@@ -4,8 +4,10 @@ class Web_news extends MY_Controller {
 	public function index(){
 		$data = $this->Page('web_news/index.html','web_news_m','page',array('in'=>array('0','1','2')),'id desc');
 		/* ClassInfo */
+		$this->load->library('menus');
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
+		$data['adminState'] = $this->menus->getMenu('adminState');
 		$data['js'] = array('js/web/web_news.js');
 		if($this->IsMobile) {
 			$this->MyView('web/news/index_mo',$data);

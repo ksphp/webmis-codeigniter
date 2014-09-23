@@ -43,7 +43,8 @@ class Index_c extends CI_Controller {
 		session_start();
 		$uname = $_SESSION['uinfo']['uname']?$_SESSION['uinfo']['uname']:'Auto Logout';
 		$this->loginLog('退出',$uname);
-		session_destroy();
+		unset($_SESSION['uinfo']);
+		//session_destroy();
 		header('location: '.base_url());
 	}
 	/* LoginLog */

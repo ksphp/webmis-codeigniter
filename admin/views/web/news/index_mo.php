@@ -35,7 +35,7 @@
 			}
 			?>
 		</td>
-		<td><?php echo MY_Controller::stateName($val->state);?></td>
+		<td><?php echo $adminState[$val->state];?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

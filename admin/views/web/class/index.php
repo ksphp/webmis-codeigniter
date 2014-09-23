@@ -35,7 +35,7 @@
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>
-		<td><?php echo MY_Controller::stateName($val->state);?></td>
+		<td><?php echo $adminState[$val->state];?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

@@ -4,9 +4,10 @@ class Web_html extends MY_Controller {
 	public function index(){
 		$data = $this->Page('web_html/index.html','web_html_m','page',array('in'=>array('0','1','2')),'id desc');
 		/* ClassInfo */
+		$this->load->library('menus');
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
-		
+		$data['adminState'] = $this->menus->getMenu('adminState');
 		$data['js'] = array('js/web/web_html.js');
 		if($this->IsMobile) {
 			$this->MyView('web/html/index_mo',$data);
