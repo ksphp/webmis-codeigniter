@@ -1,0 +1,5 @@
+html{overflow: hidden;}
+body{height:100%; overflow: auto;}
+iframe{border: none; background: none; margin: 0; padding: 0;}
+.action,.line,.table_list{width: 98%; margin: 0 auto;}
+.table_add{width: 90%; margin: 0 auto;}
