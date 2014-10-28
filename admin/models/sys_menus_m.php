@@ -3,23 +3,22 @@ class Sys_menus_m extends CI_Model {
 	var $table = 'sys_menus';
 	/* Page */
 	function page($num, $offset, $like=''){
-		$this->db->order_by('fid desc,sort desc');
 		if($like){$this->db->like($like);}
-		$query = $this->db->get($this->table,$num,$offset);
-		return $query->result();
+		$db = clone($this->db);
+		$total = $this->db->count_all_results($this->table);
+		$db->order_by('fid desc,sort desc');
+		$query = $db->get($this->table,$num,$offset);
+		$data = $query->result();
+		return array('data'=>$data,'total'=>$total);
 	}
-	/* Count All */
-	function count_all($like=''){
-		if($like){$this->db->like($like);}
-		return $this->db->count_all_results($this->table);
-	}
+
 	/* Get One */
 	function getOne(){
 		$id = $this->input->post('id');
 		if($id){
 			$query = $this->db->get_where($this->table, array('id' => $id));
-			$data = $query->result();
-			return $data[0];
+			$data = $query->row();
+			return $data;
 		}
 	}
 	/* Get Menus */
@@ -31,14 +30,14 @@ class Sys_menus_m extends CI_Model {
 	/* Get Menus One */
 	function getMenuOne($id){
 		$query = $this->db->get_where($this->table,array('id' => $id));
-		$data = $query->result();
-		return @$data[0];
+		$data = $query->row();
+		return $data;
 	}
 	/* Get Menus Fid */
 	function getMenusUrl($url){
 		$query = $this->db->get_where($this->table,array('url' => $url));
-		$data = $query->result();
-		return @$data[0];
+		$data = $query->row();
+		return $data;
 	}
 	/* Add */
 	function add(){
@@ -90,4 +89,3 @@ class Sys_menus_m extends CI_Model {
 		}
 	}
 }
-?>

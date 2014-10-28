@@ -25,7 +25,7 @@
 		<td><?php echo $val->id;?></td>
 		<td><?php echo keyHH($val->name, @$key['name']);?></td>
 		<td><?php echo keyHH($val->perm, @$key['perm']);?></td>
-		<td><?php echo keyHH($val->ico, @$key['ico']);?></td>
+		<td class="tleft"><?php echo keyHH($val->ico, @$key['ico']);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

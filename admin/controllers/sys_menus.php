@@ -2,7 +2,7 @@
 class Sys_menus extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('sys_menus/index.html','sys_menus_m');
+		$data = $this->Page(array('url'=>'sys_menus/index.html','model'=>'sys_menus_m'));
 		$data['js'] = array('js/system/sys_menus.js');
 		if($this->IsMobile) {
 			$this->MyView('system/menus/index_mo',$data);
@@ -53,4 +53,3 @@ class Sys_menus extends MY_Controller {
 		echo $this->sys_menus_m->del();
 	}
 }
-?>

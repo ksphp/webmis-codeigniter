@@ -2,7 +2,7 @@
 class Sys_admin extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('sys_admin/index.html','sys_admin_m');
+		$data = $this->Page(array('url'=>'sys_admin/index.html','model'=>'sys_admin_m'));
 		$data['js'] = array('js/system/sys_admin.js');
 		if($this->IsMobile) {
 			$this->MyView('system/admin/index_mo',$data);

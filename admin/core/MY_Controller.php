@@ -28,27 +28,17 @@ class MY_Controller extends CI_Controller {
 		$this->menuPrem($this->Cid);
 	}
 /*------------------------------------------------------------------
-* Page
+* Page  例如： array('url'=>'','model'=>'','where'='','page'=15,'name'=>'page');
 -------------------------------------------------------------------*/
-	public function Page($url,$model,$type='page',$where='',$order=''){
+	public function Page($arr=''){
 		$this->load->library('pagination');
-		$this->load->model($model);
-		/* Search */
-		$get_url = '?';
-		if(isset($_GET['search'])){
-			$like = $this->input->get();
-			unset($like['per_page']);
-			/* Url */
-			foreach($like as $key=>$val){$get_url .= $key.'='.$val.'&';}
-			/* Remove Search and Null */
-			unset($like['search']);
-			$like = array_filter($like);
-		}else{$like = array();}
+		$this->load->model($arr['model']);
+		//默认值
+		if(!array_key_exists('page',$arr)){$arr['page']=15;}
+		if(!array_key_exists('name',$arr)){$arr['name']='page';}
+		if(!array_key_exists('where',$arr)){$arr['where']='';}
 		/* Config */
-		$config['base_url'] = base_url().$this->config->config['index_url'].$url.$get_url;
-		$config['total_rows'] = $this->$model->count_all($like,$where);
 		$config['page_query_string'] = TRUE;
-		$config['per_page'] = 15;
 		$config['first_tag_open'] = '<span>';
 		$config ['first_link'] = '首页';
 		$config['first_tag_close'] = '</span>';
@@ -65,11 +55,26 @@ class MY_Controller extends CI_Controller {
 		$config['cur_tag_close'] = '</span>';
 		$config['num_tag_open'] = '<span>';
 		$config['num_tag_close'] = '</span>';
-		$this->pagination->initialize($config);
+		/* Search */
+		$get_url = '?';
+		if(isset($_GET['search'])){
+			$like = $this->input->get();
+			unset($like['per_page']);
+			/* Url */
+			foreach($like as $key=>$val){$get_url .= $key.'='.$val.'&';}
+			/* Remove Search and Null */
+			unset($like['search']);
+			$like = array_filter($like);
+		}else{$like = array();}
 		/* Data */
 		$per_page = $this->input->get('per_page');
-		$data['list'] = $this->$model->$type($config['per_page'],$per_page,$like,$where,$order);
+		$d = $this->$arr['model']->$arr['name']($arr['page'],$per_page,$like,$arr['where']);
+		$config['total_rows'] = $d['total'];
+		$config['per_page'] = $arr['page'];
+		$config['base_url'] = base_url().$this->config->config['index_url'].$arr['url'].$get_url;
+		$this->pagination->initialize($config);
 		/* Other */
+		$data['list'] = $d['data'];
 		$data['page'] = $this->pagination->create_links();
 		$data['total'] = '共<b> '.$config['total_rows'].' </b>条';
 		$data['key'] = $like;
@@ -228,4 +233,3 @@ class MY_Controller extends CI_Controller {
 		$_SESSION['DisplayTop'] = $val;
 	}
 }
-?>
