@@ -3,16 +3,15 @@ class Log_admin_login_m extends CI_Model {
 	var $table = 'log_admin_login';
 	/* Page */
 	function page($num, $offset, $like=''){
-		$this->db->order_by("id",'desc');
 		if($like){$this->db->like($like);}
-		$query = $this->db->get($this->table,$num,$offset);
-		return $query->result();
+		$db = clone($this->db);
+		$total = $this->db->count_all_results($this->table);
+		$db->order_by('id desc');
+		$query = $db->get($this->table,$num,$offset);
+		$data = $query->result();
+		return array('data'=>$data,'total'=>$total);
 	}
-	/* Count All*/
-	function count_all($like=''){
-		if($like){$this->db->like($like);}
-		return $this->db->count_all_results($this->table);
-	}
+
 	/* Add */
 	function add($type,$uname,$ip,$agent){
 		$data['type'] = $type;
@@ -40,4 +39,3 @@ class Log_admin_login_m extends CI_Model {
 		}
 	}
 }
-?>

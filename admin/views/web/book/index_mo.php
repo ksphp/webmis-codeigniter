@@ -22,7 +22,7 @@
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
-		<td align="left"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->name, @$key['name']);?></a></td>
+		<td class="tleft"><a href="#" onclick="bookShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->name, @$key['name']);?></a></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
 	</tr>
 	<?php } ?>

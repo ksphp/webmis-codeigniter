@@ -21,8 +21,8 @@
 	<?php foreach($table as $val){?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td style="text-align: left;"><?php echo $val['name'];?></td>
-		<td style="text-align: left;"><?php echo $val['field'];?></td>
+		<td class="tleft"><?php echo $val['name'];?></td>
+		<td class="tleft"><?php echo $val['field'];?></td>
 		<td><?php echo $val['num'];?></td>
 	</tr>
 	<?php } ?>

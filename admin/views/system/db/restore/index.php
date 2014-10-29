@@ -21,7 +21,7 @@
 	<?php foreach($file as $val){?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td style="text-align: left;"><a href="<?php echo base_url('sys_db_restore/down.html?name='.$val['name']) ;?>"><?php echo $val['name'];?></a></td>
+		<td class="tleft"><a href="<?php echo base_url('sys_db_restore/down.html?name='.$val['name']) ;?>"><?php echo $val['name'];?></a></td>
 		<td><?php echo formatBytes($val['size']);?></td>
 		<td><?php echo date('Y-m-d H:s:i',$val['date']);?></td>
 	</tr>

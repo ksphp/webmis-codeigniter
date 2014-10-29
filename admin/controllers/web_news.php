@@ -2,7 +2,7 @@
 class Web_news extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('web_news/index.html','web_news_m','page',array('in'=>array('0','1','2')),'id desc');
+		$data = $this->Page(array('url'=>'web_news/index.html','model'=>'web_news_m','where'=>array('in'=>array('0','1','2'))));
 		/* ClassInfo */
 		$this->load->library('menus');
 		$this->load->model('web_class_m');

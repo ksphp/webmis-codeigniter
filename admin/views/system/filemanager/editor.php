@@ -52,7 +52,7 @@
 <?php if(@$filelist['folder']){foreach($filelist['folder'] as $val){ ?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td align="left" style="font-size: 14px;"><a href="#" onclick="openDir('<?php echo $filelist['path'].$val['name']; ?>');return false;"><em class="ico-folder">&nbsp;</em><?php echo $val['name']; ?></a></td>
+		<td class="tleft" style="font-size: 14px;"><a href="#" onclick="openDir('<?php echo $filelist['path'].$val['name']; ?>');return false;"><em class="ico-folder">&nbsp;</em><?php echo $val['name']; ?></a></td>
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
@@ -63,14 +63,14 @@
 <?php if(@$filelist['files']){foreach($filelist['files'] as $val){ ?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td align="left" style="font-size: 14px;"><a href="#" onclick="openFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>');return false;"><em class="<?php echo $val['class']; ?>">&nbsp;</em><?php echo $val['name']; ?></a></td>
+		<td class="tleft" style="font-size: 14px;"><a href="#" onclick="openFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>');return false;"><em class="<?php echo $val['class']; ?>">&nbsp;</em><?php echo $val['name']; ?></a></td>
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
 		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td>
-			<a href="#" onclick="insertEditor('<?php echo $filelist['path'].$val['name']; ?>');return false;">插入</a>&nbsp;|&nbsp;
-			<a href="#" onclick="reName('<?php echo $val['name']; ?>');return false;">重命名</a>&nbsp;|&nbsp;
+			<a href="#" onclick="insertEditor('<?php echo $filelist['path'].$val['name']; ?>');return false;">插入</a>|
+			<a href="#" onclick="reName('<?php echo $val['name']; ?>');return false;">重命名</a>|
 			<a href="#" onclick="editFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>');return false;">编辑</a>
 		</td>
 	</tr>

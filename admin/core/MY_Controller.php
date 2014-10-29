@@ -18,7 +18,8 @@ class MY_Controller extends CI_Controller {
 		$logged = $_SESSION['uinfo']['logged_in'];
 		$this->IsMobile = $_SESSION['uinfo']['is_mobile'];
 		if(!$logged){
-			header('location: '.base_url().'index_c/loginOut.html');
+			//header('location: '.base_url().'index_c/loginOut.html');
+			redirect('index_c/loginOut');
 		}
 		/* MenuInfo */
 		$Cname = $this->router->class;

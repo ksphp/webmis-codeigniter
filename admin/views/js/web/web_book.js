@@ -18,7 +18,7 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 500; moHeight= 420;}
+			if(!IsMobile){moWidth = 600; moHeight= 420;}
 			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_book/edit.html',{'id':id},function(data){

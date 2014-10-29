@@ -5,32 +5,32 @@
 		<td colspan="2"><h3 class="h3_ccc"><?php echo $title;?><span>（系统常规参数）</span></h3><br></td>
 	</tr>
 	<tr>
-		<td class="width right">配置文件：</td>
+		<td class="width tright">配置文件：</td>
 		<td>
 			<div class="<?php echo is_writable('config/config.php')?'suc':'err';?>"><em>&nbsp;</em><?php echo base_url('config/config.php');?></div>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">后台名称：</td>
+		<td class="tright">后台名称：</td>
 		<td>
 			<input type="text" name="title" class="input" style="width: 180px;" value="<?php echo $this->config->config['title'];?>" />
 		</td>
 	</tr>
 	<tr>
-		<td class="right">版权信息：</td>
+		<td class="tright">版权信息：</td>
 		<td>
 			<textarea name="copy" style="width: 520px; height: 70px;" maxlength="200"><?php echo $this->config->config['copy'];?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">备份目录：</td>
+		<td class="tright">备份目录：</td>
 		<td>
 			<input type="text" name="backup" class="input" style="width: 160px;" value="<?php echo $this->config->config['backup'];?>" />
 			<br/><span class="c999"><?php echo base_url('backup/');?></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">主题：</td>
+		<td class="tright">主题：</td>
 		<td>
 			<select name="admin_themes">
 <?php foreach ($admin_themes as $val) {?>
@@ -41,7 +41,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="right">WebMIS：</td>
+		<td class="tright">WebMIS：</td>
 		<td>
 			<select name="webmis_themes">
 <?php foreach ($webmis_themes as $val) {?>
@@ -52,7 +52,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="right">Jquery：</td>
+		<td class="tright">Jquery：</td>
 		<td>
 			<select name="jquery">
 <?php foreach ($jquery as $val) {?>

@@ -39,7 +39,7 @@
 <?php if(@$filelist['folder']){foreach($filelist['folder'] as $val){ ?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td align="left" style="font-size: 14px;"><a href="#" onclick="openDir('<?php echo $filelist['path'].$val['name']; ?>');return false;"><em class="ico-folder">&nbsp;</em><?php echo $val['name']; ?></a></td>
+		<td class="tleft" style="font-size: 14px;"><a href="#" onclick="openDir('<?php echo $filelist['path'].$val['name']; ?>');return false;"><em class="ico-folder">&nbsp;</em><?php echo $val['name']; ?></a></td>
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>
@@ -50,7 +50,7 @@
 <?php if(@$filelist['files']){foreach($filelist['files'] as $val){ ?>
 	<tr>
 		<td><input type="checkbox" value="<?php echo $val['name'];?>" /></td>
-		<td align="left" style="font-size: 14px;"><a href="#" onclick="openFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>');return false;"><em class="<?php echo $val['class']; ?>">&nbsp;</em><?php echo $val['name']; ?></a></td>
+		<td class="tleft" style="font-size: 14px;"><a href="#" onclick="openFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>');return false;"><em class="<?php echo $val['class']; ?>">&nbsp;</em><?php echo $val['name']; ?></a></td>
 		<td><?php echo $val['ctime']; ?></td>
 		<td><?php echo $val['mtime']; ?></td>
 		<td><?php echo $val['size']; ?></td>

@@ -27,7 +27,7 @@
 		<td><?php echo keyHH($val->type, @$key['type']);?></td>
 		<td><?php echo keyHH($val->uname, @$key['uname']);?></td>
 		<td><?php echo keyHH($val->time, @$key['time']);?></td>
-		<td align="left"><?php echo keyHH($val->agent, @$key['agent']);?></td>
+		<td class="tleft"><?php echo keyHH($val->agent, @$key['agent']);?></td>
 	</tr>
 	<?php } ?>
 	</tbody>

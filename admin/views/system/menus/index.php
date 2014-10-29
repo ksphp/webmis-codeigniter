@@ -34,7 +34,7 @@
 		<td><?php echo keyHH($val->perm, @$key['perm']);?></td>
 		<td><?php echo keyHH($val->ico, @$key['ico']);?></td>
 		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td align="left"><?php echo keyHH($val->remark, @$key['remark']);?></td>
+		<td class="tleft"><?php echo keyHH($val->remark, @$key['remark']);?></td>
 		<td><?php echo $val->sort;?></td>
 	</tr>
 	<?php } ?>

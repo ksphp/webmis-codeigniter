@@ -3,21 +3,17 @@ class Web_news_m extends CI_Model {
 	var $table = 'web_news';
 	var $tableHtml = 'web_news_html';
 	/* Page */
-	function page($num, $offset, $like='',$where='',$order=''){
-		$this->db->from($this->table);
-		$this->db->order_by($order);
+	function page($num, $offset, $like='',$where=''){
 		if($like) {$this->db->like($like);}
 		if($where) {$this->db->where_in('state', $where['in']);}
-		$this->db->limit($num,$offset);
-		$query = $this->db->get();
-		return $query->result();
+		$db = clone($this->db);
+		$total = $this->db->count_all_results($this->table);
+		$db->order_by('id desc');
+		$query = $db->get($this->table,$num,$offset);
+		$data = $query->result();
+		return array('data'=>$data,'total'=>$total);
 	}
-	/* Count All */
-	function count_all($like='',$where=''){
-		if($like){$this->db->like($like);}
-		if($where) {$this->db->where_in('state', $where['in']);}
-		return $this->db->count_all_results($this->table);
-	}
+	
 	/* Get One */
 	function getOne(){
 		$id = $this->input->post('id');
@@ -25,8 +21,8 @@ class Web_news_m extends CI_Model {
 			$data[$this->table.'.id'] = $id;
 			$this->db->join($this->tableHtml, $this->table.'.id = '.$this->tableHtml.'.nid');
 			$query = $this->db->get_where($this->table,$data);
-			$data = $query->result();
-			return $data[0];
+			$data = $query->row();
+			return $data;
 		}
 	}
 	/* Add */
@@ -127,4 +123,3 @@ class Web_news_m extends CI_Model {
 		}
 	}
 }
-?>

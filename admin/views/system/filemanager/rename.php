@@ -4,7 +4,7 @@
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
-		<td class="width right">名称:</td>
+		<td class="width tright">名称:</td>
 		<td>
 			<input type="text" id="file_name" name="name" class="input" style="width:80%;" maxlength="16" />
 			<input type="hidden" id="file_rename" name="rename">

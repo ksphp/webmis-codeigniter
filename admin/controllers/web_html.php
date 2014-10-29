@@ -2,7 +2,7 @@
 class Web_html extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('web_html/index.html','web_html_m','page',array('in'=>array('0','1','2')),'id desc');
+		$data = $this->Page(array('url'=>'web_html/index.html','model'=>'web_html_m','page','where'=>array('in'=>array('0','1','2'))));
 		/* ClassInfo */
 		$this->load->library('menus');
 		$this->load->model('web_class_m');

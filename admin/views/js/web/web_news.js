@@ -21,7 +21,7 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		if(!IsMobile){moWidth = 820; moHeight= 580;}
+		if(!IsMobile){moWidth = 840; moHeight= 560;}
 		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_news/add.html',function(data){
@@ -35,7 +35,7 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 820; moHeight= 580;}
+			if(!IsMobile){moWidth = 840; moHeight= 560;}
 			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_news/edit.html',{'id':id},function(data){
@@ -89,7 +89,7 @@ function newsForm(){
 		selector:'#tinymce',
 		language: "zh_CN",
 		convert_urls: false,
-		height: 360,
+		height: 380,
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen",

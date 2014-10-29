@@ -2,7 +2,7 @@
 class Web_book extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('web_book/index.html','web_book_m');
+		$data = $this->Page(array('url'=>'web_book/index.html','model'=>'web_book_m'));
 		$data['js'] = array('js/web/web_book.js');
 		if($this->IsMobile) {
 			$this->MyView('web/book/index_mo',$data);

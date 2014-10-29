@@ -3,13 +3,14 @@ class Web_html_m extends CI_Model {
 	var $table = 'web_html';
 	/* Page */
 	function page($num, $offset, $like='',$where='',$order=''){
-		$this->db->from($this->table);
-		$this->db->order_by($order);
 		if($like) {$this->db->like($like);}
 		if($where) {$this->db->where_in('state', $where['in']);}
-		$this->db->limit($num,$offset);
-		$query = $this->db->get();
-		return $query->result();
+		$db = clone($this->db);
+		$total = $this->db->count_all_results($this->table);
+		$db->order_by('id desc');
+		$query = $db->get($this->table,$num,$offset);
+		$data = $query->result();
+		return array('data'=>$data,'total'=>$total);
 	}
 	/* Count All */
 	function count_all($like='',$where=''){
@@ -22,8 +23,8 @@ class Web_html_m extends CI_Model {
 		$id = $this->input->post('id');
 		if($id){
 			$query = $this->db->get_where($this->table, array('id' => $id));
-			$data = $query->result();
-			return $data[0];
+			$data = $query->row();
+			return $data;
 		}
 	}
 	/* Add */
@@ -95,4 +96,3 @@ class Web_html_m extends CI_Model {
 		}
 	}
 }
-?>

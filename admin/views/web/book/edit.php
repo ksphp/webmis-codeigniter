@@ -1,30 +1,30 @@
 <form action="<?php echo base_url($this->config->config['index_url'].'web_book/editData.html');?>" method="post" id="bookForm">
 <table class="table_add">
 	<tr>
-		<td class="width right">昵称:</td>
+		<td class="width tright">昵称:</td>
 		<td>
 			<?php echo $edit->name;?>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">发布时间:</td>
+		<td class="tright">发布时间:</td>
 		<td>
 			<?php echo $edit->ctime;?>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">留言内容:</td>
+		<td class="tright">留言内容:</td>
 		<td><?php echo $edit->content;?></td>
 	</tr>
 	<tr>
-		<td class="right">回复:</td>
+		<td class="tright">回复:</td>
 		<td>
 			<textarea name="reply" style="width: 95%; height: 160px;" datatype="s2-100" errormsg="至少2个字符,最多100个字符！"><?php echo $edit->reply;?></textarea>
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="right">回复人:</td>
+		<td class="tright">回复人:</td>
 		<td>
 			<input name="admin" class="input" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $edit->admin;?>" />
 			<span class="Validform_checktip"></span>

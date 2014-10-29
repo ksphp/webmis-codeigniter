@@ -2,7 +2,7 @@
 class Log_admin_login extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page('log_admin_login/index.html','log_admin_login_m');
+		$data = $this->Page(array('url'=>'log_admin_login/index.html','model'=>'log_admin_login_m'));
 		$data['js'] = array('js/log/log_admin_login.js');
 		if($this->IsMobile) {
 			$this->MyView('log/admin/login_v_mo',$data);
