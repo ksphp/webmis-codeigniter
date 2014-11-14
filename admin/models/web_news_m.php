@@ -7,10 +7,10 @@ class Web_news_m extends CI_Model {
 		if($like) {$this->db->like($like);}
 		if($where) {$this->db->where_in('state', $where['in']);}
 		$db = clone($this->db);
-		$total = $this->db->count_all_results($this->table);
-		$db->order_by('id desc');
-		$query = $db->get($this->table,$num,$offset);
+		$this->db->order_by('id desc');
+		$query = $this->db->get($this->table,$num,$offset);
 		$data = $query->result();
+		$total = $db->count_all_results($this->table);
 		return array('data'=>$data,'total'=>$total);
 	}
 	

@@ -4,11 +4,11 @@ class Log_admin_login_m extends CI_Model {
 	/* Page */
 	function page($num, $offset, $like=''){
 		if($like){$this->db->like($like);}
+		$this->db->order_by('id desc');
 		$db = clone($this->db);
-		$total = $this->db->count_all_results($this->table);
-		$db->order_by('id desc');
-		$query = $db->get($this->table,$num,$offset);
+		$query = $this->db->get($this->table,$num,$offset);
 		$data = $query->result();
+		$total = $db->count_all_results($this->table);
 		return array('data'=>$data,'total'=>$total);
 	}
 

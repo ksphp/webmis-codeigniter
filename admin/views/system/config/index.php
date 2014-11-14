@@ -26,7 +26,7 @@
 		<td class="tright">备份目录：</td>
 		<td>
 			<input type="text" name="backup" class="input" style="width: 160px;" value="<?php echo $this->config->config['backup'];?>" />
-			<br/><span class="c999"><?php echo base_url('backup/');?></span>
+			<span class="inputText c2"><?php echo base_url('backup/');?></span>
 		</td>
 	</tr>
 	<tr>
@@ -37,7 +37,7 @@
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['admin_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }?>
 			</select>
-			<br/><span class="c999"><?php echo base_url('views/themes/');?></span>
+			<br/><span class="c2"> <?php echo base_url('views/themes/');?></span>
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +48,7 @@
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['webmis_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }?>
 			</select>
-			<br/><span class="c999"> webmis/themes/</span>
+			<br/><span class="c2"> webmis/themes/</span>
 		</td>
 	</tr>
 	<tr>
@@ -59,7 +59,7 @@
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['jquery']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo formatBytes($val['size']);?>)</option>
 <?php }?>
 			</select>
-			<br/><span class="c999"> webmis/plugin/jquery/</span>
+			<br/><span class="c2"> webmis/plugin/jquery/</span>
 		</td>
 	</tr>
 	<tr>

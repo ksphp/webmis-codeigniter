@@ -19,7 +19,7 @@
 		<td class="tright">来源:</td>
 		<td>
 			<input type="text" name="source" class="input" style="width: 30%;" datatype="*2-24" errormsg="来源至少2个字符,最多24个字符！" />
-			&nbsp;&nbsp;作者:&nbsp;&nbsp;
+			<span class="inputText">作者:</span>
 			<input type="text" name="author" class="input" style="width: 30%;" datatype="*2-12" errormsg="作者至少2个字符,最多12个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
@@ -28,17 +28,17 @@
 		<td class="tright">关键字:</td>
 		<td>
 			<input type="text" name="key" class="input" style="width: 70%;" />
-			<span class="c666">如：WebMIS,灵创网络,PHP</span>
+			<span class="inputText c2">如：WebMIS,灵创网络,PHP</span>
 		</td>
 	</tr>
 	<tr>
 		<td class="tright">摘要:</td>
-		<td><textarea name="summary" style="width: 95%; height: 180px;" maxlength="300"></textarea><span class="c999">&nbsp;&nbsp;1~300字符</span></td>
+		<td><textarea name="summary" style="width: 95%; height: 180px;" maxlength="300"></textarea><span class="inputText c2">1~300字符</span></td>
 	</tr>
 	<tr>
 		<td class="tright">缩略图:</td>
 		<td>
-			<input type="text" name="img" class="input" style="width: 70%;" /><span class="c999">&nbsp;&nbsp;宽：110px 高：75px
+			<input type="text" name="img" class="input" style="width: 70%;" /><span class="inputText c2">宽：110px 高：75px</span>
 		</td>
 	</tr>
 	<tr>

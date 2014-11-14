@@ -8,7 +8,7 @@ ul{list-style: none;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 .input{height: 22px; line-height: 22px; border: #CACCCB 1px solid; background: #FFF; padding: 0 5px;}
-input{box-shadow 0.2s linear 0s; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
+input{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus{border-color: rgba(153, 153, 153, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(153, 153, 153, 0.6); outline: 0 none;}
 table{width: 100%; border-collapse: collapse;}
 table td{padding: 5px 0; vertical-align: top;}

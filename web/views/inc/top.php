@@ -22,6 +22,7 @@ if(@$show->summary){$dsp = @$show->summary;}
 	<link href="<?php echo base_url('webmis/themes/default/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('themes/default/web.css');?>" rel="stylesheet" type="text/css" />
 	<!--[if lt IE 9]><script src="<?php echo base_url('webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
+	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body>

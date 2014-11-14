@@ -5,10 +5,10 @@ class Web_class_m extends CI_Model {
 	function page($num, $offset, $like=''){
 		if($like){$this->db->like($like);}
 		$db = clone($this->db);
-		$total = $this->db->count_all_results($this->table);
-		$db->order_by('fid desc,sort desc,id desc');
-		$query = $db->get($this->table,$num,$offset);
+		$this->db->order_by('fid desc,sort desc,id desc');
+		$query = $this->db->get($this->table,$num,$offset);
 		$data = $query->result();
+		$total = $db->count_all_results($this->table);
 		return array('data'=>$data,'total'=>$total);
 	}
 

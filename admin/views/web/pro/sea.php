@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width tright">所属:</td>
 		<td>
-			<input type="text" name="class" class="input" style="width: 60px;" /><span class="c666">&nbsp;&nbsp;如：:3:9:12:</span>
+			<input type="text" name="class" class="input" style="width: 60px;" /><span class="inputText c2">如：:3:9:12:</span>
 		</td>
 	</tr>
 	<tr>

@@ -9,7 +9,7 @@ ul{list-style: none;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal; padding-right: 5px;}
-textarea{border: #999 1px solid; background: #FFF;}
+textarea{line-height: 24px; border: #999 1px solid; background: #FFF; padding: 5px;}
 input, textarea{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
@@ -25,7 +25,8 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .tleft{text-align: left;}
 .tright{text-align: right;}
 .center{text-align: center;}
-.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.input{float: left; height: 30px; line-height: 30px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.inputText{float: left; height: 30px; line-height: 30px; padding: 0 8px;}
 
 /* login */
 .login_top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat;}
@@ -157,7 +158,6 @@ Content UI
 
 .table_add{width: 98%; border-collapse: collapse; margin: 0 auto;}
 .table_add td{line-height: 20px; padding: 5px;}
-.table_add td .Validform_checktip{padding-left: 20px;}
 .table_add .width{width: 90px;}
 .table_add .right{text-align: right;}
 

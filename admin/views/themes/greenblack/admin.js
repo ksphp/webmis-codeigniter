@@ -76,7 +76,7 @@ function menuTwo(id,type){
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
+		$.webmis.win('open',{title:'删除',width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
 		$('#delSub').webmis('SubClass'); //按钮样式
 		//点击提交
 		$('#delSub').click(function(){
@@ -99,7 +99,7 @@ function actionDel(dataUrl,targetUrl) {
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:'审核',width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
+		$.webmis.win('open',{title:'审核',width:280,height:160,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
 		$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
 		//通过
 		$('#auditSub1').click(function(){

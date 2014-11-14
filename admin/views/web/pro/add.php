@@ -19,18 +19,18 @@
 		<td class="tright">关键词:</td>
 		<td>
 			<input type="text" name="key" class="input" style="width: 70%;" />
-			<span class="c666">&nbsp;&nbsp;&nbsp;&nbsp;如：WebMIS,灵创网络,PHP</span>
+			<span class="inputText c2">如：WebMIS,灵创网络,PHP</span>
 		</td>
 	</tr>
 	<tr>
 		<td class="tright">摘要:</td>
-		<td><textarea name="summary" style="width: 95%; height: 180px;" maxlength="300"></textarea><span class="c999">&nbsp;&nbsp;1~300字符</span></td>
+		<td><textarea name="summary" style="width: 95%; height: 180px;" maxlength="300"></textarea><span class="inputText c2">1~300字符</span></td>
 	</tr>
 	<tr>
 		<td class="tright">缩略图:</td>
 		<td>
 			<input type="text" name="img" class="input" style="width: 70%;" />
-			<span class="c999">&nbsp;&nbsp;宽：200px 高：160px</span>
+			<span class="inputText c2">宽：200px 高：160px</span>
 		</td>
 	</tr>
 	<tr>

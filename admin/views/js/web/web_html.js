@@ -9,8 +9,8 @@ $(function(){
 	$('#table').webmis('TableAdjust');  //调整宽度
 /*搜索*/
 	$('#ico-search').click(function(){
-		if(!IsMobile){moWidth = 340;}
-		$.webmis.win('open',{title:'搜索',width:moWidth,height:250});
+		if(!IsMobile){moWidth = 420;}
+		$.webmis.win('open',{title:'搜索',width:moWidth,height:280});
 		//加载内容
 		$.get($base_url+'web_html/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容

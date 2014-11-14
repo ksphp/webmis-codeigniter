@@ -7,7 +7,7 @@ $(function(){
 	$('#ico-exp').click(function(){
 		var id = $('#listBG').webmis('GetInputID',{type:' '});
 		if(id!=' '){
-			if(!IsMobile){moWidth = 480; moHeight= 340;}
+			if(!IsMobile){moWidth = 480; moHeight= 360;}
 			$.webmis.win('open',{title:'导出',width:moWidth,height:moHeight,overflow:true});
 			$.post($base_url+'sys_db_backup/exp.html',{'table':id},function(data){
 				$.webmis.win('load',data);   //加载内容
