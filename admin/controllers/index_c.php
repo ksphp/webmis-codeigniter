@@ -7,9 +7,9 @@ class Index_c extends CI_Controller {
 		$data['is_mobile'] = $this->IsMobile();
 		
 		if($data['is_mobile']) {
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/login_v_mo',$data);
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/login_v_mo',$data);
 		}else {
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/login_v',$data);
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/login_v',$data);
 		}
 	}
 	/* Login */

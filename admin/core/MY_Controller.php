@@ -99,14 +99,14 @@ class MY_Controller extends CI_Controller {
 		/* View */
 		if($this->IsMobile) {
 			$data['Menu']=$this->getMenuMo(0);
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top_mo',$data);
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/top_mo',$data);
 			$this->load->view($url);
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom_mo');
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/bottom_mo');
 		}else {
 			$data['Menu']=$this->getMenu();
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/top',$data);
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/top',$data);
 			$this->load->view($url);
-			$this->load->view('themes/'.$this->config->config['admin_themes'].'/inc/bottom');
+			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/bottom');
 		}
 	}
 /*------------------------------------------------------------------

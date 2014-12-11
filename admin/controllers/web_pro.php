@@ -8,7 +8,7 @@ class Web_pro extends MY_Controller {
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState');
-		$data['js'] = array('js/web/web_pro.js');
+		$data['js'] = array('web/web_pro.js');
 		if($this->IsMobile) {
 			$this->MyView('web/pro/index_mo',$data);
 		}else {

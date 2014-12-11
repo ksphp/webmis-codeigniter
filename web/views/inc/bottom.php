@@ -6,9 +6,9 @@
 <div id="IsMobile" style="display: none;"><?php echo $IsMobile; ?></div>
 <script language="javascript" src="<?php echo base_url('webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('webmis/jquery.webmis.js'); ?>"></script>
-<script language="javascript" src="<?php echo base_url('themes/default/js/web.js'); ?>"></script>
+<script language="javascript" src="<?php echo base_url('themes/web/web.js'); ?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>
-<script language="javascript" src="<?php echo base_url($val); ?>"></script>
+<script language="javascript" src="themes/web/js/<?php echo base_url($val); ?>"></script>
 <?php }}?>
 </body>
 </html>

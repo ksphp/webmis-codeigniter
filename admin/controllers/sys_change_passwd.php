@@ -2,7 +2,7 @@
 class Sys_change_passwd extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data['js'] = array('js/index/change_passwd.js');
+		$data['js'] = array('index/change_passwd.js');
 		if($this->IsMobile) {
 			$this->MyView('index/change_passwd_v_mo',$data);
 		}else {

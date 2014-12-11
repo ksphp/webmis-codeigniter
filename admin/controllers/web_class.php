@@ -5,7 +5,7 @@ class Web_class extends MY_Controller {
 		$this->load->library('menus');
 		$data = $this->Page(array('url'=>'web_class/index.html','model'=>'web_class_m'));
 		$data['adminState'] = $this->menus->getMenu('adminState');
-		$data['js'] = array('js/web/web_class.js');
+		$data['js'] = array('web/web_class.js');
 		if($this->IsMobile) {
 			$this->MyView('web/class/index_mo',$data);
 		}else {

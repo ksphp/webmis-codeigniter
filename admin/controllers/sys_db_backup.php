@@ -4,7 +4,7 @@ class Sys_db_backup extends MY_Controller {
 	public function index(){
 		$this->load->model('sys_db_m');
 		$data['table'] = $this->sys_db_m->getTableList();
-		$data['js'] = array('js/system/sys_db_backup.js',);
+		$data['js'] = array('system/sys_db_backup.js',);
 		$this->MyView('system/db/backup/index',$data);
 	}
 	/* Export */

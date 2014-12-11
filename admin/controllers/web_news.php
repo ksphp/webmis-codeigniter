@@ -8,7 +8,7 @@ class Web_news extends MY_Controller {
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState');
-		$data['js'] = array('js/web/web_news.js');
+		$data['js'] = array('web/web_news.js');
 		if($this->IsMobile) {
 			$this->MyView('web/news/index_mo',$data);
 		}else {

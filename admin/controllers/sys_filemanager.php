@@ -63,7 +63,7 @@ class Sys_filemanager extends MY_Controller {
 				$data['file_editor'] = '';
 				$path = $this->input->get('path');
 				$data['filelist'] = $this->file_class->lists($path);
-				$data['js'] = array('js/system/sys_filemanager.js');
+				$data['js'] = array('system/sys_filemanager.js');
 				if($this->IsMobile) {
 					$this->MyView('system/filemanager/index_mo',$data);
 				}else {

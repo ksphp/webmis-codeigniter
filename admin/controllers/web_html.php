@@ -8,7 +8,7 @@ class Web_html extends MY_Controller {
 		$this->load->model('web_class_m');
 		$data['class'] = $this->web_class_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState');
-		$data['js'] = array('js/web/web_html.js');
+		$data['js'] = array('web/web_html.js');
 		if($this->IsMobile) {
 			$this->MyView('web/html/index_mo',$data);
 		}else {

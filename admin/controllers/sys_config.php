@@ -4,13 +4,13 @@ class Sys_config extends MY_Controller {
 	public function index(){
 		$this->load->helper('file');
 		/* Admin Themes */
-		$data['admin_themes'] = get_dir_file_info('views/themes');
+		$data['admin_themes'] = get_dir_file_info('../themes/admin');
 		/* WebMIS Themes */
 		$data['webmis_themes'] = get_dir_file_info('../webmis/themes');
 		/* Jquery */
 		$data['jquery'] = get_dir_file_info('../webmis/plugin/jquery');
 
-		$data['js'] = array('js/system/sys_config.js',);
+		$data['js'] = array('system/sys_config.js',);
 		if($this->IsMobile) {
 			$this->MyView('system/config/index_mo',$data);
 		}else {

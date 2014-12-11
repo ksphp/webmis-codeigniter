@@ -33,11 +33,11 @@
 		<td class="tright">主题：</td>
 		<td>
 			<select name="admin_themes">
-<?php foreach ($admin_themes as $val) {?>
+<?php foreach ($admin_themes as $val) {if($val['name']!='js'){?>
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['admin_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
-<?php }?>
+<?php }}?>
 			</select>
-			<br/><span class="c2"> <?php echo base_url('views/themes/');?></span>
+			<br/><span class="c2"> themes/admin</span>
 		</td>
 	</tr>
 	<tr>

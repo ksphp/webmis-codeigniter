@@ -6,7 +6,7 @@ class Sys_db_restore extends MY_Controller {
 		$this->load->helper('file');
 		$this->load->model('sys_db_m');
 		
-		$data['js'] = array('js/system/sys_db_restore.js',);
+		$data['js'] = array('system/sys_db_restore.js',);
 		$data['file'] = get_dir_file_info($this->config->config['backup'],false);
 		
 		$this->MyView('system/db/restore/index',$data);

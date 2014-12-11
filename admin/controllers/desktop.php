@@ -24,7 +24,7 @@ class Desktop extends MY_Controller {
 		$data['db']['dbprefix'] = $this->db->dbprefix;
 		$data['db']['char_set'] = $this->db->char_set;
 		
-		$data['js'] = array('js/index/welcome.js');
+		$data['js'] = array('index/welcome.js');
 		if($this->IsMobile) {
 			$this->MyView('index/desktop_v_mo',$data);
 		}else {
