@@ -28,7 +28,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .input{height: 22px; line-height: 22px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
 
 /* login */
-.login_body{position: relative; z-index: 1; margin: 0 auto; padding: 0px 1em;}
+.login_body{position: relative; z-index: 1; margin: 0 auto; padding: 0px 2em;}
 .login_top{height: 60px;}
 .login_top_logo{height: 60px; background: url("images/logo.png") no-repeat center bottom;}
 .login_title{height: 2em; text-align: right; color: #666;}
