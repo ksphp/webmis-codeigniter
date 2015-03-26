@@ -1,91 +1,58 @@
 <?php
-class Sys_menus_m extends CI_Model {
-	var $table = 'sys_menus';
-	/* Page */
-	function page($num, $offset, $like=''){
-		if($like){$this->db->like($like);}
-		$this->db->order_by('fid desc,sort desc');
-		$db = clone($this->db);
-		$query = $this->db->get($this->table,$num,$offset);
-		$data = $query->result();
-		$total = $db->count_all_results($this->table);
-		return array('data'=>$data,'total'=>$total);
-	}
-
-	/* Get One */
-	function getOne(){
-		$id = $this->input->post('id');
-		if($id){
-			$query = $this->db->get_where($this->table, array('id' => $id));
-			$data = $query->row();
-			return $data;
+class Sys_menus extends MY_Controller {
+	/* Index */
+	public function index(){
+		$this->load->helper('my');
+		$this->load->library('inc');
+		$data = $this->inc->Page($this,array('url'=>'sys_menus/index.html','model'=>'sys_menus_m'));
+		$data['js'] = array('system/sys_menus.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
+		if($this->IsMobile) {
+			$this->MyView('system/menus/index_mo',$data);
+		}else {
+			$this->inc->adminView($this,'system/menus/index',$data);
 		}
 	}
-	/* Get Menus */
-	function getMenus($fid){
-		$this->db->order_by('sort asc,id asc');
-		$query = $this->db->get_where($this->table,array('fid' => $fid));
-		return $query->result();
-	}
-	/* Get Menus One */
-	function getMenuOne($id){
-		$query = $this->db->get_where($this->table,array('id' => $id));
-		$data = $query->row();
-		return $data;
-	}
-	/* Get Menus Fid */
-	function getMenusUrl($url){
-		$query = $this->db->get_where($this->table,array('url' => $url));
-		$data = $query->row();
-		return $data;
+	/* Search */
+	public function search(){
+		$this->load->view('system/menus/sea');
 	}
 	/* Add */
-	function add(){
-		$title = trim($this->input->post('title'));
-		if($title){
-			$data['title'] = $title;
-			$data['fid'] = $this->input->post('fid');
-			$data['url'] = trim($this->input->post('url'));
-			$data['ico'] = trim($this->input->post('ico'));
-			$data['perm'] = $this->input->post('perm');
-			$data['remark'] = $this->input->post('remark');
-			$data['sort'] = trim($this->input->post('sort'));
-			$data['ctime'] = date('Y-m-d H:i:s');
-			
-			return $this->db->insert($this->table,$data)?true:false;
+	public function add(){
+		$this->load->model('sys_menus_action_m');
+		$data['action'] = $this->sys_menus_action_m->getAll();
+		$this->load->view('system/menus/add',$data);
+	}
+	public function addData(){
+		$this->load->model('sys_menus_m');
+		echo $this->sys_menus_m->add()?'{"status":"y"}':'{"status":"n"}';
+	}
+	/* GetMenu */
+	public function getMenu(){
+		$this->load->model('sys_menus_m');
+		$fid = $this->input->post('fid');
+		$data = $this->sys_menus_m->getMenus($fid);
+		echo json_encode($data);
+	}
+	/* Edit */
+	public function edit(){
+		$this->load->model('sys_menus_m');
+		$this->load->model('sys_menus_action_m');
+		$data['edit'] = $this->sys_menus_m->getOne();
+		$data['action'] = $this->sys_menus_action_m->getAll();
+		if($this->IsMobile) {
+			$this->load->view('system/menus/edit_mo',$data);
+		}else {
+			$this->load->view('system/menus/edit',$data);
 		}
 	}
-	/* Update */
-	function update(){
-		$id = $this->input->post('id');
-		if($id){
-			$data['title'] = trim($this->input->post('title'));
-			$data['fid'] = trim($this->input->post('fid'));
-			$data['url'] = trim($this->input->post('url'));
-			$data['ico'] = trim($this->input->post('ico'));
-			$data['perm'] = $this->input->post('perm');
-			$data['remark'] = $this->input->post('remark');
-			$data['sort'] = trim($this->input->post('sort'));
-			
-			$this->db->where('id', $id);
-			return $this->db->update($this->table, $data)?true:false;
-		}
+	public function editData(){
+		$this->load->model('sys_menus_m');
+		echo $this->sys_menus_m->update()?'{"status":"y"}':'{"status":"n"}';
 	}
 	/* Delete */
-	function del(){
-		$id = trim($this->input->post('id'));
-		if($id){
-			$arr = array_filter(explode(' ', $id));
-			foreach($arr as $val){
-				$this->db->where('id', $val);
-				if($this->db->delete($this->table)){
-					$data = true;
-				}else{
-					$data = false;
-					break;
-				}
-			}
-			return $data;
-		}
+	public function delData(){
+		$this->load->model('sys_menus_m');
+		echo $this->sys_menus_m->del();
 	}
 }

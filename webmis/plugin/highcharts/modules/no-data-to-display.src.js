@@ -1,5 +1,5 @@
 /**
- * @license Highcharts JS v4.0.1 (2014-04-24)
+ * @license Highcharts JS v4.1.3 (2015-02-27)
  * Plugin for displaying a message when there is no data visible in chart.
  *
  * (c) 2010-2014 Highsoft AS
@@ -8,12 +8,13 @@
  * License: www.highcharts.com/license
  */
 
-(function (H) { // docs
+(function (H) {
 	
 	var seriesTypes = H.seriesTypes,
 		chartPrototype = H.Chart.prototype,
 		defaultOptions = H.getOptions(),
-		extend = H.extend;
+		extend = H.extend,
+		each = H.each;
 
 	// Add language option
 	extend(defaultOptions.lang, {
@@ -44,20 +45,14 @@
 		return !!this.points.length; /* != 0 */
 	}
 
-	if (seriesTypes.pie) {
-		seriesTypes.pie.prototype.hasData = hasDataPie;
-	}
-
-	if (seriesTypes.gauge) {
-		seriesTypes.gauge.prototype.hasData = hasDataPie;
-	}
-
-	if (seriesTypes.waterfall) {
-		seriesTypes.waterfall.prototype.hasData = hasDataPie;
-	}
+	each(['pie', 'gauge', 'waterfall', 'bubble'], function (type) {
+		if (seriesTypes[type]) {
+			seriesTypes[type].prototype.hasData = hasDataPie;
+		}
+	});
 
 	H.Series.prototype.hasData = function () {
-		return this.dataMax !== undefined && this.dataMin !== undefined;
+		return this.visible && this.dataMax !== undefined && this.dataMin !== undefined; // #3703
 	};
 	
 	/**

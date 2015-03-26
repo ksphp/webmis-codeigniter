@@ -5,7 +5,7 @@
 
 // Load the fonts
 Highcharts.createElement('link', {
-	href: 'http://fonts.googleapis.com/css?family=Signika:400,700',
+	href: '//fonts.googleapis.com/css?family=Signika:400,700',
 	rel: 'stylesheet',
 	type: 'text/css'
 }, null, document.getElementsByTagName('head')[0]);
@@ -67,6 +67,9 @@ Highcharts.theme = {
 		},
 		candlestick: {
 			lineColor: '#404048'
+		},
+		map: {
+			shadow: false
 		}
 	},
 

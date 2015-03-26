@@ -21,12 +21,12 @@ class Index_c extends CI_Controller {
 		if($uinfo){
 			if($uinfo[0]->state == 1){
 				session_start();
-				$_SESSION['uinfo']['uname'] = $uinfo[0]->uname;
-				$_SESSION['uinfo']['name'] = $uinfo[0]->name;
-				$_SESSION['uinfo']['department'] = $uinfo[0]->department;
-				$_SESSION['uinfo']['logged_in'] = TRUE;
-				$_SESSION['uinfo']['is_mobile'] = $this->input->post('is_mobile');
-				$_SESSION['uinfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
+				$_SESSION['UserInfo']['uname'] = $uinfo[0]->uname;
+				$_SESSION['UserInfo']['name'] = $uinfo[0]->name;
+				$_SESSION['UserInfo']['department'] = $uinfo[0]->department;
+				$_SESSION['UserInfo']['logged_in'] = TRUE;
+				$_SESSION['UserInfo']['is_mobile'] = $this->input->post('is_mobile');
+				$_SESSION['UserInfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
 				$this->loginLog('登录',$uname);
 				echo true;
 			}else{
@@ -41,9 +41,9 @@ class Index_c extends CI_Controller {
 	/* LoginOut */
 	public function loginOut(){
 		session_start();
-		$uname = $_SESSION['uinfo']['uname']?$_SESSION['uinfo']['uname']:'Auto Logout';
+		$uname = $_SESSION['UserInfo']['uname']?$_SESSION['UserInfo']['uname']:'Auto Logout';
 		$this->loginLog('退出',$uname);
-		unset($_SESSION['uinfo']);
+		unset($_SESSION['UserInfo']);
 		//session_destroy();
 		header('location: '.base_url());
 	}
@@ -77,4 +77,3 @@ class Index_c extends CI_Controller {
 		return $data;
 	}
 }
-?>
