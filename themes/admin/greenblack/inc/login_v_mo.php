@@ -2,15 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+	<title><?php echo $this->config->config['title'];?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telephone=no">
-	<meta name="author" content="kingsoul" />
-	<title><?php echo $this->config->config['title'];?></title>
+	<meta name="author" content="KSPHP" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.mo.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
-	<!--[if lt IE 9]><script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
 	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
