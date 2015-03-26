@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<section class="login_body">
+<div class="login_body">
 	<header class="login_top">
 		<div class="login_top_logo">&nbsp;</div>
 	</header>
@@ -30,7 +30,7 @@
 		Copyright © <?php echo $this->config->config['copy'];?><br>
 		<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
 	</footer>
-</section>
+</div>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
 <div id="is_mobile" style="display: none;"><?php echo $is_mobile; ?></div>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/'.$this->config->config['jquery']); ?>"></script>
