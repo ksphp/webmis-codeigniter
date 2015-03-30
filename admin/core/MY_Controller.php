@@ -9,8 +9,8 @@ class MY_Controller extends CI_Controller {
 		parent::__construct();
 		/* IsLogin */
 		session_start();
-		$logged = $_SESSION['UserInfo']['logged_in'];
-		$this->IsMobile = $_SESSION['UserInfo']['is_mobile'];
+		$logged = $_SESSION['AdminInfo']['logged_in'];
+		$this->IsMobile = $_SESSION['AdminInfo']['is_mobile'];
 		if(!$logged){
 			redirect('index_c/loginOut');
 		}
@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
 		$Cname = $this->router->class;
 		$Menu = $this->sys_menus_m->getID($Cname);
 		$this->Cid = $Menu->id;
-		$permArr = $_SESSION['UserInfo']['permArr'];
+		$permArr = $_SESSION['AdminInfo']['permArr'];
 		if(!isset($permArr[$this->Cid])){
 			header('location: '.base_url().$this->dirName.'index_c/loginOut.html');
 			exit();

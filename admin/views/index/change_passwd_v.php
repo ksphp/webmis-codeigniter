@@ -2,13 +2,13 @@
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_change_passwd/changePasswd.html');?>" method="post" id="changePWdForm">
 <table class="table_add">
 	<tr>
-		<td colspan="2"><h3 class="h3_ccc"><?php echo $title;?></h3><br></td>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $Menus['Ctitle'];?></h3><br></td>
 	</tr>
 	<tr>
 		<td class="width tright">用户名:</td>
 		<td>
-			<b id="uname"><?php echo $uinfo['uname']; ?></b>
-			<input type="hidden" name="uname" value="<?php echo $uinfo['uname']; ?>" />
+			<b id="uname"><?php echo @$_SESSION['AdminInfo']['uname']; ?></b>
+			<input type="hidden" name="uname" value="<?php echo @$_SESSION['AdminInfo']['uname']; ?>" />
 		</td>
 	</tr>
 	<tr>

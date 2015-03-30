@@ -1,9 +1,9 @@
 <table class="action">
 	<tr>
-		<td class="title"><?php echo $title; ?></td>
+		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
+				<?php echo $Menus['actionHtml']; ?>
 			</ul>
 		</td>
 	</tr>
@@ -13,9 +13,9 @@
 <table class="table_list">
 	<tr>
 		<td colspan="2" class="title" style="font-weight: normal;" align="left">
-			&nbsp;&nbsp;管理员：<?php echo $uinfo['uname']; ?>&nbsp;&nbsp;
-			部门：<?php echo $uinfo['department']; ?>&nbsp;&nbsp;
-			姓名：<?php echo $uinfo['name']; ?>
+			&nbsp;&nbsp;管理员：<?php echo @$_SESSION['AdminInfo']['uname']; ?>&nbsp;&nbsp;
+			部门：<?php echo @$_SESSION['AdminInfo']['department']; ?>&nbsp;&nbsp;
+			姓名：<?php echo @$_SESSION['AdminInfo']['name']; ?>
 		</td>
 	</tr>
 	<tbody id="listBG1">

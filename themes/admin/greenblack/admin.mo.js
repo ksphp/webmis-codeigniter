@@ -4,13 +4,13 @@ var moHeight = $(window).height()-60;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
+	//滑动导航
+	$.webmis.inc({files:[$webmis_plugin+'jquery/jquery.touchwipe.min.js',$webmis_plugin+'smartFloat.js']});
+	navMove();
+	menuShow();
 	//内容区域
 	$('#NavBody').css({'width':moWidth});
 	if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
-	//菜单操作
-	var NavId = $('#NavId').text();
-	var MenuTwoId = $('#MenuTwoId').text();
-	$('#nav_'+NavId).attr('class','an1');
 	//全选,全不选
 	$('#checkboxY').click(function () {
 		$(this).hide();
@@ -24,26 +24,63 @@ $(function(){
 		return false;
 	});
 });
-/*点击一级菜单*/
-function menuOne(id){
-	//导航样式
-	$('#Nav a').each(function(){
-		$(this).attr('class','an2');
-	});
-	$('#nav_'+id).attr('class','an1');
-	//显示菜单区域
-	$('#NavBody').show();
-	//隐藏二级菜单dia 
-	$('#NavBody .nav_two').each(function(){
-		$(this).hide();
-	});
-	$('#menuOne_'+id).show();
-	//
-	$('#NavHide').click(function () {
-		$('#NavBody').hide();
-		return false;
+
+//滑动导航
+function navMove(){
+	$("#Nav .an1").css({'color':'#FFF'}); //按钮字体颜色
+	//左侧菜单浮动定位
+	$(".nav_ct").smartFloat();
+	//等分宽度
+	var W = $(window).width();
+	var N = 2;
+	if(W >= 320){N = 3;}
+	if(W >= 420){N = 4;}
+	if(W >= 520){N = 5;}
+	if(W >= 620){N = 6;}
+	if(W >= 720){N = 7;}
+	if(W >= 820){N = 8;}
+	$("#Nav li").width(W/N-1);
+	//统计li宽度
+	var li = $("#Nav li").length;
+	var li_w = (W/N-1)*li;
+	//左右滑动
+	$('#Nav').touchwipe({
+		wipeLeft: function() {
+			var W = $(window).width();
+			var left = parseInt($('#Nav').css('left'));
+			//限制
+			if(-left+W < li_w){left = left-W;}
+			$('#Nav').animate({'left':left});
+		},
+		wipeRight: function() {
+			var W = $(window).width();
+			var left = parseInt($('#Nav').css('left'));
+			//限制
+			if(left+W <= 0){left = left+W;}
+			$('#Nav').animate({'left':left});
+		}
 	});
 }
+function menuShow(){
+	var W = $(window).width();
+	var Menu = $('.menu_ct');
+	//右滑动
+	$("#ctBody").touchwipe({
+		wipeRight: function() {
+			var W = $(window).width();
+			Menu.css({'left':0-W}).show().animate({'left':0});
+		},
+		preventDefaultEvents: false
+	});
+	//左滑动
+	Menu.touchwipe({
+		wipeLeft: function() {
+			var W = $(window).width();
+			Menu.animate({'left':0-W},function(){$(this).hide();});
+		}
+	});
+}
+
 /*
 ** ******动作******
 */

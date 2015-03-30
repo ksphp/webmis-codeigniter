@@ -4,7 +4,9 @@ class Inc{
 	function adminView($APP, $url='', $data=''){
 		/* View */
 		if($APP->IsMobile) {
-			echo '手机版';
+			$APP->load->view('../../themes/admin/'.$APP->config->config['admin_themes'].'/inc/top_mo',$data);
+			$APP->load->view($url);
+			$APP->load->view('../../themes/admin/'.$APP->config->config['admin_themes'].'/inc/bottom_mo');
 		}else{
 			$APP->load->view('../../themes/admin/'.$APP->config->config['admin_themes'].'/inc/top',$data);
 			$APP->load->view($url);
@@ -12,7 +14,7 @@ class Inc{
 		}
 	}
 	function getMenuAdmin($APP){
-		$permArr = $_SESSION['UserInfo']['permArr'];
+		$permArr = $_SESSION['AdminInfo']['permArr'];
 		$Cname = $APP->router->class;
 		$FID = $this->getFID($APP,$Cname);
 		$M1 = 0; $M2 = 0;
@@ -71,7 +73,7 @@ class Inc{
 	/* 动作菜单 */
 	private function actionHtml($APP){
 		$APP->load->model('sys_menus_action_m');
-		$permArr = $_SESSION['UserInfo']['permArr'];
+		$permArr = $_SESSION['AdminInfo']['permArr'];
 		$action = $APP->sys_menus_action_m->getAll();
 		$i = 1;
 		$html = '';
@@ -90,10 +92,10 @@ class Inc{
 	/* User Html */
 	private function userHtml(){
 		@session_start();
-		$UserLogin = @$_SESSION['UserInfo']['logged_in'];
+		$UserLogin = @$_SESSION['AdminInfo']['logged_in'];
 		if($UserLogin == TRUE){
-			$_SESSION['UserInfo']['ltime'] = time()+1800;
-			$html = '<a href="#"><b>'.$_SESSION['UserInfo']['uname'].'</b></a>&nbsp;&nbsp;[&nbsp;'.$_SESSION['UserInfo']['department'].'-'.$_SESSION['UserInfo']['name'].'&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'.base_url('index_c/loginOut.html').'"><b>注销</b></a>';
+			$_SESSION['AdminInfo']['ltime'] = time()+1800;
+			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>&nbsp;['.$_SESSION['AdminInfo']['department'].'-'.$_SESSION['AdminInfo']['name'].']&nbsp;|&nbsp;<a href="'.base_url('index_c/loginOut.html').'"><b>注销</b></a>';
 		}else{
 			$html = '<a href="'.base_url('../').'"><b>请登陆</b></a>';
 		}
@@ -132,10 +134,15 @@ class Inc{
 			$like = $APP->input->get();
 			unset($like['per_page']);
 			/* Url */
-			foreach($like as $key=>$val){$get_url .= $key.'='.$val.'&';}
+			foreach($like as $key=>$val){
+				if($val==''){
+					unset($like[$key]);
+				}else{
+					$get_url .= $key.'='.$val.'&';
+				}
+			}
 			/* Remove Search and Null */
 			unset($like['search']);
-			$like = array_filter($like);
 		}else{$like = array();}
 		/* Data */
 		$per_page = $APP->input->get('per_page');

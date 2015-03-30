@@ -2,6 +2,7 @@
 class Welcome extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->library('inc');
 		$file = '../ReadMe.md';
 		if(file_exists($file)){
 			$fp = fopen($file, 'r');
@@ -10,7 +11,8 @@ class Welcome extends MY_Controller {
 		}else{
 			$data['InstallCT'] = '“ '.$file.' ” 文件不存在！';
 		}
-		$this->MyView('welcome_v',$data);
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
+		$this->inc->adminView($this,'welcome_v',$data);
 	}
 }
 ?>

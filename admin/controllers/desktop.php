@@ -2,6 +2,7 @@
 class Desktop extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->library('inc');
 		$this->load->library('user_agent');
 		
 		$data['user']['ip'] = $this->input->ip_address();
@@ -25,11 +26,12 @@ class Desktop extends MY_Controller {
 		$data['db']['char_set'] = $this->db->char_set;
 		
 		$data['js'] = array('index/welcome.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
+		
 		if($this->IsMobile) {
-			$this->MyView('index/desktop_v_mo',$data);
+			$this->inc->adminView($this,'index/desktop_v_mo',$data);
 		}else {
-			$this->MyView('index/desktop_v',$data);
+			$this->inc->adminView($this,'system/index_v',$data);
 		}
 	}
 }
-?>
