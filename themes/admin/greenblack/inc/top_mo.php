@@ -8,7 +8,6 @@
 	<meta name="author" content="KSPHP" />
 	<title><?php echo $this->config->config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.mo.css'); ?>" rel="stylesheet" type="text/css" />
 </head>
@@ -27,7 +26,7 @@ foreach ($Menus['Date'] as $val){
 	$ico = $val['ico']?'<em class="'.$val['ico'].'"></em>':'';
 	if(@$val['menus']){$menus = $val['menus'];}
 ?>
-		<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>" data-ajax="false"><?php echo $ico.$val['title'];?></a></li>
+		<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val['title'];?></a></li>
 <?php }?>
 	</ul>
 </div>
@@ -38,7 +37,7 @@ foreach ($Menus['Date'] as $val){
 <?php if(@$val1['menus']){foreach($val1['menus'] as $val2){
 	$an = $val2['id']==$Menus['FID']['FID3']?'left_an1':'left_an2';
 ?>
-			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>" data-ajax="false"><em class="<?php echo $val2['ico'];?>"></em><?php echo $val2['title'];?></a></li>
+			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><em class="<?php echo $val2['ico'];?>"></em><?php echo $val2['title'];?></a></li>
 <?php }}?>
 		</ul>
 <?php }}?>

@@ -6,7 +6,6 @@
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
 <div id="NavId" style="display: none;"><?php echo $this->Fid2; ?></div>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
-
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.mo.js'); ?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>
