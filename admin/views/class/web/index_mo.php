@@ -1,9 +1,9 @@
 <table class="action">
 	<tr>
-		<td class="title"><?php echo $title; ?></td>
+		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
+				<?php echo $Menus['actionHtml']; ?>
 			</ul>
 		</td>
 	</tr>
@@ -13,15 +13,11 @@
 <table class="table_list">
 	<tr class="title" id="class_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
-		<td width="40">ID</td>
-		<td width="40">FID</td>
-		<td width="120">菜单名</td>
+		<td>ID</td>
+		<td>FID</td>
+		<td>菜单名</td>
 		<td>URL</td>
-		<td>图标</td>
-		<td width="120">创建时间</td>
-		<td>备注</td>
-		<td width="30">排序</td>
-		<td width="40">审核</td>
+		<td>审核</td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
@@ -31,10 +27,6 @@
 		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
 		<td><?php echo keyHH($val->title, @$key['title']);?></td>
 		<td><?php echo keyHH($val->url, @$key['url']);?></td>
-		<td><?php echo keyHH($val->ico, @$key['ico']);?></td>
-		<td><?php echo keyHH($val->ctime, @$key['ctime']);?></td>
-		<td class="tleft"><?php echo keyHH($val->remark, @$key['remark']);?></td>
-		<td><?php echo $val->sort;?></td>
 		<td><?php echo $adminState[$val->state];?></td>
 	</tr>
 	<?php } ?>

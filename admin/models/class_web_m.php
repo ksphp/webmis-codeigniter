@@ -1,6 +1,6 @@
 <?php
-class Web_class_m extends CI_Model {
-	var $table = 'web_class';
+class Class_web_m extends CI_Model {
+	var $table = 'class_web';
 	/* Page */
 	function page($num, $offset, $like=''){
 		if($like){$this->db->like($like);}
@@ -71,36 +71,27 @@ class Web_class_m extends CI_Model {
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
-				$this->db->where('id', $val);
-				if($this->db->delete($this->table)){
-					$data = true;
-				}else{
-					$data = false;
-					break;
-				}
+				$this->db->delete($this->table,array('id'=>$val));
 			}
-			return $data;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 	/* Audit */
 	function audit(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
 				$data['state'] = $this->input->post('state');
-				/*执行*/
-				$this->db->where('id', $val);
-				if($this->db->update($this->table,$data)){
-					$rt = true;
-				}else{
-					$rt = false;
-					break;
-				}
+				$this->db->update($this->table,$data,array('id'=>$val));
 			}
-			return $rt;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 }

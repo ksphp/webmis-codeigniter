@@ -14,9 +14,10 @@ class Web_pro_m extends CI_Model {
 	}
 
 	/* Get One */
-	function getOne(){
-		$id = $this->input->post('id');
+	function getOne($select='',$id=''){
+		$id = $id?$id:$this->input->post('id');
 		if($id){
+			$this->db->select($select);
 			$query = $this->db->get_where($this->table, array('id' => $id));
 			$data = $query->row();
 			return $data;
@@ -54,40 +55,51 @@ class Web_pro_m extends CI_Model {
 			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
+	/* 更新图片 */
+	function updateImg($data){
+		$id = $this->input->post('id');
+		if($id){
+			$this->db->where('id', $id);
+			return $this->db->update($this->table, $data)?true:false;
+		}
+	}
 	/* Delete */
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
-				$this->db->where('id', $val);
-				if($this->db->delete($this->table)){
-					$data = true;
-				}else{
-					$data = false;
-					break;
-				}
+				//删除图片
+				$file = $this->getOne('upload',$val);
+				$this->DelIMG($file->upload);
+				//删除数据
+				$this->db->delete($this->table,array('id'=>$val));
 			}
-			return $data;
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
+	}
+	//删除图片
+	private function DelIMG($url=''){
+		$path = '../upload/images/pro/';
+		$arr = array_filter(explode(',', $url));
+		foreach ($arr as $val){
+			@unlink($path.$val);
 		}
 	}
 	/* Audit */
 	function audit(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
 				$data['state'] = $this->input->post('state');
-				/*执行*/
-				$this->db->where('id', $val);
-				if($this->db->update($this->table,$data)){
-					$rt = true;
-				}else{
-					$rt = false;
-					break;
-				}
+				$this->db->update($this->table,$data,array('id'=>$val));
 			}
-			return $rt;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 }

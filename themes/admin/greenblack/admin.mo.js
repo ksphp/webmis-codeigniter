@@ -1,6 +1,6 @@
 var IsMobile = $('#IsMobile').text();
 var moWidth = $(document).width()-20;
-var moHeight = $(window).height()-60;
+var moHeight = $(window).height()-20;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
@@ -9,8 +9,8 @@ $(function(){
 	navMove();
 	menuShow();
 	//内容区域
-	$('#NavBody').css({'width':moWidth});
-	if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
+	//$('#NavBody').css({'width':moWidth});
+	//if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
 	//全选,全不选
 	$('#checkboxY').click(function () {
 		$(this).hide();

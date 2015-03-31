@@ -55,3 +55,17 @@
 	</tbody>
 </table>
 </form>
+<div style="padding: 0 10px;" id="proBody2" class="noDisplay">
+<table class="table_list">
+	<tr class="title">
+		<td width="150">缩略图</td>
+		<td>文件地址</td>
+		<td width="60">操作</td>
+	</tr>
+	<tbody id="listBG">
+	<tr>
+		<td colspan="3">编辑状态时启用！<input type="hidden" id="NumIMG" value="0" /></td>
+	</tr>
+	</tbody>
+</table>
+</div>

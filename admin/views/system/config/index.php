@@ -2,7 +2,7 @@
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
 	<tr>
-		<td colspan="2"><h3 class="h3_ccc"><?php echo $title;?><span>（系统常规参数）</span></h3><br></td>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $Menus['Ctitle'];?><span>（系统常规参数）</span></h3><br></td>
 	</tr>
 	<tr>
 		<td class="width tright">配置文件：</td>
@@ -49,17 +49,6 @@
 <?php }?>
 			</select>
 			<br/><span class="c2"> webmis/themes/</span>
-		</td>
-	</tr>
-	<tr>
-		<td class="tright">Jquery：</td>
-		<td>
-			<select name="jquery">
-<?php foreach ($jquery as $val) {?>
-				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['jquery']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?>(<?php echo formatBytes($val['size']);?>)</option>
-<?php }?>
-			</select>
-			<br/><span class="c2"> webmis/plugin/jquery/</span>
 		</td>
 	</tr>
 	<tr>

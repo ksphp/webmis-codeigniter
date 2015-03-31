@@ -31,7 +31,7 @@ class Desktop extends MY_Controller {
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'index/desktop_v_mo',$data);
 		}else {
-			$this->inc->adminView($this,'system/index_v',$data);
+			$this->inc->adminView($this,'index/desktop_v',$data);
 		}
 	}
 }

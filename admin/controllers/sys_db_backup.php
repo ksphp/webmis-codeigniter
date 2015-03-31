@@ -2,10 +2,12 @@
 class Sys_db_backup extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->library('inc');
 		$this->load->model('sys_db_m');
 		$data['table'] = $this->sys_db_m->getTableList();
 		$data['js'] = array('system/sys_db_backup.js',);
-		$this->MyView('system/db/backup/index',$data);
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
+		$this->inc->adminView($this,'system/db/backup/index',$data);
 	}
 	/* Export */
 	public function exp(){
@@ -39,4 +41,3 @@ class Sys_db_backup extends MY_Controller {
 		echo write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n"}'; 
 	}
 }
-?>

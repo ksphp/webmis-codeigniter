@@ -2,12 +2,15 @@
 class Sys_menus_action extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page(array('url'=>'sys_menus_action/index.html','model'=>'sys_menus_action_m'));
+		$this->load->helper('my');
+		$this->load->library('inc');
+		$data = $this->inc->Page($this,array('url'=>'sys_menus_action/index.html','model'=>'sys_menus_action_m'));
 		$data['js'] = array('system/sys_menus_action.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
-			$this->MyView('system/menus/action/index_mo',$data);
+			$this->inc->adminView($this,'system/menus/action/index_mo',$data);
 		}else {
-			$this->MyView('system/menus/action/index',$data);
+			$this->inc->adminView($this,'system/menus/action/index',$data);
 		}
 	}
 	/* Search */

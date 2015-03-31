@@ -20,7 +20,7 @@
 		<td>
 			<input type="text" name="source" class="input" style="width: 30%;" datatype="*2-24" errormsg="来源至少2个字符,最多24个字符！" />
 			<span class="inputText">作者:</span>
-			<input type="text" name="author" class="input" style="width: 30%;" datatype="*2-12" errormsg="作者至少2个字符,最多12个字符！" />
+			<input type="text" name="author" class="input" style="width: 20%;" datatype="*2-12" errormsg="作者至少2个字符,最多12个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 		<td class="tright">摘要:</td>
-		<td><textarea name="summary" style="width: 95%; height: 180px;" maxlength="300"></textarea><span class="inputText c2">1~300字符</span></td>
+		<td><textarea name="summary" style="width: 95%; height: 120px;" maxlength="300"></textarea><span class="inputText c2">1~300字符</span></td>
 	</tr>
 	<tr>
 		<td class="tright">缩略图:</td>
@@ -63,3 +63,17 @@
 	</tbody>
 </table>
 </form>
+<div style="padding: 0 10px;" id="newsBody2" class="noDisplay">
+<table class="table_list">
+	<tr class="title">
+		<td width="150">缩略图</td>
+		<td>文件地址</td>
+		<td width="60">操作</td>
+	</tr>
+	<tbody id="listBG">
+	<tr>
+		<td colspan="3">编辑状态时启用！<input type="hidden" id="NumIMG" value="0" /></td>
+	</tr>
+	</tbody>
+</table>
+</div>

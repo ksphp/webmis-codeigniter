@@ -2,17 +2,20 @@
 class Web_html extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page(array('url'=>'web_html/index.html','model'=>'web_html_m','page','where'=>array('in'=>array('0','1','2'))));
+		$this->load->library('inc');
+		$this->load->helper('my');
+		$data = $this->inc->Page($this,array('url'=>'web_html/index.html','model'=>'web_html_m','page','where'=>array('in'=>array('0','1','2'))));
 		/* ClassInfo */
 		$this->load->library('menus');
-		$this->load->model('web_class_m');
-		$data['class'] = $this->web_class_m->getClass();
+		$this->load->model('class_web_m');
+		$data['class'] = $this->class_web_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState');
 		$data['js'] = array('web/web_html.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
-			$this->MyView('web/html/index_mo',$data);
+			$this->inc->adminView($this,'web/html/index_mo',$data);
 		}else {
-			$this->MyView('web/html/index',$data);
+			$this->inc->adminView($this,'web/html/index',$data);
 		}
 	}
 	/* Search */
@@ -31,9 +34,9 @@ class Web_html extends MY_Controller {
 	}
 	/* GetMenu */
 	public function getMenu(){
-		$this->load->model('web_class_m');
+		$this->load->model('class_web_m');
 		$fid = $this->input->post('fid');
-		$data = $this->web_class_m->getMenus($fid);
+		$data = $this->class_web_m->getMenus($fid);
 		echo json_encode($data);
 	}
 	/* Edit */

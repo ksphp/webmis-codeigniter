@@ -2,14 +2,15 @@
 class Sys_db_restore extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->library('inc');
 		$this->load->helper('my');
 		$this->load->helper('file');
 		$this->load->model('sys_db_m');
 		
 		$data['js'] = array('system/sys_db_restore.js',);
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		$data['file'] = get_dir_file_info($this->config->config['backup'],false);
-		
-		$this->MyView('system/db/restore/index',$data);
+		$this->inc->adminView($this,'system/db/restore/index',$data);
 	}
 	/* Download */
 	public function down(){
@@ -62,4 +63,3 @@ class Sys_db_restore extends MY_Controller {
 		echo $data;
 	}
 }
-?>

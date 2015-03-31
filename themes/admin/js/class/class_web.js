@@ -8,7 +8,7 @@ $(function(){
 		if(!IsMobile){moWidth = 420;}
 		$.webmis.win('open',{title:'搜索',width:moWidth,height:320});
 		//加载内容
-		$.get($base_url+'web_class/search.html',function(data){
+		$.get($base_url+'class_web/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
 			$('#seaSub').webmis('SubClass'); //按钮样式
 		});
@@ -19,7 +19,7 @@ $(function(){
 		if(!IsMobile){moWidth = 600; moHeight= 460;}
 		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
-		$.get($base_url+'web_class/add.html',function(data){
+		$.get($base_url+'class_web/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
 			newsClass();    //查询导航菜单
 			classForm(); //表单验证
@@ -34,7 +34,7 @@ $(function(){
 			if(!IsMobile){moWidth = 600; moHeight= 460;}
 			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
-			$.post($base_url+'web_class/edit.html',{'id':id},function(data){
+			$.post($base_url+'class_web/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
 				$('#classID').val(id);
 				newsClass();    //查询导航菜单
@@ -47,12 +47,12 @@ $(function(){
 	});
 /*删除*/
 	$('#ico-del').click(function(){
-		actionDel('web_class/delData.html','web_class.html');
+		actionDel('class_web/delData.html','class_web.html');
 		return false;
 	});
 /*审核*/
 	$('#ico-audit').click(function(){
-		actionAudit('web_class/auditData.html','web_class.html');
+		actionAudit('class_web/auditData.html','class_web.html');
 		return false;
 	});
 	
@@ -69,7 +69,7 @@ function classForm(){
 			$.Hidemsg();
 			if(data.status=="y"){
 				var url = $('#getUrl').text();
-				$.webmis.win('close','web_class.html'+url);
+				$.webmis.win('close','class_web.html'+url);
 			}else{
 				$.webmis.win('close');
 				$.webmis.win('open',{content:'<b class="red">操作失败</b>',AutoClose:3});
@@ -80,7 +80,7 @@ function classForm(){
 /*分类联动*/
 function newsClass(){
 	$('#newsClass').webmis('AutoSelect',{
-		url:$base_url+'web_class/getMenu.html',
+		url:$base_url+'class_web/getMenu.html',
 		data:'0',
 		type:'post',
 		getVal:'#menus_fid'

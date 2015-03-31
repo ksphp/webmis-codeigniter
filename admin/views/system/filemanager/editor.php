@@ -6,7 +6,7 @@
 	<meta name="author" content="kingsoul" />
 	<title>文件管理器</title>
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
-	<link href="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
 </head>
 
 <body style="padding: 10px;">
@@ -85,11 +85,16 @@
 <!-- Content End -->
 
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
-<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/'.$this->config->config['jquery']); ?>"></script>
+<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
+<!--[if lte IE 9]>
+<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
+<script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
+<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
+<![endif]-->
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('views/themes/'.$this->config->config['admin_themes'].'/admin.js'); ?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>
-<script language="javascript" src="<?php echo base_url('views/'.$val); ?>"></script>
+<script language="javascript" src="<?php echo base_url('../themes/admin/js/'.$val); ?>"></script>
 <?php }}?>
 </body>
 </html>

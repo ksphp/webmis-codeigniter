@@ -2,19 +2,20 @@
 class Sys_config extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->load->helper('my');
+		$this->load->library('inc');
 		$this->load->helper('file');
 		/* Admin Themes */
 		$data['admin_themes'] = get_dir_file_info('../themes/admin');
 		/* WebMIS Themes */
 		$data['webmis_themes'] = get_dir_file_info('../webmis/themes');
-		/* Jquery */
-		$data['jquery'] = get_dir_file_info('../webmis/plugin/jquery');
 
 		$data['js'] = array('system/sys_config.js',);
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
-			$this->MyView('system/config/index_mo',$data);
+			$this->inc->adminView($this,'system/config/index_mo',$data);
 		}else {
-			$this->MyView('system/config/index',$data);
+			$this->inc->adminView($this,'system/config/index',$data);
 		}
 	}
 	/* Edit */
@@ -24,7 +25,6 @@ class Sys_config extends MY_Controller {
 		$backup = $this->input->post('backup');
 		$admin_themes = $this->input->post('admin_themes');
 		$webmis_themes = $this->input->post('webmis_themes');
-		$jquery = $this->input->post('jquery');
 		/* Config File */
 		$file = 'config/config.php';
 		$ct = @file_get_contents($file);
@@ -52,10 +52,6 @@ class Sys_config extends MY_Controller {
 			$pat = "/\['webmis_themes'\] = '(.*)'/";
 			$rep = "['webmis_themes'] = '".$webmis_themes."'";
 			$ct = preg_replace($pat,$rep,$ct);
-			/* Jquery */
-			$pat = "/\['jquery'\] = '(.*)'/";
-			$rep = "['jquery'] = '".$jquery."'";
-			$ct = preg_replace($pat,$rep,$ct);
 
 			/* Write */
 			$fp=fopen($file,'w');
@@ -66,4 +62,3 @@ class Sys_config extends MY_Controller {
 
 	}
 }
-?>

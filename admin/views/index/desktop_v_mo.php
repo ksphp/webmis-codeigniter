@@ -20,89 +20,89 @@
 	</tr>
 	<tbody id="listBG1">
 	<tr>
-		<td colspan="2" align="left"><b>用户信息</b></td>
+		<td colspan="2" class="tleft"><b>用户信息</b></td>
 	</tr>
 	<tr>
-		<td width="70" align="right">IP地址:</td>
-		<td><?php echo $user['ip']; ?></td>
+		<td width="70" class="tright">IP地址:</td>
+		<td class="tleft"><?php echo $user['ip']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">操作系统:</td>
-		<td><?php echo $user['platform']; ?></td>
+		<td class="tright">操作系统:</td>
+		<td class="tleft"><?php echo $user['platform']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">浏览器:</td>
-		<td><?php echo $user['browser']; ?></td>
+		<td class="tright">浏览器:</td>
+		<td class="tleft"><?php echo $user['browser']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">浏览器版本:</td>
-		<td><?php echo $user['version']; ?></td>
+		<td class="tright">版本:</td>
+		<td class="tleft"><?php echo $user['version']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">用户请求:</td>
-		<td colspan="3" align="left"><?php echo $user['agent']; ?></td>
+		<td class="tright">用户请求:</td>
+		<td colspan="3" class="tleft"><?php echo $user['agent']; ?></td>
 	</tr>
 	</tbody>
 	<tbody id="listBG2">
 	<tr>
-		<td colspan="2" align="left"><b>服务器信息</b></td>
+		<td colspan="2" class="tleft"><b>服务器信息</b></td>
 	</tr>
 	<tr>
-		<td align="right">IP地址:</td>
-		<td><?php echo $server['ip']; ?></td>
+		<td class="tright">IP地址:</td>
+		<td class="tleft"><?php echo $server['ip']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">服务器端口:</td>
-		<td><?php echo $server['port']; ?></td>
+		<td class="tright">端口:</td>
+		<td class="tleft"><?php echo $server['port']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">主机名:</td>
-		<td><?php echo $server['name']; ?></td>
+		<td class="tright">主机名:</td>
+		<td class="tleft"><?php echo $server['name']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">后台地址:</td>
-		<td><?php echo $server['admin']; ?></td>
+		<td class="tright">后台地址:</td>
+		<td class="tleft"><?php echo $server['admin']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">服务器软件:</td>
-		<td><?php echo $server['soft']; ?></td>
+		<td class="tright">WEB服务:</td>
+		<td class="tleft"><?php echo $server['soft']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">访问页面:</td>
-		<td><?php echo $server['url']; ?></td>
+		<td class="tright">访问页面:</td>
+		<td class="tleft"><?php echo $server['url']; ?></td>
 	</tr>
 	</tbody>
 	<tbody id="listBG3">
 	<tr>
-		<td colspan="2" align="left"><b>数据库信息</b></td>
+		<td colspan="2" class="tleft"><b>数据库信息</b></td>
 	</tr>
 	<tr>
-		<td align="right">配置文件:</td>
-		<td colspan="3" align="left"><?php echo base_url('config/database.php'); ?></td>
+		<td class="tright">配置文件:</td>
+		<td colspan="3" class="tleft"><?php echo base_url('config/database.php'); ?></td>
 	</tr>
 	<tr>
-		<td align="right">数据库类型:</td>
-		<td><?php echo $db['dbdriver']; ?></td>
+		<td class="tright">数据库:</td>
+		<td class="tleft"><?php echo $db['dbdriver']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">主机名:</td>
-		<td><?php echo $db['hostname']; ?></td>
+		<td class="tright">主机名:</td>
+		<td class="tleft"><?php echo $db['hostname']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">用户名:</td>
-		<td><?php echo $db['username']; ?></td>
+		<td class="tright">用户名:</td>
+		<td class="tleft"><?php echo $db['username']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">数据库名:</td>
-		<td><?php echo $db['database']; ?></td>
+		<td class="tright">数据库名:</td>
+		<td class="tleft"><?php echo $db['database']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">表前缀:</td>
-		<td><?php echo $db['dbprefix']; ?></td>
+		<td class="tright">表前缀:</td>
+		<td class="tleft"><?php echo $db['dbprefix']; ?></td>
 	</tr>
 	<tr>
-		<td align="right">编码:</td>
-		<td><?php echo $db['char_set']; ?></td>
+		<td class="tright">编码:</td>
+		<td class="tleft"><?php echo $db['char_set']; ?></td>
 	</tr>
 	</tbody>
 </table>

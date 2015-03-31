@@ -4,7 +4,7 @@
 <!-- Action -->
 <table class="action">
 	<tr>
-		<td class="title"><?php echo $title; ?></td>
+		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
 				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back">&nbsp;</em>返回上级</a></li>

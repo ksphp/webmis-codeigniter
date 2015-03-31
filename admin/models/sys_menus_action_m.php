@@ -53,12 +53,13 @@ class Sys_menus_action_m extends CI_Model {
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
-			$arr = explode(' ', $id);
+			$this->db->trans_start();
+			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
-				$this->db->where('id', $val);
-				$data = $this->db->delete($this->table);
+				$this->db->delete($this->table,array('id'=>$val));
 			}
-			return $data;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 }

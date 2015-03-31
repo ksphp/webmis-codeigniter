@@ -2,12 +2,15 @@
 class Web_book extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page(array('url'=>'web_book/index.html','model'=>'web_book_m'));
+		$this->load->library('inc');
+		$this->load->helper('my');
+		$data = $this->inc->Page($this,array('url'=>'web_book/index.html','model'=>'web_book_m'));
 		$data['js'] = array('web/web_book.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->MyView('web/book/index_mo',$data);
 		}else {
-			$this->MyView('web/book/index',$data);
+			$this->inc->adminView($this,'web/book/index',$data);
 		}
 	}
 	/* Search */

@@ -2,6 +2,7 @@
 class Sys_filemanager extends MY_Controller {
 	/* Index */
 	function index(){
+		$this->load->library('inc');
 		$this->load->library('file_class');
 		/* Upload Dir */
 		$upload = '/upload';
@@ -55,7 +56,7 @@ class Sys_filemanager extends MY_Controller {
 				$path = is_file($_SERVER["DOCUMENT_ROOT"].$file)?ltrim(dirname($file),$data['file_root']):$path;
 				
 				$data['filelist'] = $this->file_class->lists($path);
-				$data['js'] = array('js/system/sys_filemanager.js');
+				$data['js'] = array('system/sys_filemanager.js');
 				$this->load->view('system/filemanager/editor',$data);
 				break;
 			default:
@@ -64,10 +65,11 @@ class Sys_filemanager extends MY_Controller {
 				$path = $this->input->get('path');
 				$data['filelist'] = $this->file_class->lists($path);
 				$data['js'] = array('system/sys_filemanager.js');
+				$data['Menus'] = $this->inc->getMenuAdmin($this);
 				if($this->IsMobile) {
-					$this->MyView('system/filemanager/index_mo',$data);
+					$this->inc->adminView($this,'system/filemanager/index_mo',$data);
 				}else {
-					$this->MyView('system/filemanager/index',$data);
+					$this->inc->adminView($this,'system/filemanager/index',$data);
 				}
 		}
 	}
@@ -149,4 +151,3 @@ class Sys_filemanager extends MY_Controller {
 		echo write_file($file,$filedata);
 	}
 }
-?>

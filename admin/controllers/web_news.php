@@ -2,17 +2,20 @@
 class Web_news extends MY_Controller {
 	/* Index */
 	public function index(){
-		$data = $this->Page(array('url'=>'web_news/index.html','model'=>'web_news_m','where'=>array('in'=>array('0','1','2'))));
+		$this->load->library('inc');
+		$this->load->helper('my');
+		$data = $this->inc->Page($this,array('url'=>'web_news/index.html','model'=>'web_news_m','where'=>array('in'=>array('0','1','2'))));
 		/* ClassInfo */
 		$this->load->library('menus');
-		$this->load->model('web_class_m');
-		$data['class'] = $this->web_class_m->getClass();
+		$this->load->model('class_web_m');
+		$data['class'] = $this->class_web_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState');
 		$data['js'] = array('web/web_news.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
-			$this->MyView('web/news/index_mo',$data);
+			$this->inc->adminView($this,'web/news/index_mo',$data);
 		}else {
-			$this->MyView('web/news/index',$data);
+			$this->inc->adminView($this,'web/news/index',$data);
 		}
 	}
 	/* Search */
@@ -31,9 +34,9 @@ class Web_news extends MY_Controller {
 	}
 	/* GetMenu */
 	public function getMenu(){
-		$this->load->model('web_class_m');
+		$this->load->model('class_web_m');
 		$fid = $this->input->post('fid');
-		$data = $this->web_class_m->getMenus($fid);
+		$data = $this->class_web_m->getMenus($fid);
 		echo json_encode($data);
 	}
 	/* Edit */
@@ -60,10 +63,10 @@ class Web_news extends MY_Controller {
 	}
 	/* Chart */
 	public function chartData() {
-		$this->load->model('web_class_m');
+		$this->load->model('class_web_m');
 		$this->load->model('web_news_m');
 		$html = '[';
-		$menus = $this->web_class_m->getMenus('2');
+		$menus = $this->class_web_m->getMenus('2');
 		foreach($menus as $val){
 			$num = $this->web_news_m->count_all(array('class' =>':'.$val->id.':'));
 			$html .= '["'.$val->title.'",'.$num.']';
@@ -79,5 +82,49 @@ class Web_news extends MY_Controller {
 		$data['show'] = $this->web_news_m->getOne();
 		$this->load->view('web/news/show',$data);
 	}
+	/* 上传图片 */
+	public function upImgData($num=''){
+		$config['upload_path'] = '../upload/images/news/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = '600';
+		$this->load->library('upload', $config);
+		//执行
+		if (!$this->upload->do_upload('upimg_'.$num)){
+			$data = $this->upload->display_errors();
+			echo false;
+		}else {
+			//文件信息
+			$info = $this->upload->data();
+			//上传文件重命名
+			$name = date('YmdHis').rand(100,999).$info['file_ext'];
+			$F1 = $config['upload_path'].$info['file_name'];
+			$F2 = $config['upload_path'].$name;
+			//移动文件
+			if(rename($F1,$F2)) {
+				$this->load->model('web_news_m');
+				$file = $this->web_news_m->getOne('upload');
+				$url = $this->input->post('img_url');
+				//删除原文件
+				if($url) {
+					@unlink($config['upload_path'].basename($url));
+					$data['upload'] = str_replace($url, $name, $file->upload);
+				}else{
+					$data['upload'] = $file->upload.','.$name;
+				}
+				echo $this->web_news_m->updateImg($data)?'{"num":"'.$num.'","name":"'.$name.'"}':false;
+			}
+		}
+	}
+	//删除图片
+	function RemoveIMG($num=''){
+		$path = '../upload/images/news/';
+		$url = $this->input->post('img_url');
+		if($url){
+			$this->load->model('web_news_m');
+			$file = $this->web_news_m->getOne('upload');
+			@unlink($path.$url);
+			$data['upload'] = str_replace(','.$url, '', $file->upload);
+			echo $this->web_news_m->updateImg($data)?'{"status":"y"}':false;
+		}else{echo '{"status":"y"}';}
+	}
 }
-?>

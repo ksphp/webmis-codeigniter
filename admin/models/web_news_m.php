@@ -13,14 +13,19 @@ class Web_news_m extends CI_Model {
 		$total = $db->count_all_results($this->table);
 		return array('data'=>$data,'total'=>$total);
 	}
-	
+	/* 统计 */
+	function count_all($like=''){
+		$this->db->select('id');
+		if($like) {$this->db->like($like);}
+		return $this->db->count_all_results($this->table);
+	}
 	/* Get One */
-	function getOne(){
-		$id = $this->input->post('id');
+	function getOne($select='',$id=''){
+		$id = $id?$id:$this->input->post('id');
 		if($id){
-			$data[$this->table.'.id'] = $id;
+			$this->db->select($select);
 			$this->db->join($this->tableHtml, $this->table.'.id = '.$this->tableHtml.'.nid');
-			$query = $this->db->get_where($this->table,$data);
+			$query = $this->db->get_where($this->table,array($this->table.'.id'=>$id));
 			$data = $query->row();
 			return $data;
 		}
@@ -39,14 +44,14 @@ class Web_news_m extends CI_Model {
 			$data['uname'] = $_SESSION['uinfo']['uname'];
 			$data['ctime'] = trim($this->input->post('ctime'));
 			$contnet = $this->input->post('content');
-			
-			if($this->db->insert($this->table,$data)){
-				$dataHtml['nid'] = $this->db->insert_id();
-				$dataHtml['content'] = $contnet;
-				return $this->db->insert($this->tableHtml,$dataHtml)?true:false;
-			}else{
-				return false;
-			}
+			//执行
+			$this->db->trans_start();
+			$this->db->insert($this->table,$data);
+			$dataHtml['nid'] = $this->db->insert_id();
+			$dataHtml['content'] = $contnet;
+			$this->db->insert($this->tableHtml,$dataHtml);
+			$this->db->trans_complete();
+			return $this->db->trans_status();
 		}
 	}
 	/* Update */
@@ -62,15 +67,20 @@ class Web_news_m extends CI_Model {
 			$data['key'] = preg_replace("/ /",",",$this->input->post('key'));
 			$data['summary'] = $this->input->post('summary');
 			$contnet = $_POST['content'];
-			
+			//执行
+			$this->db->trans_start();
+			$this->db->update($this->table,$data,array('id'=>$id));
+			$this->db->update($this->tableHtml, array('content'=>$contnet),array('nid'=>$id));
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}
+	}
+	//更新图片
+	function updateImg($data){
+		$id = $this->input->post('id');
+		if($id){
 			$this->db->where('id', $id);
-			if($this->db->update($this->table,$data)){
-				$dataHtml['content'] = $contnet;
-				$this->db->where('nid', $id);
-				return $this->db->update($this->tableHtml, $dataHtml)?true:false;
-			}else{
-				return false;
-			}
+			return $this->db->update($this->table, $data)?true:false;
 		}
 	}
 	
@@ -78,30 +88,33 @@ class Web_news_m extends CI_Model {
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
-				$this->db->where('id', $val);
-				if($this->db->delete($this->table)){
-					$rt = true;
-				}else{
-					$rt = false;
-					break;
-				}
-				$this->db->where('nid', $val);
-				if($this->db->delete($this->tableHtml)){
-					$rt = true;
-				}else{
-					$rt = false;
-					break;
-				}
+				//删除图片
+				$file = $this->getOne('upload',$val);
+				$this->DelIMG($file->upload);
+				//删除数据
+				$this->db->delete($this->table,array('id'=>$val));
+				$this->db->delete($this->tableHtml,array('nid'=>$val));
 			}
-			return $rt;
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
+	}
+	//删除图片
+	private function DelIMG($url=''){
+		$path = '../upload/images/pro/';
+		$arr = array_filter(explode(',', $url));
+		foreach ($arr as $val){
+			@unlink($path.$val);
 		}
 	}
 	/* Audit */
 	function audit(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
 				$data['state'] = $this->input->post('state');
@@ -111,15 +124,10 @@ class Web_news_m extends CI_Model {
 					$data['atime'] = date('Y-m-d H:i:s');
 				}
 				/*执行*/
-				$this->db->where('id', $val);
-				if($this->db->update($this->table,$data)){
-					$rt = true;
-				}else{
-					$rt = false;
-					break;
-				}
+				$this->db->update($this->table,$data,array('id'=>$val));
 			}
-			return $rt;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 }

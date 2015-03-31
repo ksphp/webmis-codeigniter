@@ -1,9 +1,9 @@
 <table class="action">
 	<tr>
-		<td class="title"><?php echo $title; ?></td>
+		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
+				<?php echo $Menus['actionHtml']; ?>
 			</ul>
 		</td>
 	</tr>
@@ -26,7 +26,7 @@
 		<td class="tleft">
 			<a href="#" onclick="proShow(<?php echo $val->id;?>); return false;"><?php echo keyHH($val->title, @$key['title']);?></a>
 		</td>
-		<td style="text-align: left;">
+		<td class="tleft">
 			<?php
 			$arr = array_filter(explode(':', $val->class));
 			foreach($arr as $val1){

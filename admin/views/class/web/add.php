@@ -1,4 +1,4 @@
-<form action="<?php echo base_url($this->config->config['index_url'].'web_class/addData.html');?>" method="post" id="classForm">
+<form action="<?php echo base_url($this->config->config['index_url'].'class_web/addData.html');?>" method="post" id="classForm">
 <table class="table_add">
 	<tr>
 		<td class="width tright">所属:</td>
