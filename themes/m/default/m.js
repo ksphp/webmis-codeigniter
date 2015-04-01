@@ -4,5 +4,4 @@ var moHeight = $(window).height()-60;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
-	$(".content").css({"margin-top":($(window).height()-$('.content').height())/3});
 });

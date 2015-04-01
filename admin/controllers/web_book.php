@@ -8,7 +8,7 @@ class Web_book extends MY_Controller {
 		$data['js'] = array('web/web_book.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
-			$this->MyView('web/book/index_mo',$data);
+			$this->inc->adminView($this,'web/book/index_mo',$data);
 		}else {
 			$this->inc->adminView($this,'web/book/index',$data);
 		}

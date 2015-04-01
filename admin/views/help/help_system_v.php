@@ -2,7 +2,7 @@
 <table class="table_list">
 	<tr>
 		<td class="title" align="left">
-			<?php echo $title;?>
+			<?php echo $Menus['Ctitle']; ?>
 		</td>
 	</tr>
 	<tbody id="listBG1">

@@ -71,7 +71,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
 /* Content */
 .copy{line-height: 30px; color: #999; text-align: center; border-top: #CCC 1px solid;}
-.ct_body{padding: 0.5em; background: url("images/an_x.jpg") 0 -70px repeat-x #FFF;}
+.ct_body{padding: 0.5em; height: 100%; background: url("images/an_x.jpg") 0 -70px repeat-x #FFF;}
 
 /*
 Content UI

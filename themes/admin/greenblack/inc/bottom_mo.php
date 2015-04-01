@@ -11,5 +11,6 @@
 <?php if(@$js){ foreach($js as $val){ ?>
 <script language="javascript" src="<?php echo base_url('../themes/admin/js/'.$val); ?>"></script>
 <?php }}?>
+<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </body>
 </html>

@@ -8,9 +8,6 @@ $(function(){
 	$.webmis.inc({files:[$webmis_plugin+'jquery/jquery.touchwipe.min.js',$webmis_plugin+'smartFloat.js']});
 	navMove();
 	menuShow();
-	//内容区域
-	//$('#NavBody').css({'width':moWidth});
-	//if (moWidth > 360) {moWidth = 360-20;}else {moWidth = moWidth - 20;}
 	//全选,全不选
 	$('#checkboxY').click(function () {
 		$(this).hide();

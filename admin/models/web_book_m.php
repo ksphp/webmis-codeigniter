@@ -37,18 +37,14 @@ class Web_book_m extends CI_Model {
 	function del(){
 		$id = trim($this->input->post('id'));
 		if($id){
+			$this->db->trans_start();
 			$arr = array_filter(explode(' ', $id));
 			foreach($arr as $val){
-				$this->db->where('id', $val);
-				if($this->db->delete($this->table)){
-					$data = true;
-				}else{
-					$data = false;
-					break;
-				}
+				$this->db->delete($this->table,array('id'=>$val));
 			}
-			return $data;
-		}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
 	}
 }
 ?>

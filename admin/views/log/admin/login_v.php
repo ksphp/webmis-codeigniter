@@ -1,9 +1,9 @@
 <table class="action">
 	<tr>
-		<td class="title"><?php echo $title; ?></td>
+		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
-				<?php echo $actionHtml; ?>
+				<?php echo $Menus['actionHtml']; ?>
 			</ul>
 		</td>
 	</tr>

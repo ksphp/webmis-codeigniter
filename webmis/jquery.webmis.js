@@ -4,12 +4,13 @@
  * Date: 2013-08-28
  */
  /*参数*/
-var $base_url = $('#base_url').text();
+var $base_url;
 var $webmis_root = '/webmis/';
 var $webmis_src = $webmis_root+'src/';
 var $webmis_plugin = $webmis_root+'plugin/';
 
 $(function(){
+	$base_url = $('#base_url').text();
 	/*版本信息*/
 	$.fn.webmisVersion = function (options) {
 		var defaults = {version: 'WebMIS 2015'}

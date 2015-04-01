@@ -1,13 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //ini_set('date.timezone','Asia/Shanghai');//时区
 date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
+
+$config['web_themes'] = 'default';
+$config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
 
-$config['base_url']	= '';
+$config['base_url'] = '';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'AUTO';
 $config['url_suffix'] = '.html';
-$config['language']	= 'english';
+$config['language'] = 'english';
 $config['charset'] = 'UTF-8';
 $config['enable_hooks'] = FALSE;
 $config['subclass_prefix'] = 'MY_';
@@ -15,7 +18,7 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 $config['allow_get_array']		= TRUE;
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger']	= 'c';
-$config['function_trigger']		= 'm';
+$config['function_trigger'] = 'm';
 $config['directory_trigger']	= 'd'; // experimental not currently in use
 $config['log_threshold'] = 0;
 $config['log_path'] = '';

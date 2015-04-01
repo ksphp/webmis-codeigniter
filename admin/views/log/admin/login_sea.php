@@ -1,4 +1,4 @@
-<form action="<?php echo base_url($this->config->config['index_url'].'sys_admin_login_log/index.html');?>" method="get">
+<form action="<?php echo base_url($this->config->config['index_url'].'log_admin_login/index.html');?>" method="get">
 <table class="table_add">
 	<tr>
 		<td class="width tright">类型:</td>
