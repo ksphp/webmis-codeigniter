@@ -31,22 +31,6 @@ INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime
 
 
 #
-# TABLE STRUCTURE FOR: wmis_log_admin_login
-#
-
-DROP TABLE IF EXISTS wmis_log_admin_login;
-
-CREATE TABLE `wmis_log_admin_login` (
-  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `type` varchar(2) NOT NULL COMMENT '类型',
-  `uname` varchar(12) NOT NULL COMMENT '用户名',
-  `ip` varchar(16) NOT NULL COMMENT 'IP地址',
-  `time` datetime DEFAULT NULL COMMENT '登陆时间',
-  `agent` varchar(255) DEFAULT NULL COMMENT '用户信息',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-#
 # TABLE STRUCTURE FOR: wmis_sys_admin
 #
 
@@ -64,9 +48,10 @@ CREATE TABLE `wmis_sys_admin` (
   `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
   `perm` text COMMENT '权限',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', 'f6fdffe48c908deb0f4c3bd36c032e72', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (2, 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', '测试用户', '开发部', '测试人员', '2015-04-02 15:23:45', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:1 25:129 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
 
 
 #
