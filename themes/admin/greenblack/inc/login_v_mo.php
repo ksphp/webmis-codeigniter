@@ -28,7 +28,7 @@
 	</aside>
 	<footer class="login_copy">
 		Copyright © <?php echo $this->config->config['copy'];?><br>
-		<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
+		<a href="<?php echo base_url('../'); ?>" >网站首页</a>&nbsp;|&nbsp;<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;|&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
 	</footer>
 </div>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
