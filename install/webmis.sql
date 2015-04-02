@@ -1,16 +1,48 @@
 #
+# TABLE STRUCTURE FOR: wmis_class_web
+#
+
+DROP TABLE IF EXISTS wmis_class_web;
+
+CREATE TABLE `wmis_class_web` (
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `fid` int(3) NOT NULL COMMENT 'FID',
+  `title` varchar(12) NOT NULL COMMENT '分类名称',
+  `url` varchar(32) NOT NULL COMMENT 'URL地址',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `remark` varchar(30) NOT NULL COMMENT '备注',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (1, 0, '首页', 'index_c', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (2, 0, '新闻中心', 'news', NULL, '网站分类！', '2012-06-01 17:17:07', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (3, 2, '行业新闻', 'news/lists/industry', '', '行业新闻！', '2012-11-02 11:26:09', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (4, 2, '企业动向', 'news/lists/enterprise', '', '企业动向！', '2012-11-02 11:27:10', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (5, 7, '关于我们', 'online/show/about', NULL, '关于我们！', '2012-11-07 10:32:34', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (6, 0, '产品中心', 'pro', NULL, '产品中心！', '2012-11-07 10:56:50', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (7, 0, '在线联系', 'online', NULL, '在线联系！', '2012-11-07 11:43:31', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (8, 7, '联系方式', 'online/show/contact', NULL, '联系方式！', '2013-09-04 10:24:55', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook', '', '笔记本电脑！', '2013-09-27 14:02:21', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (10, 6, '时尚服装', 'pro/lists/dress', '', '时尚服装！', '2013-09-27 14:03:55', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (11, 7, '在线留言', 'online/message', '', '在线留言！', '2013-10-15 09:04:28', 0, '1');
+
+
+#
 # TABLE STRUCTURE FOR: wmis_log_admin_login
 #
 
 DROP TABLE IF EXISTS wmis_log_admin_login;
 
 CREATE TABLE `wmis_log_admin_login` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(2) NOT NULL,
-  `uname` varchar(12) NOT NULL,
-  `ip` varchar(16) NOT NULL,
-  `time` varchar(19) NOT NULL,
-  `agent` varchar(255) DEFAULT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` varchar(2) NOT NULL COMMENT '类型',
+  `uname` varchar(12) NOT NULL COMMENT '用户名',
+  `ip` varchar(16) NOT NULL COMMENT 'IP地址',
+  `time` datetime DEFAULT NULL COMMENT '登陆时间',
+  `agent` varchar(255) DEFAULT NULL COMMENT '用户信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -21,20 +53,20 @@ CREATE TABLE `wmis_log_admin_login` (
 DROP TABLE IF EXISTS wmis_sys_admin;
 
 CREATE TABLE `wmis_sys_admin` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `uname` varchar(16) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `name` varchar(12) NOT NULL,
-  `department` varchar(12) NOT NULL,
-  `position` varchar(12) NOT NULL,
-  `rtime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `perm` text NOT NULL,
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `password` varchar(32) NOT NULL COMMENT '密码',
+  `email` varchar(32) NOT NULL COMMENT '邮箱',
+  `name` varchar(12) DEFAULT NULL COMMENT '姓名',
+  `department` varchar(12) DEFAULT NULL COMMENT '部门',
+  `position` varchar(12) DEFAULT NULL COMMENT '职位',
+  `rtime` datetime DEFAULT NULL COMMENT '注册时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `perm` text COMMENT '权限',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '29:0 1:0 2:0 16:0 3:0 12:0 4:0 14:0 5:0 23:0 17:0 20:0 6:0 13:19 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
 
 
 #
@@ -44,15 +76,15 @@ INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `departm
 DROP TABLE IF EXISTS wmis_sys_menus;
 
 CREATE TABLE `wmis_sys_menus` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `fid` int(3) NOT NULL,
-  `title` varchar(12) NOT NULL,
-  `url` varchar(24) NOT NULL,
-  `perm` varchar(6) NOT NULL DEFAULT '0',
-  `ico` varchar(12) DEFAULT NULL,
-  `remark` varchar(30) NOT NULL,
-  `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
-  `sort` int(3) NOT NULL DEFAULT '0',
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `fid` int(3) NOT NULL COMMENT '父ID',
+  `title` varchar(12) NOT NULL COMMENT '名称',
+  `url` varchar(24) NOT NULL COMMENT '控制器',
+  `perm` varchar(6) NOT NULL DEFAULT '0' COMMENT '动作权限',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `remark` varchar(30) NOT NULL COMMENT '备注',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
@@ -66,7 +98,7 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (8, 5, '菜单管理', 'sys_menus', '31', 'ico-menu', '系统菜单管理！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (9, 5, '菜单动作', 'sys_menus_action', '31', 'ico-menuA', '系统菜单动作管理！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (10, 5, '系统用户', 'sys_admin', '31', 'ico-admin', '系统用户管理！', '2010-01-01 08:00:00', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (11, 6, '系统帮助', 'system_help', '1', NULL, '系统帮助文档！', '2010-01-01 08:00:00', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (11, 6, '系统帮助', 'help_system', '1', '', '系统帮助文档！', '2010-01-01 08:00:00', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (12, 29, '系统日志', '#', '0', 'ico-logs', '系统日志！', '2012-03-30 09:03:18', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (13, 12, '管理员登录', 'log_admin_login', '19', 'ico-logs1', '系统用户登录日志！', '2012-03-30 09:29:20', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (14, 1, '帐号管理', '#', '0', 'ico-user', '帐号管理！', '2012-03-30 14:49:29', 0);
@@ -74,7 +106,7 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (16, 0, '网站', 'web', '0', 'ico-web', '网站导航！', '2012-03-31 09:10:58', 3);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (17, 16, '内容管理', '#', '0', '', '内容管理！', '2012-03-31 09:42:59', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (18, 17, '新闻管理', 'web_news', '319', NULL, '新闻内容管理！', '2012-03-31 10:53:01', 0);
-INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (19, 17, '导航管理', 'web_class', '63', '', '网站所有新闻分类！', '2012-03-31 10:45:05', 0);
+INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (19, 17, '网站分类', 'class_web', '63', '', '网站分类！', '2012-03-31 10:45:05', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (20, 16, '留言系统', '#', '0', '', '留言系统！', '2012-03-31 10:49:07', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (21, 20, '留言管理', 'web_book', '27', '', '网站留言管理！', '2012-03-31 10:30:09', 0);
 INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES (22, 5, '系统配置', 'sys_config', '1', 'ico-system2', '系统配置！', '2012-05-30 19:12:52', 0);
@@ -94,10 +126,10 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 DROP TABLE IF EXISTS wmis_sys_menus_action;
 
 CREATE TABLE `wmis_sys_menus_action` (
-  `id` int(2) NOT NULL AUTO_INCREMENT,
-  `name` varchar(6) NOT NULL,
-  `perm` varchar(6) NOT NULL,
-  `ico` varchar(12) DEFAULT NULL,
+  `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(6) NOT NULL COMMENT '名称',
+  `perm` varchar(6) NOT NULL COMMENT '权限值',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -119,51 +151,19 @@ INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `ico`) VALUES (9, '图�
 DROP TABLE IF EXISTS wmis_web_book;
 
 CREATE TABLE `wmis_web_book` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(12) NOT NULL,
-  `content` text NOT NULL,
-  `ctime` varchar(19) NOT NULL,
-  `reply` text NOT NULL,
-  `admin` varchar(12) NOT NULL,
-  `rtime` varchar(19) NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(12) NOT NULL COMMENT '留言人',
+  `content` text NOT NULL COMMENT '内容',
+  `ctime` datetime DEFAULT NULL COMMENT '留言时间',
+  `reply` text NOT NULL COMMENT '回复',
+  `admin` varchar(12) NOT NULL COMMENT '回复人',
+  `rtime` datetime DEFAULT NULL COMMENT '回复时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (1, '灵创留言板正式启动', '欢迎各位网友对灵创提出宝贵的意见，我们将在虚心听取中成长！', '2012-04-12 16:28:55', '灵创网络', '灵创网络', '2012-08-16 14:03:03');
-INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (2, 'PHP开发底层系统', 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！ ', '2013-10-31 13:04:10', '', '', '');
-INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (3, 'WebMIS 4.0发布', '主要更新：添加前台展示页面、优化代码、支持手机版、自动加载UI的js插件等', '2013-10-31 13:07:17', '', '', '');
-
-
-#
-# TABLE STRUCTURE FOR: wmis_web_class
-#
-
-DROP TABLE IF EXISTS wmis_web_class;
-
-CREATE TABLE `wmis_web_class` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `fid` int(3) NOT NULL,
-  `title` varchar(12) NOT NULL,
-  `url` varchar(32) NOT NULL,
-  `ico` varchar(12) DEFAULT NULL,
-  `remark` varchar(30) NOT NULL,
-  `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
-  `sort` int(3) NOT NULL DEFAULT '0',
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (3, 2, '行业新闻', 'news/lists/industry.html', '', '行业新闻！', '2012-11-02 11:26:09', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (4, 2, '企业动向', 'news/lists/enterprise.html', '', '企业动向！', '2012-11-02 11:27:10', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (5, 7, '关于我们', 'online/show/about.html', NULL, '关于我们！', '2012-11-07 10:32:34', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (6, 0, '产品中心', 'pro.html', NULL, '产品中心！', '2012-11-07 10:56:50', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (7, 0, '在线联系', 'online.html', NULL, '在线联系！', '2012-11-07 11:43:31', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook.html', '', '笔记本电脑！', '2013-09-27 14:02:21', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (10, 6, '时尚服装', 'pro/lists/dress.html', '', '时尚服装！', '2013-09-27 14:03:55', 0, '1');
-INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (11, 7, '在线留言', 'online/message.html', '', '在线留言！', '2013-10-15 09:04:28', 0, '1');
+INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (2, 'PHP开发底层系统', 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！ ', '2013-10-31 13:04:10', '', '', '0000-00-00 00:00:00');
+INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (3, 'WebMIS 4.0发布', '主要更新：添加前台展示页面、优化代码、支持手机版、自动加载UI的js插件等', '2013-10-31 13:07:17', '', '', '0000-00-00 00:00:00');
 
 
 #
@@ -173,17 +173,17 @@ INSERT INTO wmis_web_class (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime
 DROP TABLE IF EXISTS wmis_web_html;
 
 CREATE TABLE `wmis_web_html` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(64) DEFAULT NULL,
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `content` text,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(64) DEFAULT NULL COMMENT '封面图片',
+  `uname` varchar(16) NOT NULL COMMENT '创建人',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `content` text COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -198,31 +198,31 @@ INSERT INTO wmis_web_html (`id`, `class`, `title`, `img`, `uname`, `ctime`, `sta
 DROP TABLE IF EXISTS wmis_web_news;
 
 CREATE TABLE `wmis_web_news` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(1) NOT NULL DEFAULT '0',
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(128) DEFAULT NULL,
-  `source` varchar(24) NOT NULL,
-  `author` varchar(12) NOT NULL,
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `audit` varchar(16) NOT NULL,
-  `atime` date NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(128) DEFAULT NULL COMMENT '封面图片',
+  `upload` text NOT NULL COMMENT '上传文件',
+  `source` varchar(24) NOT NULL COMMENT '来源',
+  `author` varchar(12) NOT NULL COMMENT '作者',
+  `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `ctime` datetime DEFAULT NULL COMMENT '发布时间',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `audit` varchar(16) DEFAULT NULL COMMENT '发布人',
+  `atime` datetime DEFAULT NULL COMMENT '审核时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, '0', ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/news01.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 145, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, '0', ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/news02.jpg', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 156, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (3, '0', ':2:3:', '编译器如何危及应用程序的安全', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:25:46', 0, '编译器如何危及应用程序的安全', '对于编译器如何将人类可读的代码翻译成机器运行的机器码，大多数程序员通常只有大概的概念。在编译过程中，编译器会对代码进行优化，使其能高效的运行。有的时候，编译器在优化上面走的太远了，它甚至移除了本不应该移除的代码，导致应用程序更加脆弱。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (4, '0', ':2:3:', '微软向欧盟申请批准其收购诺基亚协议', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:29:28', 0, '微软向欧盟申请批准其收购诺基亚协议', '据路透社报道，早在上月微软就宣布以54.4亿欧元（约合75亿美元）收购诺基亚手机业务，但直到现在才向欧盟委员会申请批准。这份协议还包括诺基亚向微软授权使用其专利组合10年的内容。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (5, '0', ':2:3:', '罗马尼亚程序员的幸福生活', '/upload/images/news/news03.jpg', 'oschina', 'oschina', 'admin', '2013-10-31 12:22:25', 2, '罗马尼亚程序员的幸福生活', '我做了三年的+Perl程序员，以编程为生已经有7年。我生活中克路治-那波卡市(Cluj-Napoca)，这是罗马尼亚第二大城市。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (6, '0', ':2:3:', '惠普、戴尔竞相推 ARM 架构服务器', '/upload/images/news/news04.jpg', 'oschina', 'oschina', 'admin', '2013-10-31 12:52:20', 6, '惠普、戴尔竞相推,ARM,架构服务器', '据国外媒体报道，惠普和戴尔当地时间周一在ARM TechCon会议上公布了推出ARM服务器的计划。ARM架构服务器处理能力强大，但能耗低于目前的英特尔架构服务器。它们有助于数据中心在处理更多数据的同时，降低成本和能耗。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (7, '0', ':2:3:', '开源的人工智能平台 NuPIC', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:58:24', 6, '开源的人工智能平台,NuPIC', '随着智能设备的普及，人工智能的研究已经不再局限于学术界，Google、Facebook 等公司都进入这个领域。科技公司的优势是大量的用户，这不仅为机器智能研究提供了大量数据，而且为机器智能的训练提供了现实的场景。', 'admin', '2013-10-31', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/news01.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 145, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/news02.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 156, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (3, ':2:3:', '编译器如何危及应用程序的安全', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:25:46', 0, '编译器如何危及应用程序的安全', '对于编译器如何将人类可读的代码翻译成机器运行的机器码，大多数程序员通常只有大概的概念。在编译过程中，编译器会对代码进行优化，使其能高效的运行。有的时候，编译器在优化上面走的太远了，它甚至移除了本不应该移除的代码，导致应用程序更加脆弱。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (4, ':2:3:', '微软向欧盟申请批准其收购诺基亚协议', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:29:28', 0, '微软向欧盟申请批准其收购诺基亚协议', '据路透社报道，早在上月微软就宣布以54.4亿欧元（约合75亿美元）收购诺基亚手机业务，但直到现在才向欧盟委员会申请批准。这份协议还包括诺基亚向微软授权使用其专利组合10年的内容。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (5, ':2:3:', '罗马尼亚程序员的幸福生活', '/upload/images/news/news03.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:22:25', 2, '罗马尼亚程序员的幸福生活', '我做了三年的+Perl程序员，以编程为生已经有7年。我生活中克路治-那波卡市(Cluj-Napoca)，这是罗马尼亚第二大城市。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (6, ':2:3:', '惠普、戴尔竞相推 ARM 架构服务器', '/upload/images/news/news04.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:52:20', 6, '惠普、戴尔竞相推,ARM,架构服务器', '据国外媒体报道，惠普和戴尔当地时间周一在ARM TechCon会议上公布了推出ARM服务器的计划。ARM架构服务器处理能力强大，但能耗低于目前的英特尔架构服务器。它们有助于数据中心在处理更多数据的同时，降低成本和能耗。', '', '2015-03-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (7, ':2:3:', '开源的人工智能平台 NuPIC', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:58:24', 6, '开源的人工智能平台,NuPIC', '随着智能设备的普及，人工智能的研究已经不再局限于学术界，Google、Facebook 等公司都进入这个领域。科技公司的优势是大量的用户，这不仅为机器智能研究提供了大量数据，而且为机器智能的训练提供了现实的场景。', NULL, '2015-04-02 17:50:44', '1');
 
 
 #
@@ -232,9 +232,9 @@ INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `source`, `aut
 DROP TABLE IF EXISTS wmis_web_news_html;
 
 CREATE TABLE `wmis_web_news_html` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `nid` int(6) NOT NULL,
-  `content` text NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `nid` int(6) NOT NULL COMMENT '新闻ID',
+  `content` text NOT NULL COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
@@ -255,24 +255,25 @@ DROP TABLE IF EXISTS wmis_web_pro;
 
 CREATE TABLE `wmis_web_pro` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(64) DEFAULT NULL,
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `content` text,
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(64) DEFAULT NULL COMMENT '封面图片',
+  `upload` text NOT NULL COMMENT '上传文件',
+  `uname` varchar(16) NOT NULL COMMENT '创建人',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `content` text COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (1, ':6:9:', 'Apple/苹果 Macbook air MD760CH/A', '/upload/images/pro/pro01.png', 'admin', '2013-09-27 14:29:32', '1', 0, 'Apple/苹果,Macbook air,MD760CH/A', '2013年6月最新发布的港版MACBOOK AIR。都是原封哦。不是原封无条件退货。\n全场包顺丰+保价+保税，价格均为到你手的价格。\n标准配置的760和761促销中，价格实惠，大家赶紧出手。现在定制机基本都有现货。', '<p>注意：所有macbook air笔记本只有苹果官方公布的金属银色。宝贝颜色分类只是本店用来区分不同型号配置。.（需要装 WIN8请备注留言）</p>\n<p><img id=\"__mcenew\" style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro01.png\" alt=\"Apple/苹果 Macbook air MD760CH/A 711 712 760 761港版笔记本\" width=\"645\" height=\"335\" /></p>\n<p>紫色代表：2013款11寸128G硬盘/4G内存 i5处理器&nbsp; 型号：MD711ZP/A</p>\n<p>红色代表：2013款11寸256G硬盘/4G内存 i5处理器&nbsp; 型号：MD712ZP/A</p>\n<p>灰色代表：2013款13寸128G硬盘/4G内存 i5处理器&nbsp; 型号：MD760ZP/A</p>\n<p>白色代表：2013款13寸256G硬盘/4G内存 i5处理器&nbsp; 型号：MD761ZP/A<br /><br /></p>');
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (2, ':6:10:', '2013秋新款韩版百搭纯色中长款修身衬衫衬衣(配腰带)', '/upload/images/pro/pro02.jpg', 'admin', '2013-09-27 14:42:41', '1', 0, '2013,秋新款韩版,百搭纯色,中长款,修身衬衫衬衣,配腰带', '质量做工很上乘的一款衬衫、采用柔软舒适的棉质面料、手感很好、亲肤型佳、中等厚度、中长款版型、长约在大腿中部、休闲款式、开襟系扣款、圆领开口、袖子上有系扣、袖摆可卷边穿着、尽显休闲随性感觉、胸前两侧有收褶设计、简洁大方款式、腰部搭配配送的皮革腰带、酷感十足、效果很赞的哟、百搭款的衬衣、MM们一定不要错过喽', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro02.jpg\" alt=\"2013秋新款韩版百搭纯色中长款修身衬衫衬衣(配腰带)\" width=\"560\" height=\"700\" /></p>\n<p>质量做工很上乘的一款衬衫、采用柔软舒适的棉质面料、手感很好、亲肤型佳、中等厚度、中长款版型、长约在大腿中部、休闲款式、开襟系扣款、圆领开口、袖子上有系扣、袖摆可卷边穿着、尽显休闲随性感觉、胸前两侧有收褶设计、简洁大方款式、腰部搭配配送的皮革腰带、酷感十足、效果很赞的哟、百搭款的衬衣、MM们一定不要错过喽</p>');
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (3, ':6:10:', '耐克官方旗舰店2013专柜正品 男鞋女鞋运动鞋气垫跑步鞋', '/upload/images/pro/pro03.jpg', 'admin', '2013-10-31 15:21:41', '1', 0, '耐克官方旗舰店2013专柜正品 男鞋女鞋运动鞋气垫跑步鞋', 'AIR MAX+ 2012 跑步鞋以终极缓震性与稳定性能捍卫你的疾驰征程，MAX AIR 气垫技术让双脚踏出的每一步都犹如云端漫步般舒适、自由与轻松。', '<p>AIR MAX+ 2012 跑步鞋以终极缓震性与稳定性能捍卫你的疾驰征程，MAX AIR 气垫技术让双脚踏出的每一步都犹如云端漫步般舒适、自由与轻松。</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro03.jpg\" alt=\"\" width=\"650\" /><br /><br />支撑力<br /><br />AIR MAX+ 2012 跑步鞋将为你的双脚带来颠覆性合脚感与支撑力，鞋面双层FUSE技术搭配锯齿鞋套设计可完全贴合脚型，助你时刻以最佳状态开始驰骋之旅。铸模鞋领可防止脚跟在鞋内滑动，即使在高速跑动状态下依然保持超高稳定性。<br /><br />缓震性<br /><br />鞋 如其名，AIR MAX+ 2012 跑步鞋匠心运用Nike强大的MAX AIR 气垫技术，柔软、针对性的缓震缓冲性能可解决下向力对身体机能和运动表现的影响，助你不断刷新个人最佳记录。CUSHLON泡沫中底轻质灵活，可搭配 MAX AIR 气垫提供更全方位的缓震保护。<br /><br />&nbsp;&nbsp;&nbsp; 双层FUSE技术和锯齿鞋套提供轻质灵活性和舒适支撑感<br />&nbsp;&nbsp;&nbsp; 中足采用Flywire技术，鞋头注入式TPU覆面提供轻质、持久支撑和灵活性<br />&nbsp;&nbsp;&nbsp; CUSHLON泡沫中底提供柔软、轻质减震性<br />&nbsp;&nbsp;&nbsp; 外底弯曲槽纹路提升步态流畅性<br />&nbsp;&nbsp;&nbsp; 鞋跟使用BRS1000碳素橡胶材质，带来持久抓地力<br />&nbsp;&nbsp;&nbsp; 重量：仅13.6盎司<br />&nbsp;&nbsp;&nbsp; 专为寻求柔软减震和多变款式的跑者设计的鞋款</p>');
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (4, ':6:9:', '松下GF2+14/2.5定焦+转接环 廉价便携微单 单反备机', '/upload/images/pro/pro04.jpg', 'admin', '2013-10-31 15:32:08', '1', 0, '松下GF2+14/2.5定焦+转接环 廉价便携微单 单反备机', '除机身、镜头外，还有品牌充+品牌电+8G卡，以及M42转M43、PK转M43的转接环各一个，可以用来转接使用手动老镜头，触屏点击可放大对焦，测光准确。', '<ul style=\"list-style: none; color: #666666; line-height: 24.0px; padding-left: 10.0px; font-size: 12.0px;\">\n<li><strong><span style=\"font-size: 16.0px;\">升级C幅微单，闲置松下GF2+14/2.5定焦套机~</span></strong><br />&nbsp;<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro04.jpg\" alt=\"松下GF2+14/2.5定焦+转接环\" width=\"650\" /></li>\n</ul>\n<p>&nbsp;机身镜头都挺完美，快门次数不到1000，没有磨损或磕碰，镜头镜片镀膜完整，无霉无痕无尘，一切正常使用<br /><br />GF2和GF1近似，体积较GF3/5更大，方方正正，可单手握持，带热靴可以接外闪、引闪，自带内闪可以斜向上释放玩跳闪<br /><br />画质方面，GF2/GF3/GF5都是同一个传感，都一个样，视频方面GF2已经是全高清+双声道，GF3/5为便携还牺牲成了单声道，电池容量也缩减了</p>\n<p><br />除机身、镜头外，还有品牌充+品牌电+8G卡，以及M42转M43、PK转M43的转接环各一个，可以用来转接使用手动老镜头，触屏点击可放大对焦，测光准确。</p>');
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (5, ':6:10:', '2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹', '/upload/images/pro/pro05.png', 'admin', '2013-10-31 15:39:26', '1', 0, '2013新款 复古油蜡牛皮 长款真皮女钱 包韩版大容量 抽带三折女士钱夹', '2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro05.png\" alt=\"2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹\" width=\"650\" /></p>\n<h3 style=\"text-align: center;\">2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹</h3>');
-INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (6, ':6:10:', '天骄华庭--80后大爱-时尚简约不简单', '/upload/images/pro/pro06.jpg', 'admin', '2013-10-31 15:55:34', '1', 0, '天骄华庭--80后大爱-时尚简约不简单', ' 以简洁明快的设计风格为主调，简洁和实用是现代简约风格的基本特点。简约风格已经大行其道几年了，仍然保持很猛的势头，这是因为人们装修时总希望在经济、 实用、舒适的同时，体现一定的文化品味。而简约风格不仅注重居室的实用性，而且还体现出了现代社会生活的精致与个性，符合现代人的生活品位。', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro06.jpg\" alt=\"天骄华庭--80后大爱-时尚简约不简单\" width=\"650\" /></p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 以简洁明快的设计风格为主调，简洁和实用是现代简约风格的基本特点。简约风格已经大行其道几年了，仍然保持很猛的势头，这是因为人们装修时总希望在经济、 实用、舒适的同时，体现一定的文化品味。而简约风格不仅注重居室的实用性，而且还体现出了现代社会生活的精致与个性，符合现代人的生活品位。</p>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (1, ':6:9:', 'Apple/苹果 Macbook air MD760CH/A', '/upload/images/pro/pro01.png', '', 'admin', '2013-09-27 14:29:32', '1', 0, 'Apple/苹果,Macbook air,MD760CH/A', '2013年6月最新发布的港版MACBOOK AIR。都是原封哦。不是原封无条件退货。\n全场包顺丰+保价+保税，价格均为到你手的价格。\n标准配置的760和761促销中，价格实惠，大家赶紧出手。现在定制机基本都有现货。', '<p>注意：所有macbook air笔记本只有苹果官方公布的金属银色。宝贝颜色分类只是本店用来区分不同型号配置。.（需要装 WIN8请备注留言）</p>\n<p><img id=\"__mcenew\" style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro01.png\" alt=\"Apple/苹果 Macbook air MD760CH/A 711 712 760 761港版笔记本\" width=\"645\" height=\"335\" /></p>\n<p>紫色代表：2013款11寸128G硬盘/4G内存 i5处理器&nbsp; 型号：MD711ZP/A</p>\n<p>红色代表：2013款11寸256G硬盘/4G内存 i5处理器&nbsp; 型号：MD712ZP/A</p>\n<p>灰色代表：2013款13寸128G硬盘/4G内存 i5处理器&nbsp; 型号：MD760ZP/A</p>\n<p>白色代表：2013款13寸256G硬盘/4G内存 i5处理器&nbsp; 型号：MD761ZP/A<br /><br /></p>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (2, ':6:10:', '2013秋新款韩版百搭纯色中长款修身衬衫衬衣(配腰带)', '/upload/images/pro/pro02.jpg', '', 'admin', '2013-09-27 14:42:41', '1', 0, '2013,秋新款韩版,百搭纯色,中长款,修身衬衫衬衣,配腰带', '质量做工很上乘的一款衬衫、采用柔软舒适的棉质面料、手感很好、亲肤型佳、中等厚度、中长款版型、长约在大腿中部、休闲款式、开襟系扣款、圆领开口、袖子上有系扣、袖摆可卷边穿着、尽显休闲随性感觉、胸前两侧有收褶设计、简洁大方款式、腰部搭配配送的皮革腰带、酷感十足、效果很赞的哟、百搭款的衬衣、MM们一定不要错过喽', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro02.jpg\" alt=\"2013秋新款韩版百搭纯色中长款修身衬衫衬衣(配腰带)\" width=\"560\" height=\"700\" /></p>\n<p>质量做工很上乘的一款衬衫、采用柔软舒适的棉质面料、手感很好、亲肤型佳、中等厚度、中长款版型、长约在大腿中部、休闲款式、开襟系扣款、圆领开口、袖子上有系扣、袖摆可卷边穿着、尽显休闲随性感觉、胸前两侧有收褶设计、简洁大方款式、腰部搭配配送的皮革腰带、酷感十足、效果很赞的哟、百搭款的衬衣、MM们一定不要错过喽</p>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (3, ':6:10:', '耐克官方旗舰店2013专柜正品 男鞋女鞋运动鞋气垫跑步鞋', '/upload/images/pro/pro03.jpg', '', 'admin', '2013-10-31 15:21:41', '1', 0, '耐克官方旗舰店2013专柜正品 男鞋女鞋运动鞋气垫跑步鞋', 'AIR MAX+ 2012 跑步鞋以终极缓震性与稳定性能捍卫你的疾驰征程，MAX AIR 气垫技术让双脚踏出的每一步都犹如云端漫步般舒适、自由与轻松。', '<p>AIR MAX+ 2012 跑步鞋以终极缓震性与稳定性能捍卫你的疾驰征程，MAX AIR 气垫技术让双脚踏出的每一步都犹如云端漫步般舒适、自由与轻松。</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro03.jpg\" alt=\"\" width=\"650\" /><br /><br />支撑力<br /><br />AIR MAX+ 2012 跑步鞋将为你的双脚带来颠覆性合脚感与支撑力，鞋面双层FUSE技术搭配锯齿鞋套设计可完全贴合脚型，助你时刻以最佳状态开始驰骋之旅。铸模鞋领可防止脚跟在鞋内滑动，即使在高速跑动状态下依然保持超高稳定性。<br /><br />缓震性<br /><br />鞋 如其名，AIR MAX+ 2012 跑步鞋匠心运用Nike强大的MAX AIR 气垫技术，柔软、针对性的缓震缓冲性能可解决下向力对身体机能和运动表现的影响，助你不断刷新个人最佳记录。CUSHLON泡沫中底轻质灵活，可搭配 MAX AIR 气垫提供更全方位的缓震保护。<br /><br />&nbsp;&nbsp;&nbsp; 双层FUSE技术和锯齿鞋套提供轻质灵活性和舒适支撑感<br />&nbsp;&nbsp;&nbsp; 中足采用Flywire技术，鞋头注入式TPU覆面提供轻质、持久支撑和灵活性<br />&nbsp;&nbsp;&nbsp; CUSHLON泡沫中底提供柔软、轻质减震性<br />&nbsp;&nbsp;&nbsp; 外底弯曲槽纹路提升步态流畅性<br />&nbsp;&nbsp;&nbsp; 鞋跟使用BRS1000碳素橡胶材质，带来持久抓地力<br />&nbsp;&nbsp;&nbsp; 重量：仅13.6盎司<br />&nbsp;&nbsp;&nbsp; 专为寻求柔软减震和多变款式的跑者设计的鞋款</p>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (4, ':6:9:', '松下GF2+14/2.5定焦+转接环 廉价便携微单 单反备机', '/upload/images/pro/pro04.jpg', '', 'admin', '2013-10-31 15:32:08', '1', 0, '松下GF2+14/2.5定焦+转接环 廉价便携微单 单反备机', '除机身、镜头外，还有品牌充+品牌电+8G卡，以及M42转M43、PK转M43的转接环各一个，可以用来转接使用手动老镜头，触屏点击可放大对焦，测光准确。', '<ul style=\"list-style: none; color: #666666; line-height: 24.0px; padding-left: 10.0px; font-size: 12.0px;\">\n<li><strong><span style=\"font-size: 16.0px;\">升级C幅微单，闲置松下GF2+14/2.5定焦套机~</span></strong><br />&nbsp;<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro04.jpg\" alt=\"松下GF2+14/2.5定焦+转接环\" width=\"650\" /></li>\n</ul>\n<p>&nbsp;机身镜头都挺完美，快门次数不到1000，没有磨损或磕碰，镜头镜片镀膜完整，无霉无痕无尘，一切正常使用<br /><br />GF2和GF1近似，体积较GF3/5更大，方方正正，可单手握持，带热靴可以接外闪、引闪，自带内闪可以斜向上释放玩跳闪<br /><br />画质方面，GF2/GF3/GF5都是同一个传感，都一个样，视频方面GF2已经是全高清+双声道，GF3/5为便携还牺牲成了单声道，电池容量也缩减了</p>\n<p><br />除机身、镜头外，还有品牌充+品牌电+8G卡，以及M42转M43、PK转M43的转接环各一个，可以用来转接使用手动老镜头，触屏点击可放大对焦，测光准确。</p>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (5, ':6:10:', '2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹', '/upload/images/pro/pro05.png', '', 'admin', '2013-10-31 15:39:26', '1', 0, '2013新款 复古油蜡牛皮 长款真皮女钱 包韩版大容量 抽带三折女士钱夹', '2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro05.png\" alt=\"2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹\" width=\"650\" /></p>\n<h3 style=\"text-align: center;\">2013新款复古油蜡牛皮长款真皮女钱包韩版大容量抽带三折女士钱夹</h3>');
+INSERT INTO wmis_web_pro (`id`, `class`, `title`, `img`, `upload`, `uname`, `ctime`, `state`, `click`, `key`, `summary`, `content`) VALUES (6, ':6:10:', '天骄华庭--80后大爱-时尚简约不简单', '/upload/images/pro/pro06.jpg', '', 'admin', '2013-10-31 15:55:34', '1', 0, '天骄华庭--80后大爱-时尚简约不简单', ' 以简洁明快的设计风格为主调，简洁和实用是现代简约风格的基本特点。简约风格已经大行其道几年了，仍然保持很猛的势头，这是因为人们装修时总希望在经济、 实用、舒适的同时，体现一定的文化品味。而简约风格不仅注重居室的实用性，而且还体现出了现代社会生活的精致与个性，符合现代人的生活品位。', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"/upload/images/pro/pro06.jpg\" alt=\"天骄华庭--80后大爱-时尚简约不简单\" width=\"650\" /></p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 以简洁明快的设计风格为主调，简洁和实用是现代简约风格的基本特点。简约风格已经大行其道几年了，仍然保持很猛的势头，这是因为人们装修时总希望在经济、 实用、舒适的同时，体现一定的文化品味。而简约风格不仅注重居室的实用性，而且还体现出了现代社会生活的精致与个性，符合现代人的生活品位。</p>');
 
 

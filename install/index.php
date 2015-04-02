@@ -63,12 +63,16 @@
 			/* CI数据库配置文件 */
 			$file1 = '../admin/config/database.php';
 			$file2 = '../web/config/database.php';
+			$file3 = '../m/config/database.php';
 			$ct1 = file_get_contents($file1);
 			$ct2 = file_get_contents($file2);
+			$ct3 = file_get_contents($file3);
 			if(!$ct1) {
 				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file1.'</p>';
 			}elseif(!$ct2) {
 				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file2.'</p>';
+			}elseif(!$ct3) {
+				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file3.'</p>';
 			}else {
 				echo '<p class="suc"><em>&nbsp;</em>打开成功：CI数据库配置文件</p>';
 				$pat = "/\['hostname'\] = '(.*)'/";
@@ -105,6 +109,14 @@
 					echo '<p class="suc"><em>&nbsp;</em>写入成功：'.$file2.'</p>';
 				}else {
 					echo '<p class="err"><em>&nbsp;</em>写入失败：'.$file2.'</p>';
+				};
+				fclose($fp);
+				/* 写入手机配置文件 */
+				$fp=fopen($file3,'w');
+				if(fwrite($fp,$ct1)){
+					echo '<p class="suc"><em>&nbsp;</em>写入成功：'.$file3.'</p>';
+				}else {
+					echo '<p class="err"><em>&nbsp;</em>写入失败：'.$file3.'</p>';
 				};
 				fclose($fp);
 				echo '<p class="suc"><em>&nbsp;</em>完成<br></p>';
@@ -179,6 +191,12 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/(.*) /index.php last;<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 							}<br>
+							location /m/ {<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/m/(.*) /m/index.php last;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+							}
 							location /admin/ {<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
 							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>

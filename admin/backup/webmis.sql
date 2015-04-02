@@ -5,29 +5,29 @@
 DROP TABLE IF EXISTS wmis_class_web;
 
 CREATE TABLE `wmis_class_web` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `fid` int(3) NOT NULL COMMENT 'FID',
   `title` varchar(12) NOT NULL COMMENT '分类名称',
   `url` varchar(32) NOT NULL COMMENT 'URL地址',
-  `ico` varchar(12) DEFAULT NULL,
-  `remark` varchar(30) NOT NULL,
-  `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
-  `sort` int(3) NOT NULL DEFAULT '0',
-  `state` varchar(1) NOT NULL DEFAULT '0',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `remark` varchar(30) NOT NULL COMMENT '备注',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (1, 0, '首页', 'index_c.html', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (2, 0, '新闻中心', 'news.html', NULL, '网站分类！', '2012-06-01 17:17:07', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (3, 2, '行业新闻', 'news/lists/industry.html', '', '行业新闻！', '2012-11-02 11:26:09', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (4, 2, '企业动向', 'news/lists/enterprise.html', '', '企业动向！', '2012-11-02 11:27:10', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (5, 7, '关于我们', 'online/show/about.html', NULL, '关于我们！', '2012-11-07 10:32:34', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (6, 0, '产品中心', 'pro.html', NULL, '产品中心！', '2012-11-07 10:56:50', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (7, 0, '在线联系', 'online.html', NULL, '在线联系！', '2012-11-07 11:43:31', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (8, 7, '联系方式', 'online/show/contact.html', NULL, '联系方式！', '2013-09-04 10:24:55', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook.html', '', '笔记本电脑！', '2013-09-27 14:02:21', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (10, 6, '时尚服装', 'pro/lists/dress.html', '', '时尚服装！', '2013-09-27 14:03:55', 0, '1');
-INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (11, 7, '在线留言', 'online/message.html', '', '在线留言！', '2013-10-15 09:04:28', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (1, 0, '首页', 'index_c', 'ico-home', '网站首页！', '2012-06-01 14:28:17', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (2, 0, '新闻中心', 'news', NULL, '网站分类！', '2012-06-01 17:17:07', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (3, 2, '行业新闻', 'news/lists/industry', '', '行业新闻！', '2012-11-02 11:26:09', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (4, 2, '企业动向', 'news/lists/enterprise', '', '企业动向！', '2012-11-02 11:27:10', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (5, 7, '关于我们', 'online/show/about', NULL, '关于我们！', '2012-11-07 10:32:34', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (6, 0, '产品中心', 'pro', NULL, '产品中心！', '2012-11-07 10:56:50', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (7, 0, '在线联系', 'online', NULL, '在线联系！', '2012-11-07 11:43:31', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (8, 7, '联系方式', 'online/show/contact', NULL, '联系方式！', '2013-09-04 10:24:55', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (9, 6, '笔记本电脑', 'pro/lists/notebook', '', '笔记本电脑！', '2013-09-27 14:02:21', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (10, 6, '时尚服装', 'pro/lists/dress', '', '时尚服装！', '2013-09-27 14:03:55', 0, '1');
+INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES (11, 7, '在线留言', 'online/message', '', '在线留言！', '2013-10-15 09:04:28', 0, '1');
 
 
 #
@@ -37,12 +37,12 @@ INSERT INTO wmis_class_web (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime
 DROP TABLE IF EXISTS wmis_log_admin_login;
 
 CREATE TABLE `wmis_log_admin_login` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(2) NOT NULL,
-  `uname` varchar(12) NOT NULL,
-  `ip` varchar(16) NOT NULL,
-  `time` varchar(19) NOT NULL,
-  `agent` varchar(255) DEFAULT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` varchar(2) NOT NULL COMMENT '类型',
+  `uname` varchar(12) NOT NULL COMMENT '用户名',
+  `ip` varchar(16) NOT NULL COMMENT 'IP地址',
+  `time` datetime DEFAULT NULL COMMENT '登陆时间',
+  `agent` varchar(255) DEFAULT NULL COMMENT '用户信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -53,20 +53,20 @@ CREATE TABLE `wmis_log_admin_login` (
 DROP TABLE IF EXISTS wmis_sys_admin;
 
 CREATE TABLE `wmis_sys_admin` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `uname` varchar(16) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `name` varchar(12) DEFAULT NULL,
-  `department` varchar(12) DEFAULT NULL,
-  `position` varchar(12) DEFAULT NULL,
-  `rtime` varchar(19) DEFAULT '2010-01-01 08:00:00',
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `perm` text,
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `password` varchar(32) NOT NULL COMMENT '密码',
+  `email` varchar(32) NOT NULL COMMENT '邮箱',
+  `name` varchar(12) DEFAULT NULL COMMENT '姓名',
+  `department` varchar(12) DEFAULT NULL COMMENT '部门',
+  `position` varchar(12) DEFAULT NULL COMMENT '职位',
+  `rtime` datetime DEFAULT NULL COMMENT '注册时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `perm` text COMMENT '权限',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '8d37796cd6857b5b2d6721b2d25829ee', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
 
 
 #
@@ -76,15 +76,15 @@ INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `departm
 DROP TABLE IF EXISTS wmis_sys_menus;
 
 CREATE TABLE `wmis_sys_menus` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `fid` int(3) NOT NULL,
-  `title` varchar(12) NOT NULL,
-  `url` varchar(24) NOT NULL,
-  `perm` varchar(6) NOT NULL DEFAULT '0',
-  `ico` varchar(12) DEFAULT NULL,
-  `remark` varchar(30) NOT NULL,
-  `ctime` varchar(19) NOT NULL DEFAULT '2010-01-01 08:00:00',
-  `sort` int(3) NOT NULL DEFAULT '0',
+  `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `fid` int(3) NOT NULL COMMENT '父ID',
+  `title` varchar(12) NOT NULL COMMENT '名称',
+  `url` varchar(24) NOT NULL COMMENT '控制器',
+  `perm` varchar(6) NOT NULL DEFAULT '0' COMMENT '动作权限',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `remark` varchar(30) NOT NULL COMMENT '备注',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
@@ -126,10 +126,10 @@ INSERT INTO wmis_sys_menus (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`
 DROP TABLE IF EXISTS wmis_sys_menus_action;
 
 CREATE TABLE `wmis_sys_menus_action` (
-  `id` int(2) NOT NULL AUTO_INCREMENT,
-  `name` varchar(6) NOT NULL,
-  `perm` varchar(6) NOT NULL,
-  `ico` varchar(12) DEFAULT NULL,
+  `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(6) NOT NULL COMMENT '名称',
+  `perm` varchar(6) NOT NULL COMMENT '权限值',
+  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -151,19 +151,19 @@ INSERT INTO wmis_sys_menus_action (`id`, `name`, `perm`, `ico`) VALUES (9, '图�
 DROP TABLE IF EXISTS wmis_web_book;
 
 CREATE TABLE `wmis_web_book` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `name` varchar(12) NOT NULL,
-  `content` text NOT NULL,
-  `ctime` varchar(19) NOT NULL,
-  `reply` text NOT NULL,
-  `admin` varchar(12) NOT NULL,
-  `rtime` varchar(19) NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(12) NOT NULL COMMENT '留言人',
+  `content` text NOT NULL COMMENT '内容',
+  `ctime` datetime DEFAULT NULL COMMENT '留言时间',
+  `reply` text NOT NULL COMMENT '回复',
+  `admin` varchar(12) NOT NULL COMMENT '回复人',
+  `rtime` datetime DEFAULT NULL COMMENT '回复时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (1, '灵创留言板正式启动', '欢迎各位网友对灵创提出宝贵的意见，我们将在虚心听取中成长！', '2012-04-12 16:28:55', '灵创网络', '灵创网络', '2012-08-16 14:03:03');
-INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (2, 'PHP开发底层系统', 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！ ', '2013-10-31 13:04:10', '', '', '');
-INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (3, 'WebMIS 4.0发布', '主要更新：添加前台展示页面、优化代码、支持手机版、自动加载UI的js插件等', '2013-10-31 13:07:17', '', '', '');
+INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (2, 'PHP开发底层系统', 'WEBMIS是免费开源PHP开发底层系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！ ', '2013-10-31 13:04:10', '', '', '0000-00-00 00:00:00');
+INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `rtime`) VALUES (3, 'WebMIS 4.0发布', '主要更新：添加前台展示页面、优化代码、支持手机版、自动加载UI的js插件等', '2013-10-31 13:07:17', '', '', '0000-00-00 00:00:00');
 
 
 #
@@ -173,17 +173,17 @@ INSERT INTO wmis_web_book (`id`, `name`, `content`, `ctime`, `reply`, `admin`, `
 DROP TABLE IF EXISTS wmis_web_html;
 
 CREATE TABLE `wmis_web_html` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(64) DEFAULT NULL,
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `content` text,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(64) DEFAULT NULL COMMENT '封面图片',
+  `uname` varchar(16) NOT NULL COMMENT '创建人',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `content` text COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -198,32 +198,31 @@ INSERT INTO wmis_web_html (`id`, `class`, `title`, `img`, `uname`, `ctime`, `sta
 DROP TABLE IF EXISTS wmis_web_news;
 
 CREATE TABLE `wmis_web_news` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `type` varchar(1) NOT NULL DEFAULT '0',
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(128) DEFAULT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(128) DEFAULT NULL COMMENT '封面图片',
   `upload` text NOT NULL COMMENT '上传文件',
-  `source` varchar(24) NOT NULL,
-  `author` varchar(12) NOT NULL,
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `audit` varchar(16) NOT NULL,
-  `atime` date NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
+  `source` varchar(24) NOT NULL COMMENT '来源',
+  `author` varchar(12) NOT NULL COMMENT '作者',
+  `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `ctime` datetime DEFAULT NULL COMMENT '发布时间',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `audit` varchar(16) DEFAULT NULL COMMENT '发布人',
+  `atime` datetime DEFAULT NULL COMMENT '审核时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, '0', ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/news01.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 145, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, '0', ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/news02.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 156, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (3, '0', ':2:3:', '编译器如何危及应用程序的安全', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:25:46', 0, '编译器如何危及应用程序的安全', '对于编译器如何将人类可读的代码翻译成机器运行的机器码，大多数程序员通常只有大概的概念。在编译过程中，编译器会对代码进行优化，使其能高效的运行。有的时候，编译器在优化上面走的太远了，它甚至移除了本不应该移除的代码，导致应用程序更加脆弱。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (4, '0', ':2:3:', '微软向欧盟申请批准其收购诺基亚协议', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:29:28', 0, '微软向欧盟申请批准其收购诺基亚协议', '据路透社报道，早在上月微软就宣布以54.4亿欧元（约合75亿美元）收购诺基亚手机业务，但直到现在才向欧盟委员会申请批准。这份协议还包括诺基亚向微软授权使用其专利组合10年的内容。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (5, '0', ':2:3:', '罗马尼亚程序员的幸福生活', '/upload/images/news/news03.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:22:25', 2, '罗马尼亚程序员的幸福生活', '我做了三年的+Perl程序员，以编程为生已经有7年。我生活中克路治-那波卡市(Cluj-Napoca)，这是罗马尼亚第二大城市。', 'admin', '2013-10-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (6, '0', ':2:3:', '惠普、戴尔竞相推 ARM 架构服务器', '/upload/images/news/news04.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:52:20', 6, '惠普、戴尔竞相推,ARM,架构服务器', '据国外媒体报道，惠普和戴尔当地时间周一在ARM TechCon会议上公布了推出ARM服务器的计划。ARM架构服务器处理能力强大，但能耗低于目前的英特尔架构服务器。它们有助于数据中心在处理更多数据的同时，降低成本和能耗。', '', '2015-03-31', '1');
-INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (7, '0', ':2:3:', '开源的人工智能平台 NuPIC', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:58:24', 6, '开源的人工智能平台,NuPIC', '随着智能设备的普及，人工智能的研究已经不再局限于学术界，Google、Facebook 等公司都进入这个领域。科技公司的优势是大量的用户，这不仅为机器智能研究提供了大量数据，而且为机器智能的训练提供了现实的场景。', 'admin', '2013-10-31', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (1, ':2:4:', '微软开发者解释为什么Windows内核落后于Linux', '/upload/images/news/news01.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:36:19', 145, '微软开发者,Windows内核落后于Linux', '微软Windows操作系统在复杂负荷情况下的性能落后于Linux，这已是公认的事实。Linux内核发布了一个又一个新版本，我们能看到它不断改进 I/O调度、进程调度、文件系统优化，TCP/IP堆栈的无线网络优化，等等等等。', 'webmis', '2013-05-16 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (2, ':2:3:', '国际空间站决定弃用 Windows 启用 Linux', '/upload/images/news/news02.jpg', '', 'KSPHP', 'KSPHP', 'webmis', '2013-05-16 10:40:30', 156, '国际空间站,弃用Windows,启用Linux', '似乎Windows 8就是一个不该出生的孩子。在地球上不受欢迎也就算了，远在太空的国际空间站(ISS)也没有打算接受这个“野心颇大”的系统。据外媒报道，ISS决定在接下来的系统升级中，弃用Windows，转而使用Linux。', 'admin', '2013-09-03 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (3, ':2:3:', '编译器如何危及应用程序的安全', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:25:46', 0, '编译器如何危及应用程序的安全', '对于编译器如何将人类可读的代码翻译成机器运行的机器码，大多数程序员通常只有大概的概念。在编译过程中，编译器会对代码进行优化，使其能高效的运行。有的时候，编译器在优化上面走的太远了，它甚至移除了本不应该移除的代码，导致应用程序更加脆弱。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (4, ':2:3:', '微软向欧盟申请批准其收购诺基亚协议', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 11:29:28', 0, '微软向欧盟申请批准其收购诺基亚协议', '据路透社报道，早在上月微软就宣布以54.4亿欧元（约合75亿美元）收购诺基亚手机业务，但直到现在才向欧盟委员会申请批准。这份协议还包括诺基亚向微软授权使用其专利组合10年的内容。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (5, ':2:3:', '罗马尼亚程序员的幸福生活', '/upload/images/news/news03.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:22:25', 2, '罗马尼亚程序员的幸福生活', '我做了三年的+Perl程序员，以编程为生已经有7年。我生活中克路治-那波卡市(Cluj-Napoca)，这是罗马尼亚第二大城市。', 'admin', '2013-10-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (6, ':2:3:', '惠普、戴尔竞相推 ARM 架构服务器', '/upload/images/news/news04.jpg', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:52:20', 6, '惠普、戴尔竞相推,ARM,架构服务器', '据国外媒体报道，惠普和戴尔当地时间周一在ARM TechCon会议上公布了推出ARM服务器的计划。ARM架构服务器处理能力强大，但能耗低于目前的英特尔架构服务器。它们有助于数据中心在处理更多数据的同时，降低成本和能耗。', '', '2015-03-31 00:00:00', '1');
+INSERT INTO wmis_web_news (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `summary`, `audit`, `atime`, `state`) VALUES (7, ':2:3:', '开源的人工智能平台 NuPIC', '', '', 'oschina', 'oschina', 'admin', '2013-10-31 12:58:24', 6, '开源的人工智能平台,NuPIC', '随着智能设备的普及，人工智能的研究已经不再局限于学术界，Google、Facebook 等公司都进入这个领域。科技公司的优势是大量的用户，这不仅为机器智能研究提供了大量数据，而且为机器智能的训练提供了现实的场景。', NULL, '2015-04-02 17:50:44', '1');
 
 
 #
@@ -233,9 +232,9 @@ INSERT INTO wmis_web_news (`id`, `type`, `class`, `title`, `img`, `upload`, `sou
 DROP TABLE IF EXISTS wmis_web_news_html;
 
 CREATE TABLE `wmis_web_news_html` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `nid` int(6) NOT NULL,
-  `content` text NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `nid` int(6) NOT NULL COMMENT '新闻ID',
+  `content` text NOT NULL COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
@@ -256,17 +255,17 @@ DROP TABLE IF EXISTS wmis_web_pro;
 
 CREATE TABLE `wmis_web_pro` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `class` varchar(24) NOT NULL,
-  `title` varchar(36) NOT NULL,
-  `img` varchar(64) DEFAULT NULL,
+  `class` varchar(24) NOT NULL COMMENT '所属分类',
+  `title` varchar(36) NOT NULL COMMENT '标题',
+  `img` varchar(64) DEFAULT NULL COMMENT '封面图片',
   `upload` text NOT NULL COMMENT '上传文件',
-  `uname` varchar(16) NOT NULL,
-  `ctime` datetime NOT NULL,
-  `state` varchar(1) NOT NULL DEFAULT '0',
-  `click` int(6) NOT NULL,
-  `key` varchar(64) DEFAULT NULL,
-  `summary` varchar(300) DEFAULT NULL,
-  `content` text,
+  `uname` varchar(16) NOT NULL COMMENT '创建人',
+  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
+  `click` int(6) NOT NULL COMMENT '点击次数',
+  `key` varchar(64) DEFAULT NULL COMMENT '关键字',
+  `summary` varchar(300) DEFAULT NULL COMMENT '摘要',
+  `content` text COMMENT '详细内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
