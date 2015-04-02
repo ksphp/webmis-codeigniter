@@ -3,13 +3,11 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Unknown" />
+	<meta name="author" content="KSPHP.com" />
 	<title><?php echo $this->config->config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
-	<!--[if lt IE 9]><script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
-	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body>
@@ -33,7 +31,7 @@
 	</section>
 </section>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
-<div id="is_mobile" style="display: none;"><?php echo $is_mobile; ?></div>
+<div id="is_mobile" style="display: none;"><?php echo @$is_mobile; ?></div>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
 <!--[if lte IE 9]>
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
@@ -41,5 +39,6 @@
 <![endif]-->
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin_login.js');?>"></script>
+<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </body>
 </html>
