@@ -3,41 +3,43 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="kingsoul" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="author" content="KSPHP" />
 	<title><?php echo $this->config->config['title'];?></title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.mo.css'); ?>" rel="stylesheet" type="text/css" />
-	<!--[if lt IE 9]><script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script><![endif]-->
-	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body>
 <header class="top">
-	<span class="cp"><b id="webmisVersion">WebMIS</b></span>
-	<span class="info"><a href="#"><?php echo $uinfo['uname']; ?></a>&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>" class="out">注销</a></span>
+	<div class="logo"></div>
+	<span class="info"><?php echo $Menus['userHtml'];?></span>
 </header>
-<ul id="Nav" class="nav_one">
-	<li class="null">&nbsp;</li>
-<?php foreach($Menu as $val){?>
-	<li><a href="#" id="nav_<?php echo $val->id;?>" class="an2" onclick="menuOne('<?php echo $val->id;?>');return false;"><?php echo $val->title;?></a></li>
-<?php }?>
-</ul>
-<section id="NavBody" class="nav_body">
-<?php foreach (@$Menu as $val1) {?>
-	<div id="menuOne_<?php echo $val1->id;?>" class="nav_two">
-<?php foreach (@$val1->menus as $val2) {?>
-		<div class="title"><?php echo $val2->title;?></div>
-		<ul class="nav_three">
-<?php foreach (@$val2->menus as $val3) {
-	$ico = $val3->ico?'<em class="'.$val3->ico.'"></em>':'';
+<div class="nav_ct">
+	<ul id="Nav" class="nav">
+<?php
+$menus = FALSE;
+foreach ($Menus['Date'] as $val){
+	$an = $val['id']==$Menus['FID']['FID1']?'an1':'an2';
+	$ico = $val['ico']?'<em class="'.$val['ico'].'"></em>':'';
+	if(@$val['menus']){$menus = $val['menus'];}
 ?>
-			<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url.'.html');?>"><?php echo $ico.$val3->title;?></a></li>
+		<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val['title'];?></a></li>
 <?php }?>
+	</ul>
+</div>
+	<div class="menu_ct">
+<?php if($menus){foreach($menus as $val1){?>
+		<div class="title"><a href="#"><em class="<?php echo $val1['ico'];?>"></em><?php echo $val1['title'];?></a></div>
+		<ul class="list">
+<?php if(@$val1['menus']){foreach($val1['menus'] as $val2){
+	$an = $val2['id']==$Menus['FID']['FID3']?'left_an1':'left_an2';
+?>
+			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><em class="<?php echo $val2['ico'];?>"></em><?php echo $val2['title'];?></a></li>
+<?php }}?>
 		</ul>
-<?php }?>
+<?php }}?>
 	</div>
-<?php }?>
-	<div class="nav_hide"><a href="#" id="NavHide">============ 隐藏 ============</a></div>
-</section>
-<section class="ct_body">
+<section id="ctBody" class="ct_body">

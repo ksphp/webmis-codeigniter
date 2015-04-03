@@ -8,27 +8,26 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
-	<!--[if lt IE 9]>
-	<script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
-	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
-	<![endif]-->
-	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body class="top_bg">
 <header id="top" class="top">
-	<div class="top_logo">&nbsp;</div>
-	<span class="top_link"><a href="#"><b><?php echo $uinfo['uname']; ?></b></a>&nbsp;&nbsp;[&nbsp;<?php echo $uinfo['department']; ?>-<?php echo $uinfo['name']; ?>&nbsp;]&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo base_url('index_c/loginOut.html');?>"><b>注销</b></a></span>
+	<div class="top_logo"><a href="http://www.ksphp.com" title="WebMIS" target="_blank">&nbsp;</a></div>
+	<span class="top_link"><?php echo $Menus['userHtml'];?></span>
 </header>
 <header class="top_nav">
 	<div class="title"><a href="http://www.ksphp.com/" target="_blank"><b id="webmisVersion">WebMIS</b> [ {elapsed_time} ]</a></div>
 	<div id="nav" class="nav">
 		<ul id="webmis_menu" class="nav_menu">
-<?php foreach($Menu as $val){
-	$an = $val->id==$this->Fid2?'nav_an1':'nav_an2';
-	$ico = $val->ico?'<em class="'.$val->ico.'"></em>':'';
+<?php
+$menus = FALSE;
+$menusTitle = '';
+foreach ($Menus['Date'] as $val){
+	$an = $val['id']==$Menus['FID']['FID1']?'nav_an1':'nav_an2';
+	$ico = $val['ico']?'<em class="'.$val['ico'].'"></em>':'';
+	if(@$val['menus']){$menus = $val['menus'];$menusTitle=$val['title'];}
 ?>
-			<li><a href="<?php echo base_url($val->url.'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val->title;?></a>
+			<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val['title'];?></a>
 			<li class="UI lines">&nbsp;</li>
 <?php }?>
 		</ul>
@@ -39,26 +38,24 @@
 <section class="ct_body">
 	<aside class="ct_left">
 		<div id="menus" class="menu">
-<?php foreach (@$Menu as $val1) {if(@$val1->menus){?>
-			<div class="menu_title">------ <span id="menu_title"><?php echo $val1->title;?></span> ------</div>
+			<div class="menu_title">----- <span id="menu_title"><?php echo $menusTitle;?></span> -----</div>
 			<div class="menu_ct">
 				<div class="menuOne">
-<?php foreach (@$val1->menus as $val2) {
-	$an = $val2->id==$this->Fid3?'menu_an_bg2':'menu_an_bg1';
+<?php if($menus){foreach ($menus as $val1){
+	$an = $val1['id']==$Menus['FID']['FID2']?'menu_an_bg2':'menu_an_bg1';
 ?>
-					<div class="<?php echo $an;?> UI" onclick="menuTwo('<?php echo $val2->id;?>',$(this))"><span class="title"><?php echo $val2->title;?></span><span id="tu" class="jian UI">&nbsp;</span></div>
-					<ul id="menuThree_<?php echo $val2->id;?>" class="menu_list">
-<?php foreach (@$val2->menus as $val3) {
-	$an = $val3->id==$this->Cid?'menu_an1':'menu_an2'; 
-	$ico = $val3->ico?'<em class="'.$val3->ico.'"></em>':'';
+					<div class="<?php echo $an;?> UI" onclick="menuTwo('<?php echo $val1['id'];?>',$(this))"><span class="title"><?php echo $val1['title'];?></span><span id="tu" class="jian UI">&nbsp;</span></div>
+					<ul id="menuThree_<?php echo $val1['id'];?>" class="menu_list">
+<?php if(@$val1['menus']){foreach ($val1['menus'] as $val2){
+	$an = $val2['id']==$Menus['FID']['FID3']?'menu_an1':'menu_an2';
+	$ico = $val2['ico']?'<em class="'.$val2['ico'].'"></em>':'';
 ?>
-						<li><a href="<?php echo base_url($this->config->config['index_url'].$val3->url.'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val3->title;?></a></li>
-<?php }?>
+						<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val2['title'];?></a></li>
+<?php }}?>
 					</ul>
-<?php }?>
+<?php }}?>
 				</div>
 			</div>
-<?php }}?>
 		</div>
 		<div class="left_copy"><?php echo date('Y');?> &copy; <?php echo $this->config->config['copy'];?></div>
 	</aside>

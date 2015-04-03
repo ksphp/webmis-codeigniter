@@ -9,11 +9,11 @@ ul{list-style: none;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}
 em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal; padding-right: 5px;}
-textarea{border: #999 1px solid; background: #FFF;}
+textarea{line-height: 24px; border: #999 1px solid; background: #FFF; padding: 5px;}
 input, textarea{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
 input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
-/*.UI{background-image:url("images/admin_ui.png"); background-repeat: no-repeat; background-position:0px 0px;}*/
+.UI{background-image:url("images/admin_ui.png"); background-repeat: no-repeat; background-position:0px 0px;}
 .left{float: left;}
 .right{float: right;}
 .red{color: red;}
@@ -25,7 +25,9 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .tleft{text-align: left;}
 .tright{text-align: right;}
 .center{text-align: center;}
-.input{height: 22px; line-height: 22px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.input{float: left; height: 30px; line-height: 30px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.inputText{float: left; height: 30px; line-height: 30px; padding: 0 8px;}
+.noDisplay{display: none;}
 
 /* login */
 .login_bg{background: url("images/admin_login_bg.gif") top repeat-x #B6B6B6;}
@@ -49,20 +51,21 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 
 /* top */
 .top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat #FFF; padding: 0 10px;}
-.top{height: 50px;}
-.top_logo{float: left; width: 180px; height: 50px; background: url("images/admin_logo.gif") no-repeat center 12px;}
-.top_link{float: right; color: #666; padding-right: 10px; margin-top: 28px;}
+.top{height: 60px;}
+.top_logo{float: left; padding-top: 5px;}
+.top_logo a{width: 180px; height: 50px; background: url("images/admin_logo.gif") no-repeat center 12px; display: inline-block;}
+.top_link{float: right; color: #666; padding-right: 10px; margin-top: 35px;}
 
 /* Top_Nav */
 .top_nav_bg{height: 10px; background: url("images/admin_top_nav_x.jpg") 0 -70px repeat-x;}
-.top_nav{height: 30px; line-height: 30px; border: #BBB 1px solid; border-top: #6FB737 2px solid; background: url("images/admin_top_nav_x.jpg") repeat-x; border-radius: 3px 3px 0 0;}
+.top_nav{height: 34px; line-height: 34px; border: #BBB 1px solid; border-top: #6FB737 2px solid; background: url("images/admin_top_nav_x.jpg") repeat-x; border-radius: 3px 3px 0 0;}
 .top_nav .title{float: left; width: 180px; color: #666; text-align: center;}
 .top_nav .title b{color: #6EB737;}
 .top_nav .nav{float: left; border-left: #6FB737 1px solid;}
-.top_nav .nav_menu{float: left; height: 30px; font-size: 13px;}
-.top_nav .nav_menu li{float: left; height: 30px;}
-.top_nav .nav_menu li a{height: 30px; padding: 0 8px; display: inline-block;}
-.top_nav .nav_menu .lines{width: 5px; background-position: -20px -80px;}
+.top_nav .nav_menu{float: left; font-size: 13px; overflow: hidden;}
+.top_nav .nav_menu li{float: left; height: 34px;}
+.top_nav .nav_menu li a{height: 34px; padding: 0 12px; display: inline-block;}
+.top_nav .nav_menu .lines{width: 5px; background-position: -20px -78px;}
 
 .nav_an1{color: #FFF; background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
 .nav_an1 em{color: #FFF;}

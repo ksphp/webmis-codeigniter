@@ -8,11 +8,6 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
-	<!--[if lt IE 9]>
-	<script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
-	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
-	<![endif]-->
-	<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?42c6e4ddf1d67ece9be84ce625cd398b";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body class="top_bg">
@@ -39,7 +34,6 @@ foreach ($Menus['Date'] as $val){
 		<div class="left_title" onclick="menuTwo('<?php echo $val1['id'];?>',$(this))"><em class="<?php echo $val1['ico'];?>"></em><?php echo $val1['title'];?></div>
 		<ul class="left_list" id="menuThree_<?php echo $val1['id'];?>">
 <?php if(@$val1['menus']){foreach ($val1['menus'] as $val2){
-	//$an = $val2->id==$this->Cid?'left_an1':'left_an2';
 	$an = $val2['id']==$Menus['FID']['FID3']?'left_an1':'left_an2';
 ?>
 			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><em class="<?php echo $val2['ico'];?>"></em><?php echo $val2['title'];?></a></li>
