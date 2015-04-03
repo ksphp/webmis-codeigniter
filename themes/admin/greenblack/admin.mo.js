@@ -1,6 +1,6 @@
-var IsMobile = $('#IsMobile').text();
-var moWidth = $(document).width()-20;
-var moHeight = $(window).height()-20;
+var IsMobile;
+var moWidth;
+var moHeight;
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
@@ -60,6 +60,10 @@ function navMove(){
 }
 function menuShow(){
 	var W = $(window).width();
+	//初始化
+	IsMobile = $('#IsMobile').text();
+	moWidth = W-20;
+	moHeight = $(window).height()-20;
 	var Menu = $('.menu_ct');
 	//右滑动
 	$("#ctBody").touchwipe({
