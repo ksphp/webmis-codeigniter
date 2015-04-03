@@ -84,8 +84,10 @@ function menuShow(){
 	Menu.touchwipe({
 		wipeLeft: function() {
 			var W = $(window).width();
-			Menu.animate({'left':0-W},function(){$(this).hide();});
-			$('.left_menu').show();
+			Menu.animate({'left':0-W},function(){
+				$(this).hide();
+				$('.left_menu').show();
+			});
 		},
 		min_move_x: 60,
 		preventDefaultEvents: false

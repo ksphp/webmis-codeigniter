@@ -30,6 +30,8 @@ foreach ($Menus['Date'] as $val){
 <?php }?>
 	</ul>
 </div>
+	<!-- 左侧菜单 -->
+	<div class="left_menu">M</div>
 	<div class="menu_ct">
 <?php if($menus){foreach($menus as $val1){?>
 		<div class="title"><a href="#"><em class="<?php echo $val1['ico'];?>"></em><?php echo $val1['title'];?></a></div>

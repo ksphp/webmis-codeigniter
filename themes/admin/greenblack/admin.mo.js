@@ -65,20 +65,29 @@ function menuShow(){
 	moWidth = W-20;
 	moHeight = $(window).height()-20;
 	var Menu = $('.menu_ct');
-	//右滑动
-	$("#ctBody").touchwipe({
-		wipeRight: function() {
-			var W = $(window).width();
-			Menu.css({'left':0-W}).show().animate({'left':0});
-		},
-		min_move_x: 60,
-		preventDefaultEvents: false
+	//点击滑动
+	$('.left_menu').click(function (){
+		$(this).hide();
+		var W = $(window).width();
+		Menu.css({'left':0-W}).show().animate({'left':0});
 	});
+//	//右滑动
+//	$("#ctBody").touchwipe({
+//		wipeRight: function() {
+//			var W = $(window).width();
+//			Menu.css({'left':0-W}).show().animate({'left':0});
+//		},
+//		min_move_x: 60,
+//		preventDefaultEvents: false
+//	});
 	//左滑动
 	Menu.touchwipe({
 		wipeLeft: function() {
 			var W = $(window).width();
-			Menu.animate({'left':0-W},function(){$(this).hide();});
+			Menu.animate({'left':0-W},function(){
+				$(this).hide();
+				$('.left_menu').show();
+			});
 		},
 		min_move_x: 60,
 		preventDefaultEvents: false
