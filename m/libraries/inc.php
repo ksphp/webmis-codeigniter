@@ -7,6 +7,13 @@ class Inc{
 		$APP->load->view($url);
 		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/m_bottom');
 	}
+	/* Html 三层视图 */
+	function htmlView($APP, $url='', $data=''){
+		//积分、成长值
+		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/html_top',$data);
+		$APP->load->view($url);
+		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/html_bottom');
+	}
 	/* 菜单分类 */
 	function getMenuUser($APP){
 		$Cname = $APP->router->class;
