@@ -12,11 +12,23 @@ function Camera() {
 	//调取摄像头
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 	window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+	var ID = Test();
+	alert(ID);
+		
 	if (navigator.getUserMedia){
-		navigator.getUserMedia({"video": true}, function(stream){
+		
+		
+		
+		
+		navigator.getUserMedia({"video": {  
+                        'optional': [{  
+                            'sourceId': Test() //0为前置摄像头，1为后置  
+                        }]  
+                    }},function(stream){
 			video.src = window.URL.createObjectURL(stream);
 			video.play();
 		}, errBack);
+		
 	}
 	//设置内容区域
 	$("#Video").css({width:'100%',height:H});
@@ -41,6 +53,26 @@ function Camera() {
 		return false;
 	});
 }
+
+function Test(){
+	//存储设备源ID
+	var exArray = [];
+	MediaStreamTrack.getSources(function (sourceInfos) {  
+            for (var i = 0; i != sourceInfos.length; ++i) {  
+                var sourceInfo = sourceInfos[i];
+                //这里会遍历audio,video，所以要加以区分  
+                if (sourceInfo.kind === 'video') {  
+                    exArray.push(sourceInfo.id);  
+                }  
+            } 
+			//alert(exArray);
+			//alert(exArray[1]);
+			alert(exArray[1]);
+		return exArray[1];
+        });
+		
+}
+
 //拍照
 function Scamera(x,y,w,h){
 	$("#Camera").attr({width:w,height:h}).css({left:-x,top:-y});

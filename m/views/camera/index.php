@@ -14,6 +14,6 @@
 </div>
 <div id="LineBG" class="line_bg"></div>
 <div style="overflow: hidden;">
-	<video id="Video" autoplay="true" style="position: absolute; background-color: #000;"></video>
+	<video id="Video" style="position: absolute; background-color: #000;"></video>
 </div>
 <canvas id="Camera" style="position: absolute; z-index: 2; display: none;"></canvas>
