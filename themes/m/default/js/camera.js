@@ -12,22 +12,31 @@ function Camera() {
 	//调取摄像头
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 	window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-	var ID = Test();
-	alert(ID);
 		
 	if (navigator.getUserMedia){
 		
-		
-		
+		var exArray = [];
+	MediaStreamTrack.getSources(function (sourceInfos) {  
+            for (var i = 0; i != sourceInfos.length; ++i) {  
+                var sourceInfo = sourceInfos[i];
+                //这里会遍历audio,video，所以要加以区分  
+                if (sourceInfo.kind === 'video') {  
+                    exArray.push(sourceInfo.id);  
+                }  
+            }
+		alert(exArray[1]);
 		
 		navigator.getUserMedia({"video": {  
                         'optional': [{  
-                            'sourceId': Test() //0为前置摄像头，1为后置  
+                            'sourceId': exArray[1] //0为前置摄像头，1为后置  
                         }]  
                     }},function(stream){
 			video.src = window.URL.createObjectURL(stream);
 			video.play();
 		}, errBack);
+		
+		//return exArray[1];
+        });
 		
 	}
 	//设置内容区域
@@ -56,21 +65,6 @@ function Camera() {
 
 function Test(){
 	//存储设备源ID
-	var exArray = [];
-	MediaStreamTrack.getSources(function (sourceInfos) {  
-            for (var i = 0; i != sourceInfos.length; ++i) {  
-                var sourceInfo = sourceInfos[i];
-                //这里会遍历audio,video，所以要加以区分  
-                if (sourceInfo.kind === 'video') {  
-                    exArray.push(sourceInfo.id);  
-                }  
-            } 
-			//alert(exArray);
-			//alert(exArray[1]);
-			alert(exArray[1]);
-		return exArray[1];
-        });
-		
 }
 
 //拍照
