@@ -21,4 +21,12 @@ class Index_c extends CI_Controller {
 		echo @fwrite($fp,$image)?'{"status":"y"}':'{"status":"n"}';
 		fclose($fp);
 	}
+	//二维码识别
+	public function QRcode(){
+		//生成二维码
+		$code = exec('qrencode -o ../upload/test.png -s 12 "http://webmis.ksphp.com/m"');
+		//二维码识别
+		$code = exec('zbarimg -D ../upload/test.png');
+		print_r($code);
+	}
 }
