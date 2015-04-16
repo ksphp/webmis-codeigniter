@@ -1,6 +1,7 @@
 <?php
 class Index_c extends CI_Controller {
 	public function index(){
+		echo md5('kingsoul.ksphp.com');
 		$this->load->library('inc');
 		$data['Menus'] = $this->inc->getMenuUser($this);	//WEB分类菜单
 		$data['css'] = array('index.css');

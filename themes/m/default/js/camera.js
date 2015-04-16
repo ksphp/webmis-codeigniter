@@ -1,10 +1,28 @@
 $(function(){
 	//拍照
-	Camera();
+	if(navigator.webkitGetUserMedia){
+		getSources();
+	}else{
+		Camera();
+	}
 });
 
+//获取后置摄像头
+function getSources(){
+	var exArray = [];
+	MediaStreamTrack.getSources(function (sourceInfos){
+		for(var i = 0; i != sourceInfos.length; ++i){
+			var sourceInfo = sourceInfos[i];
+			if(sourceInfo.kind === 'video'){
+				exArray.push(sourceInfo.id);
+			}
+		}
+		Camera(exArray);
+	});
+}
+
 //Html5调用摄像头
-function Camera() {
+function Camera(exArray){
 	var W = $('body').width();
 	var H = $(window).height();
 	var video = $("#Video")[0],
@@ -12,32 +30,18 @@ function Camera() {
 	//调取摄像头
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 	window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-		
+	//播放视频
 	if (navigator.getUserMedia){
-		
-		var exArray = [];
-	MediaStreamTrack.getSources(function (sourceInfos) {  
-            for (var i = 0; i != sourceInfos.length; ++i) {  
-                var sourceInfo = sourceInfos[i];
-                //这里会遍历audio,video，所以要加以区分  
-                if (sourceInfo.kind === 'video') {  
-                    exArray.push(sourceInfo.id);  
-                }  
-            }
-		alert(exArray[1]);
-		
-		navigator.getUserMedia({"video": {  
-                        'optional': [{  
-                            'sourceId': exArray[1] //0为前置摄像头，1为后置  
-                        }]  
-                    }},function(stream){
-			video.src = window.URL.createObjectURL(stream);
-			video.play();
-		}, errBack);
-		
-		//return exArray[1];
-        });
-		
+		if(exArray){
+			navigator.getUserMedia({"video": {optional: [{sourceId: exArray[1]}]}},function(stream){
+				video.src = window.URL.createObjectURL(stream);
+			}, errBack);
+		}else{
+			navigator.getUserMedia({"video": true},function(stream){
+				video.src = window.URL.createObjectURL(stream);
+				video.play();
+			}, errBack);
+		}
 	}
 	//设置内容区域
 	$("#Video").css({width:'100%',height:H});
