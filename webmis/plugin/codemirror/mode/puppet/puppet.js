@@ -140,11 +140,11 @@ CodeMirror.defineMode("puppet", function () {
       return words[word];
     }
     // Is there a match on a reference?
-    if (/(\s+)?[A-Z]/.test(word)) {
+    if (/(^|\s+)[A-Z][\w:_]+/.test(word)) {
       // Negate the next()
       stream.backUp(1);
       // Match the full reference
-      stream.match(/(\s+)?[A-Z][\w:_]+/);
+      stream.match(/(^|\s+)[A-Z][\w:_]+/);
       return 'def';
     }
     // Have we matched the prior resource regex?
@@ -176,7 +176,7 @@ CodeMirror.defineMode("puppet", function () {
     // Match characters that we are going to assume
     // are trying to be regex
     if (ch == '/') {
-      stream.match(/.*\//);
+      stream.match(/.*?\//);
       return 'variable-3';
     }
     // Match all the numbers

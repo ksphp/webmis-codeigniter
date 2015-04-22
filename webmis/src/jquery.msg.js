@@ -14,7 +14,7 @@ var msgCreate = function (options,obj) {
 	//
 	obj.find('.msgShowBG').css({
 		width:options.width, height:options.height, margin: options.top+'px 0 0 '+options.left+'px', 'background-color':options.bgColor,
-		display:'none', position:'absolute', 'z-index':100, 'line-height':'24px', 'padding':'10px', 'border-radius':'6px', 'box-shadow':'1px 1px 2px #000'
+		display:'none', position:'absolute', 'z-index':100, 'line-height':'22px', 'padding':'10px', 'border-radius':'6px', 'box-shadow':'1px 1px 2px #000'
 	});
 	//添加箭头
 	var atop = options.height+10;

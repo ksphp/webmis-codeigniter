@@ -26,7 +26,7 @@
      "[comment&formatting&formatting-code ``][comment foo ` bar][comment&formatting&formatting-code ``]");
 
   FT("formatting_atxHeader",
-     "[header&header-1&formatting&formatting-header&formatting-header-1 #][header&header-1  foo # bar ][header&header-1&formatting&formatting-header&formatting-header-1 #]");
+     "[header&header-1&formatting&formatting-header&formatting-header-1 # ][header&header-1 foo # bar ][header&header-1&formatting&formatting-header&formatting-header-1 #]");
 
   FT("formatting_setextHeader",
      "foo",
@@ -54,7 +54,7 @@
      "[link&formatting&formatting-link <][link user@example.com][link&formatting&formatting-link >]");
 
   FT("formatting_escape",
-     "[formatting&formatting-escape \\]*");
+     "[formatting-escape \\*]");
 
   MT("plainText",
      "foo");
