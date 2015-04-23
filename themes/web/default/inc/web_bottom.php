@@ -8,7 +8,7 @@
 	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
 	<script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
 	<link href="<?php echo base_url('../themes/web/'.$this->config->config['web_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
-	<[endif] -->
+	<![endif] -->
 	<script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 	<script language="javascript" src="<?php echo base_url('../themes/web/'.$this->config->config['web_themes'].'/web.js');?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>
