@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div sytle="font-size: 12px;">
 <p>
 <h1>WebMIS简介</h1>
