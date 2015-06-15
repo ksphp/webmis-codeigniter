@@ -20,7 +20,6 @@ class Index_c extends CI_Controller {
 		$uinfo = $this->sys_admin_m->login($uname,$passwd);
 		if($uinfo){
 			if($uinfo[0]->state == 1){
-				session_start();
 				$_SESSION['AdminInfo']['uname'] = $uinfo[0]->uname;
 				$_SESSION['AdminInfo']['name'] = $uinfo[0]->name;
 				$_SESSION['AdminInfo']['department'] = $uinfo[0]->department;
@@ -40,7 +39,6 @@ class Index_c extends CI_Controller {
 	}
 	/* LoginOut */
 	public function loginOut(){
-		session_start();
 		$uname = $_SESSION['AdminInfo']['uname']?$_SESSION['AdminInfo']['uname']:'Auto Logout';
 		$this->loginLog('退出',$uname);
 		unset($_SESSION['AdminInfo']);
