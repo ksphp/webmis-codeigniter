@@ -8,7 +8,6 @@ class MY_Controller extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		/* IsLogin */
-		session_start();
 		$logged = $_SESSION['AdminInfo']['logged_in'];
 		$this->IsMobile = $_SESSION['AdminInfo']['is_mobile'];
 		if(!$logged){
