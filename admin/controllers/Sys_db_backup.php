@@ -37,7 +37,7 @@ class Sys_db_backup extends MY_Controller {
 			'add_insert'  => TRUE,
 			'newline'     => "\n"
 		);
-		$backup =& $this->dbutil->backup($prefs);
+		$backup = $this->dbutil->backup($prefs);
 		echo write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n"}'; 
 	}
 }
