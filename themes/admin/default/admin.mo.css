@@ -87,9 +87,9 @@ Content UI
 .code{border: #CCC 1px dashed; background: #F2F2F2; padding: 5px 10px; overflow-y: auto;}
 
 .suc{color: #6FB737;}
-.suc em:before {color: #6FB737; content: "\e0f2";}
+.suc em:before {color: #6FB737; content: "\e637"; font-size: 14px;}
 .err{color: red;}
-.err em:before {color: red; content: "\e0ed";}
+.err em:before {color: red; content: "\e636"; font-size: 14px;}
 
 .line{height: 10px; background: url("images/admin_top_nav_x.jpg") 0 -71px repeat-x; border-radius: 3px;}
 .fileImgView{width: 100%; height: 100%; border-collapse: collapse; text-align: center; background: url("images/bg.png") #333; margin: 0 auto;}
@@ -103,10 +103,10 @@ Content UI
 .page_cur{color: #6FB737; font-weight: bold;}
 
 /* Checkbox */
-#checkboxY,#checkboxN{font-family: 'icomoon'; font-style: normal; font-weight: normal; padding: 2px 6px;}
+#checkboxY,#checkboxN{font-family: 'icomoon'; font-style: normal; font-weight: normal; font-size: 14px; color: #6FB737; padding: 2px 2px;}
 #checkboxN{display: none;}
-#checkboxY:before {content: "\e0f0";}
-#checkboxN:before {content: "\e0ef";}
+#checkboxY:before {content: "\e637";}
+#checkboxN:before {content: "\e636";}
 
 /* Table */
 .table{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid;}
@@ -134,58 +134,59 @@ Content UI
 .action_ct li{float: left; padding: 0 5px;}
 
 /* ICO */
-.ico-heart:before {content: "\e0c5";}
+.ico-heart:before {content: "\e650";}
 
-.ico-home:before {content: "\e000";}
-.ico-system:before {content: "\e085";}
-.ico-web:before {content: "\e1a6";}
-.ico-help:before {content: "\e0eb";}
+.ico-home:before {content: "\e620";}
+.ico-system:before {content: "\e621";}
+.ico-web:before {content: "\e62f";}
+.ico-logs:before {content: "\e606";}
+.ico-help:before {content: "\e663";}
 
-.ico-disktop:before {content: "\e201";}
-.ico-user:before {content: "\e06b";}
-.ico-user1:before {content: "\e066";}
-.ico-pwd:before {content: "\e07c";}
+.ico-disktop:before {content: "\e612";}
+.ico-user:before {content: "\e61a";}
+.ico-user1:before {content: "\e61b";}
+.ico-pwd:before {content: "\e61d";}
 
-.ico-system1:before {content: "\e084";}
-.ico-system2:before {content: "\e080";}
-.ico-menu:before {content: "\e02a";}
-.ico-menuA:before {content: "\e205";}
-.ico-admin:before {content: "\e067";}
-.ico-fileM:before {content: "\e02b";}
+.ico-system1:before {content: "\e658";}
+.ico-system2:before {content: "\e622";}
+.ico-menu:before {content: "\e62a";}
+.ico-menuA:before {content: "\e637";}
+.ico-admin:before {content: "\e61a";}
+.ico-fileM:before {content: "\e677";}
 
-.ico-logs:before {content: "\e02e";}
-.ico-logs1:before {content: "\e02d";}
+.ico-logs1:before {content: "\e605";}
 
-.ico-db:before {content: "\e1f2";}
+.ico-db:before {content: "\e62b";}
 
-.ico-list:before {content: "\e0f2";}
-.ico-search:before {content: "\e074";}
-.ico-add:before {content: "\e1ce";}
-.ico-edit:before {content: "\e006";}
-.ico-del:before {content: "\e0ed";}
-.ico-audit:before {content: "\e1be";}
-.ico-chart:before {content: "\e1cd";}
-.ico-exp:before {content: "\e119";}
-.ico-imp:before {content: "\e115";}
+.ico-list:before {content: "\e637";}
+.ico-search:before {content: "\e65e";}
+.ico-add:before {content: "\e670";}
+.ico-edit:before {content: "\e600";}
+.ico-del:before {content: "\e636";}
+.ico-audit:before {content: "\e61f";}
+.ico-chart:before {content: "\e623";}
+.ico-exp:before {content: "\e62c";}
+.ico-imp:before {content: "\e62d";}
+
 /* File */
-.ico-back:before {content: "\e05c";}
-.ico-addfolder:before {content: "\e088";}
-.ico-addfile:before {content: "\e1cc";}
-.ico-refresh:before {content: "\e0fd";}
-.ico-upload:before {content: "\e113";}
-.ico-down:before {content: "\e117";}
-.ico-fdel:before {content: "\e0ef";}
+.ico-back:before {content: "\e65d";}
+.ico-addfolder:before {content: "\e65b";}
+.ico-addfile:before {content: "\e67d";}
+.ico-refresh:before {content: "\e664";}
+.ico-upload:before {content: "\e62d";}
+.ico-down:before {content: "\e62c";}
+.ico-fdel:before {content: "\e636";}
 
-.ico-folder:before {content: "\e02c";}
-.ico-file:before {content: "\e1b2";}
-.ico-ico:before {content: "\e1d7";}
-.ico-html:before {content: "\e1a0";}
-.ico-php:before {content: "\e19c";}
-.ico-css:before {content: "\e19e";}
-.ico-img:before {content: "\e00a";}
-.ico-pdf:before {content: "\e1b3";}
-.ico-zip:before {content: "\e1b9";}
-.ico-txt:before {content: "\e025";}
-.ico-doc:before {content: "\e1b5";}
-.ico-xls:before {content: "\e196";}
-.ico-odt:before {content: "\e1b4";}
+.ico-folder:before {content: "\e65b";}
+.ico-file:before {content: "\e67d";}
+.ico-ico:before {content: "\e63e";}
+.ico-html:before {content: "\e649";}
+.ico-php:before {content: "\e649";}
+.ico-css:before {content: "\e64a";}
+.ico-img:before {content: "\e603";}
+.ico-pdf:before {content: "\e643";}
+.ico-zip:before {content: "\e647";}
+.ico-txt:before {content: "\e642";}
+.ico-doc:before {content: "\e645";}
+.ico-xls:before {content: "\e646";}
+.ico-odt:before {content: "\e644";}

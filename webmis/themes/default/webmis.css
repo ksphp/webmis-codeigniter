@@ -8,21 +8,23 @@ a:hover{color: #FF6600;}
 /* 字体图标 */
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf') format('truetype');
+	src:url('fonts/icomoon.eot?bspy45');
+	src:url('fonts/icomoon.eot?#iefixbspy45') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?bspy45') format('truetype'),
+		url('fonts/icomoon.woff?bspy45') format('woff'),
+		url('fonts/icomoon.svg?bspy45#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
-em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: normal;}
+em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font-weight: normal; font-variant: normal;}
 /* Inc */
 .red{color: red;}
 .green{color: green;}
 .suc{color: #6FB737; padding-left: 10px;}
 .suc em,.err em{padding-right: 6px;}
-.suc em:before {color: #6FB737; content: "\e0f2";}
+.suc em:before {color: #6FB737; content: "\e637";}
 .err{color: #FF6600; padding-left: 10px;}
-.err em:before {color: #FF6600; content: "\e0ed";}
+.err em:before {color: #FF6600; content: "\e636";}
 
 /* WebMisMsg */
 #WebMisWinBg{position: fixed; z-index:100; width: 100%; left: 0; top: 0; display: none; background-color: #000;}
@@ -31,7 +33,7 @@ em{color: #6FB737; font-family: 'icomoon'; font-style: normal; font-weight: norm
 .WebMisWin_top .title{float: left; font-size: 13px; font-weight: bold; color: #666; padding: 0 10px;}
 .WebMisWin_top .close{float: right; color: #999;}
 .WebMisWin_top .close em:hover{color: #FF6600;}
-.WebMisWin_top .close em:before {content: "\e0ef";}
+.WebMisWin_top .close em:before {content: "\e660"; font-size: 18px;}
 .WebMisWin_ct{padding: 10px 0;}
 .WebMisWin_ct .load{text-align: center;}
 .WebMisWin_ct .onLoad{padding: 5px 10px; background:url(images/onLoad.gif) no-repeat center center;}
