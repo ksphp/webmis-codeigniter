@@ -19,13 +19,13 @@ class Index_c extends CI_Controller {
 		$passwd = $this->input->post('passwd');
 		$uinfo = $this->sys_admin_m->login($uname,$passwd);
 		if($uinfo){
-			if($uinfo[0]->state == 1){
-				$_SESSION['AdminInfo']['uname'] = $uinfo[0]->uname;
-				$_SESSION['AdminInfo']['name'] = $uinfo[0]->name;
-				$_SESSION['AdminInfo']['department'] = $uinfo[0]->department;
+			if($uinfo->state == 1){
+				$_SESSION['AdminInfo']['uname'] = $uinfo->uname;
+				$_SESSION['AdminInfo']['name'] = $uinfo->name;
+				$_SESSION['AdminInfo']['department'] = $uinfo->department;
 				$_SESSION['AdminInfo']['logged_in'] = TRUE;
 				$_SESSION['AdminInfo']['is_mobile'] = $this->input->post('is_mobile');
-				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
+				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo->perm);
 				$_SESSION['AdminInfo']['ltime'] = time()+1800;
 				$this->loginLog('登录',$uname);
 				echo '{"status":"suc","msg":""}';

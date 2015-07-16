@@ -24,18 +24,10 @@ class Sys_admin_m extends CI_Model {
 	/* Login */
 	function login($uname,$passwd){
 		if($uname){
-			$data['uname'] = $uname;
-			$data['password'] = md5($passwd);
-			
-			$this->db->where($data);
-			$num = $this->db->count_all_results($this->table);
-			if($num){
-				$query = $this->db->get_where($this->table,$data);
-				return $query->result();
-			}else{
-				return false;
-			}
-		}
+			$this->db->select('uname,name,department,perm,state');
+			$query = $this->db->get_where($this->table,array('uname'=>$uname,'password'=>md5($passwd)));
+			return $query->row();
+		}else{return FALSE;}
 	}
 	/* Username */
 	function uname(){
