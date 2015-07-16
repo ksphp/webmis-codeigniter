@@ -3,7 +3,7 @@ $(function(){
 	$('#webmisVersion').webmisVersion();
 	//登录框位置
 	var autoSize = function(size){
-		var top = $(window).height()/6;
+		var top = $(window).height()/5;
 		$('.login_body').css({'top':top});
 	}
 	autoSize();
@@ -18,14 +18,12 @@ $(function(){
 			return false;
 		}else{
 			$.post($base_url+'index_c/login.html',{'uname':uname,'passwd':passwd,'is_mobile':is_mobile},function(data){
-				if(data == 1){
+				if(data.status == 'suc'){
 					$.webmis.win('close','welcome.html');
-				}else if(data == 2){
-					$.webmis.win('open',{content:'<b class="red">该用户已被禁用！</b>',AutoClose:3});
 				}else{
-					$.webmis.win('open',{content:'<b class="red">帐号或密码有误！</b>',AutoClose:3});
+					$.webmis.win('open',{content:data.msg,AutoClose:3});
 				}
-			});
+			},'json');
 		}
 	}
 	//回车触发

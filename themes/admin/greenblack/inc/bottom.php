@@ -5,14 +5,7 @@
 <div id="IsMobile" style="display: none;"><?php echo $this->IsMobile; ?></div>
 <div id="DisplayTop" style="display: none;"><?php echo @$_SESSION['DisplayTop']; ?></div>
 <div id="getUrl" style="display: none;"><?php echo @$get_url; ?></div>
-<!--[if !IE]><!-->
 <script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
-<!--<![endif]-->
-<!--[if lt IE 9]>
-<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
-<script src="<?php echo base_url('../webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
-<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
-<![endif] -->
 <script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
 <script language="javascript" src="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.js'); ?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>

@@ -28,14 +28,14 @@ class Index_c extends CI_Controller {
 				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
 				$_SESSION['AdminInfo']['ltime'] = time()+1800;
 				$this->loginLog('登录',$uname);
-				echo true;
+				echo '{"status":"suc","msg":""}';
 			}else{
 				$this->loginLog('禁用',$uname);
-				echo 2;
+				echo '{"status":"err","msg":"<b class=\"red\">该用户已被禁用！</b>"}';
 			}
 		}else{
 			$this->loginLog('失败',$uname);
-			echo false;
+			echo '{"status":"err","msg":"<b class=\"red\">帐号或密码有误！</b>"}';
 		}
 	}
 	/* LoginOut */
@@ -43,7 +43,6 @@ class Index_c extends CI_Controller {
 		$uname = $_SESSION['AdminInfo']['uname']?$_SESSION['AdminInfo']['uname']:'Auto Logout';
 		$this->loginLog('退出',$uname);
 		unset($_SESSION['AdminInfo']);
-		//session_destroy();
 		header('location: '.base_url());
 	}
 	/* LoginLog */
