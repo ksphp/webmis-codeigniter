@@ -26,6 +26,7 @@ class Index_c extends CI_Controller {
 				$_SESSION['AdminInfo']['logged_in'] = TRUE;
 				$_SESSION['AdminInfo']['is_mobile'] = $this->input->post('is_mobile');
 				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo[0]->perm);
+				$_SESSION['AdminInfo']['ltime'] = time()+1800;
 				$this->loginLog('登录',$uname);
 				echo true;
 			}else{
