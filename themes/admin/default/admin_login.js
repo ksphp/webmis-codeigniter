@@ -23,7 +23,7 @@ $(function(){
 				}else{
 					$.webmis.win('open',{content:data.msg,AutoClose:3});
 				}
-			});
+			},'json');
 		}
 		return false;
 	}
