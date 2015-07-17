@@ -18,15 +18,17 @@
 			<span id="webmisVersion" class="login_top_title">WebMIS</span>
 		</header>
 		<aside class="login_ct">
-			<span class="text"><input type="text" id="uname" /><br>用户名：</span>
-			<span class="text"><input type="password" id="passwd" /><br>密码：</span>
+			<span class="text"><input type="text" id="uname" /><br><?php echo $this->lang->line('admin_uname');?>：</span>
+			<span class="text"><input type="password" id="passwd" /><br><?php echo $this->lang->line('admin_passwd');?>：</span>
 			<div class="login_ct_an">
-				<a href="#" id="adminLogin">登录</a>
+				<a href="#" id="adminLogin" title="<?php echo $this->lang->line('admin_login');?>"><?php echo $this->lang->line('admin_login');?></a>
 			</div>
 		</aside>
 		<footer class="login_copy">
-			Copyright © <?php echo $this->config->config['copy'];?> All rights are reserved.<br>
-			<a href="<?php echo base_url('../'); ?>" >网站首页</a>&nbsp;|&nbsp;<a href="<?php echo base_url('?mode=pc'); ?>" >电脑版</a>&nbsp;|&nbsp;<a href="<?php echo base_url('?mode=mobile'); ?>" >手机版</a>
+			Copyright © <?php echo $this->config->config['copy'];?> All rights are reserved.<br/>
+			<a href="<?php echo base_url('../'); ?>" ><?php echo $this->lang->line('admin_home');?></a>&nbsp;|&nbsp;
+			<a href="<?php echo base_url('?mode=pc'); ?>" ><?php echo $this->lang->line('admin_pc');?></a>&nbsp;|&nbsp;
+			<a href="<?php echo base_url('?mode=mobile'); ?>" ><?php echo $this->lang->line('admin_mobile');?></a>
 		</footer>
 	</section>
 </section>

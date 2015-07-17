@@ -4,9 +4,21 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index_c extends CI_Controller {
 	/* Index */
 	public function index(){
-		$data['is_mobile'] = $this->IsMobile();
-		
-		if($data['is_mobile']) {
+		$this->lang->load('admin');
+		// Is not IE9
+		$this->load->library('user_agent');
+		if($this->agent->is_browser() && $this->agent->browser()=='Internet Explorer' && $this->agent->version()<9){
+			$data['isIE'] = TRUE;
+		}else{$data['isIE'] = FALSE;}
+		// Is Mobile
+		$mode = $this->input->get('mode');
+		if($mode) {
+			$data['is_mobile'] = $mode=='mobile'?true:false;
+		}else {
+			$data['is_mobile'] = $this->agent->is_mobile();
+		}
+		// View
+		if($data['is_mobile']){
 			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/login_v_mo',$data);
 		}else {
 			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/login_v',$data);
@@ -62,16 +74,5 @@ class Index_c extends CI_Controller {
 			}
 			return $permArr;
 		}
-	}
-	/* IsMobile */
-	private function IsMobile() {
-		$this->load->library('user_agent');
-		$mode = $this->input->get('mode');
-		if($mode) {
-			$data = $mode=='mobile'?true:false;
-		}else {
-			$data = $this->agent->is_mobile();
-		}
-		return $data;
 	}
 }

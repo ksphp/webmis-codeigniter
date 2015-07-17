@@ -45,7 +45,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .login_ct_an .an{cursor: pointer; width: 42px; height: 42px; background: #999; display: block;}
 .login_ct_an .an:hover{background: #6FB737;}
 
-.login_copy{line-height: 20px; color: #666; text-align: center; padding: 15px 0; border-radius: 5px;}
+.login_copy{line-height: 24px; color: #666; text-align: center; padding: 10px 0; border-radius: 5px;}
 .login_copy b{color: #666;}
 
 /*Top*/

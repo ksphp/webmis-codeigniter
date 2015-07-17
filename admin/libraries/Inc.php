@@ -2,6 +2,12 @@
 class Inc{
 	//Web 三层视图
 	function adminView($APP, $url='', $data=''){
+		$APP->lang->load('admin');
+		// Is not IE9
+		$APP->load->library('user_agent');
+		if($APP->agent->is_browser() && $APP->agent->browser()=='Internet Explorer' && $APP->agent->version()<9){
+			$data['isIE'] = TRUE;
+		}else{$data['isIE'] = FALSE;}
 		/* View */
 		if($APP->IsMobile) {
 			$APP->load->view('../../themes/admin/'.$APP->config->config['admin_themes'].'/inc/top_mo',$data);

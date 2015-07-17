@@ -7,15 +7,15 @@ date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
 $config['title'] = 'WebMIS 管理员控制台';
 $config['copy'] = '<a href="http://www.ksphp.com/" target="_blank"><b>ksphp.com</b></a>';
 $config['backup'] = 'backup';
-$config['admin_themes'] = 'greenblack';
+$config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
+$config['language'] = 'en-us';  // en-us,zh-cn
 
 $config['base_url'] = '';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '.html';
-$config['language']	= 'english';
 $config['charset'] = 'UTF-8';
 $config['enable_hooks'] = FALSE;
 $config['subclass_prefix'] = 'MY_';

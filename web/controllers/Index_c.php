@@ -1,6 +1,7 @@
 <?php
 class Index_c extends CI_Controller {
 	public function index(){
+		$this->lang->load('text');
 		$this->load->library('inc');
 		$data['Menus'] = $this->inc->getMenuUser($this);	//WEB分类菜单
 		$data['css'] = array('index.css');

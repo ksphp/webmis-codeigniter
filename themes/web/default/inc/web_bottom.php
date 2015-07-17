@@ -3,14 +3,13 @@
 		Copyright © <a href="http://webmis.ksphp.com/admin" id="webmisVersion">ksphp.com</a> Tencent. All Rights Reserved
 	</div>
 	<div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
-	<!--[if !IE]><!-->
-	<script language="javascript" src="<?php echo base_url('webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
-	<!--<![endif]-->
-	<!--[if lt IE 9]>
+<?php if($isIE){?>
 	<script language="javascript" src="<?php echo base_url('webmis/plugin/jquery/jquery-1.min.js'); ?>"></script>
 	<script src="<?php echo base_url('webmis/plugin/html5.js'); ?>" type="text/javascript"></script>
 	<link href="<?php echo base_url('themes/web/'.$this->config->config['web_themes'].'/ie.css'); ?>" rel="stylesheet" type="text/css" />
-	<![endif] -->
+<?php }else{?>
+	<script language="javascript" src="<?php echo base_url('webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
+<?php }?>
 	<script language="javascript" src="<?php echo base_url('webmis/jquery.webmis.js'); ?>"></script>
 	<script language="javascript" src="<?php echo base_url('themes/web/'.$this->config->config['web_themes'].'/web.js');?>"></script>
 <?php if(@$js){ foreach($js as $val){ ?>

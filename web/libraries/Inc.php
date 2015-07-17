@@ -2,7 +2,13 @@
 class Inc{
 	/* Web 三层视图 */
 	function webView($APP, $url='', $data=''){
-		//积分、成长值
+		// Is not IE9
+		$APP->load->library('user_agent');
+		if($APP->agent->is_browser() && $APP->agent->browser()=='Internet Explorer' && $APP->agent->version()<9){
+			$data['isIE'] = TRUE;
+		}else{$data['isIE'] = FALSE;}
+		// 分层
+		$APP->lang->load('inc');
 		$APP->load->view('../../themes/web/'.$APP->config->config['web_themes'].'/inc/web_top',$data);
 		$APP->load->view($url);
 		$APP->load->view('../../themes/web/'.$APP->config->config['web_themes'].'/inc/web_bottom');
