@@ -119,16 +119,12 @@ class Inc{
 		/* Config */
 		$config['page_query_string'] = TRUE;
 		$config['first_tag_open'] = '<span>';
-		$config ['first_link'] = '首页';
 		$config['first_tag_close'] = '</span>';
 		$config['prev_tag_open'] = '<span>';
-		$config['prev_link'] = '上一页';
 		$config['prev_tag_close'] = '</span>';
 		$config['next_tag_open'] = '<span>';
-		$config['next_link'] = '下一页';
 		$config['next_tag_close'] = '</span>';
 		$config['last_tag_open'] = '<span>';
-		$config ['last_link'] = '末页';
 		$config['last_tag_close'] = '</span>';
 		$config['cur_tag_open'] = '<span class="page_cur">';
 		$config['cur_tag_close'] = '</span>';

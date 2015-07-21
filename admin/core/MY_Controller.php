@@ -7,11 +7,15 @@ class MY_Controller extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
+		$this->IsMobile = $_SESSION['AdminInfo']['is_mobile'];
 		/* IsLogin */
 		$logged = $_SESSION['AdminInfo']['logged_in'];
-		$this->IsMobile = $_SESSION['AdminInfo']['is_mobile'];
+		$ltime = @$_SESSION['UserInfo']['ltime'];
+		$ntime = time();
 		if(!$logged){
 			redirect('index_c/loginOut');
+		}else {
+			$_SESSION['AdminInfo']['ltime'] = time()+1800;
 		}
 		/* Prem */
 		$this->menuPrem();
