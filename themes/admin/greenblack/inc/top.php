@@ -11,6 +11,9 @@
 </head>
 
 <body class="top_bg">
+<?php if($isIE){?>
+	<div class="isIE"><?php echo $this->lang->line('admin_isIE');?></div>
+<?php }?>
 <header class="top_ct">
 	<div class="top_logo"><a href="http://www.ksphp.com" title="WebMIS" target="_blank">&nbsp;</a></div>
 	<ul class="nav">

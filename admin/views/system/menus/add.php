@@ -30,9 +30,9 @@
 	<tr>
 		<td class="tright">子权限:</td>
 		<td>
-			<?php foreach($action as $val){?>
-			<input type="checkbox" name="permVal" value="<?php echo $val->perm;?>" /><?php echo $val->name;?>&nbsp;&nbsp;
-			<?php }?>
+<?php foreach($action as $val){?>
+			<input type="checkbox" name="permVal" class="Checkbox" value="<?php echo $val->perm;?>" /><span class="inputText"><?php echo $val->name;?></span>
+<?php }?>
 			<input type="hidden" id="menus_perm" name="perm" value="0" />
 		</td>
 	</tr>
@@ -45,7 +45,7 @@
 	<tr>
 		<td class="tright">排序:</td>
 		<td>
-			<input type="text" name="sort" value="0" style="width: 30%;" />
+			<input type="text" name="sort" class="input" value="0" style="width: 80px;" />
 		</td>
 	</tr>
 	<tr>

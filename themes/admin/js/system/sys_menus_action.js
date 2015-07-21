@@ -17,7 +17,7 @@ $(function(){
 /*添加*/
 	$('#ico-add').click(function(){
 		if(!IsMobile){moWidth = 380;}
-		$.webmis.win('open',{title:'添加',width:moWidth,height:280});
+		$.webmis.win('open',{title:'添加',width:moWidth,height:240});
 		//加载内容
 		$.get($base_url+'sys_menus_action/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -35,7 +35,7 @@ $(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
 			if(!IsMobile){moWidth = 380;}
-			$.webmis.win('open',{title:'编辑',width:moWidth,height:280});
+			$.webmis.win('open',{title:'编辑',width:moWidth,height:240});
 			//加载内容
 			$.post($base_url+'sys_menus_action/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
