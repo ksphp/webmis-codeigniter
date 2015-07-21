@@ -49,16 +49,17 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .login_copy b{color: #666;}
 
 /*Top*/
-.top_ct{position: fixed; width: 100%; height: 50px; background: url("images/bg.jpg"); border-bottom: #000 1px solid; box-shadow: 0 0 5px #000;}
-.top_logo{float: left; padding-top: 5px;}
+.top_bg{background-color: #000;}
+.top_ct{position: fixed; width: 100%; height: 50px; background: url("images/bg.jpg"); border-bottom: #000 1px solid; box-shadow: 0 0 4px #333;}
+.top_logo{float: left; margin-top: 5px;}
 .top_logo a{width: 180px; height: 40px; background: url("images/logo.png") no-repeat center 4px; display: inline-block;}
 .top_link{position: absolute; z-index: 1; right: 0px; line-height: 50px; color: #999; padding: 0 10px;}
 .top_link a{color: #999;}
 .top_link a:hover{color: #FF6600;}
 
-.nav{float: left; height: 50px; line-height: 50px; border-left: #000 1px solid; border-right: #000 1px solid; background: #3D3D3D; box-shadow: 0 0 2px #000;}
-.nav li{float: left; height: 50px; border-right: #555 1px solid; box-shadow: 1px 0 0 #000;}
-.nav li a{font-size: 16px; height: 50px; display: inline-block; padding: 0 20px;}
+.nav{float: left; border-left: #000 1px solid; border-right: #000 1px solid; background: #3D3D3D;}
+.nav li{float: left; line-height: 48px; border-right: #555 1px solid; box-shadow: 1px 0 0 #000;}
+.nav li a{font-size: 16px; display: inline-block; padding: 0 20px;}
 
 .nav_an1{color: #FFF; border-left: #000 1px solid; background-color: #6FB737;}
 .nav_an1:hover{color: #FFF;}
@@ -73,7 +74,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .copy{line-height: 28px; color: #999; text-align: center; border-top: #B2B2B2 1px solid; background: url("images/line.png1") repeat-x;}
 .content{margin-top: 1px;}
 .ct_body{margin-top: 1px; overflow: hidden; padding-top: 50px;}
-.ct_left{overflow-y: auto; float: left; width: 200px; border-right: #666 1px solid; background: #E8E8E8; box-shadow: inset 0 0 3px #666; padding: 10px 0;}
+.ct_left{overflow-y: auto; float: left; width: 200px; border-right: #999 1px solid; background: #E8E8E8; box-shadow: inset 0 0 3px #CCC; padding: 10px 0;}
 .ct_right{overflow-y: auto; background: #FFF; margin-left: 200px; padding: 10px;}
 
 .left_copy{width: 90%; line-height: 28px; font-size: 11px; color: #999; text-align: center; border-top: #CCC 1px solid; box-shadow: inset 0 1px 0 #FFF; margin: 0 auto;}
@@ -86,7 +87,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .left_list li a{font-size: 13px; display: block; padding: 4px 10px;}
 .left_list li a em{position: relative; font-size: 16px; top: 2px;}
 
-.left_an1{background: #6FB737; color: #FFF; box-shadow: 0 0 2px #666; border-top: #EEE 1px solid; border-bottom: #EEE 1px solid;}
+.left_an1{background: #6FB737; color: #FFF; border-top: #EEE 1px solid; border-bottom: #EEE 1px solid; box-shadow: 0 0 2px #999;}
 .left_an1:hover{color: #FFF;}
 .left_an1 em{color: #FFF;}
 .left_an2{color: #333;}
@@ -122,7 +123,7 @@ Content UI
 .show_body{padding: 20px;}
 .show_title{height: 50px; line-height: 50px; text-align: center; font-size: 16px; font-weight: bold;}
 .show_other{text-align: center; color: #999; padding: 5px 0;}
-.show_summary{line-height: 24px; border: #CCC 1px solid; background: #F2F2F2; padding: 10px;}
+.show_summary{line-height: 24px; border: #CCC 1px solid; background: #FFF; padding: 10px;}
 .show_ct{line-height: 24px; font-size: 14px; padding-top: 10px;}
 .show_key{line-height: 24px; color: #999;}
 
@@ -145,8 +146,12 @@ Content UI
 .table .title{background: #F2F2F2;}
 
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF; box-shadow: 1px 1px 2px #BBB;}
-.table_list td{border: #BBB 1px solid; line-height: 30px; padding: 0 5px;}
-.table_list .title{height: 30px; color: #666; font-weight: bold; background: url("images/table_x.jpg") repeat-x #F2F2F2;}
+.table_list td{border: #CCC 1px solid; line-height: 32px; padding: 0 5px;}
+.table_list .title{height: 32px; color: #666; font-weight: bold;
+	background:-moz-linear-gradient(top, #FFF,#F2F4F6);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#F2F4F6));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF,endColorstr=#FFF,grandientType=1);
+}
 .table_list .text{padding: 10px 20px; background: #F2F2F2; text-align: left;}
 .table_list .text h1{font-size: 18px; border-bottom: #CCC 1px solid;}
 .table_list .text h2{font-size: 16px; border-bottom: #CCC 1px solid;}
@@ -165,7 +170,7 @@ Content UI
 .SubClass1{background: url("images/an_x.jpg") repeat-x;}
 .SubClass2{background: url("images/an_x.jpg") repeat-x 0 -35px;}
 
-.TableTrBg1{background: #F2F2F2;}
+.TableTrBg1{background: #F5F5F5;}
 .TableTrBg2{background: #DEDEDE;}
 
 /* Action */

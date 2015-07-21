@@ -28,8 +28,8 @@ em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font
 
 /* WebMisMsg */
 #WebMisWinBg{position: fixed; z-index:100; width: 100%; left: 0; top: 0; display: none; background-color: #000;}
-#WebMisWin{position: fixed; z-index:101; border: #FFF 1px solid; border-top: #6FB737 3px solid; background-color: #F2F2F2; margin: 0 auto; border-radius: 5px 5px 0 0; box-shadow: 0px 0px 8px #000;}
-.WebMisWin_top{cursor: all-scroll; height: 30px; line-height: 30px; border-bottom: #999 1px solid; background-color: #F2F2F2; padding: 0 5px; box-shadow: 0px 1px 0px #FFF;}
+#WebMisWin{position: fixed; z-index:101; border: #FFF 1px solid; border-top: #6FB737 3px solid; background-color: #F5F5F5; margin: 0 auto; border-radius: 5px 5px 0 0; box-shadow: 0px 0px 8px #000;}
+.WebMisWin_top{cursor: all-scroll; height: 30px; line-height: 30px; border-bottom: #CCC 1px solid; padding: 0 5px; box-shadow: 0px 1px 0px #FFF;}
 .WebMisWin_top .title{float: left; font-size: 13px; font-weight: bold; color: #666; padding: 0 10px;}
 .WebMisWin_top .close{float: right; color: #999;}
 .WebMisWin_top .close em:hover{color: #FF6600;}
@@ -38,9 +38,9 @@ em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font
 .WebMisWin_ct .load{text-align: center;}
 .WebMisWin_ct .onLoad{padding: 5px 10px; background:url(images/onLoad.gif) no-repeat center center;}
 
-.WebMisTopMenu a{cursor: pointer; height: 20px; line-height: 20px; display: inline-block; margin: 9px 2px 0px 2px; padding: 0 20px; border-radius: 3px 3px 0 0; box-shadow: 0px 0px 1px #999;}
+.WebMisTopMenu a{cursor: pointer; height: 20px; line-height: 20px; display: inline-block; margin: 9px 2px 0px 2px; padding: 0 20px; border-radius: 3px 3px 0 0;}
 .WebMisTopMenu .an1{border: #3F9707 1px solid; border-bottom: none; background-color: #6FB737; color: #FFF;}
-.WebMisTopMenu .an2{border: #999 1px solid; border-bottom: none; background-color: #E2E2E2; color: #333;}
+.WebMisTopMenu .an2{border: #CCC 1px solid; border-bottom: none; background-color: #F2F2F2; color: #333;}
 
 /* WebMisVod */
 #WebMisVodBg{position: fixed; z-index:100; width: 100%; left: 0; top: 0; display: none;}

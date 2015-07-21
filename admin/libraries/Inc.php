@@ -156,7 +156,7 @@ class Inc{
 		/* Other */
 		$data['list'] = $d['data'];
 		$data['page'] = $APP->pagination->create_links();
-		$data['total'] = '共<b> '.$config['total_rows'].' </b>条';
+		$data['total'] = 'Total：<b>'.$config['total_rows'].'</b>';
 		$data['key'] = $like;
 		$data['get_url'] = $get_url.'per_page='.$per_page;
 		
