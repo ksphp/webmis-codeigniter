@@ -169,7 +169,7 @@ function AddIMG(){
 	html += '<input type="hidden" id="ImgInput_'+num+'" name="img_url" value="" />';
 	html += '<input type="hidden" name="id" value="'+id+'" />';
 	html += '</div></form>';
-	html += '<div style="padding-top: 5px;">图片地址:<span id="ImgURL_'+num+'"></span></div>';
+	html += '<div style="padding-top: 5px;">图片地址：<span id="ImgURL_'+num+'"></span></div>';
 	html += '</td>';
 	html += '<td><a href="" onclick="RemoveIMG(\''+num+'\');return false;">删除</a></td>';
 	html += '</tr>';

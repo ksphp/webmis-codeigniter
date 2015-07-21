@@ -2,7 +2,6 @@
 class Inc{
 	//Web 三层视图
 	function adminView($APP, $url='', $data=''){
-		$APP->lang->load('admin');
 		// Is not IE9
 		$APP->load->library('user_agent');
 		if($APP->agent->is_browser() && $APP->agent->browser()=='Internet Explorer' && $APP->agent->version()<9){
@@ -47,10 +46,10 @@ class Inc{
 			}
 		}
 		//用户导航
+		$APP->lang->load('admin');
 		$actionHtml=$this->actionHtml($APP);
 		$userHtml = $this->userHtml();
-		
-		return array('Date'=>$data,'FID'=>$FID,'Ctitle'=>$FID['Ctitle'],'userHtml'=>$userHtml,'actionHtml'=>$actionHtml);
+		return array('Date'=>$data,'FID'=>$FID,'Ctitle'=>$APP->lang->line($FID['Ctitle']),'userHtml'=>$userHtml,'actionHtml'=>$actionHtml);
 	}
 	/* GetMenu */
 	private function getMenus($APP, $fid=''){

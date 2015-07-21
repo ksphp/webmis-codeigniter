@@ -24,8 +24,7 @@ class Web_news_m extends CI_Model {
 		$id = $id?$id:$this->input->post('id');
 		if($id){
 			$this->db->select($select);
-			$this->db->join($this->tableHtml, $this->table.'.id = '.$this->tableHtml.'.nid');
-			$query = $this->db->get_where($this->table,array($this->table.'.id'=>$id));
+			$query = $this->db->get_where($this->table, array('id' => $id));
 			$data = $query->row();
 			return $data;
 		}
@@ -40,18 +39,11 @@ class Web_news_m extends CI_Model {
 			$data['source'] = trim($this->input->post('source'));
 			$data['author'] = trim($this->input->post('author'));
 			$data['key'] = preg_replace("/ /",",",$this->input->post('key'));
-			$data['summary'] = $this->input->post('summary');
-			$data['uname'] = $_SESSION['uinfo']['uname'];
 			$data['ctime'] = trim($this->input->post('ctime'));
-			$contnet = $this->input->post('content');
+			$data['summary'] = $this->input->post('summary');
+			$data['content'] = $this->input->post('content');
 			//执行
-			$this->db->trans_start();
-			$this->db->insert($this->table,$data);
-			$dataHtml['nid'] = $this->db->insert_id();
-			$dataHtml['content'] = $contnet;
-			$this->db->insert($this->tableHtml,$dataHtml);
-			$this->db->trans_complete();
-			return $this->db->trans_status();
+			return $this->db->insert($this->table,$data);
 		}
 	}
 	/* Update */
@@ -65,14 +57,10 @@ class Web_news_m extends CI_Model {
 			$data['author'] = trim($this->input->post('author'));
 			$data['ctime'] = trim($this->input->post('ctime'));
 			$data['key'] = preg_replace("/ /",",",$this->input->post('key'));
-			$data['summary'] = $this->input->post('summary');
-			$contnet = $_POST['content'];
+			$data['summary'] = trim($this->input->post('summary'));
+			$data['content'] = $this->input->post('content');
 			//执行
-			$this->db->trans_start();
-			$this->db->update($this->table,$data,array('id'=>$id));
-			$this->db->update($this->tableHtml, array('content'=>$contnet),array('nid'=>$id));
-			$this->db->trans_complete();
-			return $this->db->trans_status();
+			return $this->db->update($this->table,$data,array('id'=>$id));
 		}
 	}
 	//更新图片
@@ -80,7 +68,7 @@ class Web_news_m extends CI_Model {
 		$id = $this->input->post('id');
 		if($id){
 			$this->db->where('id', $id);
-			return $this->db->update($this->table, $data)?true:false;
+			return $this->db->update($this->table, $data);
 		}
 	}
 	
@@ -96,7 +84,6 @@ class Web_news_m extends CI_Model {
 				$this->DelIMG($file->upload);
 				//删除数据
 				$this->db->delete($this->table,array('id'=>$val));
-				$this->db->delete($this->tableHtml,array('nid'=>$val));
 			}
 			$this->db->trans_complete();
 			return $this->db->trans_status();
@@ -104,7 +91,7 @@ class Web_news_m extends CI_Model {
 	}
 	//删除图片
 	private function DelIMG($url=''){
-		$path = '../upload/images/pro/';
+		$path = '../upload/images/news/';
 		$arr = array_filter(explode(',', $url));
 		foreach ($arr as $val){
 			@unlink($path.$val);

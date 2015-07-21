@@ -73,7 +73,7 @@
 	</tr>
 	<tbody id="listBG">
 <?php
-$path = "/upload/images/pro/";
+$path = "/upload/images/news/";
 $url = array_filter(explode(',', $edit->upload));
 $i = 0;
 foreach ($url as $val){
@@ -82,7 +82,7 @@ foreach ($url as $val){
 	<tr id="ImgCT_<?php echo $i;?>">
 		<td><a href="<?php echo $path.$val;?>" id="ImgShow_<?php echo $i;?>" target="_black" title="点击查看"><img src="<?php echo $path.$val;?>" width="100" height="65" /></a></td>
 		<td class="tleft">
-			<form action="<?php echo base_url('web_pro/upImgData/'.$i.'.html');?>" method="post" enctype="multipart/form-data" id="upIMG_<?php echo $i;?>">
+			<form action="<?php echo base_url('web_news/upImgData/'.$i.'.html');?>" method="post" enctype="multipart/form-data" id="upIMG_<?php echo $i;?>">
 			<div>
 				<input type="file" name="upimg_<?php echo $i;?>" size="20" />
 				<input type="submit" id="ImgSub" value="上传" />

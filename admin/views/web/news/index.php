@@ -28,8 +28,7 @@
 		<td><input type="checkbox" value="<?php echo $val->id;?>" /></td>
 		<td><?php echo $val->id;?></td>
 		<td class="tleft">
-			<a href="#" onclick="newsShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a>
-			<?php echo $val->img?' <span class="c666">[ 图 ]</span>':'';?>
+			<a href="#" onclick="newsShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a><?php echo $val->img?'<span class="c666">[图]</span>':'';?>
 		</td>
 		<td class="tleft">
 			<?php
