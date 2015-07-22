@@ -46,10 +46,13 @@ class Inc{
 			}
 		}
 		//用户导航
-		$APP->lang->load('admin');
+		$APP->lang->load('inc');
+		$APP->lang->load('menu');
 		$actionHtml=$this->actionHtml($APP);
-		$userHtml = $this->userHtml();
-		return array('Date'=>$data,'FID'=>$FID,'Ctitle'=>$APP->lang->line($FID['Ctitle']),'userHtml'=>$userHtml,'actionHtml'=>$actionHtml);
+		$userHtml = $this->userHtml($APP);
+		$title = $APP->lang->line($FID['Ctitle']);
+		$title = $title?$title:$FID['Ctitle'];
+		return array('Date'=>$data,'FID'=>$FID,'Ctitle'=>$title,'userHtml'=>$userHtml,'actionHtml'=>$actionHtml);
 	}
 	/* GetMenu */
 	private function getMenus($APP, $fid=''){
@@ -84,10 +87,12 @@ class Inc{
 		$html = '';
 		foreach($action as $val){
 			if(intval($permArr[$APP->Cid])&intval($val->perm)){
+				$title = $APP->lang->line($val->name);
+				$title = $title?$title:$val->name;
 				if($i == 1){
-					$html .= '<li><a href="'.base_url().$APP->config->config['index_url'].$APP->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>'.$val->name.'</a></li>';
+					$html .= '<li><a href="'.base_url().$APP->config->config['index_url'].$APP->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>'.$title.'</a></li>';
 				}else{
-					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>'.$val->name.'</a></li>';
+					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>'.$title.'</a></li>';
 				}
 			}
 			$i++;
@@ -95,14 +100,14 @@ class Inc{
 		return $html;
 	}
 	/* User Html */
-	private function userHtml(){
+	private function userHtml($APP){
 		@session_start();
 		$UserLogin = @$_SESSION['AdminInfo']['logged_in'];
 		if($UserLogin == TRUE){
 			$_SESSION['AdminInfo']['ltime'] = time()+1800;
-			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>&nbsp;['.$_SESSION['AdminInfo']['department'].'-'.$_SESSION['AdminInfo']['name'].']&nbsp;|&nbsp;<a href="'.base_url('index_c/loginOut.html').'"><b>注销</b></a>';
+			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>[ <a href="'.base_url('sys_config.html').'">'.$APP->lang->line('menu_sys_m_config').'</a> ]&nbsp;|&nbsp;<a href="'.base_url('index_c/loginOut.html').'"><b>'.$APP->lang->line('inc_loginOut').'</b></a>';
 		}else{
-			$html = '<a href="'.base_url('../').'"><b>请登陆</b></a>';
+			redirect('index_c');
 		}
 		return $html;
 	}

@@ -1,11 +1,13 @@
 <?php
-$lang['admin_uname'] = 'UserName';
-$lang['admin_passwd'] = 'PassWord';
-$lang['admin_login'] = 'Login';
-$lang['admin_home'] = 'Home';
-$lang['admin_pc'] = 'Computer';
-$lang['admin_mobile'] = 'Mobile';
-$lang['admin_isIE'] = 'Please use IE 9 or above or other browsers！';
+$lang['action_list'] = 'ListView';
+$lang['action_sea'] = 'Search';
+$lang['action_add'] = 'Add';
+$lang['action_edit'] = 'Edit';
+$lang['action_remove'] = 'Remove';
+$lang['action_audit'] = 'Audits';
+$lang['action_export'] = 'Export';
+$lang['action_import'] = 'Import';
+$lang['action_chart'] = 'Chart';
 
 $lang['menu_home'] = 'Home';
 $lang['menu_system'] = 'System';

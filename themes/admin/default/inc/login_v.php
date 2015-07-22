@@ -13,7 +13,7 @@
 
 <body class="login_bg">
 <?php if($isIE){?>
-	<div class="isIE"><?php echo $this->lang->line('admin_isIE');?></div>
+	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
 <?php }?>
 <section class="login_top_bg">
 	<section class="login_body">
@@ -22,18 +22,18 @@
 			<span id="webmisVersion" class="login_top_title">WebMIS</span>
 		</header>
 		<aside class="login_ct">
-			<span class="text"><input type="text" id="uname" /><br><?php echo $this->lang->line('admin_uname');?>：</span>
-			<span class="text"><input type="password" id="passwd" /><br><?php echo $this->lang->line('admin_passwd');?>：</span>
+			<span class="text"><input type="text" id="uname" /><br><?php echo $this->lang->line('inc_uname');?>：</span>
+			<span class="text"><input type="password" id="passwd" /><br><?php echo $this->lang->line('inc_passwd');?>：</span>
 			<div class="login_ct_an">
 				<span class="line1 UI">&nbsp;</span>
-				<span id="adminLogin" class="an" title="<?php echo $this->lang->line('admin_login');?>">&nbsp;</span>
+				<span id="adminLogin" class="an" title="<?php echo $this->lang->line('inc_login');?>">&nbsp;</span>
 			</div>
 		</aside>
 		<footer class="login_copy">
 			Copyright © <?php echo $this->config->config['copy'];?> All rights are reserved.<br>
-			<a href="<?php echo base_url('../'); ?>" ><?php echo $this->lang->line('admin_home');?></a>&nbsp;|&nbsp;
-			<a href="<?php echo base_url('?mode=pc'); ?>" ><?php echo $this->lang->line('admin_pc');?></a>&nbsp;|&nbsp;
-			<a href="<?php echo base_url('?mode=mobile'); ?>" ><?php echo $this->lang->line('admin_mobile');?></a>
+			<a href="<?php echo base_url('../'); ?>" ><?php echo $this->lang->line('inc_home');?></a>&nbsp;|&nbsp;
+			<a href="<?php echo base_url('?mode=pc'); ?>" ><?php echo $this->lang->line('inc_pc');?></a>&nbsp;|&nbsp;
+			<a href="<?php echo base_url('?mode=mobile'); ?>" ><?php echo $this->lang->line('inc_mobile');?></a>
 		</footer>
 	</section>
 </section>

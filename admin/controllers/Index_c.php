@@ -4,7 +4,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index_c extends CI_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('admin');
+		$this->lang->load('inc');
 		// Is not IE9
 		$this->load->library('user_agent');
 		if($this->agent->is_browser() && $this->agent->browser()=='Internet Explorer' && $this->agent->version()<9){

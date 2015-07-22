@@ -1,11 +1,13 @@
 <?php
-$lang['admin_uname'] = '用户名';
-$lang['admin_passwd'] = '密码';
-$lang['admin_login'] = '登录';
-$lang['admin_home'] = '网站首页';
-$lang['admin_pc'] = '电脑版';
-$lang['admin_mobile'] = '手机版';
-$lang['admin_isIE'] = '请使用IE 9以上或其他浏览器！';
+$lang['action_list'] = '列表';
+$lang['action_sea'] = '搜索';
+$lang['action_add'] = '添加';
+$lang['action_edit'] = '编辑';
+$lang['action_remove'] = '删除';
+$lang['action_audit'] = '审核';
+$lang['action_export'] = '导出';
+$lang['action_import'] = '导入';
+$lang['action_chart'] = '图表';
 
 $lang['menu_home'] = '首页';
 $lang['menu_system'] = '系统';

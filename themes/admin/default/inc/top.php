@@ -12,7 +12,7 @@
 
 <body class="top_bg">
 <?php if($isIE){?>
-	<div class="isIE"><?php echo $this->lang->line('admin_isIE');?></div>
+	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
 <?php }?>
 <header id="top" class="top">
 	<div class="top_logo"><a href="http://www.ksphp.com" title="WebMIS" target="_blank">&nbsp;</a></div>
@@ -28,9 +28,11 @@ $menusTitle = '';
 foreach ($Menus['Date'] as $val){
 	$an = $val['id']==$Menus['FID']['FID1']?'nav_an1':'nav_an2';
 	$ico = $val['ico']?'<em class="'.$val['ico'].'"></em>':'';
+	$title = $this->lang->line($val['title']);
+	$title = $title?$title:$val['title'];
 	if(@$val['menus']){$menus = $val['menus'];$menusTitle=$this->lang->line($val['title']);}
 ?>
-			<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$this->lang->line($val['title']);?></a>
+			<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$title;?></a>
 			<li class="UI lines">&nbsp;</li>
 <?php }?>
 		</ul>
@@ -46,14 +48,18 @@ foreach ($Menus['Date'] as $val){
 				<div class="menuOne">
 <?php if($menus){foreach ($menus as $val1){
 	$an = $val1['id']==$Menus['FID']['FID2']?'menu_an_bg2':'menu_an_bg1';
+	$title = $this->lang->line($val1['title']);
+	$title = $title?$title:$val1['title'];
 ?>
-					<div class="<?php echo $an;?> UI" onclick="menuTwo('<?php echo $val1['id'];?>',$(this))"><span class="title"><?php echo $this->lang->line($val1['title']);?></span><span id="tu" class="jian UI">&nbsp;</span></div>
+					<div class="<?php echo $an;?> UI" onclick="menuTwo('<?php echo $val1['id'];?>',$(this))"><span class="title"><?php echo $title;?></span><span id="tu" class="jian UI">&nbsp;</span></div>
 					<ul id="menuThree_<?php echo $val1['id'];?>" class="menu_list">
 <?php if(@$val1['menus']){foreach ($val1['menus'] as $val2){
 	$an = $val2['id']==$Menus['FID']['FID3']?'menu_an1':'menu_an2';
 	$ico = $val2['ico']?'<em class="'.$val2['ico'].'"></em>':'';
+	$title = $this->lang->line($val2['title']);
+	$title = $title?$title:$val2['title'];
 ?>
-						<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val2['title'];?></a></li>
+						<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$title;?></a></li>
 <?php }}?>
 					</ul>
 <?php }}?>
