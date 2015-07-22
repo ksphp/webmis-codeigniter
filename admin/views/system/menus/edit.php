@@ -10,7 +10,7 @@
 	<tr>
 		<td class="tright">菜单名:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 70%;" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" value="<?php echo $edit->title;?>" />
+			<input type="text" name="title" class="input" style="width: 70%;" datatype="s2-32" errormsg="2~32个字符！" value="<?php echo $edit->title;?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

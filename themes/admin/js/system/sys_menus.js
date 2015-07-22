@@ -16,7 +16,7 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		if(!IsMobile){moWidth = 700; moHeight= 520;}
+		if(!IsMobile){moWidth = 720; moHeight= 560;}
 		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_menus/add.html',function(data){
@@ -30,7 +30,7 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 700; moHeight= 520;}
+			if(!IsMobile){moWidth = 720; moHeight= 560;}
 			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'sys_menus/edit.html',{'id':id},function(data){

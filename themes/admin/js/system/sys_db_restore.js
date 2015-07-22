@@ -7,8 +7,8 @@ $(function(){
 	$('#ico-imp').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 420;}
-			$.webmis.win('open',{title:'导入',width:moWidth,height:180});
+			if(!IsMobile){moWidth = 450;}
+			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:200});
 			$.post($base_url+'sys_db_restore/imp.html',{'file':id},function(data){
 				$.webmis.win('load',data);   //加载内容
 				impForm();  //表单验证
@@ -20,25 +20,7 @@ $(function(){
 	});
 /*删除*/
 	$('#ico-del').click(function(){
-		var id = $('#listBG').webmis('GetInputID',{type:','});
-		if(id!=','){
-			$.webmis.win('open',{title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
-			$('#delSub').webmis('SubClass'); //按钮样式
-			//点击提交
-			$('#delSub').click(function(){
-				$.post($base_url+'sys_db_restore/delData.html',{'id':id},function(data){
-					if(data){
-						$.webmis.win('close');
-						$.webmis.win('open',{content:'<b class="green">删除成功</b>',target:'sys_db_restore.html',AutoClose:3});
-					}else{
-						$.webmis.win('close');
-						$.webmis.win('open',{content:'<b class="red">删除失败</b>',AutoClose:3});
-					}
-				});
-			});
-		}else{
-			$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
-		}
+		actionDel('sys_db_restore/delData.html','sys_db_restore.html');
 		return false;
 	});
 });

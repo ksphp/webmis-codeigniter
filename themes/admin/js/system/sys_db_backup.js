@@ -7,8 +7,8 @@ $(function(){
 	$('#ico-exp').click(function(){
 		var id = $('#listBG').webmis('GetInputID',{type:' '});
 		if(id!=' '){
-			if(!IsMobile){moWidth = 480; moHeight= 360;}
-			$.webmis.win('open',{title:'导出',width:moWidth,height:moHeight,overflow:true});
+			if(!IsMobile){moWidth = 520; moHeight= 420;}
+			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 			$.post($base_url+'sys_db_backup/exp.html',{'table':id},function(data){
 				$.webmis.win('load',data);   //加载内容
 				expForm();  //表单验证
@@ -16,6 +16,11 @@ $(function(){
 		}else{
 			$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
 		}
+		return false;
+	});
+/*删除*/
+	$('#ico-del').click(function(){
+		actionDel('sys_db_backup/delData.html','sys_db_backup.html');
 		return false;
 	});
 });

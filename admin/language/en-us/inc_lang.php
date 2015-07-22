@@ -10,3 +10,5 @@ $lang['inc_isIE'] = 'Please use IE 9 or above or other browsers！';
 $lang['inc_loginOut'] = 'LoginOut';
 
 $lang['inc_save'] = 'Save';
+$lang['inc_export'] = 'Export';
+$lang['inc_import'] = 'Import';

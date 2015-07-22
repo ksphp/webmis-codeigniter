@@ -45,17 +45,17 @@ DROP TABLE IF EXISTS `wmis_sys_admin`;
 
 CREATE TABLE `wmis_sys_admin` (
   `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `uname` varchar(16) NOT NULL COMMENT '用户名',
-  `password` varchar(32) NOT NULL COMMENT '密码',
-  `email` varchar(32) NOT NULL COMMENT '邮箱',
-  `name` varchar(12) DEFAULT NULL COMMENT '姓名',
-  `department` varchar(12) DEFAULT NULL COMMENT '部门',
-  `position` varchar(12) DEFAULT NULL COMMENT '职位',
-  `rtime` datetime DEFAULT NULL COMMENT '注册时间',
-  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
-  `perm` text COMMENT '权限',
+  `uname` varchar(16) NOT NULL COMMENT 'UserName',
+  `password` varchar(32) NOT NULL COMMENT 'PassWord',
+  `email` varchar(32) NOT NULL COMMENT 'Email',
+  `name` varchar(24) DEFAULT NULL COMMENT 'Name',
+  `department` varchar(12) DEFAULT NULL COMMENT 'Department',
+  `position` varchar(12) DEFAULT NULL COMMENT 'Position',
+  `rtime` datetime DEFAULT NULL COMMENT 'Registration time',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT 'State',
+  `perm` text COMMENT 'Authority',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
 
@@ -71,11 +71,11 @@ CREATE TABLE `wmis_sys_menus` (
   `fid` int(3) NOT NULL COMMENT 'FID',
   `title` varchar(32) NOT NULL COMMENT 'Name',
   `url` varchar(24) NOT NULL COMMENT 'Controller',
-  `perm` varchar(6) NOT NULL DEFAULT '0' COMMENT '动作权限',
-  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `perm` varchar(6) NOT NULL DEFAULT '0' COMMENT 'Authority',
+  `ico` varchar(12) DEFAULT NULL COMMENT 'ICON',
   `remark` varchar(30) DEFAULT NULL COMMENT 'Remark',
-  `ctime` datetime DEFAULT NULL COMMENT '创建时间',
-  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
+  `ctime` datetime DEFAULT NULL COMMENT 'Create time',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT 'Sort',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
@@ -100,7 +100,7 @@ INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remar
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('19', '17', 'menu_web_class', 'class_web', '63', NULL, NULL, '2012-03-31 10:45:05', '0');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('22', '5', 'menu_sys_m_config', 'sys_config', '1', 'ico-system2', NULL, '2012-05-30 19:12:52', '0');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('23', '2', 'menu_sys_database', '#', '0', 'ico-db', NULL, '2012-08-16 14:06:33', '0');
-INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('24', '23', 'menu_sys_db_backup', 'sys_db_backup', '65', 'ico-exp', NULL, '2012-08-16 14:09:42', '0');
+INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('24', '23', 'menu_sys_db_backup', 'sys_db_backup', '81', 'ico-exp', '', '2012-08-16 14:09:42', '0');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('25', '23', 'menu_sys_db_recovery', 'sys_db_restore', '145', 'ico-imp', NULL, '2012-08-16 14:10:19', '0');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('26', '5', 'menu_sys_m_files', 'sys_filemanager', '1', 'ico-fileM', NULL, '2013-07-03 13:33:29', '0');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('29', '0', 'menu_log', 'log', '0', 'ico-logs', NULL, '2014-06-25 12:30:26', '4');
@@ -114,21 +114,21 @@ DROP TABLE IF EXISTS `wmis_sys_menus_action`;
 
 CREATE TABLE `wmis_sys_menus_action` (
   `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(6) NOT NULL COMMENT '名称',
-  `perm` varchar(6) NOT NULL COMMENT '权限值',
-  `ico` varchar(12) DEFAULT NULL COMMENT '图标样式',
+  `name` varchar(32) NOT NULL COMMENT 'Name',
+  `perm` varchar(6) NOT NULL COMMENT 'Authority',
+  `ico` varchar(12) DEFAULT NULL COMMENT 'ICON',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('1', '列表', '1', 'ico-list');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('2', '搜索', '2', 'ico-search');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('3', '添加', '4', 'ico-add');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('4', '编辑', '8', 'ico-edit');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('5', '删除', '16', 'ico-del');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('6', '审核', '32', 'ico-audit');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('7', '导出', '64', 'ico-exp');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('8', '导入', '128', 'ico-imp');
-INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('9', '图表', '256', 'ico-chart');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('1', 'action_list', '1', 'ico-list');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('2', 'action_sea', '2', 'ico-search');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('3', 'action_add', '4', 'ico-add');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('4', 'action_edit', '8', 'ico-edit');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('5', 'action_remove', '16', 'ico-del');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('6', 'action_audit', '32', 'ico-audit');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('7', 'action_export', '64', 'ico-exp');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('8', 'action_import', '128', 'ico-imp');
+INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('9', 'action_chart', '256', 'ico-chart');
 
 
 #

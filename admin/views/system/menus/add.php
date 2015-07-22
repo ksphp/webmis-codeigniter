@@ -10,14 +10,14 @@
 	<tr>
 		<td class="tright">菜单名:</td>
 		<td>
-			<input type="text" name="title" class="input" style="width: 70%;" datatype="s2-12" errormsg="至少2个字符,最多12个字符！" />
+			<input type="text" name="title" class="input" style="width: 70%;" datatype="s2-32" errormsg="2~32个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="tright">URL:</td>
 		<td>
-			<input type="text" name="url" class="input" style="width: 70%;" datatype="*1-32" errormsg="至少1个字符,最多32个字符！" />
+			<input type="text" name="url" class="input" style="width: 70%;" datatype="*0-32" errormsg="至少1个字符,最多32个字符！" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

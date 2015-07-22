@@ -10,3 +10,5 @@ $lang['inc_isIE'] = '请使用IE 9以上或其他浏览器！';
 $lang['inc_loginOut'] = '注销';
 
 $lang['inc_save'] = '保存';
+$lang['inc_export'] = '导出';
+$lang['inc_import'] = '导入';

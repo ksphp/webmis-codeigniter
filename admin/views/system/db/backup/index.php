@@ -13,9 +13,9 @@
 <table class="table_list">
 	<tr class="title" id="menus_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
-		<td>表名</td>
-		<td>字段</td>
-		<td>条数</td>
+		<td><?php echo $this->lang->line('sys_db_backup_table');?></td>
+		<td><?php echo $this->lang->line('sys_db_backup_field');?></td>
+		<td><?php echo $this->lang->line('sys_db_backup_num');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($table as $val){?>

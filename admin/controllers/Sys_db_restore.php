@@ -2,6 +2,7 @@
 class Sys_db_restore extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('system/sys_db');
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$this->load->helper('file');
@@ -23,13 +24,12 @@ class Sys_db_restore extends MY_Controller {
 	}
 	/* Delete */
 	public function delData(){
-		
 		$file = array_filter(explode(',', $this->input->post('id')));
 		foreach($file as $val){
-			if(unlink($this->config->config['backup'].'/'.$val)){
-				$data = true;
+			if(unlink($this->config->config['backup'].'/'.trim($val))){
+				$data = '{"status":"y"}';
 			}else{
-				$data = false;
+				$data = '{"status":"n"}';
 				break;
 			}
 		}
@@ -37,6 +37,8 @@ class Sys_db_restore extends MY_Controller {
 	}
 	/* Import */
 	public function imp(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_db');
 		/* Config */
 		$data['file'] = $this->config->config['backup'].'/'.$this->input->post('file');
 		$this->load->view('system/db/restore/imp',$data);

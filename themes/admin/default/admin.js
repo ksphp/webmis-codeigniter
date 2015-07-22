@@ -76,10 +76,12 @@ function menuTwo(id,type){
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
+		$.webmis.win('open',{title:$('#ico-del').text(),width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
 		$('#delSub').webmis('SubClass'); //按钮样式
 		//点击提交
+		var lock = false;
 		$('#delSub').click(function(){
+			if(lock){return;} lock=true;
 			$.post($base_url+dataUrl,{'id':id},function(data){
 				if(data){
 					$.webmis.win('close');
@@ -89,7 +91,8 @@ function actionDel(dataUrl,targetUrl) {
 					$.webmis.win('close');
 					$.webmis.win('open',{content:'<b class="red">删除失败</b>',AutoClose:3});
 				}
-			});
+				lock=false;
+			},'json');
 		});
 	}else{
 		$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});

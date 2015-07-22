@@ -13,9 +13,9 @@
 <table class="table_list">
 	<tr class="title" id="menus_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
-		<td>文件名</td>
-		<td>大小</td>
-		<td>创建时间</td>
+		<td><?php echo $this->lang->line('sys_db_restore_filename');?></td>
+		<td width="90"><?php echo $this->lang->line('sys_db_restore_size');?></td>
+		<td width="120"><?php echo $this->lang->line('sys_db_restore_ctime');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($file as $val){?>

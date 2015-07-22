@@ -2,6 +2,7 @@
 class Sys_db_backup extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('system/sys_db');
 		$this->load->library('inc');
 		$this->load->model('sys_db_m');
 		$data['table'] = $this->sys_db_m->getTableList();
@@ -9,8 +10,15 @@ class Sys_db_backup extends MY_Controller {
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		$this->inc->adminView($this,'system/db/backup/index',$data);
 	}
+	/* Delete */
+	public function delData(){
+		$this->load->model('sys_db_m');
+		echo $this->sys_db_m->delTable()?'{"status":"y"}':'{"status":"n"}';
+	}
 	/* Export */
 	public function exp(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_db');
 		/*Config*/
 		$data['fname'] = 'Data_'.date('Y_m_d_His');
 		$data['backdir'] = $this->config->config['backup'];
@@ -38,6 +46,6 @@ class Sys_db_backup extends MY_Controller {
 			'newline'     => "\n"
 		);
 		$backup = $this->dbutil->backup($prefs);
-		echo write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n"}'; 
+		echo write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n"}';
 	}
 }

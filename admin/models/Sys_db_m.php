@@ -14,5 +14,17 @@ class Sys_db_m extends CI_Model {
 		}
 		return $data;
 	}
+	/* Remove Table */
+	function delTable(){
+		$id = trim($this->input->post('id'));
+		if($id){
+			$this->db->trans_start();
+			$arr = array_filter(explode(' ', $id));
+			foreach($arr as $val){
+				$this->db->query('DROP TABLE '.$val);
+			}
+			$this->db->trans_complete();
+			return $this->db->trans_status();
+		}else{return FALSE;}
+	}
 }
-?>
