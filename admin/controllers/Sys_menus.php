@@ -2,6 +2,7 @@
 class Sys_menus extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('system/sys_menu');
 		$this->load->helper('my');
 		$this->load->library('inc');
 		$data = $this->inc->Page($this,array('url'=>'sys_menus/index.html','model'=>'sys_menus_m'));
@@ -15,10 +16,15 @@ class Sys_menus extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_menu');
 		$this->load->view('system/menus/sea');
 	}
 	/* Add */
 	public function add(){
+		$this->lang->load('inc');
+		$this->lang->load('menu');
+		$this->lang->load('system/sys_menu');
 		$this->load->model('sys_menus_action_m');
 		$data['action'] = $this->sys_menus_action_m->getAll();
 		$this->load->view('system/menus/add',$data);
@@ -29,13 +35,24 @@ class Sys_menus extends MY_Controller {
 	}
 	/* GetMenu */
 	public function getMenu(){
+		$this->lang->load('menu');
 		$this->load->model('sys_menus_m');
 		$fid = $this->input->post('fid');
 		$data = $this->sys_menus_m->getMenus($fid);
+		$i = 0;
+		foreach ($data as $val){
+			$title = $this->lang->line($val->title);
+			$title = $title?$title:$val->title;
+			$data[$i]->title = $title;
+			$i++;
+		}
 		echo json_encode($data);
 	}
 	/* Edit */
 	public function edit(){
+		$this->lang->load('inc');
+		$this->lang->load('menu');
+		$this->lang->load('system/sys_menu');
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
 		$data['edit'] = $this->sys_menus_m->getOne();
@@ -53,6 +70,6 @@ class Sys_menus extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->load->model('sys_menus_m');
-		echo $this->sys_menus_m->del();
+		echo $this->sys_menus_m->del()?'{"status":"y"}':'{"status":"n"}';
 	}
 }

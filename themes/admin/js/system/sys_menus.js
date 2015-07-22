@@ -6,7 +6,7 @@ $(function(){
 /*搜索*/
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 420;}
-		$.webmis.win('open',{title:'搜索',width:moWidth,height:320});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:320});
 		//加载内容
 		$.get($base_url+'sys_menus/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -16,8 +16,8 @@ $(function(){
 	});
 /*添加*/
 	$('#ico-add').click(function(){
-		if(!IsMobile){moWidth = 720; moHeight= 560;}
-		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
+		if(!IsMobile){moWidth = 720; moHeight= 540;}
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_menus/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -30,8 +30,8 @@ $(function(){
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
-			if(!IsMobile){moWidth = 720; moHeight= 560;}
-			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
+			if(!IsMobile){moWidth = 720; moHeight= 540;}
+			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'sys_menus/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容

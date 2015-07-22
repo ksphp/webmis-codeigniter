@@ -9,6 +9,17 @@ $lang['inc_isIE'] = 'Please use IE 9 or above or other browsers！';
 
 $lang['inc_loginOut'] = 'LoginOut';
 
+$lang['inc_sea'] = 'Search';
 $lang['inc_save'] = 'Save';
+$lang['inc_add'] = 'Add';
+$lang['inc_edit'] = 'Edit';
+$lang['inc_remove'] = 'Remove';
 $lang['inc_export'] = 'Export';
 $lang['inc_import'] = 'Import';
+
+$lang['inc_form_null'] = 'Not Null';
+$lang['inc_form_pass'] = 'Pass';
+$lang['inc_form_suc'] = 'Success';
+$lang['inc_form_err'] = 'Error';
+$lang['inc_form_char'] = ' character！';
+$lang['inc_form_num'] = ' number！';

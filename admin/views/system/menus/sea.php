@@ -7,25 +7,25 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">菜单名:</td>
+		<td class="tright"><?php echo $this->lang->line('sys_menu_name');?>:</td>
 		<td>
 			<input type="text" name="title" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">URL:</td>
+		<td class="tright"><?php echo $this->lang->line('sys_menu_cname');?>:</td>
 		<td>
 			<input type="text" name="url" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">动作值:</td>
+		<td class="tright"><?php echo $this->lang->line('sys_menu_perm');?>:</td>
 		<td>
 			<input type="text" name="perm" class="input" style="width: 50%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">图标:</td>
+		<td class="tright"><?php echo $this->lang->line('sys_menu_icon');?>:</td>
 		<td>
 			<input type="text" name="ico" class="input" style="width: 50%;" />
 		</td>
@@ -33,7 +33,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" id="seaSub" name="search" value="搜索" />
+			<input type="submit" id="seaSub" name="search" value="<?php echo $this->lang->line('inc_sea');?>" />
 		</td>
 	</tr>
 </table>

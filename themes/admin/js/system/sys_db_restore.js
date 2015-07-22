@@ -28,9 +28,7 @@ $(function(){
 /*表单验证*/
 function impForm(){
 	$('#impSub').webmis('SubClass'); //按钮样式
-	$("#restoreForm").Validform({
-		ajaxPost:true,
-		tiptype:2,
+	$("#restoreForm").Validform({ajaxPost:true,tiptype:2,
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){
