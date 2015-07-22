@@ -10,7 +10,7 @@ $config['backup'] = 'backup';
 $config['admin_themes'] = 'greenblack';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
-$config['language'] = 'en-us';  // en-us,zh-cn
+$config['language'] = 'zh-cn';  // en-us,zh-cn
 
 $config['base_url'] = '';
 $config['index_page'] = '';
