@@ -29,19 +29,20 @@ DROP TABLE IF EXISTS `wmis_sys_admin`;
 
 CREATE TABLE `wmis_sys_admin` (
   `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `uname` varchar(16) NOT NULL COMMENT '用户名',
-  `password` varchar(32) NOT NULL COMMENT '密码',
-  `email` varchar(32) NOT NULL COMMENT '邮箱',
-  `name` varchar(12) DEFAULT NULL COMMENT '姓名',
-  `department` varchar(12) DEFAULT NULL COMMENT '部门',
-  `position` varchar(12) DEFAULT NULL COMMENT '职位',
-  `rtime` datetime DEFAULT NULL COMMENT '注册时间',
-  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT '状态',
-  `perm` text COMMENT '权限',
+  `uname` varchar(16) NOT NULL COMMENT 'UserName',
+  `password` varchar(32) NOT NULL COMMENT 'PassWord',
+  `email` varchar(32) NOT NULL COMMENT 'Email',
+  `name` varchar(24) DEFAULT NULL COMMENT 'Name',
+  `department` varchar(12) DEFAULT NULL COMMENT 'Department',
+  `position` varchar(12) DEFAULT NULL COMMENT 'Position',
+  `rtime` datetime DEFAULT NULL COMMENT 'Registration time',
+  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT 'State',
+  `perm` text COMMENT 'Authority',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO `wmis_sys_admin` (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES ('1', 'admin', '8d37796cd6857b5b2d6721b2d25829ee', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO `wmis_sys_admin` (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES ('1', 'admin', '8d37796cd6857b5b2d6721b2d25829ee', 'admin@ksphp.com', 'Administrator', 'Department', 'Position', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO `wmis_sys_admin` (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES ('2', 'webmis', '062d13422d6f79880a24408445f214ec', 'test@ksphp.com', 'Test', 'Test', 'Test', '2015-07-22 10:44:58', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 13:3 11:1');
 
 
 #
