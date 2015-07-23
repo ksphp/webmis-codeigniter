@@ -37,7 +37,7 @@
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['admin_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }}?>
 			</select>
-			<br/><span class="c2"> themes/admin</span>
+			<br/><span class="c2"><?php echo $URL;?>themes/admin</span>
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +48,7 @@
 				<option value ="<?php echo $val['name'];?>" <?php echo $this->config->config['webmis_themes']==$val['name']?'selected = "selected"':'';?>><?php echo $val['name'];?></option>
 <?php }?>
 			</select>
-			<br/><span class="c2"> webmis/themes/</span>
+			<br/><span class="c2"><?php echo $URL;?>webmis/themes/</span>
 		</td>
 	</tr>
 	<tr>

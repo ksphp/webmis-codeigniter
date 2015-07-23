@@ -6,6 +6,9 @@ class Sys_config extends MY_Controller {
 		$this->load->helper('my');
 		$this->load->library('inc');
 		$this->load->helper('file');
+		/* URL */
+		$url = explode(':', base_url());
+		$data['URL'] = $url[0].'://'.$_SERVER['SERVER_NAME'].'/';
 		/* Admin Themes */
 		$data['admin_themes'] = get_dir_file_info('../themes/admin');
 		/* WebMIS Themes */
