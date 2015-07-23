@@ -14,14 +14,14 @@
 	<tr class="title" id="admin_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td width="60">ID</td>
-		<td width="120">用户名</td>
-		<td>Email</td>
-		<td width="80">姓名</td>
-		<td width="80">部门</td>
-		<td width="120">职务</td>
-		<td width="120">注册时间</td>
-		<td width="40">状态</td>
-		<td width="40">权限</td>
+		<td width="120"><?php echo $this->lang->line('sys_admin_uname');?></td>
+		<td><?php echo $this->lang->line('sys_admin_email');?></td>
+		<td width="80"><?php echo $this->lang->line('sys_admin_name');?></td>
+		<td width="80"><?php echo $this->lang->line('sys_admin_dept');?></td>
+		<td width="120"><?php echo $this->lang->line('sys_admin_position');?></td>
+		<td width="120"><?php echo $this->lang->line('sys_admin_rtime');?></td>
+		<td width="40"><?php echo $this->lang->line('sys_admin_state');?></td>
+		<td width="40"><?php echo $this->lang->line('sys_admin_perm');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
@@ -35,7 +35,7 @@
 		<td><?php echo keyHH($val->position, @$key['position']);?></td>
 		<td><?php echo keyHH($val->rtime, @$key['rtime']);?></td>
 		<td><?php echo $val->state==1?'<span class="green">启用</span>':'<span class="red">禁用</span>';?></td>
-		<td><a href="#" id="editPerm<?php echo $val->id;?>" title="<?php echo $val->perm;?>" onclick="editPerm(<?php echo $val->id;?>)">编辑</a></td>
+		<td><a href="#" id="editPerm<?php echo $val->id;?>" title="<?php echo $val->perm;?>" onclick="editPerm(<?php echo $val->id;?>,'<?php echo $this->lang->line('sys_admin_permEdit');?>');return false;"><?php echo $this->lang->line('sys_admin_permEdit');?></a></td>
 	</tr>
 	<?php } ?>
 	</tbody>

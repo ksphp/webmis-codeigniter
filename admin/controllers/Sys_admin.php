@@ -2,6 +2,7 @@
 class Sys_admin extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('system/sys_admin');
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'sys_admin/index.html','model'=>'sys_admin_m'));
@@ -15,10 +16,14 @@ class Sys_admin extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_admin');
 		$this->load->view('system/admin/sea');
 	}
 	/* Add */
 	public function add(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_admin');
 		$this->load->view('system/admin/add');
 	}
 	public function addData(){
@@ -27,6 +32,8 @@ class Sys_admin extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_admin');
 		$this->load->model('sys_admin_m');
 		$data['edit'] = $this->sys_admin_m->getOne();
 		$this->load->view('system/admin/edit',$data);
@@ -38,7 +45,7 @@ class Sys_admin extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->del();
+		echo $this->sys_admin_m->del()?'{"status":"y"}':'{"status":"n"}';
 	}
 	/* UserName */
 	public function uname(){
@@ -47,6 +54,8 @@ class Sys_admin extends MY_Controller {
 	}
 	/* EditPerm */
 	public function editPerm(){
+		$this->lang->load('inc');
+		$this->lang->load('menu');
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
 		$actionM = $this->sys_menus_action_m->getAll();
@@ -56,28 +65,32 @@ class Sys_admin extends MY_Controller {
 		$menu1 = $this->sys_menus_m->getMenus('0');
 		foreach($menu1 as $m1){
 			$ck = isset($permArr[$m1->id])?'checked':'';
+			$title1 = $this->lang->line($m1->title)?$this->lang->line($m1->title):$m1->title;
 			$html .= '<div id="oneMenuPerm" class="perm">';
 			$html .= '    <span class="text1"><input type="checkbox" value="'.$m1->id.'" '.$ck.' /></span>';
-			$html .= '    <span>[<a href="#">-</a>] '.$m1->title.'</span>';
+			$html .= '    <span>[<a href="#">-</a>] '.$title1.'</span>';
 			$html .= '</div>';
 			$menu2 = $this->sys_menus_m->getMenus($m1->id);
 			foreach($menu2 as $m2){
 				$ck = isset($permArr[$m2->id])?'checked':'';
+				$title2 = $this->lang->line($m2->title)?$this->lang->line($m2->title):$m2->title;
 				$html .= '<div id="twoMenuPerm" class="perm">';
 				$html .= '    <span class="text2"><input type="checkbox" value="'.$m2->id.'" '.$ck.' /></span>';
-				$html .= '    <span>[<a href="#">-</a>] '.$m2->title.'</span>';
+				$html .= '    <span>[<a href="#">-</a>] '.$title2.'</span>';
 				$html .= '</div>';
 				$menu3 = $this->sys_menus_m->getMenus($m2->id);
 				foreach($menu3 as $m3){
 					$ck = isset($permArr[$m3->id])?'checked':'';
+					$title3 = $this->lang->line($m3->title)?$this->lang->line($m3->title):$m3->title;
 					$html .= '<div id="threeMenuPerm" class="perm perm_action">';
 					$html .= '      <span class="text3"><input type="checkbox" name="threeMenuPerm" value="'.$m3->id.'" '.$ck.' /></span>';
-					$html .= '      <span>[<a href="#">-</a>] '.$m3->title.'</span>';
+					$html .= '      <span>[<a href="#">-</a>] '.$title3.'</span>';
 					$html .= '  <span id="actionPerm_'.$m3->id.'"> ( ';
 					foreach($actionM as $val){
 						if(intval($m3->perm) & intval($val->perm)){
 							$ck = @$permArr[$m3->id]&intval($val->perm)?'checked':'';
-							$html .= '<span><input type="checkbox" value="'.$val->perm.'" '.$ck.' /></span><span class="text">'.$val->name.'</span>';
+							$name = $this->lang->line($val->name)?$this->lang->line($val->name):$val->name;
+							$html .= '<span><input type="checkbox" value="'.$val->perm.'" '.$ck.' /></span><span class="text">'.$name.'</span>';
 						}
 					}
 					$html .= ')</span>';
@@ -102,7 +115,6 @@ class Sys_admin extends MY_Controller {
 	/* Update */
 	public function permData(){
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->updatePerm();
+		echo $this->sys_admin_m->updatePerm()?'{"status":"y"}':'{"status":"n"}';
 	}
 }
-?>

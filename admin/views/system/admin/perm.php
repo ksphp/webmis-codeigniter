@@ -15,5 +15,5 @@
 echo $menusHtml;
 ?>
 <div class="perm_an">
-	<input type="submit" id="editPerm" value="更新" />
+	<input type="submit" id="editPerm" value="<?php echo $this->lang->line('inc_save');?>" />
 </div>

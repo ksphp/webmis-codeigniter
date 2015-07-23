@@ -23,3 +23,5 @@ $lang['inc_form_suc'] = 'Success';
 $lang['inc_form_err'] = 'Error';
 $lang['inc_form_char'] = ' character！';
 $lang['inc_form_num'] = ' number！';
+$lang['inc_form_pwd'] = 'Different password！';
+$lang['inc_form_format'] = 'Format error！';

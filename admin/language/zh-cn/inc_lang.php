@@ -23,3 +23,5 @@ $lang['inc_form_suc'] = '成功';
 $lang['inc_form_err'] = '失败';
 $lang['inc_form_char'] = ' 个字符！';
 $lang['inc_form_num'] = ' 位数字！';
+$lang['inc_form_pwd'] = '密码不一致！';
+$lang['inc_form_format'] = '格式有误！';

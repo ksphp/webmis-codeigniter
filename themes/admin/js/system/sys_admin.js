@@ -6,7 +6,7 @@ $(function(){
 /*搜索*/
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 520; moHeight= 400;}
-		$.webmis.win('open',{title:'搜索',width:moWidth,height:moHeight,overflow:true});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_admin/search.html',function(data){
 			$.webmis.win('load',data);	//加载内容
@@ -17,7 +17,7 @@ $(function(){
 /*添加*/
 	$('#ico-add').click(function(){
 		if(!IsMobile){moWidth = 620; moHeight= 480;}
-		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_admin/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -30,7 +30,7 @@ $(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
 			if(!IsMobile){moWidth = 620; moHeight= 480;}
-			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
+			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'sys_admin/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -71,10 +71,10 @@ function adminForm(){
 }
 
 /*编辑权限*/
-function editPerm(id){
+function editPerm(id,title){
 	var perm = $('#editPerm'+id).attr('title');
-	if(!IsMobile){moWidth = 640; moHeight= 480;}
-	$.webmis.win('open',{title:'编辑权限',width:moWidth,height:moHeight,overflow:true});
+	if(!IsMobile){moWidth = 720; moHeight= 540;}
+	$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'sys_admin/editPerm.html',{'perm':perm},function(data){
 		$.webmis.win('load',data);   //加载内容
@@ -88,14 +88,14 @@ function editPerm(id){
 	//提交权限
 	var permData = function (id,perm){
 		$.post($base_url+'sys_admin/permData.html',{'id':id,'perm':perm},function(data){
-			if(data){
+			if(data.status=='y'){
 				var url = $('#getUrl').text();
 				$.webmis.win('close','sys_admin.html'+url);
 			}else{
 				$.webmis.win('close');
 				$.webmis.win('open',{content:'<b class="red">操作失败</b>',AutoClose:3});
 			}
-		});
+		},'json');
 	}
 	//获取权限
 	var getPerm = function (){
