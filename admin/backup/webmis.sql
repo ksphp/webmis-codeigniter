@@ -22,6 +22,22 @@ INSERT INTO `wmis_class_web` (`id`, `fid`, `title`, `url`, `ico`, `remark`, `cti
 
 
 #
+# TABLE STRUCTURE FOR: wmis_log_admin_login
+#
+
+DROP TABLE IF EXISTS `wmis_log_admin_login`;
+
+CREATE TABLE `wmis_log_admin_login` (
+  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `type` varchar(16) NOT NULL COMMENT 'Type',
+  `uname` varchar(12) NOT NULL COMMENT 'UserName',
+  `ip` varchar(16) NOT NULL COMMENT 'IP addr',
+  `time` datetime DEFAULT NULL COMMENT 'Login Time',
+  `agent` varchar(255) DEFAULT NULL COMMENT 'User Agent',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
 # TABLE STRUCTURE FOR: wmis_sys_admin
 #
 
@@ -62,7 +78,7 @@ CREATE TABLE `wmis_sys_menus` (
   `ctime` datetime DEFAULT NULL COMMENT 'Create time',
   `sort` int(3) NOT NULL DEFAULT '0' COMMENT 'Sort',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('1', '0', 'menu_home', 'welcome', '0', 'ico-home', NULL, '2010-01-01 08:00:00', '1');
 INSERT INTO `wmis_sys_menus` (`id`, `fid`, `title`, `url`, `perm`, `ico`, `remark`, `ctime`, `sort`) VALUES ('2', '0', 'menu_system', 'system', '0', 'ico-system', NULL, '2010-01-01 08:00:00', '2');
@@ -101,7 +117,7 @@ CREATE TABLE `wmis_sys_menus_action` (
   `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(32) NOT NULL COMMENT 'Name',
   `perm` varchar(6) NOT NULL COMMENT 'Authority',
-  `ico` varchar(12) DEFAULT NULL COMMENT 'ICON',
+  `ico` varchar(24) DEFAULT NULL COMMENT 'ICON',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 

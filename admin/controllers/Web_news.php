@@ -2,6 +2,7 @@
 class Web_news extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('web/web_news');
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'web_news/index.html','model'=>'web_news_m','where'=>array('in'=>array('0','1','2'))));
@@ -20,6 +21,8 @@ class Web_news extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
+		$this->lang->load('inc');
+		$this->lang->load('web/web_news');
 		$this->load->view('web/news/sea');
 	}
 	/* Add */

@@ -12,7 +12,7 @@ $(function(){
 /*搜索*/
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 420;}
-		$.webmis.win('open',{title:'搜索',width:moWidth,height:320});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:320});
 		//加载内容
 		$.get($base_url+'web_news/search.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -23,7 +23,7 @@ $(function(){
 /*添加*/
 	$('#ico-add').click(function(){
 		if(!IsMobile){moWidth = 840; moHeight= 560;}
-		$.webmis.win('open',{title:'添加',width:moWidth,height:moHeight,overflow:true});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'web_news/add.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -37,7 +37,7 @@ $(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
 			if(!IsMobile){moWidth = 840; moHeight= 560;}
-			$.webmis.win('open',{title:'编辑',width:moWidth,height:moHeight,overflow:true});
+			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 			//加载内容
 			$.post($base_url+'web_news/edit.html',{'id':id},function(data){
 				$.webmis.win('load',data);   //加载内容
@@ -63,7 +63,7 @@ $(function(){
 /*图表*/
 	$('#ico-chart').click(function(){
 		if(!IsMobile){moWidth = 620; moHeight= 450;}
-		$.webmis.win('open',{title:'统计图',width:moWidth,height:moHeight,overflow:true});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//获取数据
 		$.post($base_url+'web_news/chartData.html',function(data){
 			//创建图表

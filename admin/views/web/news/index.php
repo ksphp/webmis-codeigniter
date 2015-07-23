@@ -14,13 +14,13 @@
 	<tr class="title" id="news_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td>ID</td>
-		<td>标题</td>
-		<td>所属</td>
-		<td>来源</td>
-		<td>作者</td>
-		<td width="120">发布时间</td>
-		<td>浏览</td>
-		<td width="40">审核</td>
+		<td><?php echo $this->lang->line('web_news_title');?></td>
+		<td><?php echo $this->lang->line('web_news_class');?></td>
+		<td><?php echo $this->lang->line('web_news_source');?></td>
+		<td><?php echo $this->lang->line('web_news_author');?></td>
+		<td width="120"><?php echo $this->lang->line('web_news_ctime');?></td>
+		<td><?php echo $this->lang->line('web_news_click');?></td>
+		<td width="40"><?php echo $this->lang->line('web_news_state');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
