@@ -6,8 +6,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td>
-			<input type="submit" id="fileSub" value="上传" />
+		<td class="center">
+			<input type="submit" id="fileSub" value="<?php echo $this->lang->line('sys_file_upload');?>" />
 		</td>
 	</tr>
 </table>

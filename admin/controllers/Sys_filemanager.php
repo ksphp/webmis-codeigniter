@@ -2,6 +2,7 @@
 class Sys_filemanager extends MY_Controller {
 	/* Index */
 	function index(){
+		$this->lang->load('system/sys_file');
 		$this->load->library('inc');
 		$this->load->library('file_class');
 		/* Upload Dir */
@@ -75,10 +76,14 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* Create Folder */
 	function addFolder() {
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_file');
 		$this->load->view('system/filemanager/mkdir');
 	}
 	/* Create File */
 	function addFile() {
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_file');
 		$this->load->view('system/filemanager/addfile');
 	}
 	function addFileData($file) {
@@ -88,14 +93,19 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* Upload */
 	function upload() {
+		$this->lang->load('system/sys_file');
 		$this->load->view('system/filemanager/upload');
 	}
 	/* EditPerm */
 	function editPerm() {
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_file');
 		$this->load->view('system/filemanager/edit_perm');
 	}
 	/* Rename */
 	function reName() {
+		$this->lang->load('inc');
+		$this->lang->load('system/sys_file');
 		$this->load->view('system/filemanager/rename');
 	}
 	/* Download */
@@ -127,6 +137,7 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* EditFile */
 	public function editFile($file_root) {
+		$this->lang->load('inc');
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		
@@ -137,7 +148,7 @@ class Sys_filemanager extends MY_Controller {
 		$data = '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="get" id="fileForm">';
 		$data .= '<textarea id="tinymce" name="file_data" style="width:99%; height:400px; font-size: 12px; line-height: 20px;">'.$string.'</textarea>';
 		$data .= '<div style="text-align: center; padding-top: 5px;">';
-		$data .= '<input type="submit" id="fileSub" value="保存" />';
+		$data .= '<input type="submit" id="fileSub" value="'.$this->lang->line('inc_save').'" />';
 		$data .= '<input type="hidden" name="file" value="'.$file.'">';
 		$data .= '</div>';
 		$data .= '</form>';

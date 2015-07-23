@@ -2,7 +2,7 @@
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
 body,textarea{font-family: arial; font-size: 12px;}
-body{min-width: 720px; background: url("images/bg.png") #D2D4D6;}
+body{min-width: 720px; background-color: #FFF;}
 header,section,footer,aside{display: block;}
 img{border: none;}
 ul{list-style: none;}
@@ -164,7 +164,7 @@ Content UI
 .table_list_show{width: 100%; border-collapse: collapse; text-align: center; background: #FFF; margin: 0 auto;}
 .table_list_show td{border: #CFCFCF 1px solid; padding: 5px;}
 
-.table_add{width: 98%; border-collapse: collapse; margin: 0 auto;}
+.table_add{width: 100%; border-collapse: collapse; overflow: hidden; margin: 0 auto;}
 .table_add td{line-height: 20px; padding: 5px;}
 .table_add .width{width: 90px;}
 .table_add .right{text-align: right;}

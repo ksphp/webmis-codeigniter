@@ -14,8 +14,8 @@ $(function () {
 	$('#table').webmis('TableAdjust');  //调整宽度
 /*新建文件夹*/
 	$('#ico-addfolder').click(function () {
-		if(!IsMobile){moWidth = 360;}
-		$.webmis.win('open',{title:'新建文件夹',width:moWidth,height:210});
+		if(!IsMobile){moWidth = 420;}
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:210});
 		//加载内容
 		$.get($base_url+'sys_filemanager/addFolder.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -36,8 +36,8 @@ $(function () {
 	});
 /*新建文件*/
 	$('#ico-addfile').click(function () {
-		if(!IsMobile){moWidth = 320;}
-		$.webmis.win('open',{title:'新建文件',width:moWidth,height:180});
+		if(!IsMobile){moWidth = 360;}
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:180});
 		//加载内容
 		$.get($base_url+'sys_filemanager/addFile.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -63,8 +63,8 @@ $(function () {
 			$webmis_plugin + 'uploadify/jquery.uploadify.min.js',
 			$webmis_plugin + 'uploadify/uploadify.css'
 		]});
-		if(!IsMobile){moWidth = 480; moHeight= 360;}
-		$.webmis.win('open',{title:'上传文件',width:moWidth,height:moHeight,overflow:true});
+		if(!IsMobile){moWidth = 540; moHeight= 450;}
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		//加载内容
 		$.get($base_url+'sys_filemanager/upload.html',function(data){
 			$.webmis.win('load',data);   //加载内容
@@ -106,7 +106,7 @@ $(function () {
 	$('#ico-fdel').click(function(){
 		var id = $('#listBG').webmis('GetInputID',{type:','});
 		if(id!=','){
-			$.webmis.win('open',{title:'删除',width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
+			$.webmis.win('open',{title:$(this).text(),width:210,height:140,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
 			$('#delSub').webmis('SubClass'); //按钮样式
 			//点击提交
 			$('#delSub').click(function(){
@@ -172,12 +172,12 @@ function openFile(path,ext) {
 	}
 }
 /* 编辑文件 */
-function editFile(file,ext) {
+function editFile(file,ext,title) {
 	var edit_file = ['php','css','js','htm','html','sql','txt','md'];
 	var edit_tinymce = ['md','txt'];
 	if ($.inArray(ext, edit_file) != -1){
-		if(!IsMobile){moWidth = 720; moHeight= 500;}
-		$.webmis.win('open',{title:'编辑文件',width:moWidth,height:moHeight,overflow:true});
+		if(!IsMobile){moWidth = 800; moHeight= 580;}
+		$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
 		$.get($base_url+'sys_filemanager.html',{'file':file,'action':'editfile','editor':file_editor},function(data){
 			$.webmis.win('load',data);
 			$('#fileSub').webmis('SubClass');
@@ -187,6 +187,7 @@ function editFile(file,ext) {
 					selector:'#tinymce',
 					language: "zh_CN",
 					convert_urls: false,
+					height: 420,
 					menubar: false,
 					plugins: ["code autoresize"],
 					toolbar1: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | code"
@@ -208,8 +209,8 @@ function editFile(file,ext) {
 	}
 }
 /* 编辑权限 */
-function editPerm(name,perm) {
-	$.webmis.win('open',{title:'编辑权限',width:240,height:180});
+function editPerm(name,perm,title) {
+	$.webmis.win('open',{title:title,width:320,height:180});
 	//加载内容
 	$.get($base_url+'sys_filemanager/editPerm.html',function(data){
 		$.webmis.win('load',data);   //加载内容
@@ -229,9 +230,9 @@ function editPerm(name,perm) {
 	});
 }
 /* 重命名 */
-function reName(name) {
-	if(!IsMobile){moWidth = 320;}
-	$.webmis.win('open',{title:'重命名',width:moWidth,height:200});
+function reName(name,title) {
+	if(!IsMobile){moWidth = 360;}
+	$.webmis.win('open',{title:title,width:moWidth,height:180});
 	//加载内容
 	$.get($base_url+'sys_filemanager/reName.html',function(data){
 		$.webmis.win('load',data);   //加载内容

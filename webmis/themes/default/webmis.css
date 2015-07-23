@@ -34,7 +34,7 @@ em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font
 .WebMisWin_top .close{float: right; color: #999;}
 .WebMisWin_top .close em:hover{color: #FF6600;}
 .WebMisWin_top .close em:before {content: "\e660"; font-size: 18px;}
-.WebMisWin_ct{padding: 10px 0;}
+.WebMisWin_ct{padding-top: 10px;}
 .WebMisWin_ct .load{text-align: center;}
 .WebMisWin_ct .onLoad{padding: 5px 10px; background:url(images/onLoad.gif) no-repeat center center;}
 
