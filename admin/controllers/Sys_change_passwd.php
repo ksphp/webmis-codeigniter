@@ -2,6 +2,7 @@
 class Sys_change_passwd extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('index/sys_pwd');
 		$this->load->library('inc');
 		$data['js'] = array('index/change_passwd.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
@@ -17,4 +18,3 @@ class Sys_change_passwd extends MY_Controller {
 		echo $this->sys_admin_m->updatePasswd()?'{"status":"y"}':'{"status":"n"}';
 	}
 }
-?>

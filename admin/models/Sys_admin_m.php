@@ -24,7 +24,7 @@ class Sys_admin_m extends CI_Model {
 	/* Login */
 	function login($uname,$passwd){
 		if($uname){
-			$this->db->select('uname,name,department,perm,state');
+			$this->db->select('uname,name,department,position,perm,state');
 			$query = $this->db->get_where($this->table,array('uname'=>$uname,'password'=>md5($passwd)));
 			return $query->row();
 		}else{return FALSE;}

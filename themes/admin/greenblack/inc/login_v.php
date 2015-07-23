@@ -10,7 +10,7 @@
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="body">
 <?php if($isIE){?>
 	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
 <?php }?>

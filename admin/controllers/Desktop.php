@@ -2,6 +2,7 @@
 class Desktop extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('index/desktop');
 		$this->load->library('inc');
 		$this->load->library('user_agent');
 		
@@ -10,13 +11,13 @@ class Desktop extends MY_Controller {
 		$data['user']['browser'] = $this->agent->browser();
 		$data['user']['version'] = $this->agent->version();
 		$data['user']['agent'] = $this->agent->agent_string();
-		
+
 		$data['server']['ip'] = @$_SERVER['SERVER_ADDR'];
 		$data['server']['port'] = @$_SERVER['SERVER_PORT'];
 		$data['server']['name'] = @$_SERVER['SERVER_NAME'];
 		$data['server']['admin'] = base_url();
 		$data['server']['soft'] = @$_SERVER['SERVER_SOFTWARE'];
-		$data['server']['url'] = @$_SERVER['REDIRECT_URL'];
+		$data['server']['url'] = @$_SERVER['REQUEST_URI'];
 		
 		$data['db']['dbdriver'] = $this->db->dbdriver;
 		$data['db']['hostname'] = $this->db->hostname;

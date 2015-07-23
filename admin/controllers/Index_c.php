@@ -35,6 +35,7 @@ class Index_c extends CI_Controller {
 				$_SESSION['AdminInfo']['uname'] = $uinfo->uname;
 				$_SESSION['AdminInfo']['name'] = $uinfo->name;
 				$_SESSION['AdminInfo']['department'] = $uinfo->department;
+				$_SESSION['AdminInfo']['position'] = $uinfo->position;
 				$_SESSION['AdminInfo']['logged_in'] = TRUE;
 				$_SESSION['AdminInfo']['is_mobile'] = $this->input->post('is_mobile');
 				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo->perm);
