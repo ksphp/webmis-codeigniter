@@ -11,4 +11,4 @@ $lang['sys_admin_position'] = '职务';
 $lang['sys_admin_rtime'] = '注册时间';
 $lang['sys_admin_state'] = '状态';
 $lang['sys_admin_perm'] = '权限';
-$lang['sys_admin_permEdit'] = '编辑权限';
+$lang['sys_admin_permEdit'] = '编辑';
