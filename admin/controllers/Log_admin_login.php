@@ -2,6 +2,7 @@
 class Log_admin_login extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('log/log_login');
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'log_admin_login/index.html','model'=>'log_admin_login_m'));
@@ -15,12 +16,14 @@ class Log_admin_login extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
+		$this->lang->load('inc');
+		$this->lang->load('log/log_login');
 		$this->load->view('log/admin/login_sea');
 	}
 	/* Delete */
 	public function delData(){
 		$this->load->model('log_admin_login_m');
-		echo $this->log_admin_login_m->del();
+		echo $this->log_admin_login_m->del()?'{"status":"y"}':'{"status":"n"}';
 	}
 }
 ?>

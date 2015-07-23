@@ -14,11 +14,11 @@
 	<tr class="title" id="admin_log_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td width="30">ID</td>
-		<td width="30">类型</td>
-		<td width="100">用户名</td>
-		<td width="120">时间</td>
-		<td width="100">IP</td>
-		<td>Agent</td>
+		<td width="30"><?php echo $this->lang->line('log_login_type');?></td>
+		<td width="100"><?php echo $this->lang->line('log_login_uname');?></td>
+		<td width="120"><?php echo $this->lang->line('log_login_time');?></td>
+		<td width="100"><?php echo $this->lang->line('log_login_IP');?></td>
+		<td><?php echo $this->lang->line('log_login_agent');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>

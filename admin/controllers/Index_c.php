@@ -40,21 +40,21 @@ class Index_c extends CI_Controller {
 				$_SESSION['AdminInfo']['is_mobile'] = $this->input->post('is_mobile');
 				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo->perm);
 				$_SESSION['AdminInfo']['ltime'] = time()+1800;
-				$this->loginLog('登录',$uname);
+				$this->loginLog('Login',$uname);
 				echo '{"status":"suc","msg":""}';
 			}else{
-				$this->loginLog('禁用',$uname);
+				$this->loginLog('Disable',$uname);
 				echo '{"status":"err","msg":"<b class=\"red\">该用户已被禁用！</b>"}';
 			}
 		}else{
-			$this->loginLog('失败',$uname);
+			$this->loginLog('Error',$uname);
 			echo '{"status":"err","msg":"<b class=\"red\">帐号或密码有误！</b>"}';
 		}
 	}
 	/* LoginOut */
 	public function loginOut(){
 		$uname = $_SESSION['AdminInfo']['uname']?$_SESSION['AdminInfo']['uname']:'Auto Logout';
-		$this->loginLog('退出',$uname);
+		$this->loginLog('Logout',$uname);
 		unset($_SESSION['AdminInfo']);
 		header('location: '.base_url());
 	}
