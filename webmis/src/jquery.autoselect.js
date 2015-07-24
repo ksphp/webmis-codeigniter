@@ -8,7 +8,7 @@ var AutoSelect = function (options,obj) {
 		$.ajax({url:options.url,data:{'fid':options.data},type:options.type,dataType:options.dataType,
 			success:function(db){
 				var html = '<select id="'+idName+'_'+num+'">';
-				html += '<option value="">---请选择---</option>';
+				html += '<option value="">---Please Select---</option>';
 				for(var i= 0; i < db.length;i++){
 					html += '<option value="'+db[i].id+'">'+db[i].title+'</option>';
 				}

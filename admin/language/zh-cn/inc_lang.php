@@ -16,6 +16,8 @@ $lang['inc_edit'] = '编辑';
 $lang['inc_remove'] = '删除';
 $lang['inc_export'] = '导出';
 $lang['inc_import'] = '导入';
+$lang['inc_up'] = '上传';
+$lang['inc_down'] = '下载';
 
 $lang['inc_form_null'] = '不能为空';
 $lang['inc_form_pass'] = '通过';

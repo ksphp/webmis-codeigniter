@@ -27,6 +27,8 @@ class Web_news extends MY_Controller {
 	}
 	/* Add */
 	public function add(){
+		$this->lang->load('inc');
+		$this->lang->load('web/web_news');
 		$this->load->view('web/news/add');
 	}
 	public function addData(){
@@ -44,6 +46,8 @@ class Web_news extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
+		$this->lang->load('inc');
+		$this->lang->load('web/web_news');
 		$this->load->model('web_news_m');
 		$data['edit'] = $this->web_news_m->getOne();
 		$this->load->view('web/news/edit',$data);
@@ -69,7 +73,7 @@ class Web_news extends MY_Controller {
 		$this->load->model('class_web_m');
 		$this->load->model('web_news_m');
 		$html = '[';
-		$menus = $this->class_web_m->getMenus('2');
+		$menus = $this->class_web_m->getMenus('0');
 		foreach($menus as $val){
 			$num = $this->web_news_m->count_all(array('class' =>':'.$val->id.':'));
 			$html .= '["'.$val->title.'",'.$num.']';
@@ -77,15 +81,41 @@ class Web_news extends MY_Controller {
 		}
 		$html .= ']';
 		echo $html;
-		/*echo '[["分类1",0],["分类2",0],["分类3",0],["分类4",0]]';*/
+		//$data = array('title'=>'Title','data'=>array('t1'=>'Text1','t2'=>'Text2'));
+		//echo json_encode($data);
+		/*echo '[["Class1",0],["Class2",0],["Class3",0],["Class4",0]]';*/
 	}
 	/* View */
 	public function show(){
+		$this->lang->load('web/web_news');
 		$this->load->model('web_news_m');
 		$data['show'] = $this->web_news_m->getOne();
 		$this->load->view('web/news/show',$data);
 	}
-	/* 上传图片 */
+	function getImghtml($id='',$num=''){
+		$this->lang->load('inc');
+		$this->lang->load('web/web_news');
+		$html = '';
+		if(is_numeric($id) && is_numeric($num)){
+			$html .= '<tr id="ImgCT_'.$num.'">';
+			$html .= '<td><a href="" id="ImgShow_'.$num.'" target="_black" title="'.$this->lang->line('web_news_preview').'"><img src="" width="100" height="65" /></a></td>';
+			$html .= '<td class="tleft">';
+			$html .= '<form action="'.base_url().'web_news/upImgData/'.$num.'.html" method="post" enctype="multipart/form-data" id="upIMG_'.$num.'">';
+			$html .= '<div>';
+			$html .= '<input type="file" name="upimg_'.$num.'" size="20" />';
+			$html .= '<input type="submit" id="verifySub" value="'.$this->lang->line('inc_up').'" />';
+			$html .= '<input type="hidden" id="ImgInput_'.$num.'" name="img_url" value="" />';
+			$html .= '<input type="hidden" name="id" value="'.$id.'" />';
+			$html .= '</div>';
+			$html .= '</form>';
+			$html .= '<div style="padding-top: 5px;">'.$this->lang->line('web_news_url').'：<span id="ImgURL_'.$num.'"></span></div>';
+			$html .= '</td>';
+			$html .= '<td><a href="" onclick="RemoveIMG(\''.$num.'\');return false;">'.$this->lang->line('inc_remove').'</a></td>';
+			$html .= '</tr>';
+		}
+		echo $html;
+	}
+	/* Upload Image */
 	public function upImgData($num=''){
 		$config['upload_path'] = '../upload/images/news/';
 		$config['allowed_types'] = 'gif|jpg|png';

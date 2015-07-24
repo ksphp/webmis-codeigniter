@@ -16,12 +16,14 @@ $lang['inc_edit'] = 'Edit';
 $lang['inc_remove'] = 'Remove';
 $lang['inc_export'] = 'Export';
 $lang['inc_import'] = 'Import';
+$lang['inc_up'] = 'Upload';
+$lang['inc_down'] = 'Download';
 
 $lang['inc_form_null'] = 'Not Null';
 $lang['inc_form_pass'] = 'Pass';
 $lang['inc_form_suc'] = 'Success';
 $lang['inc_form_err'] = 'Error';
-$lang['inc_form_char'] = ' character！';
-$lang['inc_form_num'] = ' number！';
+$lang['inc_form_char'] = ' Character！';
+$lang['inc_form_num'] = ' Number！';
 $lang['inc_form_pwd'] = 'Different password！';
 $lang['inc_form_format'] = 'Format error！';

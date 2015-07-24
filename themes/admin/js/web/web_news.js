@@ -69,10 +69,10 @@ $(function(){
 			//创建图表
 			$('#WebMisWinCT').highcharts({
 				chart: {type: 'pie'},
-				title: {text: '<b>新闻分类统计图</b>'},
+				title: {text: '<b>'+data+'</b>'},
 				tooltip: {pointFormat: '{series.name}: <b>{point.percentage}%</b>',percentageDecimals: 1},
 				plotOptions: {pie: {allowPointSelect: true,cursor: 'pointer',dataLabels: {enabled: true,color: '#000000',connectorColor: '#000000',formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' 条';}}}},
-				series: [{name: '百分比',data: data}]
+				series: [{name: 'Percent',data: data}]
         	});
 		},'json');
 		return false;
@@ -146,9 +146,9 @@ function newsClass(){
 	});
 }
 /*显示详细信息*/
-function newsShow(id){
+function newsShow(id,title){
 	if(!IsMobile){moWidth = 720; moHeight= 580;}
-	$.webmis.win('open',{title:'预览',width:moWidth,height:moHeight,overflow:true});
+	$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
 	//加载内容
 	$.post($base_url+'web_news/show.html',{'id':id},function(data){
 		$.webmis.win('load',data);
@@ -159,25 +159,13 @@ function newsShow(id){
 function AddIMG(){
 	var id = $("#ImgID").val();
 	var num = parseInt($("#NumIMG").val())+1;
-	var html = '<tr id="ImgCT_'+num+'">';
-	html += '<td><a href="" id="ImgShow_'+num+'" target="_black" title="点击查看"><img src="" width="100" height="65" /></a></td>';
-	html += '<td class="tleft">';
-	html += '<form action="'+$base_url+'web_news/upImgData/'+num+'.html" method="post" enctype="multipart/form-data" id="upIMG_'+num+'">';
-	html += '<div>';
-	html += '<input type="file" name="upimg_'+num+'" size="20" />';
-	html += '<input type="submit" id="verifySub" value="上传" />';
-	html += '<input type="hidden" id="ImgInput_'+num+'" name="img_url" value="" />';
-	html += '<input type="hidden" name="id" value="'+id+'" />';
-	html += '</div></form>';
-	html += '<div style="padding-top: 5px;">图片地址：<span id="ImgURL_'+num+'"></span></div>';
-	html += '</td>';
-	html += '<td><a href="" onclick="RemoveIMG(\''+num+'\');return false;">删除</a></td>';
-	html += '</tr>';
-	//追加内容
-	$("#listBG").append(html);
-	$("#NumIMG").val(num);
-	//触发事项
-	uploadIMG(num);
+	$.get($base_url+'web_news/getImghtml/'+id+'/'+num+'.html',function (html){
+		//追加内容
+		$("#listBG").append(html);
+		$("#NumIMG").val(num);
+		//触发事项
+		uploadIMG(num);
+	});
 }
 
 /* 上传图片 */
