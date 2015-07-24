@@ -107,7 +107,7 @@ class Web_news_m extends CI_Model {
 				$data['state'] = $this->input->post('state');
 				/*添加审核人*/
 				if($data['state']=='1' || $data['state']=='2'){
-					$data['audit'] = $_SESSION['uinfo']['uname'];
+					$data['audit'] = $_SESSION['AdminInfo']['uname'];
 					$data['atime'] = date('Y-m-d H:i:s');
 				}
 				/*执行*/

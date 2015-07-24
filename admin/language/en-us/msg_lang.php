@@ -1,4 +1,6 @@
 <?php
+$lang['msg_suc'] = 'Execute successfully';
+$lang['msg_err'] = 'Execution error';
 /* Msg */
 $lang['msg_title'] = 'Message';
 $lang['msg_loading'] = 'Loading';

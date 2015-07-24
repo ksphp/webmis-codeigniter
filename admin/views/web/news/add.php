@@ -1,3 +1,6 @@
+<div id="TabName1" class="noDisplay"><?php echo $this->lang->line('web_news_tab1');?></div>
+<div id="TabName2" class="noDisplay"><?php echo $this->lang->line('web_news_tab2');?></div>
+<div id="TabName3" class="noDisplay"><?php echo $this->lang->line('web_news_tab3');?></div>
 <form id="newsForm" action="<?php echo base_url($this->config->config['index_url'].'web_news/addData.html');?>" method="post">
 <table class="table_add">
 	<tbody id="newsBody0">

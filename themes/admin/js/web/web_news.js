@@ -85,7 +85,7 @@ $(function(){
 /*表单验证*/
 function newsForm(){
 	$('#newsSub').webmis('SubClass'); //按钮样式
-	$.webmis.win('menu',{change:'#newsBody', menus:['基本信息','详细内容','图片管理']});  //选项卡
+	$.webmis.win('menu',{change:'#newsBody', menus:[$('#TabName1').text(),$('#TabName2').text(),$('#TabName3').text()]});  //选项卡
 	//编辑器
 	TinyMce('#tinymce');
 	//验证提交

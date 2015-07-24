@@ -1,4 +1,6 @@
 <?php
+$lang['msg_suc'] = '执行成功';
+$lang['msg_err'] = '执行失败';
 /* 提示框 */
 $lang['msg_title'] = '信息提示';
 $lang['msg_loading'] = '正在加载...';

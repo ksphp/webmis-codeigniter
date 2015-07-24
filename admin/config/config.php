@@ -7,7 +7,7 @@ date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
 $config['title'] = 'WebMIS Management';
 $config['copy'] = '<a href="http://www.ksphp.com/" target="_blank"><b>ksphp.com</b></a>';
 $config['backup'] = 'backup';
-$config['admin_themes'] = 'default';
+$config['admin_themes'] = 'greenblack';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
 $config['language'] = 'en-us';  // en-us,zh-cn

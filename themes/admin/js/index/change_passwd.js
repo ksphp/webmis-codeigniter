@@ -8,9 +8,9 @@ $(function(){
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){
-				$.webmis.win('open',{content:'<b class="green">操作成功</b>',target:'index_c/loginOut.html',AutoClose:3});
+				$.webmis.win('open',{title:data.title, content:'<b class="green">'+data.msg+'</b>',target:'index_c/loginOut.html',AutoClose:3,AutoCloseText:data.text});
 			}else{
-				$.webmis.win('open',{content:'<b class="red">操作失败</b>',AutoClose:3});
+				$.webmis.win('open',{title:data.title, content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
 			}
 		}
 	});

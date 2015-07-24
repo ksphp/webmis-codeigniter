@@ -14,14 +14,14 @@
 	<tr>
 		<td class="tright"><?php echo $this->lang->line('sys_pwd_pwd1');?>:</td>
 		<td>
-			<input type="password" name="passwd" class="input" style="width: 180px;" datatype="*6-16" errormsg="6~16位之间！" />
+			<input type="password" name="passwd" class="input" style="width: 180px;" datatype="*6-16" errormsg="6~16<?php echo $this->lang->line('inc_form_char');?>" sucmsg="<?php echo $this->lang->line('inc_form_pass');?>" nullmsg="<?php echo $this->lang->line('inc_form_null');?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="tright"><?php echo $this->lang->line('sys_pwd_pwd2');?>:</td>
 		<td>
-			<input type="password" class="input" style="width: 180px;" datatype="*" errormsg="密码不一致！" recheck="passwd" />
+			<input type="password" class="input" style="width: 180px;" datatype="*" recheck="passwd" errormsg="<?php echo $this->lang->line('inc_form_pwd');?>" sucmsg="<?php echo $this->lang->line('inc_form_pass');?>" nullmsg="<?php echo $this->lang->line('inc_form_null');?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
