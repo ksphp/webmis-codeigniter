@@ -4,10 +4,11 @@ var openWin = function (options) {
 		title:'信息提示',
 		width:240,
 		height:150,
-		content:'<section class="load"><span class="onLoad">&nbsp;</span><span class="text">正在加载</span></section>',
+		content:'<section class="load"><span class="onLoad">&nbsp;</span><span class="text">Loading...</span></section>',
 		target:false,
 		overflow:false,
 		AutoClose:false,
+		AutoCloseText:'秒后自动关闭',
 		AlphaBG:0.5
 	}
 	var options = $.extend(defaults, options);
@@ -26,7 +27,7 @@ var openWin = function (options) {
 		html += '<section id="WebMisWin" style="width:'+options.width+'px; height:'+options.height+'px; left:'+ww+'px; top:'+wh+'px;">';
 		html += '  <header id="WebMisWinTop" class="WebMisWin_top">';
 		html += '    <span class="title">'+options.title+'</span>';
-		html += '    <a href="#" class="close"><em></em><!--[if lt IE 9]>关闭<![endif]--></a>';
+		html += '    <a href="#" class="close"><em></em><!--[if lt IE 9]>Close<![endif]--></a>';
 		html += '  </header>';
 		html += '  <section class="WebMisWin_ct">'+options.content+'</section>';
 		html += '</section>';
@@ -52,7 +53,7 @@ var openWin = function (options) {
 		options.content = '<div id="WebMisWinCT" style="width: 100%; height: '+(options.height-55)+'px; overflow: auto;">'+options.content+'</div>';
 	}else if(options.AutoClose){
 		options.content = '<div style="line-height: 30px; text-align: center; padding-top: 10px;">'+options.content;
-		options.content += '<br /><span style="color: #666;"><b id="WebMisWinIntNum" class="red">&nbsp;</b> 秒后自动关闭</span>';
+		options.content += '<br /><span style="color: #666;"><b id="WebMisWinIntNum" class="red">&nbsp;</b> '+options.AutoCloseText+'</span>';
 		options.content += '</div>';
 		//开始倒计时
 		WinInterval(options.AutoClose,options.target,'#WebMisWinIntNum');

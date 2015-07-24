@@ -96,7 +96,9 @@ $(function () {
 		if(id!=','){
 			$.webmis.win('close','sys_filemanager.html?path='+path+'&action=down&editor='+file_editor+'&files='+id);
 		}else{
-			$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+				$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
+			},'json');
 		}
 		return false;
 	});
@@ -121,7 +123,9 @@ $(function () {
 				});
 			});
 		}else{
-			$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+				$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
+			},'json');
 		}
 		return false;
 	});

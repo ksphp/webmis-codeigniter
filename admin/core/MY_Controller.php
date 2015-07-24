@@ -2,12 +2,12 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class MY_Controller extends CI_Controller {
 	/* Public Variables */
-	var $Cid;
-	var $IsMobile;
-	
+	public $Cid;
+	public $IsMobile;
+	public $Lang;
+		
 	function __construct(){
 		parent::__construct();
-		$this->IsMobile = $_SESSION['AdminInfo']['is_mobile'];
 		/* IsLogin */
 		$logged = $_SESSION['AdminInfo']['logged_in'];
 		$ltime = @$_SESSION['UserInfo']['ltime'];
@@ -17,6 +17,9 @@ class MY_Controller extends CI_Controller {
 		}else {
 			$_SESSION['AdminInfo']['ltime'] = time()+1800;
 		}
+		/* INC */
+		$this->IsMobile = @$_SESSION['AdminInfo']['is_mobile'];
+		$this->Lang = @$_SESSION['AdminInfo']['lang'];
 		/* Prem */
 		$this->menuPrem();
 	}
@@ -31,11 +34,5 @@ class MY_Controller extends CI_Controller {
 			header('location: '.base_url().$this->dirName.'index_c/loginOut.html');
 			exit();
 		}
-	}
-/*------------------------------------------------------------------
-* Display
--------------------------------------------------------------------*/
-	public function DisplayTop($val=''){
-		$_SESSION['DisplayTop'] = $val;
 	}
 }

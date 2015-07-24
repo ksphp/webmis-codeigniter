@@ -38,7 +38,9 @@ $(function(){
 				adminForm(); //表单验证
 			});
 		}else{
-			$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
+			$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+				$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
+			},'json');
 		}
 		return false;
 	});

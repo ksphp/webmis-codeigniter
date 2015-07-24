@@ -93,7 +93,6 @@ function menuShow(){
 		preventDefaultEvents: false
 	});
 }
-
 /*
 ** ******动作******
 */
@@ -101,44 +100,52 @@ function menuShow(){
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="彻底删除" /></div>'});
-		$('#delSub').webmis('SubClass'); //按钮样式
-		//点击提交
-		var lock = false;
-		$('#delSub').click(function(){
-			if(lock){return;} lock=true;
-			$.post($base_url+dataUrl,{'id':id},function(data){
-				if(data.status=='y'){
-					$.webmis.win('close');
-					var url = $('#getUrl').text();
-					$.webmis.win('open',{content:'<b class="green">删除成功</b>',target:targetUrl+url,AutoClose:3});
-				}else{
-					$.webmis.win('close');
-					$.webmis.win('open',{content:'<b class="red">删除失败</b>',AutoClose:3});
-				}
-				lock=false;
-			},'json');
-		});
+		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_remove:''},function (data){
+			$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="'+data.msg_remove+'" /></div>'});
+			$('#delSub').webmis('SubClass'); //按钮样式
+			//点击提交
+			var lock = false;
+			$('#delSub').click(function(){
+				if(lock){return;} lock=true;
+				$.post($base_url+dataUrl,{'id':id},function(data){
+					if(data.status=='y'){
+						$.webmis.win('close');
+						var url = $('#getUrl').text();
+						$.webmis.win('open',{content:'<b class="green">删除成功</b>',target:targetUrl+url,AutoClose:3});
+					}else{
+						$.webmis.win('close');
+						$.webmis.win('open',{content:'<b class="red">删除失败</b>',AutoClose:3});
+					}
+					lock=false;
+				},'json');
+			});
+		},'json');
 	}else{
-		$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
+		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
+		},'json');
 	}
 }
 /*审核*/
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
-		$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
-		//通过
-		$('#auditSub1').click(function(){
-			auditData(id,'1');
-		});
-		//不通过
-		$('#auditSub2').click(function(){
-			auditData(id,'2');
-		});
+		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
+			$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="'+data.msg_pass+'" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="'+data.msg_notpass+'" /></div>'});
+			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
+			//通过
+			$('#auditSub1').click(function(){
+				auditData(id,'1');
+			});
+			//不通过
+			$('#auditSub2').click(function(){
+				auditData(id,'2');
+			});
+		},'json');
 	}else{
-		$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
+		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
+		},'json');
 	}
 	//提交数据
 	var lock = false;

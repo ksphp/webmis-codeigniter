@@ -32,6 +32,7 @@ class Sys_config extends MY_Controller {
 		$admin_themes = $this->input->post('admin_themes');
 		$webmis_themes = $this->input->post('webmis_themes');
 		$lang = $this->input->post('lang');
+		$_SESSION['AdminInfo']['lang'] = $lang;
 		/* Config File */
 		$file = 'config/config.php';
 		$ct = @file_get_contents($file);

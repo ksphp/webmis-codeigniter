@@ -7,7 +7,7 @@ class Class_web extends MY_Controller {
 		$this->load->helper('my');
 		$this->load->library('menus');
 		$data = $this->inc->Page($this,array('url'=>'class_web/index.html','model'=>'class_web_m'));
-		$data['adminState'] = $this->menus->getMenu('adminState');
+		$data['adminState'] = $this->menus->getMenu('adminState',$this->Lang);
 		$data['js'] = array('class/class_web.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {

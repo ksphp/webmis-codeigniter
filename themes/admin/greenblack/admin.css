@@ -194,7 +194,7 @@ Content UI
 .action_ct li a{padding: 0 6px; display: block;}
 .action_ct li a em{font-size: 14px;}
 .action_ct li a:hover{background: #6FB737; color: #FFF;}
-.action_ct li a:hover em{color: #FFF; font-size: 14px;}
+.action_ct li a:hover em{color: #FFF;}
 
 /* ICO */
 .ico-heart:before {content: "\e650";}

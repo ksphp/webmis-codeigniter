@@ -184,9 +184,10 @@ Content UI
 .SubClass2{background: url("images/admin_top_nav_x.jpg") repeat-x 0 -35px;}
 
 /* Action */
-.action{width: 100%; border-collapse: collapse; line-height: 30px; border: #BBB 1px solid; background: #F4F7FA; color: #999; border-radius: 3px 0 0 3px;}
-.action td{padding: 0 5px;}
-.action .title{width: 80px; color: #666; text-align: center; font-weight: bold; border-right: #BBB 1px solid; background: #FFF;}
+.action{width: 100%; border-collapse: collapse; border: #BBB 1px solid; background: #F4F7FA; color: #999; border-radius: 3px 0 0 3px;}
+.action td{float: left; padding: 0 5px;}
+.action .title{height: 32px; line-height: 32px; color: #666; text-align: center; font-weight: bold; border-right: #BBB 1px solid; background: #FFF;}
+.action_ct{line-height: 30px; overflow: hidden;}
 .action_ct li{float: left; padding: 0 2px;}
 .action_ct li a{padding: 0 6px; display: block;}
 .action_ct li a em{font-size: 14px;}
