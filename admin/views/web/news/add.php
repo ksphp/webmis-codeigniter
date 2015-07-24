@@ -72,7 +72,7 @@
 	</tr>
 	<tbody id="listBG">
 	<tr>
-		<td colspan="3">Editing status！<input type="hidden" id="NumIMG" value="0" /></td>
+		<td colspan="3"><?php echo $this->lang->line('web_news_add_info');?><input type="hidden" id="NumIMG" value="0" /></td>
 	</tr>
 	</tbody>
 </table>

@@ -14,3 +14,4 @@ $lang['web_news_preview'] = 'Preview';
 $lang['web_news_url'] = 'Image URL';
 $lang['web_news_action'] = 'Action';
 $lang['web_news_addimg'] = 'AddImage';
+$lang['web_news_add_info'] = 'Editing status！';

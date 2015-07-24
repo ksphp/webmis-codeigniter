@@ -14,3 +14,4 @@ $lang['web_news_preview'] = '缩略图';
 $lang['web_news_url'] = '图片地址';
 $lang['web_news_action'] = '操作';
 $lang['web_news_addimg'] = '添加图片';
+$lang['web_news_add_info'] = '编辑状态下启用！';
