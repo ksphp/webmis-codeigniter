@@ -102,7 +102,7 @@ function actionDel(dataUrl,targetUrl) {
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.webmis.win('open',{title:'审核',width:280,height:160,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
+		$.webmis.win('open',{title:$('#ico-audit').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="auditSub1" value="通过" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="不通过" /></div>'});
 		$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
 		//通过
 		$('#auditSub1').click(function(){
@@ -116,9 +116,11 @@ function actionAudit(dataUrl,targetUrl) {
 		$.webmis.win('open',{content:'<b class="red">请选择！</b>',AutoClose:3});
 	}
 	//提交数据
+	var lock = false;
 	var auditData = function(id,state){
+		if(lock){return;} lock=true;
 		$.post($base_url+dataUrl,{'id':id,'state':state},function(data){
-			if(data){
+			if(data.status=='y'){
 				$.webmis.win('close');
 				var url = $('#getUrl').text();
 				$.webmis.win('open',{content:'<b class="green">审核成功</b>',target:targetUrl+url,AutoClose:3});
@@ -126,6 +128,7 @@ function actionAudit(dataUrl,targetUrl) {
 				$.webmis.win('close');
 				$.webmis.win('open',{content:'<b class="red">审核失败</b>',AutoClose:3});
 			}
-		});
+			lock=false;
+		},'json');
 	}
 }

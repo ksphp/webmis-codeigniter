@@ -2,6 +2,7 @@
 class Class_web extends MY_Controller {
 	/* Index */
 	public function index(){
+		$this->lang->load('class/class_web');
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$this->load->library('menus');
@@ -17,10 +18,14 @@ class Class_web extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
+		$this->lang->load('inc');
+		$this->lang->load('class/class_web');
 		$this->load->view('class/web/sea');
 	}
 	/* Add */
 	public function add(){
+		$this->lang->load('inc');
+		$this->lang->load('class/class_web');
 		$this->load->view('class/web/add');
 	}
 	public function addData(){
@@ -36,6 +41,8 @@ class Class_web extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
+		$this->lang->load('inc');
+		$this->lang->load('class/class_web');
 		$this->load->model('class_web_m');
 		$data['edit'] = $this->class_web_m->getOne();
 		$this->load->view('class/web/edit',$data);
@@ -47,11 +54,11 @@ class Class_web extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->del();
+		echo $this->class_web_m->del()?'{"status":"y"}':'{"status":"n"}';
 	}
 	/* Audit */
 	public function auditData(){
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->audit();
+		echo $this->class_web_m->audit()?'{"status":"y"}':'{"status":"n"}';
 	}
 }

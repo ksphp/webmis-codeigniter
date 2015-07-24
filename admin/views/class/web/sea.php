@@ -7,25 +7,25 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">菜单名:</td>
+		<td class="tright"><?php echo $this->lang->line('class_web_title');?>:</td>
 		<td>
 			<input type="text" name="title" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">URL:</td>
+		<td class="tright"><?php echo $this->lang->line('class_web_url');?>:</td>
 		<td>
 			<input type="text" name="url" class="input" style="width: 80%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">图标:</td>
+		<td class="tright"><?php echo $this->lang->line('class_web_ico');?>:</td>
 		<td>
 			<input type="text" name="ico" class="input" style="width: 30%;" />
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">备注:</td>
+		<td class="tright"><?php echo $this->lang->line('class_web_remark');?>:</td>
 		<td>
 			<input type="text" name="remark" class="input" style="width: 80%;" />
 		</td>
@@ -33,7 +33,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" id="seaSub" name="search" value="搜索" />
+			<input type="submit" id="seaSub" name="search" value="<?php echo $this->lang->line('inc_sea');?>" />
 		</td>
 	</tr>
 </table>

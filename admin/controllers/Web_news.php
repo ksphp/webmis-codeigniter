@@ -61,12 +61,12 @@ class Web_news extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->load->model('web_news_m');
-		echo $this->web_news_m->del();
+		echo $this->web_news_m->del()?'{"status":"y"}':'{"status":"n"}';
 	}
 	/* Audit */
 	public function auditData(){
 		$this->load->model('web_news_m');
-		echo $this->web_news_m->audit();
+		echo $this->web_news_m->audit()?'{"status":"y"}':'{"status":"n"}';
 	}
 	/* Chart */
 	public function chartData() {

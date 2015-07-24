@@ -17,25 +17,9 @@ CREATE TABLE `wmis_class_web` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-INSERT INTO `wmis_class_web` (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES ('1', '0', '首页', 'index_c', 'ico-home', '网站首页！', '2012-06-01 14:28:17', '0', '1');
-INSERT INTO `wmis_class_web` (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES ('2', '0', '新闻中心', 'news', NULL, '网站分类！', '2012-06-01 17:17:07', '0', '1');
+INSERT INTO `wmis_class_web` (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES ('1', '0', 'Home', 'index_c', 'ico-home', '', '2012-06-01 14:28:17', '0', '1');
+INSERT INTO `wmis_class_web` (`id`, `fid`, `title`, `url`, `ico`, `remark`, `ctime`, `sort`, `state`) VALUES ('2', '0', 'News', 'news', '', '', '2012-06-01 17:17:07', '0', '1');
 
-
-#
-# TABLE STRUCTURE FOR: wmis_log_admin_login
-#
-
-DROP TABLE IF EXISTS `wmis_log_admin_login`;
-
-CREATE TABLE `wmis_log_admin_login` (
-  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `type` varchar(16) NOT NULL COMMENT 'Type',
-  `uname` varchar(12) NOT NULL COMMENT 'UserName',
-  `ip` varchar(16) NOT NULL COMMENT 'IP addr',
-  `time` datetime DEFAULT NULL COMMENT 'Login Time',
-  `agent` varchar(255) DEFAULT NULL COMMENT 'User Agent',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: wmis_sys_admin
@@ -156,5 +140,8 @@ CREATE TABLE `wmis_web_news` (
   `summary` varchar(300) DEFAULT NULL COMMENT 'Summary',
   `content` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO `wmis_web_news` (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `audit`, `atime`, `state`, `summary`, `content`) VALUES ('1', '', 'Test title', '', '', 'KSPHP', 'kingsoul', '', '2015-07-24 10:10:09', '0', 'Test', NULL, '2015-07-24 10:58:27', '1', 'Test Summary', '<p>Welcome to use WEBMIS！</p>');
+
 

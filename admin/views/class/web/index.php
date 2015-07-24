@@ -15,13 +15,13 @@
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td width="40">ID</td>
 		<td width="40">FID</td>
-		<td width="120">菜单名</td>
-		<td>URL</td>
-		<td>图标</td>
-		<td width="120">创建时间</td>
-		<td>备注</td>
-		<td width="30">排序</td>
-		<td width="40">审核</td>
+		<td width="120"><?php echo $this->lang->line('class_web_title');?></td>
+		<td><?php echo $this->lang->line('class_web_url');?></td>
+		<td><?php echo $this->lang->line('class_web_ico');?></td>
+		<td width="120"><?php echo $this->lang->line('class_web_ctime');?></td>
+		<td><?php echo $this->lang->line('class_web_remark');?></td>
+		<td width="30"><?php echo $this->lang->line('class_web_sort');?></td>
+		<td width="40"><?php echo $this->lang->line('class_web_state');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
