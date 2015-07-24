@@ -4,8 +4,8 @@
 		<td class="width tright"><?php echo $this->lang->line('sys_admin_state');?>:</td>
 		<td>
 			<select name="state">
-				<option value="1">启用</option>
-				<option value="2">禁用</option>
+				<option value="1"><?php echo $this->lang->line('sys_admin_enable');?></option>
+				<option value="2"><?php echo $this->lang->line('sys_admin_disable');?></option>
 			</select>
 			<span class="1">&nbsp;</span>
 		</td>

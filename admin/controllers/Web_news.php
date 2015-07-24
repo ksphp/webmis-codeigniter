@@ -10,7 +10,7 @@ class Web_news extends MY_Controller {
 		$this->load->library('menus');
 		$this->load->model('class_web_m');
 		$data['class'] = $this->class_web_m->getClass();
-		$data['adminState'] = $this->menus->getMenu('adminState');
+		$data['adminState'] = $this->menus->getMenu('adminState',$this->Lang);
 		$data['js'] = array('web/web_news.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {

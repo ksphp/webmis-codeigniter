@@ -4,14 +4,14 @@
 		<td class="width tright"><?php echo $this->lang->line('sys_admin_state');?>:</td>
 		<td>
 			<select name="state">
-				<option value="1" <?php echo $edit->state==1?'':'selected';?> >启用</option>
-				<option value="2" <?php echo $edit->state==2?'selected':'';?> >禁用</option>
+				<option value="1" <?php echo $edit->state==1?'':'selected';?> ><?php echo $this->lang->line('sys_admin_enable');?></option>
+				<option value="2" <?php echo $edit->state==2?'selected':'';?> ><?php echo $this->lang->line('sys_admin_disable');?></option>
 			</select>
 			<span class="1">&nbsp;</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="tright">用户名:</td>
+		<td class="tright"><?php echo $this->lang->line('sys_admin_uname');?>:</td>
 		<td>
 			<?php echo $edit->uname;?>
 		</td>

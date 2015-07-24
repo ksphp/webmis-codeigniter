@@ -34,7 +34,7 @@
 		<td><?php echo keyHH($val->department, @$key['department']);?></td>
 		<td><?php echo keyHH($val->position, @$key['position']);?></td>
 		<td><?php echo keyHH($val->rtime, @$key['rtime']);?></td>
-		<td><?php echo $val->state==1?'<span class="green">启用</span>':'<span class="red">禁用</span>';?></td>
+		<td><?php echo $val->state==1?'<span class="green">'.$this->lang->line('sys_admin_enable').'</span>':'<span class="red">'.$this->lang->line('sys_admin_disable').'</span>';?></td>
 		<td><a href="#" id="editPerm<?php echo $val->id;?>" title="<?php echo $val->perm;?>" onclick="editPerm(<?php echo $val->id;?>,'<?php echo $this->lang->line('sys_admin_permEdit');?>');return false;"><?php echo $this->lang->line('sys_admin_permEdit');?></a></td>
 	</tr>
 	<?php } ?>
