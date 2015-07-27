@@ -24,22 +24,29 @@ $menus = FALSE;
 foreach ($Menus['Date'] as $val){
 	$an = $val['id']==$Menus['FID']['FID1']?'an1':'an2';
 	$ico = $val['ico']?'<em class="'.$val['ico'].'"></em>':'';
+	$title = $this->lang->line($val['title']);
+	$title = $title?$title:$val['title'];
 	if(@$val['menus']){$menus = $val['menus'];}
 ?>
-		<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$val['title'];?></a></li>
+		<li><a href="<?php echo base_url($val['url'].'.html');?>" class="<?php echo $an;?>"><?php echo $ico.$title;?></a></li>
 <?php }?>
 	</ul>
 </div>
 	<!-- 左侧菜单 -->
 	<div class="left_menu">M</div>
 	<div class="menu_ct">
-<?php if($menus){foreach($menus as $val1){?>
-		<div class="title"><a href="#"><em class="<?php echo $val1['ico'];?>"></em><?php echo $val1['title'];?></a></div>
+<?php if($menus){foreach($menus as $val1){
+	$title = $this->lang->line($val1['title']);
+	$title = $title?$title:$val1['title'];
+?>
+		<div class="title"><a href="#"><em class="<?php echo $val1['ico'];?>"></em><?php echo $title;?></a></div>
 		<ul class="list">
 <?php if(@$val1['menus']){foreach($val1['menus'] as $val2){
 	$an = $val2['id']==$Menus['FID']['FID3']?'left_an1':'left_an2';
+	$title = $this->lang->line($val2['title']);
+	$title = $title?$title:$val2['title'];
 ?>
-			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><em class="<?php echo $val2['ico'];?>"></em><?php echo $val2['title'];?></a></li>
+			<li><a href="<?php echo base_url($val2['url'].'.html');?>" class="<?php echo $an;?>"><em class="<?php echo $val2['ico'];?>"></em><?php echo $title;?></a></li>
 <?php }}?>
 		</ul>
 <?php }}?>

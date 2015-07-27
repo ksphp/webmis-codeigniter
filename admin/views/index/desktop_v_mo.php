@@ -13,95 +13,95 @@
 <table class="table_list">
 	<tr>
 		<td colspan="2" class="title" style="font-weight: normal;" align="left">
-			&nbsp;&nbsp;管理员：<?php echo @$_SESSION['AdminInfo']['uname']; ?>&nbsp;&nbsp;
-			部门：<?php echo @$_SESSION['AdminInfo']['department']; ?>&nbsp;&nbsp;
-			姓名：<?php echo @$_SESSION['AdminInfo']['name']; ?>
+			<?php echo $this->lang->line('desktop_uname');?>：<?php echo @$_SESSION['AdminInfo']['uname']; ?>&nbsp;&nbsp;
+			<?php echo $this->lang->line('desktop_name');?>：<?php echo @$_SESSION['AdminInfo']['name']; ?>&nbsp;&nbsp;
+			<?php echo $this->lang->line('desktop_position');?>：<?php echo @$_SESSION['AdminInfo']['position']; ?>
 		</td>
 	</tr>
 	<tbody id="listBG1">
 	<tr>
-		<td colspan="2" class="tleft"><b>用户信息</b></td>
+		<td colspan="2" class="tleft"><b><?php echo $this->lang->line('desktop_userinfo');?></b></td>
 	</tr>
 	<tr>
-		<td width="70" class="tright">IP地址:</td>
+		<td width="70" class="tright"><?php echo $this->lang->line('desktop_user_IP');?>:</td>
 		<td class="tleft"><?php echo $user['ip']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">操作系统:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_user_os');?>:</td>
 		<td class="tleft"><?php echo $user['platform']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">浏览器:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_user_browser');?>:</td>
 		<td class="tleft"><?php echo $user['browser']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">版本:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_user_version');?>:</td>
 		<td class="tleft"><?php echo $user['version']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">用户请求:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_user_agent');?>:</td>
 		<td colspan="3" class="tleft"><?php echo $user['agent']; ?></td>
 	</tr>
 	</tbody>
 	<tbody id="listBG2">
 	<tr>
-		<td colspan="2" class="tleft"><b>服务器信息</b></td>
+		<td colspan="2" class="tleft"><b><?php echo $this->lang->line('desktop_sysinfo');?></b></td>
 	</tr>
 	<tr>
-		<td class="tright">IP地址:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_IP');?>：</td>
 		<td class="tleft"><?php echo $server['ip']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">端口:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_port');?>：</td>
 		<td class="tleft"><?php echo $server['port']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">主机名:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_domain');?>：</td>
 		<td class="tleft"><?php echo $server['name']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">后台地址:</td>
-		<td class="tleft"><?php echo $server['admin']; ?></td>
-	</tr>
-	<tr>
-		<td class="tright">WEB服务:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_web');?>：</td>
 		<td class="tleft"><?php echo $server['soft']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">访问页面:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_admin');?>：</td>
+		<td class="tleft"><?php echo $server['admin']; ?></td>
+	</tr>
+	<tr>
+		<td class="tright"><?php echo $this->lang->line('desktop_sys_url');?>：</td>
 		<td class="tleft"><?php echo $server['url']; ?></td>
 	</tr>
 	</tbody>
 	<tbody id="listBG3">
 	<tr>
-		<td colspan="2" class="tleft"><b>数据库信息</b></td>
+		<td colspan="2" class="tleft"><b><?php echo $this->lang->line('desktop_dbinfo');?></b></td>
 	</tr>
 	<tr>
-		<td class="tright">配置文件:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_config');?>：</td>
 		<td colspan="3" class="tleft"><?php echo base_url('config/database.php'); ?></td>
 	</tr>
 	<tr>
-		<td class="tright">数据库:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_driver');?>：</td>
 		<td class="tleft"><?php echo $db['dbdriver']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">主机名:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_hostname');?>：</td>
 		<td class="tleft"><?php echo $db['hostname']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">用户名:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_uname');?>：</td>
 		<td class="tleft"><?php echo $db['username']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">数据库名:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_name');?>：</td>
 		<td class="tleft"><?php echo $db['database']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">表前缀:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_prefix');?>：</td>
 		<td class="tleft"><?php echo $db['dbprefix']; ?></td>
 	</tr>
 	<tr>
-		<td class="tright">编码:</td>
+		<td class="tright"><?php echo $this->lang->line('desktop_db_set');?>：</td>
 		<td class="tleft"><?php echo $db['char_set']; ?></td>
 	</tr>
 	</tbody>

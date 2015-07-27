@@ -14,10 +14,10 @@
 	<tr class="title" id="admin_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td>ID</td>
-		<td>用户名</td>
-		<td>姓名</td>
-		<td>状态</td>
-		<td>权限</td>
+		<td><?php echo $this->lang->line('sys_admin_uname');?></td>
+		<td><?php echo $this->lang->line('sys_admin_name');?></td>
+		<td><?php echo $this->lang->line('sys_admin_state');?></td>
+		<td><?php echo $this->lang->line('sys_admin_perm');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>

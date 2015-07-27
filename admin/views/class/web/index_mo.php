@@ -15,9 +15,9 @@
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td>ID</td>
 		<td>FID</td>
-		<td>菜单名</td>
-		<td>URL</td>
-		<td>审核</td>
+		<td><?php echo $this->lang->line('class_web_title');?></td>
+		<td><?php echo $this->lang->line('class_web_url');?></td>
+		<td><?php echo $this->lang->line('class_web_state');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>

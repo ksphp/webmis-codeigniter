@@ -14,9 +14,9 @@
 	<tr class="title" id="news_table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td>ID</td>
-		<td>标题</td>
-		<td>所属</td>
-		<td>审核</td>
+		<td><?php echo $this->lang->line('web_news_title');?></td>
+		<td><?php echo $this->lang->line('web_news_class');?></td>
+		<td><?php echo $this->lang->line('web_news_state');?></td>
 	</tr>
 	<tbody id="listBG">
 	<?php foreach($list as $val){?>
@@ -25,7 +25,7 @@
 		<td><?php echo $val->id;?></td>
 		<td class="tleft">
 			<a href="#" onclick="newsShow(<?php echo $val->id;?>);return false;"><?php echo keyHH($val->title, @$key['title']);?></a>
-			<?php echo $val->img?' <span class="c666">[ 图 ]</span>':'';?>
+			<?php echo $val->img?' <span class="c666">[图]</span>':'';?>
 		</td>
 		<td class="tleft">
 			<?php

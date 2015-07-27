@@ -25,8 +25,10 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .tleft{text-align: left;}
 .tright{text-align: right;}
 .center{text-align: center;}
-.input{height: 30px; line-height: 30px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.input{float: left; height: 30px; line-height: 30px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
 .inputText{float: left; height: 30px; line-height: 30px; padding: 0 8px;}
+.Validform_checktip{float: left;}
+.Checkbox{float: left; margin-top: 8px;}
 .noDisplay{display: none;}
 
 /* login */
@@ -35,12 +37,17 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .login_top_logo{height: 60px; background: url("images/logo.png") no-repeat center bottom;}
 .login_title{height: 2em; text-align: right; color: #666;}
 .login_ct{line-height: 24px; border: #FFF 1px solid; background: url("images/admin_login_line.png") repeat-x bottom center #F8F8F8; padding: 20px; border-radius: 5px; box-shadow: 1px 1px 2px #000;}
-.login_ct .text input{width: 100%; height: 2em; border: #666 1px solid; background: #999; font-size: 1.5em;}
+.login_ct .text input{width: 100%; height: 2em; border: #666 1px solid; background: #999; font-size: 1.4em; text-indent: 10px;}
 .login_an{text-align: center; }
 .login_an a{width: 100%; line-height: 3em; border: #666 1px solid; background: #6FB737; color: #FFF; font-weight: bold; display: block; border-radius: 3px; box-shadow: 0px 0px 2px #000;}
 
 .login_copy{line-height: 20px; color: #666; text-align: center; background: url("images/admin_login_line_x.png") 0px 1px repeat-x; padding: 15px 0; border-radius: 5px;}
 .login_copy b{color: #666;}
+
+.lang_ct{position: absolute; z-index: 10; cursor: pointer; width: 100%; height: 36px; line-height: 36px; background-color: rgba(0,0,0,0.7); color: #FFF; font-size: 14px; text-align: center; box-shadow: 1px 1px 3px #333;}
+.lang{display: none; position: absolute; width: 100%; background-color: rgba(0,0,0,0.7); padding: 8px 0; border-top: #333 1px solid; border-bottom: #333 1px solid;}
+.lang li a{color: #FFF; text-align: left; padding-left: 10px; display: block;}
+.lang li a:hover{background-color: #6FB737;}
 
 /* Top */
 .top{height: 50px; padding: 0 10px;}
@@ -94,6 +101,14 @@ Content UI
 .fileImgView{width: 100%; height: 100%; border-collapse: collapse; text-align: center; background: url("images/bg.png") #333; margin: 0 auto;}
 .delData{padding: 20px 0; text-align: center;}
 
+/* Show */
+.show_body{padding: 20px;}
+.show_title{height: 50px; line-height: 50px; text-align: center; font-size: 16px; font-weight: bold;}
+.show_other{text-align: center; color: #999; padding: 5px 0;}
+.show_summary{line-height: 24px; border: #CCC 1px solid; background: #FFF; padding: 10px;}
+.show_ct{line-height: 24px; font-size: 14px; padding-top: 10px;}
+.show_key{line-height: 24px; color: #999;}
+
 /* Page */
 .page{height: 50px; line-height: 50px; text-align: center; color: #999;}
 .pagelist span{padding: 0 3px;}
@@ -134,9 +149,10 @@ Content UI
 .TableTrBg2{background: #DEDEDE;}
 
 /* Action */
-.action{width: 100%; border-collapse: collapse; line-height: 30px; border: #BBB 1px solid; background: #F2F2F2; color: #999; border-radius: 3px 0 0 3px; box-shadow: 1px 1px 2px #BBB;}
-.action td{padding: 0 5px;}
-.action .title{width: 60px; color: #666; text-align: center; font-weight: bold; border-right: #BBB 1px solid; background: #FFF;}
+.action{width: 100%; border-collapse: collapse; border: #BBB 1px solid; background: #F2F2F2; color: #999; border-radius: 3px 0 0 3px; box-shadow: 1px 1px 2px #BBB;}
+.action td{float: left; width: 100%;}
+.action .title{height: 32px; line-height: 32px; color: #999; text-align: center; font-weight: bold; border-right: #BBB 1px solid; border-bottom: #BBB 1px solid; background: #FFF;}
+.action_ct{line-height: 30px; overflow: hidden;}
 .action_ct li{float: left; padding: 0 5px;}
 
 /* ICO */
