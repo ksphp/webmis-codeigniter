@@ -7,12 +7,12 @@ date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
 $config['m_themes'] = 'default';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
+$config['language'] = 'en-us';  // en-us,zh-cn
 
 $config['base_url'] = '';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '.html';
-$config['language']	= 'english';
 $config['charset'] = 'UTF-8';
 $config['enable_hooks'] = FALSE;
 $config['subclass_prefix'] = 'MY_';

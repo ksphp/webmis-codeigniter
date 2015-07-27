@@ -1,6 +1,12 @@
 <?php
 class Index_c extends CI_Controller {
 	public function index(){
+		/* Lang */
+		$this->load->library('user_agent');
+		$lang = $this->agent->languages();
+		$Lang = $lang?$lang[0]:'en-us';
+		$this->lang->load('text',$Lang);
+		
 		$this->load->library('inc');
 		$data['Menus'] = $this->inc->getMenuUser($this);	//WEB分类菜单
 		$data['css'] = array('index.css');
