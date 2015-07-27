@@ -19,7 +19,7 @@
 	<tr>
 		<td class="tright"><?php echo $this->lang->line('sys_config_copy');?>：</td>
 		<td>
-			<textarea name="copy" style="width: 90%; height: 70px;" maxlength="200"><?php echo $this->config->config['copy'];?></textarea>
+			<textarea name="copy" style="width: 90%; height: 70px;"><?php echo $this->config->config['copy'];?></textarea>
 		</td>
 	</tr>
 	<tr>
