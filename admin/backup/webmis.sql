@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `wmis_class_web`;
 CREATE TABLE `wmis_class_web` (
   `id` int(3) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `fid` int(3) NOT NULL COMMENT 'FID',
-  `title` varchar(12) NOT NULL COMMENT 'Title',
+  `title` varchar(16) NOT NULL COMMENT 'Title',
   `url` varchar(32) NOT NULL COMMENT 'URL',
   `ico` varchar(12) DEFAULT NULL COMMENT 'Icon',
   `remark` varchar(30) NOT NULL COMMENT 'Remark',
@@ -142,6 +142,6 @@ CREATE TABLE `wmis_web_news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `wmis_web_news` (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `audit`, `atime`, `state`, `summary`, `content`) VALUES ('1', '', 'Test title', '', '', 'KSPHP', 'kingsoul', '', '2015-07-24 10:10:09', '0', 'Test', NULL, '2015-07-24 10:58:27', '1', 'Test Summary', '<p>Welcome to use WEBMIS！</p>');
+INSERT INTO `wmis_web_news` (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `audit`, `atime`, `state`, `summary`, `content`) VALUES ('1', ':1:', 'Test title', '', '', 'KSPHP', 'kingsoul', '', '2015-07-24 10:10:09', '0', 'Test', 'admin', '2015-07-27 13:02:00', '1', 'Test Summary', '<p>Welcome to use WEBMIS！</p>');
 
 

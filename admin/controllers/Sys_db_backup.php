@@ -12,8 +12,9 @@ class Sys_db_backup extends MY_Controller {
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_db_m');
-		echo $this->sys_db_m->delTable()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_db_m->delTable()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Export */
 	public function exp(){
@@ -45,7 +46,8 @@ class Sys_db_backup extends MY_Controller {
 			'add_insert'  => TRUE,
 			'newline'     => "\n"
 		);
+		$this->lang->load('msg',$this->Lang);
 		$backup = $this->dbutil->backup($prefs);
-		echo write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n"}';
+		echo @write_file($dir.'/'.$name.'.'.$format, $backup)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 }

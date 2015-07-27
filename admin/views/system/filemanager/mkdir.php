@@ -1,4 +1,4 @@
-<form action="<?php echo base_url($this->config->config['index_url'].'sys_filemanager.html');?>" method="get" id="fileForm">
+<form action="<?php echo base_url($this->config->config['index_url'].'sys_filemanager.html');?>" method="post" id="fileForm">
 <table class="table_add">
 	<tr>
 		<td class="tright" width="50"><?php echo $this->lang->line('sys_file_name');?>:</td>

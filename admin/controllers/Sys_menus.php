@@ -30,8 +30,9 @@ class Sys_menus extends MY_Controller {
 		$this->load->view('system/menus/add',$data);
 	}
 	public function addData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_menus_m');
-		echo $this->sys_menus_m->add()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_menus_m->add()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* GetMenu */
 	public function getMenu(){
@@ -64,12 +65,14 @@ class Sys_menus extends MY_Controller {
 		}
 	}
 	public function editData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_menus_m');
-		echo $this->sys_menus_m->update()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_menus_m->update()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_menus_m');
-		echo $this->sys_menus_m->del()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_menus_m->del()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 }

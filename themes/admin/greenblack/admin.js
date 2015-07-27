@@ -2,9 +2,9 @@ var IsMobile = $('#IsMobile').text();
 var moWidth = $(document).width()-20;
 var moHeight = $(window).height()-60;
 $(function(){
-	//版本信息
+	// Version
 	$('#webmisVersion').webmisVersion();
-	//自动调整大小
+	// Auto Size
 	var autoSize = function(size){
 		var height = $(window).height()-72;
 		var DisplayTop = $("#DisplayTop").text();
@@ -14,37 +14,13 @@ $(function(){
 			$("#top").show();
 		}
 		if(size){height = height+size;}else if(DisplayTop == 'hide'){height = height+50;}
-		//调整高
+		// Change Height
 		$(".ct_left,.ct_right").height(height);
 		$(".web_iframe").height(height-5);
 	}
 	autoSize();
 	$(window).resize(function(){autoSize();});
-	//显示、隐藏头部
-	$('#TopMenus').click(function(){
-		if($("#top").is(":hidden")){
-			$("#top").slideDown('fast');
-			$.get($base_url+'welcome/DisplayTop/show');
-			$("#DisplayTop").text('show');
-			autoSize();
-		}else{
-			$("#top").hide();
-			$.get($base_url+'welcome/DisplayTop/hide');
-			$("#DisplayTop").text('hide');
-			autoSize(50)
-		}
-		return false;
-	});
-	//显示、隐藏左侧菜单
-	$('#LeftMenus').click(function(){
-		if($(".ct_left").is(":hidden")){
-			$(".ct_left").show();
-		}else{
-			$(".ct_left").hide();
-		}
-		return false;
-	});
-	//全选,全不选
+	// All or Not all
 	$('#checkboxY').click(function () {
 		$(this).hide();
 		$(this).parent().parent().parent().parent().find("input:checkbox").prop("checked", true);
@@ -57,9 +33,8 @@ $(function(){
 		return false;
 	});
 });
-/*点击二级菜单*/
+/* Click Menus */
 function menuTwo(id,type){
-	//显示对应菜单
 	var p = $('#menuThree_'+id);
 	if(p.is(':hidden')){
 		p.slideDown('fast');
@@ -69,16 +44,14 @@ function menuTwo(id,type){
 		type.find('#tu').attr('class','jia UI');
 	}
 }
-/*
-** ******动作******
-*/
-/*删除*/
+
+/* Remove */
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_remove:''},function (data){
+		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_remove:''},function (data){
 			$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="'+data.msg_remove+'" /></div>'});
-			$('#delSub').webmis('SubClass'); //按钮样式
+			$('#delSub').webmis('SubClass');
 			//点击提交
 			var lock = false;
 			$('#delSub').click(function(){
@@ -87,26 +60,26 @@ function actionDel(dataUrl,targetUrl) {
 					if(data.status=='y'){
 						$.webmis.win('close');
 						var url = $('#getUrl').text();
-						$.webmis.win('open',{content:'<b class="green">删除成功</b>',target:targetUrl+url,AutoClose:3});
+						$.webmis.win('open',{title:data.title,content:'<b class="green">'+data.msg+'</b>',target:targetUrl+url,AutoClose:3,AutoCloseText:data.text});
 					}else{
 						$.webmis.win('close');
-						$.webmis.win('open',{content:'<b class="red">删除失败</b>',AutoClose:3});
+						$.webmis.win('open',{title:data.title,content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
 					}
 					lock=false;
 				},'json');
 			});
 		},'json');
 	}else{
-		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
 }
-/*审核*/
+/* Audit */
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
+		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
 			$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="'+data.msg_pass+'" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="'+data.msg_notpass+'" /></div>'});
 			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
 			//通过
@@ -119,7 +92,7 @@ function actionAudit(dataUrl,targetUrl) {
 			});
 		},'json');
 	}else{
-		$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
@@ -131,10 +104,10 @@ function actionAudit(dataUrl,targetUrl) {
 			if(data.status=='y'){
 				$.webmis.win('close');
 				var url = $('#getUrl').text();
-				$.webmis.win('open',{content:'<b class="green">审核成功</b>',target:targetUrl+url,AutoClose:3});
+				$.webmis.win('open',{title:data.title,content:'<b class="green">'+data.msg+'</b>',target:targetUrl+url,AutoClose:3,AutoCloseText:data.text});
 			}else{
 				$.webmis.win('close');
-				$.webmis.win('open',{content:'<b class="red">审核失败</b>',AutoClose:3});
+				$.webmis.win('open',{title:data.title,content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
 			}
 			lock=false;
 		},'json');

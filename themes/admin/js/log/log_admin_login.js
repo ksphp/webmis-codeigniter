@@ -1,19 +1,19 @@
 $(function(){
-/*列表*/
-	$('#listBG').webmis('TableOddColor');	//隔行换色
-	$('#admin_log_table').webmis('TableAdjust');  //调整宽度
-/*搜索*/
+/* Index */
+	$('#listBG').webmis('TableOddColor');
+	$('#admin_log_table').webmis('TableAdjust');
+/* Search */
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 420;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:320});
-		//加载内容
+		// Content
 		$.get($base_url+'log_admin_login/search.html',function(data){
-			$.webmis.win('load',data);   //加载内容
-			$('#seaSub').webmis('SubClass'); //按钮样式
+			$.webmis.win('load',data);
+			$('#seaSub').webmis('SubClass');
 		});
 		return false;
 	});
-/*删除*/
+/* Del */
 	$('#ico-del').click(function(){
 		actionDel('log_admin_login/delData.html','log_admin_login.html');
 		return false;

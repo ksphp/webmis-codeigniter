@@ -1,74 +1,73 @@
 $(function(){
-	//加载文件
 	$.webmis.inc({files:[
-		$webmis_plugin + 'Validform.min.js', //表单验证
-		$webmis_plugin + 'highcharts/highcharts.js',	//图表插件
-		$webmis_plugin + 'tinymce/tinymce.min.js',	//编辑器插件
+		$webmis_plugin + 'Validform.min.js',
+		$webmis_plugin + 'highcharts/highcharts.js',
+		$webmis_plugin + 'tinymce/tinymce.min.js',
 		$webmis_plugin + 'jquery.form.js'
 	]});
-/*列表*/
-	$('#listBG').webmis('TableOddColor');	//隔行换色
-	$('#news_table').webmis('TableAdjust');  //调整宽度
-/*搜索*/
+/* Index */
+	$('#listBG').webmis('TableOddColor');
+	$('#news_table').webmis('TableAdjust');
+/* Search */
 	$('#ico-search').click(function(){
 		if(!IsMobile){moWidth = 420;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:320});
-		//加载内容
+		// Content
 		$.get($base_url+'web_news/search.html',function(data){
-			$.webmis.win('load',data);   //加载内容
-			$('#seaSub').webmis('SubClass'); //按钮样式
+			$.webmis.win('load',data);
+			$('#seaSub').webmis('SubClass');
 		});
 		return false;
 	});
-/*添加*/
+/* Add */
 	$('#ico-add').click(function(){
 		if(!IsMobile){moWidth = 840; moHeight= 560;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
-		//加载内容
+		// Content
 		$.get($base_url+'web_news/add.html',function(data){
-			$.webmis.win('load',data);   //加载内容
-			newsClass();    //查询导航菜单
-			newsForm(); //表单验证
+			$.webmis.win('load',data);
+			newsClass();
+			newsForm();
 		});
 		return false;
 	});
-/*编辑*/
+/* Edit */
 	$('#ico-edit').click(function(){
 		var id = $('#listBG').webmis('GetInputID');
 		if(id){
 			if(!IsMobile){moWidth = 840; moHeight= 560;}
 			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
-			//加载内容
+			// Content
 			$.post($base_url+'web_news/edit.html',{'id':id},function(data){
-				$.webmis.win('load',data);   //加载内容
+				$.webmis.win('load',data);
 				$('#newsID').val(id);
-				newsClass();	//查询导航菜单
-				newsForm(); //表单验证
+				newsClass();
+				newsForm();
 			});
 		}else{
-			$.get($base_url+'welcome/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+			$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 				$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 			},'json');
 		}
 		return false;
 	});
-/*删除*/
+/* Del */
 	$('#ico-del').click(function(){
 		actionDel('web_news/delData.html','web_news.html');
 		return false;
 	});
-/*审核*/
+/* Audit */
 	$('#ico-audit').click(function(){
 		actionAudit('web_news/auditData.html','web_news.html');
 		return false;
 	});
-/*图表*/
+/* Chart */
 	$('#ico-chart').click(function(){
 		if(!IsMobile){moWidth = 620; moHeight= 450;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
-		//获取数据
+		// Content
 		$.post($base_url+'web_news/chartData.html',function(data){
-			//创建图表
+			// Create
 			$('#WebMisWinCT').highcharts({
 				chart: {type: 'pie'},
 				title: {text: '<b>'+data+'</b>'},
@@ -82,16 +81,14 @@ $(function(){
 	
 });
 
-/*表单验证*/
+/* Form validation */
 function newsForm(){
-	$('#newsSub').webmis('SubClass'); //按钮样式
-	$.webmis.win('menu',{change:'#newsBody', menus:[$('#TabName1').text(),$('#TabName2').text(),$('#TabName3').text()]});  //选项卡
+	$('#newsSub').webmis('SubClass');
+	$.webmis.win('menu',{change:'#newsBody', menus:[$('#TabName1').text(),$('#TabName2').text(),$('#TabName3').text()]});
 	//编辑器
 	TinyMce('#tinymce');
 	//验证提交
-	$("#newsForm").Validform({
-		ajaxPost:true,
-		tiptype:2,
+	$("#newsForm").Validform({ajaxPost:true,tiptype:2,
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){
@@ -99,16 +96,16 @@ function newsForm(){
 				$.webmis.win('close','web_news.html'+url);
 			}else{
 				$.webmis.win('close');
-				$.webmis.win('open',{content:'<b class="red">操作失败</b>',AutoClose:3});
+				$.webmis.win('open',{title:data.title,content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
 			}
 		}
 	});
-	//上传文件
-	$('#listBG').webmis('TableOddColor');	//隔行换色
+	// Upload
+	$('#listBG').webmis('TableOddColor');
 	var num = $("#NumIMG").val();
 	if(num > 0){for(i=num;i>0;i--){uploadIMG(i);}}
 }
-/* 编辑器 */
+/* Editr */
 function TinyMce(obj){
 	if(!IsMobile){moWidth = 900;}
 	tinymce.init({
@@ -137,7 +134,7 @@ function TinyMce(obj){
 		}
 	});
 }
-/*分类联动*/
+/* Menus */
 function newsClass(){
 	$('#newsClass').webmis('AutoSelect',{
 		url:$base_url+'web_news/getMenu.html',
@@ -147,7 +144,7 @@ function newsClass(){
 		getVal:'#menus_fid'
 	});
 }
-/*显示详细信息*/
+/* News Show */
 function newsShow(id,title){
 	if(!IsMobile){moWidth = 720; moHeight= 580;}
 	$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
@@ -157,20 +154,20 @@ function newsShow(id,title){
 	});
 }
 
-/* 添加图片 */
+/* Add IMG */
 function AddIMG(){
 	var id = $("#ImgID").val();
 	var num = parseInt($("#NumIMG").val())+1;
 	$.get($base_url+'web_news/getImghtml/'+id+'/'+num+'.html',function (html){
-		//追加内容
+		// Content
 		$("#listBG").append(html);
 		$("#NumIMG").val(num);
-		//触发事项
+		// On
 		uploadIMG(num);
 	});
 }
 
-/* 上传图片 */
+/* Upload IMG */
 function uploadIMG(num){
 	var path = "/upload/images/news/";
 	var lock = false;
@@ -188,7 +185,7 @@ function uploadIMG(num){
 	return false;
 }
 
-/* 删除图片 */
+/* Remove IMG */
 function RemoveIMG($num){
 	var id = $("#ImgID").val();
 	var url = $("#ImgInput_"+$num).val();
@@ -199,7 +196,7 @@ function RemoveIMG($num){
 			if(data.status=='y'){
 				$("#ImgCT_"+$num).remove();
 			}else{
-				alert('删除失败！');
+				alert('Error！');
 			}
 			lock=false;
 		},"json");

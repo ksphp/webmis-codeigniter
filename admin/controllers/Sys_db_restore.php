@@ -24,12 +24,13 @@ class Sys_db_restore extends MY_Controller {
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$file = array_filter(explode(',', $this->input->post('id')));
 		foreach($file as $val){
 			if(unlink($this->config->config['backup'].'/'.trim($val))){
-				$data = '{"status":"y"}';
+				$data = '{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 			}else{
-				$data = '{"status":"n"}';
+				$data = '{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 				break;
 			}
 		}
@@ -44,8 +45,8 @@ class Sys_db_restore extends MY_Controller {
 		$this->load->view('system/db/restore/imp',$data);
 	}
 	public function impData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->helper('file');
-		
 		$file = $this->input->post('file');
 		$data = '{"status":"n"}';
 		/* Remove Notes */
@@ -58,6 +59,7 @@ class Sys_db_restore extends MY_Controller {
 				if(@$this->db->query($sql)){
 					$data = '{"status":"y"}';
 				}else{
+					$data = '{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 					break;
 				}
 			}

@@ -3,6 +3,7 @@ class Sys_filemanager extends MY_Controller {
 	/* Index */
 	function index(){
 		$this->lang->load('system/sys_file',$this->Lang);
+		$this->lang->load('msg',$this->Lang);
 		$this->load->library('inc');
 		$this->load->library('file_class');
 		/* Upload Dir */
@@ -15,9 +16,9 @@ class Sys_filemanager extends MY_Controller {
 		$action = $this->input->get('action');
 		switch($action) {
 			case 'mkdir':
-				$path = $this->input->get('path'). $this->input->get('name');
-				$perm = (int)$this->input->get('perm');
-				echo $this->file_class->addDir($path,$perm);
+				$path = $this->input->post('path').$this->input->post('name');
+				$perm = (int)$this->input->post('perm');
+				echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 				break;
 			case 'addfile':
 				$file = $this->file_class->file_root.$this->input->get('path'). $this->input->get('file');

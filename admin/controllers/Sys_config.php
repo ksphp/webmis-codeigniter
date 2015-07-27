@@ -70,7 +70,8 @@ class Sys_config extends MY_Controller {
 			fwrite($fp,$ct);
 			fclose($fp);
 		}
-		echo $data?'{"status":"y"}':'{"status":"n"}';
+		$this->lang->load('msg',$this->Lang);
+		echo $data?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 
 	}
 }

@@ -42,6 +42,7 @@ class Index_c extends CI_Controller {
 	}
 	/* Login */
 	public function login(){
+		$this->lang->load('msg',$_SESSION['AdminInfo']['lang']);
 		$this->load->model('sys_admin_m');
 		$uname = $this->input->post('uname');
 		$passwd = $this->input->post('passwd');
@@ -57,14 +58,14 @@ class Index_c extends CI_Controller {
 				$_SESSION['AdminInfo']['permArr'] = $this->splitPerm($uinfo->perm);
 				$_SESSION['AdminInfo']['ltime'] = time()+1800;
 				$this->loginLog('Login',$uname);
-				echo '{"status":"suc","msg":""}';
+				echo '{"status":"suc","msg":"Success"}';
 			}else{
 				$this->loginLog('Disable',$uname);
-				echo '{"status":"err","msg":"<b class=\"red\">该用户已被禁用！</b>"}';
+				echo '{"status":"err","title":"'.$this->lang->line('msg_title').'","msg":"<b class=\"red\">'.$this->lang->line('msg_isDisable').'</b>","text":"'.$this->lang->line('msg_auto_close').'"}';
 			}
 		}else{
 			$this->loginLog('Error',$uname);
-			echo '{"status":"err","msg":"<b class=\"red\">帐号或密码有误！</b>"}';
+			echo '{"status":"err","title":"'.$this->lang->line('msg_title').'","msg":"<b class=\"red\">'.$this->lang->line('msg_isUser').'</b>","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}
 	}
 	/* LoginOut */

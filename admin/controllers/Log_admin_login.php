@@ -22,8 +22,9 @@ class Log_admin_login extends MY_Controller {
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('log_admin_login_m');
-		echo $this->log_admin_login_m->del()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->log_admin_login_m->del()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 }
 ?>

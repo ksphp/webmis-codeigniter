@@ -4,33 +4,33 @@ var file_action = $('#file_action').text();
 var file_editor = $('#file_editor').text();
 var fileGetUrl = '&action='+file_action+'&editor='+file_editor
 $(function () {
-	//加载文件
 	$.webmis.inc({files:[
 		$webmis_plugin + 'jquery.form.js',
-		$webmis_plugin + 'tinymce/tinymce.min.js'	//编辑器插件
+		$webmis_plugin + 'tinymce/tinymce.min.js',
+		$webmis_plugin+'Validform.min.js'
 	]});
-/*列表*/
-	$('#listBG').webmis('TableOddColor');	//隔行换色
-	$('#table').webmis('TableAdjust');  //调整宽度
-/*新建文件夹*/
+/* Index */
+	$('#listBG').webmis('TableOddColor');
+	$('#table').webmis('TableAdjust');
+/* Mkdir */
 	$('#ico-addfolder').click(function () {
 		if(!IsMobile){moWidth = 420;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:210});
-		//加载内容
+		// Content
 		$.get($base_url+'sys_filemanager/addFolder.html',function(data){
-			$.webmis.win('load',data);   //加载内容
+			$.webmis.win('load',data);
 			$('#file_path').val(path);
 			$('#file_editor').val(file_editor);
-			$("#fileForm").ajaxForm(function(data) {
-				if(data=='1'){
-					$.webmis.win('close');
-					$.webmis.win('open',{content:'<b class="green">新建成功</b>',target:'sys_filemanager.html?path='+path+fileGetUrl,AutoClose:3});
-				}else{
-					$.webmis.win('close');
-					$.webmis.win('open',{content:'<b class="red">新建失败</b>',AutoClose:3});
-				}
-			});
-			$('#fileSub').webmis('SubClass'); //按钮样式
+//			$("#fileForm").ajaxForm(function(data) {
+//				alert(data);
+//				if(data.status=="y"){
+//					$.webmis.win('close','sys_filemanager.html?path='+path+fileGetUrl);
+//				}else{
+//					$.webmis.win('close');
+//					$.webmis.win('open',{title:data.title,content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
+//				}
+//			});
+			$('#fileSub').webmis('SubClass');
 		});
 		return false;
 	});

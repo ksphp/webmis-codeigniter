@@ -32,9 +32,10 @@ class Web_news extends MY_Controller {
 		$this->load->view('web/news/add');
 	}
 	public function addData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('web_news_m');
 		if(isset($_POST['content'])) {
-			echo $this->web_news_m->add()?'{"status":"y"}':'{"status":"n"}';
+			echo $this->web_news_m->add()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}
 	}
 	/* GetMenu */
@@ -53,20 +54,23 @@ class Web_news extends MY_Controller {
 		$this->load->view('web/news/edit',$data);
 	}
 	public function editData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('web_news_m');
 		if(isset($_POST['content'])) {
-			echo $this->web_news_m->update()?'{"status":"y"}':'{"status":"n"}';
+			echo $this->web_news_m->update()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('web_news_m');
-		echo $this->web_news_m->del()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->web_news_m->del()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Audit */
 	public function auditData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('web_news_m');
-		echo $this->web_news_m->audit()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->web_news_m->audit()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Chart */
 	public function chartData() {

@@ -1,20 +1,20 @@
 $(function(){
-	//版本信息
+	// Version
 	$('#webmisVersion').webmisVersion();
-	//Lang
+	// Lang
 	$('#Lang').hover(function(){
 		$(this).find('ul').show();
 	},function(){
 		$(this).find('ul').hide();
 	});
-	//登录框位置
+	// Login Position
 	var autoSize = function(size){
 		var top = $(window).height()/5;
 		$('.login_body').css({'top':top});
 	}
 	autoSize();
 	$(window).resize(function(){autoSize();});
-	//登录
+	// Login
 	var login = function(){
 		var uname = $('#uname').val();
 		var passwd = $('#passwd').val();
@@ -29,13 +29,14 @@ $(function(){
 				if(data.status == 'suc'){
 					$.webmis.win('close','welcome.html');
 				}else{
-					$.webmis.win('open',{content:data.msg,AutoClose:3});
+					$.webmis.win('open',{title:data.title,content:data.msg,AutoClose:3,AutoCloseText:data.text});
 				}
 			},'json');
+			return false;
 		}
 	}
-	//回车触发
+	// Enter
 	$(document).keypress(function(e){if(e.which == 13){login();}});
-	//点击按钮触发
+	// Click
 	$('#adminLogin').click(login);
 });

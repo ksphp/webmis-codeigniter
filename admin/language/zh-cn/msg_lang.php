@@ -11,3 +11,5 @@ $lang['msg_pass'] = '通过';
 $lang['msg_notpass'] = '不通过';
 
 $lang['msg_isNull'] = '不能为空！';
+$lang['msg_isUser'] = '帐号或密码有误！';
+$lang['msg_isDisable'] = '该用户已被禁用！';

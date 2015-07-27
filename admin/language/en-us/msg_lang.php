@@ -11,3 +11,5 @@ $lang['msg_pass'] = 'Pass';
 $lang['msg_notpass'] = 'Not Pass';
 
 $lang['msg_isNull'] = 'Can`t be empty!';
+$lang['msg_isUser'] = 'Uname or password is error！';
+$lang['msg_isDisable'] = 'Users are disabled！';

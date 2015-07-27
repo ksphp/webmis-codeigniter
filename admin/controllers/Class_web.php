@@ -29,8 +29,9 @@ class Class_web extends MY_Controller {
 		$this->load->view('class/web/add');
 	}
 	public function addData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->add()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->class_web_m->add()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* GetMenu */
 	public function getMenu(){
@@ -48,17 +49,20 @@ class Class_web extends MY_Controller {
 		$this->load->view('class/web/edit',$data);
 	}
 	public function editData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->update()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->class_web_m->update()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->del()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->class_web_m->del()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Audit */
 	public function auditData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('class_web_m');
-		echo $this->class_web_m->audit()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->class_web_m->audit()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 }

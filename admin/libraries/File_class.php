@@ -71,7 +71,7 @@ class file_class{
 
 	/* Mkdir */
 	function addDir($path,$perm=0755) {
-		return mkdir($this->file_root.$path, octdec($perm));
+		return @mkdir($this->file_root.$path, octdec($perm))?TRUE:FALSE;
 	}
 
 	/* Rename */

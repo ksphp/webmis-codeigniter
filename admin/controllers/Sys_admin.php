@@ -27,8 +27,9 @@ class Sys_admin extends MY_Controller {
 		$this->load->view('system/admin/add');
 	}
 	public function addData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->add()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_admin_m->add()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Edit */
 	public function edit(){
@@ -39,13 +40,15 @@ class Sys_admin extends MY_Controller {
 		$this->load->view('system/admin/edit',$data);
 	}
 	public function editData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->update()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_admin_m->update()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* Delete */
 	public function delData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->del()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_admin_m->del()?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 	/* UserName */
 	public function uname(){
@@ -114,7 +117,8 @@ class Sys_admin extends MY_Controller {
 	}
 	/* Update */
 	public function permData(){
+		$this->lang->load('msg',$this->Lang);
 		$this->load->model('sys_admin_m');
-		echo $this->sys_admin_m->updatePerm()?'{"status":"y"}':'{"status":"n"}';
+		echo $this->sys_admin_m->updatePerm()?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 	}
 }

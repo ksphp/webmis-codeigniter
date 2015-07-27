@@ -8,11 +8,10 @@ $(function(){
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){
-				$.webmis.win('close');
-				$.webmis.win('open',{content:'<b class="green">保存成功</b>',target:'sys_config.html',AutoClose:3});
+				$.webmis.win('close','sys_config.html');
 			}else{
 				$.webmis.win('close');
-				$.webmis.win('open',{content:'<b class="red">保存失败</b>',AutoClose:3});
+				$.webmis.win('open',{title:data.title,content:'<b class="red">'+data.msg+'</b>',AutoClose:3,AutoCloseText:data.text});
 			}
 		}
 	});
