@@ -16,8 +16,6 @@
 		<td>ID</td>
 		<td>FID</td>
 		<td><?php echo $this->lang->line('sys_menu_title');?></td>
-		<td><?php echo $this->lang->line('sys_menu_name');?></td>
-		<td><?php echo $this->lang->line('sys_menu_cname');?></td>
 		<td><?php echo $this->lang->line('sys_menu_perm');?></td>
 	</tr>
 	<tbody id="listBG">
@@ -27,8 +25,6 @@
 		<td><?php echo $val->id;?></td>
 		<td><?php echo keyHH($val->fid, @$key['fid']);?></td>
 		<td><?php echo $this->lang->line($val->title);?></td>
-		<td><?php echo keyHH($val->title, @$key['title']);?></td>
-		<td><?php echo keyHH($val->url, @$key['url']);?></td>
 		<td><?php echo keyHH($val->perm, @$key['perm']);?></td>
 	</tr>
 	<?php } ?>
