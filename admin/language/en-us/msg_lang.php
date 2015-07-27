@@ -9,3 +9,5 @@ $lang['msg_auto_close'] = 'Seconds Auto Close';
 $lang['msg_remove'] = 'Remove';
 $lang['msg_pass'] = 'Pass';
 $lang['msg_notpass'] = 'Not Pass';
+
+$lang['msg_isNull'] = 'Can`t be empty!';

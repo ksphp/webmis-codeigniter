@@ -2,7 +2,7 @@
 class Sys_filemanager extends MY_Controller {
 	/* Index */
 	function index(){
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->library('inc');
 		$this->load->library('file_class');
 		/* Upload Dir */
@@ -76,14 +76,14 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* Create Folder */
 	function addFolder() {
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/mkdir');
 	}
 	/* Create File */
 	function addFile() {
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/addfile');
 	}
 	function addFileData($file) {
@@ -93,19 +93,19 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* Upload */
 	function upload() {
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/upload');
 	}
 	/* EditPerm */
 	function editPerm() {
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/edit_perm');
 	}
 	/* Rename */
 	function reName() {
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_file',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/rename');
 	}
 	/* Download */
@@ -137,7 +137,7 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* EditFile */
 	public function editFile($file_root) {
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		

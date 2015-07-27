@@ -2,7 +2,7 @@
 class Sys_admin extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('system/sys_admin',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_admin',$this->Lang);
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'sys_admin/index.html','model'=>'sys_admin_m'));
@@ -16,14 +16,14 @@ class Sys_admin extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_admin',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_admin',$this->Lang);
 		$this->load->view('system/admin/sea');
 	}
 	/* Add */
 	public function add(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_admin',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_admin',$this->Lang);
 		$this->load->view('system/admin/add');
 	}
 	public function addData(){
@@ -32,8 +32,8 @@ class Sys_admin extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_admin',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_admin',$this->Lang);
 		$this->load->model('sys_admin_m');
 		$data['edit'] = $this->sys_admin_m->getOne();
 		$this->load->view('system/admin/edit',$data);
@@ -54,8 +54,8 @@ class Sys_admin extends MY_Controller {
 	}
 	/* EditPerm */
 	public function editPerm(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('menu',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('menu',$this->Lang);
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
 		$actionM = $this->sys_menus_action_m->getAll();

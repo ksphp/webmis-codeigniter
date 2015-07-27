@@ -2,7 +2,7 @@
 class Sys_config extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('system/sys_config',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_config',$this->Lang);
 		$this->load->helper('my');
 		$this->load->library('inc');
 		$this->load->helper('file');

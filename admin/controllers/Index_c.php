@@ -31,6 +31,15 @@ class Index_c extends CI_Controller {
 			$this->load->view('../../themes/admin/'.$this->config->config['admin_themes'].'/inc/login_v',$data);
 		}
 	}
+	// Get Lang
+	public function getLang($type=''){
+		$this->lang->load($type,$_SESSION['AdminInfo']['lang']);
+		$name = $this->input->get();
+		foreach ($name as $key=>$val){
+			$data[$key] = $this->lang->line($key);
+		}
+		echo json_encode($data);
+	}
 	/* Login */
 	public function login(){
 		$this->load->model('sys_admin_m');

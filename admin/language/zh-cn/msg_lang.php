@@ -9,3 +9,5 @@ $lang['msg_auto_close'] = '秒后自动关闭';
 $lang['msg_remove'] = '彻底删除';
 $lang['msg_pass'] = '通过';
 $lang['msg_notpass'] = '不通过';
+
+$lang['msg_isNull'] = '不能为空！';

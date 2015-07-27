@@ -2,7 +2,7 @@
 class Desktop extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('index/desktop',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('index/desktop',$this->Lang);
 		$this->load->library('inc');
 		$this->load->library('user_agent');
 		

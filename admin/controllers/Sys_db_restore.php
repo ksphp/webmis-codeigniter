@@ -2,7 +2,7 @@
 class Sys_db_restore extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('system/sys_db',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_db',$this->Lang);
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$this->load->helper('file');
@@ -37,8 +37,8 @@ class Sys_db_restore extends MY_Controller {
 	}
 	/* Import */
 	public function imp(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_db',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_db',$this->Lang);
 		/* Config */
 		$data['file'] = $this->config->config['backup'].'/'.$this->input->post('file');
 		$this->load->view('system/db/restore/imp',$data);

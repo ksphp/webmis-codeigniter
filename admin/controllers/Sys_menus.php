@@ -2,7 +2,7 @@
 class Sys_menus extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('system/sys_menu',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_menu',$this->Lang);
 		$this->load->helper('my');
 		$this->load->library('inc');
 		$data = $this->inc->Page($this,array('url'=>'sys_menus/index.html','model'=>'sys_menus_m'));
@@ -16,15 +16,15 @@ class Sys_menus extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_menu');
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('system/sys_menu',$this->Lang);
 		$this->load->view('system/menus/sea');
 	}
 	/* Add */
 	public function add(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('menu',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_menu',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('menu',$this->Lang);
+		$this->lang->load('system/sys_menu',$this->Lang);
 		$this->load->model('sys_menus_action_m');
 		$data['action'] = $this->sys_menus_action_m->getAll();
 		$this->load->view('system/menus/add',$data);
@@ -35,7 +35,7 @@ class Sys_menus extends MY_Controller {
 	}
 	/* GetMenu */
 	public function getMenu(){
-		$this->lang->load('menu',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('menu',$this->Lang);
 		$this->load->model('sys_menus_m');
 		$fid = $this->input->post('fid');
 		$data = $this->sys_menus_m->getMenus($fid);
@@ -50,9 +50,9 @@ class Sys_menus extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
-		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('menu',$_SESSION['AdminInfo']['lang']);
-		$this->lang->load('system/sys_menu',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('inc',$this->Lang);
+		$this->lang->load('menu',$this->Lang);
+		$this->lang->load('system/sys_menu',$this->Lang);
 		$this->load->model('sys_menus_m');
 		$this->load->model('sys_menus_action_m');
 		$data['edit'] = $this->sys_menus_m->getOne();
