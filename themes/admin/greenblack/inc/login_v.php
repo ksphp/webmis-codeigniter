@@ -14,6 +14,13 @@
 <?php if($isIE){?>
 	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
 <?php }?>
+	<div id="Lang" class="lang_ct">
+		<?php echo $LangName;?>
+		<ul class="lang">
+			<li><a href="<?php echo base_url('?lang=en-us'); ?>">en-us | English</a></li>
+			<li><a href="<?php echo base_url('?lang=zh-cn'); ?>">zh-cn | 简体中文</a></li>
+		</ul>
+	</div>
 <section>
 	<section class="login_body">
 		<header class="login_top">

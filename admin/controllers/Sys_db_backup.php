@@ -2,7 +2,7 @@
 class Sys_db_backup extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('system/sys_db');
+		$this->lang->load('system/sys_db',$_SESSION['AdminInfo']['lang']);
 		$this->load->library('inc');
 		$this->load->model('sys_db_m');
 		$data['table'] = $this->sys_db_m->getTableList();
@@ -17,8 +17,8 @@ class Sys_db_backup extends MY_Controller {
 	}
 	/* Export */
 	public function exp(){
-		$this->lang->load('inc');
-		$this->lang->load('system/sys_db');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('system/sys_db',$_SESSION['AdminInfo']['lang']);
 		/*Config*/
 		$data['fname'] = 'Data_'.date('Y_m_d_His');
 		$data['backdir'] = $this->config->config['backup'];

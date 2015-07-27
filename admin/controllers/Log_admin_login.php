@@ -2,7 +2,7 @@
 class Log_admin_login extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('log/log_login');
+		$this->lang->load('log/log_login',$_SESSION['AdminInfo']['lang']);
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'log_admin_login/index.html','model'=>'log_admin_login_m'));
@@ -16,8 +16,8 @@ class Log_admin_login extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
-		$this->lang->load('inc');
-		$this->lang->load('log/log_login');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('log/log_login',$_SESSION['AdminInfo']['lang']);
 		$this->load->view('log/admin/login_sea');
 	}
 	/* Delete */

@@ -2,7 +2,7 @@
 class Class_web extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('class/class_web');
+		$this->lang->load('class/class_web',$_SESSION['AdminInfo']['lang']);
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$this->load->library('menus');
@@ -18,14 +18,14 @@ class Class_web extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
-		$this->lang->load('inc');
-		$this->lang->load('class/class_web');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('class/class_web',$_SESSION['AdminInfo']['lang']);
 		$this->load->view('class/web/sea');
 	}
 	/* Add */
 	public function add(){
-		$this->lang->load('inc');
-		$this->lang->load('class/class_web');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('class/class_web',$_SESSION['AdminInfo']['lang']);
 		$this->load->view('class/web/add');
 	}
 	public function addData(){
@@ -41,8 +41,8 @@ class Class_web extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
-		$this->lang->load('inc');
-		$this->lang->load('class/class_web');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('class/class_web',$_SESSION['AdminInfo']['lang']);
 		$this->load->model('class_web_m');
 		$data['edit'] = $this->class_web_m->getOne();
 		$this->load->view('class/web/edit',$data);

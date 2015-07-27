@@ -4,7 +4,14 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index_c extends CI_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('inc');
+		// Language
+		$lang = $this->input->get('lang');
+		$_SESSION['AdminInfo']['lang'] = $lang?$lang:$this->config->config['language'];
+		$lang = $_SESSION['AdminInfo']['lang'];
+		$this->lang->load('inc',$lang);
+		$this->load->library('menus');
+		$LangName = $this->menus->getMenu('lang');
+		$data['LangName'] = $lang.' | '.$LangName[$lang];
 		// Is not IE9
 		$this->load->library('user_agent');
 		if($this->agent->is_browser() && $this->agent->browser()=='Internet Explorer' && $this->agent->version()<9){

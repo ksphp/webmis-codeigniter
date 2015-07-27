@@ -1,6 +1,12 @@
 $(function(){
 	//版本信息
 	$('#webmisVersion').webmisVersion();
+	//Lang
+	$('#Lang').hover(function(){
+		$(this).find('ul').show();
+	},function(){
+		$(this).find('ul').hide();
+	});
 	//登录框位置
 	var autoSize = function(size){
 		var top = $(window).height()/5;

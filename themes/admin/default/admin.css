@@ -52,6 +52,11 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .login_copy{line-height: 24px; color: #999; text-align: center; background: url("images/admin_login_line_x.png") 0px 1px repeat-x; padding: 10px 0; border-radius: 5px;}
 .login_copy b{color: #999;}
 
+.lang_ct{position: absolute; z-index: 10; cursor: pointer; width: 140px; height: 28px; line-height: 28px; background-color: rgba(0,0,0,0.5); color: #FFF; text-align: center; border-radius: 5px; top: 10px; right: 10px;}
+.lang{display: none; position: absolute; width: 140px; background-color: rgba(0,0,0,0.5); border-radius: 5px; padding: 8px 0; border-top: #333 1px solid; border-bottom: #333 1px solid;}
+.lang li a{color: #FFF; text-align: left; padding-left: 10px; display: block;}
+.lang li a:hover{background-color: #6FB737;}
+
 /* top */
 .top_bg{background: url("images/admin_top_bg.jpg") top right no-repeat #FFF; padding: 0 10px;}
 .top{height: 60px;}

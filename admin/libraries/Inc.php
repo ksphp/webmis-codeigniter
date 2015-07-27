@@ -46,8 +46,8 @@ class Inc{
 			}
 		}
 		//用户导航
-		$APP->lang->load('inc');
-		$APP->lang->load('menu');
+		$APP->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$APP->lang->load('menu',$_SESSION['AdminInfo']['lang']);
 		$actionHtml=$this->actionHtml($APP);
 		$userHtml = $this->userHtml($APP);
 		$title = $APP->lang->line($FID['Ctitle']);

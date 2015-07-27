@@ -2,7 +2,7 @@
 class Web_news extends MY_Controller {
 	/* Index */
 	public function index(){
-		$this->lang->load('web/web_news');
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'web_news/index.html','model'=>'web_news_m','where'=>array('in'=>array('0','1','2'))));
@@ -21,14 +21,14 @@ class Web_news extends MY_Controller {
 	}
 	/* Search */
 	public function search(){
-		$this->lang->load('inc');
-		$this->lang->load('web/web_news');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$this->load->view('web/news/sea');
 	}
 	/* Add */
 	public function add(){
-		$this->lang->load('inc');
-		$this->lang->load('web/web_news');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$this->load->view('web/news/add');
 	}
 	public function addData(){
@@ -46,8 +46,8 @@ class Web_news extends MY_Controller {
 	}
 	/* Edit */
 	public function edit(){
-		$this->lang->load('inc');
-		$this->lang->load('web/web_news');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$this->load->model('web_news_m');
 		$data['edit'] = $this->web_news_m->getOne();
 		$this->load->view('web/news/edit',$data);
@@ -87,14 +87,14 @@ class Web_news extends MY_Controller {
 	}
 	/* View */
 	public function show(){
-		$this->lang->load('web/web_news');
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$this->load->model('web_news_m');
 		$data['show'] = $this->web_news_m->getOne();
 		$this->load->view('web/news/show',$data);
 	}
 	function getImghtml($id='',$num=''){
-		$this->lang->load('inc');
-		$this->lang->load('web/web_news');
+		$this->lang->load('inc',$_SESSION['AdminInfo']['lang']);
+		$this->lang->load('web/web_news',$_SESSION['AdminInfo']['lang']);
 		$html = '';
 		if(is_numeric($id) && is_numeric($num)){
 			$html .= '<tr id="ImgCT_'.$num.'">';
