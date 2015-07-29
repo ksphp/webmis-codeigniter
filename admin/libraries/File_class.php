@@ -1,6 +1,6 @@
 <?php
 class file_class{
-	var $file_root = '.';
+	public $file_root = '.';
 	
 	/* Lists */
 	function lists($c='/') {
@@ -71,7 +71,27 @@ class file_class{
 
 	/* Mkdir */
 	function addDir($path,$perm=0755) {
-		return @mkdir($this->file_root.$path, octdec($perm))?TRUE:FALSE;
+		$dir = $this->file_root.$path;
+		if(!is_dir($dir)){
+			return @mkdir($dir,octdec($perm))?TRUE:FALSE;
+		}else{return FALSE;}
+	}
+	/* AddFile */
+	function addFile($file){
+		$file = $this->file_root.$file;
+		if(!is_file($file)){
+			return @fopen($file,'w')?TRUE:FALSE;
+		}else{return FALSE;}
+	}
+	/* EditFile */
+	function editFile($file,$data){
+		$file = $this->file_root.$file;
+		if(is_file($file)){
+			$myfile = @fopen($file,'w');
+			$IS = @fwrite($myfile, $data)?TRUE:FALSE;
+			@fclose($myfile);
+			return $IS;
+		}else{return FALSE;}
 	}
 
 	/* Rename */
@@ -84,11 +104,11 @@ class file_class{
 	/* Delete folder and file */
 	function del($path,$f) {
 		$data = false;
-		$arr = array_filter(explode(',', $f));
+		$arr = array_filter(explode(' ', $f));
 		foreach($arr as $val){
 			$ff = $this->file_root.$path.$val;
 			if(!is_dir($ff)) {
-				if(unlink($ff)){$data = true;}else {$data = false;break;}
+				if(@unlink($ff)){$data = true;}else {$data = false;break;}
 			}else {
 				if($this->deldir($ff)){$data = true;}else {$data = false;break;}
 			}
@@ -105,7 +125,7 @@ class file_class{
 			}
 		}
 		closedir($d);
-		return rmdir($dir);
+		return @rmdir($dir);
 	}
 
 	/* EditPerm */
@@ -114,9 +134,9 @@ class file_class{
 		$perm = octdec($perm);
 		$data = false;
 		if(!is_dir($ff)) {
-			if(chmod($ff,$perm)){$data = true;}else {$data = false;break;}
+			if(chmod($ff,$perm)){$data = true;}else {$data = false;}
 		}else {
-			if($this->editDirPerm($ff,$perm)){$data = true;}else {$data = false;break;}
+			if($this->editDirPerm($ff,$perm)){$data = true;}else {$data = false;}
 		}
 		return $data;
 	}
@@ -176,4 +196,3 @@ class file_class{
 		return $bytes;
 	}
 }
-?>

@@ -10,6 +10,11 @@ $lang['msg_remove'] = '彻底删除';
 $lang['msg_pass'] = '通过';
 $lang['msg_notpass'] = '不通过';
 
+$lang['msg_view'] = '预览文件';
+$lang['msg_edit'] = '编辑文件';
+$lang['msg_not_view'] = '该文件不能预览！';
+$lang['msg_not_edit'] = '该文件不能编辑！';
+
 $lang['msg_isNull'] = '不能为空！';
 $lang['msg_isUser'] = '帐号或密码有误！';
 $lang['msg_isDisable'] = '该用户已被禁用！';

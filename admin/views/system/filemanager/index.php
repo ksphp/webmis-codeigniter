@@ -1,6 +1,4 @@
 <div id="file_root" style="display: none;"><?php echo $file_root; ?></div>
-<div id="file_action" style="display: none;"><?php echo $file_action; ?></div>
-<div id="file_editor" style="display: none;"><?php echo $file_editor; ?></div>
 <!-- Action -->
 <table class="action">
 	<tr>
@@ -57,7 +55,7 @@
 		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>','<?php echo $this->lang->line('sys_file_perm');?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td>
 			<a href="#" onclick="reName('<?php echo $val['name']; ?>','<?php echo $this->lang->line('sys_file_rename');?>');return false;"><?php echo $this->lang->line('sys_file_rename');?></a> | 
-			<a href="#" onclick="editFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>','<?php echo $this->lang->line('sys_file_edit');?>');return false;"><?php echo $this->lang->line('sys_file_edit');?></a>
+			<a href="#" onclick="editFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>','<?php echo $this->lang->line('sys_file_edit');?>','<?php echo $this->Lang;?>');return false;"><?php echo $this->lang->line('sys_file_edit');?></a>
 		</td>
 	</tr>
 <?php }} ?>

@@ -1,101 +1,98 @@
 <?php
 class Sys_filemanager extends MY_Controller {
+	/* Load FileClass */
+	function __construct(){
+		parent::__construct();
+		$this->load->library('file_class');
+		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'];
+	}
 	/* Index */
 	function index(){
 		$this->lang->load('system/sys_file',$this->Lang);
-		$this->lang->load('msg',$this->Lang);
 		$this->load->library('inc');
-		$this->load->library('file_class');
-		/* Upload Dir */
-		$upload = '/upload';
-
-		$editor = $this->input->get('editor');
-		$data['file_root'] = $editor?$upload:'';
-		$this->file_class->file_root = $_SERVER['DOCUMENT_ROOT'].$data['file_root'];
 		
-		$action = $this->input->get('action');
-		switch($action) {
-			case 'mkdir':
-				$path = $this->input->post('path').$this->input->post('name');
-				$perm = (int)$this->input->post('perm');
-				echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
-				break;
-			case 'addfile':
-				$file = $this->file_class->file_root.$this->input->get('path'). $this->input->get('file');
-				echo $this->addFileData($file);
-				break;
-			case 'rename':
-				$path = $this->input->get('path');
-				$name = $this->input->get('name');
-				$rename = $this->input->get('rename');
-				echo $this->file_class->reName($path.$rename,$path.$name);
-				break;
-			case 'del':
-				$path = $this->input->get('path');
-				$f = $this->input->get('id');
-				echo $this->file_class->del($path,$f);
-				break;
-			case 'editperm':
-				$path = $this->input->get('path');
-				$perm = $this->input->get('perm');
-				echo $this->file_class->editPerm($path,$perm);
-				break;
-			case 'down':
-				$this->down($this->file_class->file_root);
-				break;
-			case 'viewfile':
-				$this->viewFile($this->file_class->file_root);
-				break;
-			case 'editfile':
-				$this->editFile($this->file_class->file_root);
-				break;
-			case 'editor':
-				$data['file_action'] = 'editor';
-				$data['file_editor'] = $this->input->get('editor');
-				
-				$path = $this->input->get('path');
-				$file = $this->input->get('file');
-				$path = is_file($_SERVER["DOCUMENT_ROOT"].$file)?ltrim(dirname($file),$data['file_root']):$path;
-				
-				$data['filelist'] = $this->file_class->lists($path);
-				$data['js'] = array('system/sys_filemanager.js');
-				$this->load->view('system/filemanager/editor',$data);
-				break;
-			default:
-				$data['file_action'] = '';
-				$data['file_editor'] = '';
-				$path = $this->input->get('path');
-				$data['filelist'] = $this->file_class->lists($path);
-				$data['js'] = array('system/sys_filemanager.js');
-				$data['Menus'] = $this->inc->getMenuAdmin($this);
-				if($this->IsMobile) {
-					$this->inc->adminView($this,'system/filemanager/index_mo',$data);
-				}else {
-					$this->inc->adminView($this,'system/filemanager/index',$data);
-				}
+		$data['file_root'] = $this->file_class->file_root;
+		$path = $this->input->get('path');
+		$data['filelist'] = $this->file_class->lists($path);
+		$data['js'] = array('system/sys_filemanager.js');
+		$data['Menus'] = $this->inc->getMenuAdmin($this);
+		if($this->IsMobile) {
+			$this->inc->adminView($this,'system/filemanager/index_mo',$data);
+		}else {
+			$this->inc->adminView($this,'system/filemanager/index',$data);
 		}
+//		$action = $this->input->get('action');
+//		switch($action) {
+//			case 'rename':
+//				$path = $this->input->get('path');
+//				$name = $this->input->get('name');
+//				$rename = $this->input->get('rename');
+//				echo $this->file_class->reName($path.$rename,$path.$name);
+//				break;
+//			case 'editperm':
+//				$path = $this->input->get('path');
+//				$perm = $this->input->get('perm');
+//				echo $this->file_class->editPerm($path,$perm);
+//				break;
+//			case 'viewfile':
+//				$this->viewFile($this->file_class->file_root);
+//				break;
+//			case 'editfile':
+//				$this->editFile($this->file_class->file_root);
+//				break;
+//			default:
+//				$data['file_root'] = $this->file_class->file_root;
+//				$path = $this->input->get('path');
+//				$data['filelist'] = $this->file_class->lists($path);
+//				$data['js'] = array('system/sys_filemanager.js');
+//				$data['Menus'] = $this->inc->getMenuAdmin($this);
+//				if($this->IsMobile) {
+//					$this->inc->adminView($this,'system/filemanager/index_mo',$data);
+//				}else {
+//					$this->inc->adminView($this,'system/filemanager/index',$data);
+//				}
+//		}
 	}
 	/* Create Folder */
-	function addFolder() {
+	function Folder() {
 		$this->lang->load('inc',$this->Lang);
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/mkdir');
 	}
+	function addFolder(){
+		$this->lang->load('msg',$this->Lang);
+		$path = $this->input->post('path').str_replace(' ','',$this->input->post('name'));
+		$perm = (int)$this->input->post('perm');
+		if($path && $perm){
+			echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
+	}
 	/* Create File */
-	function addFile() {
+	function File(){
 		$this->lang->load('inc',$this->Lang);
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/addfile');
 	}
-	function addFileData($file) {
-		$this->load->helper('file');
-		$data = !is_file($file)?write_file($file,''):false;
-		return $data;
+	function addFile(){
+		$this->lang->load('msg',$this->Lang);
+		$file = $this->input->post('path').str_replace(' ','',$this->input->post('file'));
+		if($file){
+			echo $this->file_class->addFile($file)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
 	}
 	/* Upload */
 	function upload() {
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/upload');
+	}
+	/* Remove */
+	function delData(){
+		$this->lang->load('msg',$this->Lang);
+		$path = $this->input->get('path');
+		$f = $this->input->post('id');
+		if($path && $f){
+			echo $this->file_class->del($path,$f)?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
 	}
 	/* EditPerm */
 	function editPerm() {
@@ -103,16 +100,34 @@ class Sys_filemanager extends MY_Controller {
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/edit_perm');
 	}
+	function editPermData(){
+		$this->lang->load('msg',$this->Lang);
+		$path = $this->input->post('path');
+		$perm = $this->input->post('perm');
+		if($path && $perm){
+			echo $this->file_class->editPerm($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
+	}
 	/* Rename */
 	function reName() {
 		$this->lang->load('inc',$this->Lang);
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/rename');
 	}
+	function reNameData(){
+		$this->lang->load('msg',$this->Lang);
+		$path = $this->input->post('path');
+		$name = str_replace(' ','',$this->input->post('name'));
+		$rename = $this->input->post('rename');
+		if($path && $rename && $name){
+			echo $this->file_class->reName($path.$rename,$path.$name)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
+	}
 	/* Download */
-	public function down($file_root){
+	public function down(){
 		$this->load->library('zip');
-
+		
+		$file_root = $this->file_class->file_root;
 		$path = $this->input->get('path');
 		$files = $this->input->get('files');
 		$arr = array_filter(explode(',',$files));
@@ -124,31 +139,32 @@ class Sys_filemanager extends MY_Controller {
 				$this->zip->read_dir($ff.'/',false);
 			}
 		}
-		$this->zip->download('Down.zip');
+		$this->zip->download('WebMIS.zip');
 	}
 	/* ViewFile */
-	public function viewFile($file_root) {
+	public function viewFile() {
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		
-		$file = $file_root.$this->input->get('path');
+		$file = $this->file_class->file_root.$this->input->get('path');
 
 		$string = read_file($file);
-		echo $string = '<div style="font-size: 12px; line-height: 18px; padding: 0 10px;">'.auto_typography($string).'</div>';
+		$string = $string?$string:'Null';
+		echo $string = '<div style="font-size: 14px; line-height: 20px; padding: 0 20px;">'.auto_typography($string).'</div>';
 	}
 	/* EditFile */
-	public function editFile($file_root) {
+	public function editFile() {
 		$this->lang->load('inc',$this->Lang);
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		
-		$file = $file_root.$this->input->get('file');
+		$file = $this->input->get('file');
 
-		$string = read_file($file);
+		$string = read_file($this->file_class->file_root.$file);
 		
-		$data = '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="get" id="fileForm">';
+		$data = '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="post" id="fileForm">';
 		$data .= '<textarea id="tinymce" name="file_data" style="width:99%; height:400px; font-size: 12px; line-height: 20px;">'.$string.'</textarea>';
-		$data .= '<div style="text-align: center; padding-top: 5px;">';
+		$data .= '<div style="text-align: center; padding-top: 10px;">';
 		$data .= '<input type="submit" id="fileSub" value="'.$this->lang->line('inc_save').'" />';
 		$data .= '<input type="hidden" name="file" value="'.$file.'">';
 		$data .= '</div>';
@@ -157,9 +173,12 @@ class Sys_filemanager extends MY_Controller {
 	}
 	/* SaveFile */
 	public function saveFile() {
+		$this->lang->load('msg',$this->Lang);
 		$this->load->helper('file');
-		$file = $this->input->get('file');
-		$filedata = $this->input->get('file_data');
-		echo write_file($file,$filedata);
+		$file = $this->input->post('file');
+		$filedata = $this->input->post('file_data');
+		if($file && $filedata){
+			echo $this->file_class->editFile($file,$filedata)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		}else{return FALSE;}
 	}
 }
