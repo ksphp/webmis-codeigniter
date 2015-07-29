@@ -107,10 +107,13 @@ function newsForm(){
 }
 /* Editr */
 function TinyMce(obj){
+	var lang = $('#Lang').text();
+	var Lang = '';
+	if(lang=='zh-cn'){Lang = 'zh_CN';}
 	if(!IsMobile){moWidth = 900;}
 	tinymce.init({
 		selector: obj,
-		language: "zh_CN",
+		language: Lang,
 		convert_urls: false,
 		height: 420,
 		menubar: false,
