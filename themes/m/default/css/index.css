@@ -1,0 +1,7 @@
+/*Footer*/
+.web_copy{line-height: 24px; color: #666; text-align: center; padding: 20px 0;}
+
+/*Top*/
+.content{max-width: 320px; margin: 0 auto;}
+.content .logo{height: 80px; background: url("../images/logo.png") center center no-repeat;}
+.content .link{font-size: 13px; color: #666; text-align: center;}
