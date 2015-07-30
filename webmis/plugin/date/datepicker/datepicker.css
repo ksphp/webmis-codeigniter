@@ -1,8 +1,8 @@
-.datepicker-container{font-size: 12px; font-family: arial, helvetica, sans-serif; line-height: 30px; float: left; position: absolute; z-index: 201312; margin-top: -9px;}
+.datepicker-container{font-size: 12px; font-family: arial, helvetica, sans-serif; line-height: 30px; float: left; position: absolute; z-index: 201312; margin-top: -5px;}
 .datepicker-arrow,.datepicker-arrow:after {border: 5px solid transparent; display: block; height: 0; width: 0;}
-.datepicker-arrow{border-bottom-color: #9cf; margin: 0 10px; position: relative;}
+.datepicker-arrow{border-bottom-color: #6FB737; margin: 0 10px; position: relative;}
 .datepicker-arrow:after{border-bottom-color: #fff; content: " "; left: -5px; position: absolute; top: -4px;}
-.datepicker-content{padding: 10px; background-color: #FFF; border: 1px solid #999; border-top-color: #9cf; box-shadow: 0 0 3px #ccc; width: 210px; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 0 0 5px #CCC;}
+.datepicker-content{padding: 10px; background-color: #FFF; border: 1px solid #CCC; border-top-color: #6FB737; box-shadow: 0 0 3px #ccc; width: 210px; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 0 0 5px #CCC;}
 .datepicker-prev,.datepicker-next{font-size: 18px;}
 .datepicker-content ul:before,.datepicker-content ul:after{content: ""; display: table;}
 .datepicker-content ul:after{clear: both;}
@@ -16,7 +16,7 @@
 .datepicker-content .col-6 {width: 180px;}
 .datepicker-content .col-7 {width: 210px;}
 .datepicker-content li:hover {background-color: #EEE;}
-.datepicker-content .selected,.datepicker-content .selected:hover {color: #36f;}
+.datepicker-content .selected,.datepicker-content .selected:hover {color: #6FB737;}
 .datepicker-content .disabled,.datepicker-content .disabled:hover {color: #ccc;}
 .datepicker-years li,.datepicker-months li {height: 52.5px; line-height: 52.5px; width: 52.5px;}
 .datepicker-week li,.datepicker-week li:hover {background-color: #fff; cursor: default;}
