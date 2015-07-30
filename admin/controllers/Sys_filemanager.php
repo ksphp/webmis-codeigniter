@@ -21,37 +21,6 @@ class Sys_filemanager extends MY_Controller {
 		}else {
 			$this->inc->adminView($this,'system/filemanager/index',$data);
 		}
-//		$action = $this->input->get('action');
-//		switch($action) {
-//			case 'rename':
-//				$path = $this->input->get('path');
-//				$name = $this->input->get('name');
-//				$rename = $this->input->get('rename');
-//				echo $this->file_class->reName($path.$rename,$path.$name);
-//				break;
-//			case 'editperm':
-//				$path = $this->input->get('path');
-//				$perm = $this->input->get('perm');
-//				echo $this->file_class->editPerm($path,$perm);
-//				break;
-//			case 'viewfile':
-//				$this->viewFile($this->file_class->file_root);
-//				break;
-//			case 'editfile':
-//				$this->editFile($this->file_class->file_root);
-//				break;
-//			default:
-//				$data['file_root'] = $this->file_class->file_root;
-//				$path = $this->input->get('path');
-//				$data['filelist'] = $this->file_class->lists($path);
-//				$data['js'] = array('system/sys_filemanager.js');
-//				$data['Menus'] = $this->inc->getMenuAdmin($this);
-//				if($this->IsMobile) {
-//					$this->inc->adminView($this,'system/filemanager/index_mo',$data);
-//				}else {
-//					$this->inc->adminView($this,'system/filemanager/index',$data);
-//				}
-//		}
 	}
 	/* Create Folder */
 	function Folder() {
@@ -162,7 +131,8 @@ class Sys_filemanager extends MY_Controller {
 
 		$string = read_file($this->file_class->file_root.$file);
 		
-		$data = '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="post" id="fileForm">';
+		$data ='<script language="javascript" src="'.base_url('../webmis/plugin/tinymce/tinymce.min.js').'"></script>';
+		$data .= '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="post" id="fileForm">';
 		$data .= '<textarea id="tinymce" name="file_data" style="width:99%; height:400px; font-size: 12px; line-height: 20px;">'.$string.'</textarea>';
 		$data .= '<div style="text-align: center; padding-top: 10px;">';
 		$data .= '<input type="submit" id="fileSub" value="'.$this->lang->line('inc_save').'" />';

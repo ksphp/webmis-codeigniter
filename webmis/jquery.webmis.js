@@ -23,7 +23,7 @@ $(function(){
 	$.webmis={
 		//加载文件
 		inc: function (options) {
-			var defaults = {files: '', doc: 'body'}
+			var defaults = {files: '', doc: 'body',refresh:false}
 			var options = $.extend(defaults, options);
 			var files = options.files;
 			for (var i=0; i<files.length; i++) {
@@ -35,7 +35,14 @@ $(function(){
 					var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
 					var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
 					var f = "<" + tag + attr + link + "></" + tag + ">";
-					if ($('script[src="'+files[i]+'"]').length == 0 && $('link[href="'+files[i]+'"]').length == 0) {$(options.doc).append(f);}
+					if ($('script[src="'+files[i]+'"]').length == 0 && $('link[href="'+files[i]+'"]').length == 0) {
+						//alert(2);
+						$(options.doc).append(f);
+					}else if(options.refresh){
+						//alert(1);
+						$(f).remove();
+						$(options.doc).append(f);
+					}
 				}
 			}
 		},

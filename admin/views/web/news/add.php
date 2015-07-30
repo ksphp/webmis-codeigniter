@@ -1,3 +1,4 @@
+<script language="javascript" src="<?php echo base_url('../webmis/plugin/tinymce/tinymce.min.js'); ?>"></script>
 <div id="TabName1" class="noDisplay"><?php echo $this->lang->line('web_news_tab1');?></div>
 <div id="TabName2" class="noDisplay"><?php echo $this->lang->line('web_news_tab2');?></div>
 <div id="TabName3" class="noDisplay"><?php echo $this->lang->line('web_news_tab3');?></div>
