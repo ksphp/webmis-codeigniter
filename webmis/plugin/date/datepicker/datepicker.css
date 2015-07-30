@@ -16,7 +16,7 @@
 .datepicker-content .col-6 {width: 180px;}
 .datepicker-content .col-7 {width: 210px;}
 .datepicker-content li:hover {background-color: #EEE;}
-.datepicker-content .selected,.datepicker-content .selected:hover {color: #6FB737;}
+.datepicker-content .selected,.datepicker-content .selected:hover {color: #6FB737; font-weight: bold;}
 .datepicker-content .disabled,.datepicker-content .disabled:hover {color: #ccc;}
 .datepicker-years li,.datepicker-months li {height: 52.5px; line-height: 52.5px; width: 52.5px;}
 .datepicker-week li,.datepicker-week li:hover {background-color: #fff; cursor: default;}
