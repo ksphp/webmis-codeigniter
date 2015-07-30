@@ -132,8 +132,8 @@ class Sys_filemanager extends MY_Controller {
 		$string = read_file($this->file_class->file_root.$file);
 		
 		$data ='<script language="javascript" src="'.base_url('../webmis/plugin/tinymce/tinymce.min.js').'"></script>';
-		$data .= '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="post" id="fileForm">';
-		$data .= '<textarea id="tinymce" name="file_data" style="width:99%; height:400px; font-size: 12px; line-height: 20px;">'.$string.'</textarea>';
+		$data .= '<form action="'.base_url('sys_filemanager/saveFile.html').'" method="post" id="fileForm" style="padding-top: 10px;">';
+		$data .= '<textarea id="tinymce" name="file_data">'.$string.'</textarea>';
 		$data .= '<div style="text-align: center; padding-top: 10px;">';
 		$data .= '<input type="submit" id="fileSub" value="'.$this->lang->line('inc_save').'" />';
 		$data .= '<input type="hidden" name="file" value="'.$file.'">';

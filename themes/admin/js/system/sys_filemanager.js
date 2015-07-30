@@ -216,25 +216,16 @@ function editFile(file,ext,title,lang) {
 	var edit_file = ['php','css','js','htm','html','sql','txt','md'];
 	var edit_tinymce = ['md','txt'];
 	if ($.inArray(ext, edit_file) != -1){
-		if(!IsMobile){moWidth = 800; moHeight= 580;}
+		if(!IsMobile){moWidth = 840; moHeight= 600;}
 		$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
 		$.get($base_url+'sys_filemanager/editFile.html',{'file':file},function(data){
 			$.webmis.win('load',data);
 			$('#fileSub').webmis('SubClass');
 			// Editor
-			var eLang = '';
-			if(lang=='zh-cn'){eLang = 'zh_CN';}
 			if ($.inArray(ext, edit_tinymce) != -1) {
-				tinymce.init({
-					selector:'#tinymce',
-					language: eLang,
-					convert_urls: false,
-					height: 420,
-					menubar: false,
-					plugins: ["code autoresize"],
-					toolbar1: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | code"
-				});
+				Tinymce('#tinymce',lang);
 			}
+			// Validform
 			$("#fileForm").Validform({ajaxPost:true,tiptype:2,
 				callback:function(data){
 					$.Hidemsg();
@@ -252,4 +243,23 @@ function editFile(file,ext,title,lang) {
 			$.webmis.win('open',{title:data.msg_edit, content:'<b class="red">'+data.msg_not_edit+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
+}
+
+/* Editr */
+function Tinymce(obj,lang){
+	var Lang = '';
+	if(lang=='zh-cn'){Lang = 'zh_CN';}
+	tinymce.init({
+		selector: obj,
+		language: Lang,
+		convert_urls: false,
+		height: 430,
+		menubar: false,
+		plugins: [
+			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+			"searchreplace wordcount visualblocks visualchars code fullscreen",
+			"insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor"
+		],
+		toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons | link image media | code preview"
+	});
 }
