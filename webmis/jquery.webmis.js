@@ -1,9 +1,9 @@
 ﻿/**
  * jQuery WebMIS 2015
- * Copyright (c) 2010-2013 www.ksphp.com. All rights reserved.
- * Date: 2013-08-28
+ * Copyright (c) www.ksphp.com. All rights reserved.
+ * Date: 2015-07-30
  */
- /*参数*/
+ /* Public */
 var $base_url;
 var $webmis_root = '/webmis/';
 var $webmis_src = $webmis_root+'src/';
@@ -11,19 +11,19 @@ var $webmis_plugin = $webmis_root+'plugin/';
 
 $(function(){
 	$base_url = $('#base_url').text();
-	/*版本信息*/
+	/* Version */
+	var D = new Date();
 	$.fn.webmisVersion = function (options) {
-		var defaults = {version: 'WebMIS 2015'}
+		var defaults = {version: 'WebMIS '+D.getFullYear()}
 		var options = $.extend(defaults, options);
 		this.text(options.version);
 	}
-/*
-** 命名空间
-*/
+	
+	/* Plugin */
 	$.webmis={
-		//加载文件
+		// Load CSS or JS
 		inc: function (options) {
-			var defaults = {files: '', doc: 'body',refresh:false}
+			var defaults = {files: '', doc: 'body'}
 			var options = $.extend(defaults, options);
 			var files = options.files;
 			for (var i=0; i<files.length; i++) {
@@ -35,18 +35,11 @@ $(function(){
 					var attr = isCSS ? " type='text/css' rel='stylesheet' " : " language='javascript' type='text/javascript' ";
 					var link = (isCSS ? "href" : "src") + "='" + files[i] + "'";
 					var f = "<" + tag + attr + link + "></" + tag + ">";
-					if ($('script[src="'+files[i]+'"]').length == 0 && $('link[href="'+files[i]+'"]').length == 0) {
-						//alert(2);
-						$(options.doc).append(f);
-					}else if(options.refresh){
-						//alert(1);
-						$(f).remove();
-						$(options.doc).append(f);
-					}
+					if ($('script[src="'+files[i]+'"]').length == 0 && $('link[href="'+files[i]+'"]').length == 0) {$(options.doc).append(f);}
 				}
 			}
 		},
-		//弹出式窗口
+		// Win
 		win: function (effect,options) {
 			var file = $webmis_src + 'jquery.window.js';
 			if ($('script[src="'+file+'"]').length == 0) {$.webmis.inc({files:[file]});}
@@ -66,7 +59,7 @@ $(function(){
 				break;
 			}
 		},
-		//视频窗口
+		// VOD
 		vod: function (options) {
 			var file = $webmis_src + 'jquery.vod.js';
 			if ($('script[src="'+file+'"]').length == 0) {$.webmis.inc({files:[file]});}
@@ -74,6 +67,8 @@ $(function(){
 			openVod(options);
 		}
 	};
+	
+	/* Effect */
 	$.fn.webmis = function (effect,options) {
 		var effect = effect.toLowerCase();
 		var file = $webmis_src + 'jquery.'+effect+'.js';
@@ -102,5 +97,5 @@ $(function(){
 				return GetInputID(options,this);
 			break;
 		}
-	}
+	};
 });
