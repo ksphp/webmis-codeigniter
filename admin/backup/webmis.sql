@@ -140,8 +140,5 @@ CREATE TABLE `wmis_web_news` (
   `summary` varchar(300) DEFAULT NULL COMMENT 'Summary',
   `content` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-INSERT INTO `wmis_web_news` (`id`, `class`, `title`, `img`, `upload`, `source`, `author`, `uname`, `ctime`, `click`, `key`, `audit`, `atime`, `state`, `summary`, `content`) VALUES ('1', ':1:', 'Test title', '', '', 'KSPHP', 'kingsoul', '', '2015-07-24 10:10:09', '0', 'Test', 'admin', '2015-07-27 13:02:00', '1', 'Test Summary', '<p>Welcome to use WEBMIS！</p>');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
