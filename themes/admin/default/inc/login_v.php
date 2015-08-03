@@ -29,8 +29,8 @@
 			<span id="webmisVersion" class="login_top_title">WebMIS</span>
 		</header>
 		<aside class="login_ct">
-			<span class="text"><input type="text" id="uname" /><br><?php echo $this->lang->line('inc_uname');?>：</span>
-			<span class="text"><input type="password" id="passwd" /><br><?php echo $this->lang->line('inc_passwd');?>：</span>
+			<span class="text"><input type="text" id="uname" value="webmis" /><br><?php echo $this->lang->line('inc_uname');?>：</span>
+			<span class="text"><input type="password" id="passwd" value="ksphp.com" /><br><?php echo $this->lang->line('inc_passwd');?>：</span>
 			<div class="login_ct_an">
 				<span class="line1 UI">&nbsp;</span>
 				<span id="adminLogin" class="an" title="<?php echo $this->lang->line('inc_login');?>">&nbsp;</span>

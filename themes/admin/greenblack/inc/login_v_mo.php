@@ -26,8 +26,8 @@
 	</header>
 	<aside class="login_ct">
 		<div id="webmisVersion" class="login_title">WebMIS</div>
-		<div class="text"><input type="text" id="uname" /><br><?php echo $this->lang->line('inc_uname');?>：</div>
-		<div class="text"><input type="password" id="passwd" /><br><?php echo $this->lang->line('inc_passwd');?>：</div>
+		<div class="text"><input type="text" id="uname" value="webmis" /><br><?php echo $this->lang->line('inc_uname');?>：</div>
+		<div class="text"><input type="password" id="passwd" value="ksphp.com" /><br><?php echo $this->lang->line('inc_passwd');?>：</div>
 		<div class="login_an">
 			<a href="#" id="adminLogin"><?php echo $this->lang->line('inc_login');?></a>
 		</div>

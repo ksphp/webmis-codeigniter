@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 @session_start();
-//ini_set('date.timezone','Asia/Shanghai');//时区
-date_default_timezone_set('PRC');  //echo date('Y-m-d H:i:s');
+// ini_set('date.timezone','Asia/Shanghai');
+// date_default_timezone_set('PRC');
+// echo date('Y-m-d H:i:s');
 
 $config['title'] = 'WebMIS Management';
 $config['copy'] = '<a href="http://www.ksphp.com/" target="_blank"><b>ksphp.com</b></a>';
