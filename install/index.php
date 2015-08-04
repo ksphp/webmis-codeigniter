@@ -1,280 +1,240 @@
 <?php
-	$api = @$_GET['api'];
-	/* 判断文件读写 */
-	if($api == 'isWrite') {
-		$class = is_writable('../admin/config/database.php')?'suc':'err';
-		echo '<div class="'.$class.'"><em>&nbsp;</em>admin/app/config/database.php&nbsp;&nbsp;#后台数据库配置文件</div>';
-		$class = is_writable('../web/config/database.php')?'suc':'err';
-		echo '<div class="'.$class.'"><em>&nbsp;</em>web/config/database.php&nbsp;&nbsp;#网站数据库配置文件</div>';
-		$class = is_writable('webmis.sql')?'suc':'err';
-		echo '<div class="'.$class.'"><em>&nbsp;</em>install/webmis.sql&nbsp;&nbsp;#数据库文件</div>';
-		$class = is_writable('../upload')?'suc':'err';
-		echo '<div class="'.$class.'"><em>&nbsp;</em>upload&nbsp;&nbsp;#文件上传目录</div>';
-	/* 是否可以连接数据库 */
-	}elseif($api == 'isDB') {
+// Lang
+if(isset($_GET['lang'])){$_SESSION['Lang'] = $_GET['lang'];}else{$_SESSION['Lang'] = 'en-us';}
+$lang = array(
+	'en-us'=>array(
+		'admin'=>'System Administrator',
+		'uname'=>'UserName',
+		'passwd'=>'PassWord',
+		'db_config'=>'Database Config',
+		'db_type'=>'DB Type',
+		'db_host'=>'HostName',
+		'db_name'=>'Database',
+		'install'=>'Install',
+		'msg_suc'=>'Success',
+		'msg_err'=>'Failure',
+		'msg_not_write'=>'File not to write!',
+		'msg_file_read'=>'Read File',
+		'msg_file_write'=>'Write File',
+		'msg_chr'=>'Bit character!',
+		'msg_db_conn'=>'Connection database',
+		'msg_db_import'=>'Import data',
+		'msg_finish'=>'Finish',
+		'link_home'=>'Back Home',
+		'link_admin'=>'Administrator Login',
+	),
+	'zh-cn'=>array(
+		'admin'=>'系统管理员',
+		'uname'=>'用户名',
+		'passwd'=>'密码',
+		'db_config'=>'数据库配置',
+		'db_type'=>'DB 类型',
+		'db_host'=>'主机名/IP',
+		'db_name'=>'数据库名',
+		'install'=>'安装',
+		'msg_suc'=>'成功',
+		'msg_err'=>'失败',
+		'msg_not_write'=>'文件不可写！',
+		'msg_file_read'=>'读取文件',
+		'msg_file_write'=>'写入文件',
+		'msg_chr'=>'位字符！',
+		'msg_db_conn'=>'连接数据库',
+		'msg_db_import'=>'导入数据',
+		'msg_finish'=>'完成',
+		'link_home'=>'返回首页',
+		'link_admin'=>'管理员登陆',
+	)
+);
+$Lang = $lang[$_SESSION['Lang']];
+
+$isWrite='';$msg='';$suc='';
+
+// Is Write
+if(!is_writable('webmis.sql')){
+	$isWrite .= '<p class="err">install/webmis.sql '.$Lang['msg_not_write'].'</p>';
+}
+if(!is_writable('../admin/config/database.php')){
+	$isWrite .= '<p class="err">admin/config/database.php '.$Lang['msg_not_write'].'</p>';
+}
+if(!is_writable('../web/config/database.php')){
+	$isWrite .= '<p class="err">web/config/database.php '.$Lang['msg_not_write'].'</p>';
+}
+if(!is_writable('../m/config/database.php')){
+	$isWrite .= '<p class="err">m/config/database.php '.$Lang['msg_not_write'].'</p>';
+}
+
+// Install
+if (isset($_POST['install'])){
+	$uname = trim($_POST['uname']);
+	if(strlen($uname)<3 || strlen($uname)>16){
+		$msg = $Lang['uname'].' 3~16 '.$Lang['msg_chr'];
+	}
+	$passwd = $_POST['passwd'];
+	if(strlen($passwd)<6 || strlen($passwd)>32){
+		$msg = $Lang['passwd'].' 6~32 '.$Lang['msg_chr'];
+	}
+	$type = $_POST['type'];
+	$hostname = trim($_POST['hostname']);
+	$username = trim($_POST['username']);
+	$password = $_POST['password'];
+	$database = trim($_POST['database']);
+	if(!$msg){
 		try {
-			$dsn = $_GET['type'].':dbname='.$_GET['dbname'].';host='.$_GET['host'];
-			$uname = $_GET['uname'];
-			$passwd = $_GET['passwd'];
-			$db = new PDO($dsn,$uname,$passwd);
-		}catch (PDOException $e) {
-		   echo $e->getMessage();
-		   exit;
-		}
-	}elseif($api == 'config') {
-		try {
-			$type = $_GET['type'];
-			$host = $_GET['host'];
-			$uname = $_GET['uname'];
-			$passwd = $_GET['passwd'];
-			$dbname = $_GET['dbname'];
-			$admin = $_GET['admin'];
-			$adminPWD = md5($_GET['adminPWD']);
-			$db = new PDO($type.':dbname='.$dbname.';host='.$host,$uname,$passwd);
+			$db = new PDO($type.':dbname='.$database.';host='.$hostname,$username,$password);
 			$db->query('set names utf8;');
-			echo '<p class="suc"><em>&nbsp;</em>连接数据库成功！</p>';
-			
-			/* 导入数据库文件 */
+			$suc = '<p class="suc">'.$Lang['msg_db_conn'].' [ '.$Lang[ 'msg_suc'].' ]</p>';
+			// Database
 			$content = file_get_contents('webmis.sql');
 			if(!$content) {
-				echo '<p class="err"><em>&nbsp;</em>打开失败：webmis.sql</p>';
-			}else {
-				echo '<p class="suc"><em>&nbsp;</em>打开成功：webmis.sql</p>';
+				$suc .= '<p class="err">'.$Lang['msg_file_read' ].'：'.'webmis.sql [ '.$Lang['msg_err' ].' ]</p>';
+			}else{
+				$suc .= '<p class="suc">'.$Lang['msg_file_read' ].'：'.'webmis.sql [ '.$Lang['msg_suc' ].' ]</p>';
 				$content = preg_replace("/#\n# TABLE(.*)\s#\n/i","",$content);
-				$content = preg_replace("/'admin'/","'".$admin."'",$content);
-				$content = preg_replace("/'21232f297a57a5a743894a0e4a801fc3'/","'".$adminPWD."'",$content);
-				echo '<p class="suc"><em>&nbsp;</em>写入管理员信息！</p>';
-				$data = '<p class="suc"><em>&nbsp;</em>数据导入成功！</p>';
-				/* 导入数据 */
+				$content = preg_replace("/'admin'/","'".$uname."'",$content);
+				$content = preg_replace("/'21232f297a57a5a743894a0e4a801fc3'/","'".md5($passwd)."'",$content);
 				$sqls = array_filter(explode(";\n",$content));
+				$data = '<p class="suc">'.$Lang['msg_db_import' ].' [ '.$Lang['msg_suc' ].' ]</p>';
 				foreach($sqls as $sql){
 					$sql = trim($sql);
 					if($sql) {
 						if(!$db->query($sql)) {
 							$err = $db->errorInfo();
-							$data = '<p class="err"><em>&nbsp;</em>数据导入失败：<br>'.$err[2].'</p>';
+							$data = '<p class="err">'.$Lang['msg_db_import' ].' [ '.$Lang['msg_err' ].' ]</p>';
+							$data .= '<p class="err">'.$err[2].'</p>';
 							break;
 						}
 					}
 				}
-				echo $data;
+				$suc .= $data;
+				// Database Config
+				$file1 = '../admin/config/database.php';
+				$file2 = '../web/config/database.php';
+				$file3 = '../m/config/database.php';
+				$ct1 = file_get_contents($file1);
+				$ct2 = file_get_contents($file2);
+				$ct3 = file_get_contents($file3);
+				if(!$ct1) {
+					$suc .= '<p class="err">'.$Lang['msg_file_read' ].'：'.$file1.' [ '.$Lang['msg_err' ].' ]</p>';
+				}elseif(!$ct2) {
+					$suc .= '<p class="err">'.$Lang['msg_file_read' ].'：'.$file2.' [ '.$Lang['msg_err' ].' ]</p>';
+				}elseif(!$ct3) {
+					$suc .= '<p class="err">'.$Lang['msg_file_read' ].'：'.$file3.' [ '.$Lang['msg_err' ].' ]</p>';
+				}else {
+					$ct1 = preg_replace("/'hostname' => '(.*)'/","'hostname' => '".$hostname."'",$ct1);
+					$ct1 = preg_replace("/'username' => '(.*)'/","'username' => '".$username."'",$ct1);
+					$ct1 = preg_replace("/'password' => '(.*)'/","'password' => '".$password."'",$ct1);
+					$ct1 = preg_replace("/'database' => '(.*)'/","'database' => '".$database."'",$ct1);
+					$type = $type=='mysql'?'mysqli':$type;
+					$ct1 = preg_replace("/'dbdriver' => '(.*)'/","'dbdriver' => '".$type."'",$ct1);
+					$fp=fopen($file1,'w');
+					if(fwrite($fp,$ct1)){
+						$suc .= '<p class="suc">'.$Lang['msg_file_write' ].'：'.$file1.' [ '.$Lang['msg_suc' ].' ]</p>';
+					}else {
+						$suc .= '<p class="err">'.$Lang['msg_file_write' ].'：'.$file1.' [ '.$Lang['msg_err' ].' ]</p>';
+					};
+					fclose($fp);
+					$fp=fopen($file2,'w');
+					if(fwrite($fp,$ct1)){
+						$suc .= '<p class="suc">'.$Lang['msg_file_write' ].'：'.$file2.' [ '.$Lang['msg_suc' ].' ]</p>';
+					}else {
+						$suc .= '<p class="err">'.$Lang['msg_file_write' ].'：'.$file2.' [ '.$Lang['msg_err' ].' ]</p>';
+					};
+					fclose($fp);
+					$fp=fopen($file3,'w');
+					if(fwrite($fp,$ct1)){
+						$suc .= '<p class="suc">'.$Lang['msg_file_write' ].'：'.$file3.' [ '.$Lang['msg_suc' ].' ]</p>';
+					}else {
+						$suc .= '<p class="err">'.$Lang['msg_file_write' ].'：'.$file3.' [ '.$Lang['msg_err' ].' ]</p>';
+					};
+					fclose($fp);
+					$suc .= '<p>'.$Lang['msg_finish'].'</p>';
+					$suc .= '<div class="finish"><a href="../">'.$Lang['link_home' ].'</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../admin/">'.$Lang['link_admin' ].'</a></div>';
+				}
 			}
-
-			/* CI数据库配置文件 */
-			$file1 = '../admin/config/database.php';
-			$file2 = '../web/config/database.php';
-			$file3 = '../m/config/database.php';
-			$ct1 = file_get_contents($file1);
-			$ct2 = file_get_contents($file2);
-			$ct3 = file_get_contents($file3);
-			if(!$ct1) {
-				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file1.'</p>';
-			}elseif(!$ct2) {
-				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file2.'</p>';
-			}elseif(!$ct3) {
-				echo '<p class="err"><em>&nbsp;</em>打开失败：<br>'.$file3.'</p>';
-			}else {
-				echo '<p class="suc"><em>&nbsp;</em>打开成功：CI数据库配置文件</p>';
-				$pat = "/'hostname' => '(.*)'/";
-				$rep = "'hostname' => '".$host."'";
-				$ct1 = preg_replace($pat,$rep,$ct1);
-				echo '<p class="suc"><em>&nbsp;</em>配置：修改主机名</p>';
-				$pat = "/'username' => '(.*)'/";
-				$rep = "'username' => '".$uname."'";
-				$ct1 = preg_replace($pat,$rep,$ct1);
-				echo '<p class="suc"><em>&nbsp;</em>配置：修改用户名</p>';
-				$pat = "/'password' => '(.*)'/";
-				$rep = "'password' => '".$passwd."'";
-				$ct1 = preg_replace($pat,$rep,$ct1);
-				echo '<p class="suc"><em>&nbsp;</em>配置：修改密码</p>';
-				$pat = "/'database' => '(.*)'/";
-				$rep = "'database' => '".$dbname."'";
-				$ct1 = preg_replace($pat,$rep,$ct1);
-				echo '<p class="suc"><em>&nbsp;</em>配置：数据库名</p>';
-				$pat = "/'dbdriver' => '(.*)'/";
-				$type = $type=='mysql'?'mysqli':$type;
-				$rep = "'dbdriver' => '".$type."'";
-				$ct1 = preg_replace($pat,$rep,$ct1);
-				echo '<p class="suc"><em>&nbsp;</em>配置：'.$type.'</p>';
-				/* 写入后台配置文件 */
-				$fp=fopen($file1,'w');
-				if(fwrite($fp,$ct1)){
-					echo '<p class="suc"><em>&nbsp;</em>写入成功：'.$file1.'</p>';
-				}else {
-					echo '<p class="err"><em>&nbsp;</em>写入失败：'.$file1.'</p>';
-				};
-				fclose($fp);
-				/* 写入前台配置文件 */
-				$fp=fopen($file2,'w');
-				if(fwrite($fp,$ct1)){
-					echo '<p class="suc"><em>&nbsp;</em>写入成功：'.$file2.'</p>';
-				}else {
-					echo '<p class="err"><em>&nbsp;</em>写入失败：'.$file2.'</p>';
-				};
-				fclose($fp);
-				/* 写入手机配置文件 */
-				$fp=fopen($file3,'w');
-				if(fwrite($fp,$ct1)){
-					echo '<p class="suc"><em>&nbsp;</em>写入成功：'.$file3.'</p>';
-				}else {
-					echo '<p class="err"><em>&nbsp;</em>写入失败：'.$file3.'</p>';
-				};
-				fclose($fp);
-				echo '<p class="suc"><em>&nbsp;</em>完成<br></p>';
-				echo '<p class="c666">注意：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、安装完成后，请删除“install”目录；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、为了安全考虑，请修改登录接口“admin”，同时配置目录下的“.htaccess”文件；</p>';
-			}
-		
 		}catch (PDOException $e) {
-			echo '<p class="err"><em>&nbsp;</em>连接数据库失败：'.$e->getMessage().'</p>';
-		   exit;
+			$msg = $e->getMessage();
 		}
-	}else {
+	}
+}else{
+	$uname='admin';$type='';$hostname='localhost';$username='root';$database='webmis';
+}
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Unknown" />
-	<title>WebMIS-安装向导</title>
+	<meta name="author" content="KSPHP" />
+	<title>WebMIS Install</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link href="install.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
+body{font-size: 12px; background: url("bg.png") #3A90BA center top; color: #DFE1E8;}
+a{color: #007568; text-decoration: none;}
+a:hover{color: #FF6600;}
+input{box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;}
+input:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
+.input{height: 30px; line-height: 30px; border: #999 1px solid; background: #FFF; display: inline-block; padding: 0 5px;}
+.copy{padding: 10px 0; text-align: center;}
+.lang{position: absolute; top: 10px; right: 15px; padding: 5px 20px; background-color: #333; color: #DFE1E8; border-radius: 5px;}
+.lang a{color: #DFE1E8;}
+.lang a:hover{color: #FF6600;}
+h1{font-size: 62px; margin-top: 34px; text-align: center;}
+h2{font-size: 14px; border-bottom: #DADCDF 1px solid; color: #999;}
+.body{width: 380px; background-color: #F5F5F5; color: #666; border-radius: 5px; margin: 0 auto; padding: 10px 20px;}
+.list{padding: 10px 0px; margin: 0;}
+.list dt{float: left; width: 80px; line-height: 32px; text-align: right; padding: 5px;}
+.list dd{line-height: 32px; padding: 5px 0;}
+.sub{text-align: center; padding: 5px 0 10px;}
+.sub input{cursor: pointer; border: none; padding: 10px 50px; background-color: #3A90BA; font-size: 14px; color: #DFE1E8; border-radius: 5px; box-shadow: 1px 1px 2px #999;}
+.sub input:hover{background-color: #BF3E11;}
+.err{color: red;}
+.suc{color: green;}
+.finish{padding: 10px 0; text-align: center; font-size: 14px;}
+</style>
 </head>
 
 <body>
-<div class="body">
-	<div class="top">
-		<div class="top_logo">&nbsp;</div>
-		<span class="top_link">
-			<a href="http://www.ksphp.com" target="_black" >官方网站</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="http://webmis.ksphp.com" target="_black" >在线体验</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="http://www.ksphp.com" target="_black" >帮助</a>
-		</span>
-	</div>
-	<div class="ct">
-		<div id="tab" class="ct_top"><span id="tab1" class="tab">服务条款</span>&nbsp;>&nbsp;<span id="tab2">环境安装</span>&nbsp;>&nbsp;<span id="tab3">系统配置</span>&nbsp;>&nbsp;<span id="tab4">完成</span></div>
-		<!-- 安装说明 -->
-		<div class="ct_ct">
-			<div class="ct_ct_body">
-			<table id="install">
-				<tbody id="install1">
-				<tr>
-					<td class="in_show">WEBMIS是免费开源PHP开发CMS系统，基于CI的MVC模式开发的多用户、多权限解决方案，可以后台添加管理菜单，整合了Jquery，TinyMCE编辑器等插件、实现简洁、美观的弹框效果！</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="code in_term"><?php echo file_get_contents('GPL.txt');?></div>
-					</td>
-				</tr>
-				</tbody>
-				<tbody id="install2" style="display: none;">
-				<tr>
-					<td><b>服务器环境配置：</b>必须开启重写</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="left in_conf code">
-							<p><b>[ Apache ]</b><br>开启重写</p>
-							<p>方法一：<br>
-							[...]<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;AllowOverride All  #开启重写<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;Options Indexes FollowSymLinks  #浏览目录<br>
-							[...]</p>
-							<p>方法二：<br>
-							> a2enmod rewrite</p>
-							<p>然后配置“/”和“amin”下的 .htaccess 文件 </p>
-						</div>
-						<div class="right in_conf code">
-							<p><b>[ Nginx ]</b><br>去除index.php</p>
-							<p>location / {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/(.*) /index.php last;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-							}<br>
-							location /m/ {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/m/(.*) /m/index.php last;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-							}
-							location /admin/ {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;if (!-e $request_filename) {<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite ^/admin/(.*) /admin/index.php last;<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-							}</p>
-						</div>
-					</td>
-				</tr>
-				</tbody>
-				<tbody id="install3" style="display: none;">
-				<tr>
-					<td><b>文件是否可写：</b></td>
-				</tr>
-				<tr>
-					<td id="isWrite" class="code">&nbsp;</td>
-				</tr>
-				<tr>
-					<td><b>数据库配置：</b>&nbsp;&nbsp;&nbsp;&nbsp;1、采用PHP的PDO类；&nbsp;&nbsp;&nbsp;&nbsp;2、创建数据库，编码“UTF-8”</td>
-				</tr>
-				<tr>
-					<td id="dataBase" class="code">
-						<div><span class="err"><em>&nbsp;</em>请填写数据库信息，并点击“连接”！</span></div>
-						<p>类&nbsp;&nbsp;&nbsp;&nbsp;型：&nbsp;&nbsp; 
-						<select style="width: 110px;">
-							<option value="mysql" >MySQL</option>
-							<option value="mssql" >SQL Server</option>
-						</select> &nbsp;&nbsp;
-						主机：&nbsp;&nbsp; <input type="text" class="input" style="width: 160px;" value="localhost">&nbsp;&nbsp;</p>
-						<p>用户名：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="root">&nbsp;&nbsp;
-						密码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;">&nbsp;&nbsp;</p>
-						<p>数据库：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="webmis"></p>
-						<p><a href="#" id="isDB" class="an" style="margin-left: 60px;">连接</a></p>
-					</td>
-				</tr>
-				<tr>
-					<td><b>系统管理员：</b></td>
-				</tr>
-				<tr>
-					<td id="Admin" class="code">
-						<div><span class="err"><em>&nbsp;</em>请填写管理员信息！</span></div>
-						<p>用户名：&nbsp;&nbsp; <input type="text" class="input" style="width: 100px;" value="admin" maxlength="16"></p>
-						<p>密&nbsp;&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;" maxlength="16">&nbsp;&nbsp;
-						确认：&nbsp;&nbsp; <input type="password" class="input" style="width: 160px;" maxlength="16"></p>
-					</td>
-				</tr>
-				</tbody>
-				<tbody id="install4" style="display: none;">
-					<tr>
-					<td id="istallInfo"><p class="load"><em>&nbsp;</em>正在安装...</p></td>
-				</tr>
-				</tbody>
-			</table>
-			</div>
+	<span class="lang"><a href="?lang=en-us">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?lang=zh-cn">简体中文</a></span>
+	<h1>WebMIS</h1>
+	<div class="body">
+<?php if($isWrite){?>
+		<div class="ct"><?php echo $isWrite;?></div>
+<?php }elseif(!$suc){?>
+		<form method="post" action="" >
+		<h2><?php echo $Lang['admin'];?></h2>
+		<dl class="list">
+			<dt><?php echo $Lang['uname'];?>：</dt>
+			<dd><input type="text" name="uname" value="<?php echo $uname;?>" maxlength="16" class="input" style="width: 210px;"></dd>
+			<dt><?php echo $Lang['passwd'];?>：</dt>
+			<dd><input type="password" name="passwd" maxlength="32" class="input" style="width: 210px;"></dd>
+		</dl>
+		<h2><?php echo $Lang['db_config'];?></h2>
+		<dl class="list">
+			<dt><?php echo $Lang['db_type'];?>：</dt>
+			<dd>
+				<select name="type" style="width: 222px;">
+					<option value="mysql" <?php echo $type=='mysql'?'selected':'';?>>MySQL</option>
+					<option value="mssql" <?php echo $type=='mssql'?'selected':'';?>>SQL Server</option>
+				</select>
+			</dd>
+			<dt><?php echo $Lang['db_host'];?>：</dt>
+			<dd><input type="text" name="hostname" value="<?php echo $hostname;?>" class="input" style="width: 210px;"></dd>
+			<dt><?php echo $Lang['uname'];?>：</dt>
+			<dd><input type="text" name="username" value="<?php echo $username;?>" class="input" style="width: 210px;"></dd>
+			<dt><?php echo $Lang['passwd'];?>：</dt>
+			<dd><input type="password" name="password" class="input" style="width: 210px;"></dd>
+			<dt><?php echo $Lang['db_name'];?>：</dt>
+			<dd><input type="text" name="database" value="<?php echo $database;?>" class="input" style="width: 210px;"></dd>
+		</dl>
+		<div class="sub">
+			<input type="submit" name="install" value="<?php echo $Lang['install'];?>">
 		</div>
-		<!-- 安装说明 End -->
-		<div id="button" class="ct_bt">
-			<font class="ct_bt_msg">提示：如果看不出“阴影”，请升级或更换浏览器！</font>
-			<span id="button1" class="ct_bt_an" style="display: block;">
-				<label><input type="checkbox" />&nbsp;&nbsp;同意服务条款</label>&nbsp;&nbsp;
-				<a href="#" class="an" onclick="Next(2);return false;" style="display: none;">下一步</a>
-			</span>
-			<span id="button2" class="ct_bt_an">
-				<a href="#" class="an" onclick="Next(1);return false;">上一步</a>&nbsp;&nbsp;<a href="#" class="an" onclick="Next(3);return false;">下一步</a>
-			</span>
-			<span id="button3" class="ct_bt_an">
-				<a href="#" class="an" onclick="Next(2);return false;">上一步</a>&nbsp;&nbsp;<a href="#" id="config" class="an" onclick="return false;">下一步</a>
-			</span>
-			<span id="button4" class="ct_bt_an">
-				<a href="../" class="an">完成</a>
-			</span>
-		</div>
+		<div class="err" style="text-align: center;"><?php echo $msg;?></div>
+		</form>
+<?php }else{echo $suc;}?>
 	</div>
-	<div class="copy">Built by KSPHP and the <b><a href="http://www.ksphp.com" >KSPHP.COM</a></b> community</div>
-</div>
-<script language="javascript" src="../webmis/plugin/jquery/jquery-2.min.js"></script>
-<script language="javascript" src="install.js"></script>
+	<div class="copy">
+		Copyright © <a href="http://www.ksphp.com/">WebMIS</a> Tencent. All Rights Reserved
+	</div>
 </body>
 </html>
-<?php }?>

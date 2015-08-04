@@ -25,7 +25,7 @@ class Sys_db_restore extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->lang->load('msg',$this->Lang);
-		$file = array_filter(explode(',', $this->input->post('id')));
+		$file = array_filter(explode(' ', $this->input->post('id')));
 		foreach($file as $val){
 			if(unlink($this->config->config['backup'].'/'.trim($val))){
 				$data = '{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}';

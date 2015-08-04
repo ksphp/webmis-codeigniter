@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `wmis_log_admin_login`;
 CREATE TABLE `wmis_log_admin_login` (
   `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `type` varchar(16) NOT NULL COMMENT 'Type',
-  `uname` varchar(12) NOT NULL COMMENT 'UserName',
+  `uname` varchar(16) NOT NULL COMMENT 'UserName',
   `ip` varchar(16) NOT NULL COMMENT 'IP addr',
   `time` datetime DEFAULT NULL COMMENT 'Login Time',
   `agent` varchar(255) DEFAULT NULL COMMENT 'User Agent',
@@ -57,7 +57,7 @@ CREATE TABLE `wmis_sys_admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO wmis_sys_admin (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', '系统管理员', '信息部', '系统管理员', '2010-01-01 08:00:00', '1', '1:0 2:0 16:0 29:0 3:0 4:0 14:0 5:0 23:0 17:0 20:0 12:0 6:0 7:1 15:1 8:31 9:31 10:31 22:1 26:1 24:65 25:145 18:319 19:63 27:63 28:63 21:27 13:19 11:1');
+INSERT INTO `wmis_sys_admin` (`id`, `uname`, `password`, `email`, `name`, `department`, `position`, `rtime`, `state`, `perm`) VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ksphp.com', 'Administrator', 'Department', 'Position', '2010-01-01 08:00:00', '1', '1:0 2:0 3:0 4:0 5:0 6:0 8:0 10:0 16:0 23:0 19:0 21:0 7:1 9:1 11:31 12:31 13:31 14:1 15:1 17:81 18:145 24:319 25:63 20:19 22:1');
 
 
 #
