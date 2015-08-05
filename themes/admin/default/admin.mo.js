@@ -11,7 +11,7 @@ $(function(){
 		$(this).find('ul').hide();
 	});
 	// Slide Nav
-	$.webmis.inc({files:[$webmis_plugin+'jquery/jquery.touchwipe.min.js',$webmis_plugin+'smartFloat.js']});
+	$.webmis.inc({files:[$webmis_plugin+'jquery/jquery.touchwipe.min.js',$webmis_plugin+'tool/smartFloat.js']});
 	navMove();
 	menuShow();
 	// All or Not al
