@@ -130,7 +130,11 @@ Content UI
 
 .table_list{width: 100%; border-collapse: collapse; text-align: center; border-top: #6FB737 2px solid; background: #FFF; box-shadow: 1px 1px 3px #BBB;}
 .table_list td{border: #BBB 1px solid; line-height: 30px; padding: 0 5px;}
-.table_list .title{height: 30px; color: #666; font-weight: bold; background: url("images/admin_tb_x.jpg") repeat-x #F4F7FA;}
+.table_list .title{height: 30px; color: #666; font-weight: bold;
+	background:-moz-linear-gradient(top, #FFF,#F2F4F6);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#F2F4F6));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF,endColorstr=#FFF,grandientType=1);
+}
 .table_list .text{padding: 10px 20px; background: #F4F7FA; text-align: left;}
 .table_list .text h1{font-size: 18px; border-bottom: #CCC 1px solid;}
 .table_list .text h2{font-size: 16px; border-bottom: #CCC 1px solid;}
