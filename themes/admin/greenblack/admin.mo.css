@@ -134,11 +134,10 @@ Content UI
 	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#F2F4F6));
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF,endColorstr=#F2F4F6,grandientType=1);
 }
-.table_list .text{padding: 10px 20px; background: #F4F7FA; text-align: left;}
-.table_list .text h1{font-size: 18px; border-bottom: #CCC 1px solid;}
-.table_list .text h2{font-size: 16px; border-bottom: #CCC 1px solid;}
+.table_list .text{padding: 10px 20px; line-height: 24px; background: #F5F5F5; text-align: left;}
+.table_list .text h1{font-size: 20px; line-height: 40px; border-bottom: #CCC 1px solid;}
+.table_list .text h2{font-size: 16px; line-height: 30px; border-bottom: #CCC 1px solid;}
 .table_list .text h3{font-size: 14px;}
-.table_list .text h4{font-size: 12px;}
 
 .table_add{width: 98%; border-collapse: collapse; margin: 0 auto;}
 .table_add td{line-height: 20px; padding: 5px;}
