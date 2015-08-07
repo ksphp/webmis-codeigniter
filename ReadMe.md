@@ -15,7 +15,7 @@ Online：<a href="http://webmis.ksphp.com/admin" target="_blank">webmis.ksphp.co
 2、Browse ./install 
 </p>
 <h2>Hide index.php</h2>
-<p><h3>一、Apache</h3></p>
+<p><h3>1、Apache</h3></p>
 <p>
 Open rewrite<br>
 [...]<br>
@@ -31,7 +31,7 @@ Linux/Unix/Mac：<br>
 <p>
 Edit .htaccess <br><br>
 </p>
-<h3>二、Nginx</h3>
+<h3>2、Nginx</h3>
 <p>
 location / {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#Hide index.php<br>
