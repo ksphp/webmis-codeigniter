@@ -49,7 +49,7 @@ em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font
 .WebMisVodTop .title{float: left; color: #CCC; padding: 0 15px;}
 .WebMisVodTop .close{float: right; cursor: pointer; color: #999; margin-right: 5px;}
 .WebMisVodTop .close:hover{color: #FF6600;}
-.WebMisVodTop .close:before {content: "\e1fa";}
+.WebMisVodTop .close:before {content: "\e660";}
 
 /* WebMisMsg */
 .msgShowBG{display:none;}
