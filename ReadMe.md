@@ -5,7 +5,7 @@
 </p>
 <p>
 Home：<a href="http://www.ksphp.com/" target="_blank">www.ksphp.com</a><br/>
-Docs：<a href="https://www.ksphp.com/docs/CodeIgniter.html" target="_blank">CodeIgniter Documentation</a><br/>
+Docs：<a href="http://www.ksphp.com/docs/CodeIgniter.html" target="_blank">CodeIgniter Documentation</a><br/>
 Online：<a href="http://webmis.ksphp.com/admin" target="_blank">webmis.ksphp.com/admin</a> [ Uname: webmis Passwd:ksphp.com ]
 </p>
 <p>
