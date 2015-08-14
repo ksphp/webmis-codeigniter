@@ -97,7 +97,7 @@ function newsForm(){
 	// Date
 	$('#datepicker').datepicker({dateFormat: "yyyy-mm-dd",weekStart: 1});
 	// Editr
-	TinyMce('#tinymce');
+	TinyMce('#tinymce',Lang);
 	// Validform
 	$("#newsForm").Validform({ajaxPost:true,tiptype:2,
 		callback:function(data){
@@ -118,12 +118,11 @@ function newsForm(){
 }
 /* Editr */
 function TinyMce(obj,Lang){
-	if(!IsMobile){moWidth = 900;}
 	tinymce.init({
 		selector: obj,
 		language: Lang,
 		convert_urls: false,
-		height: 430,
+		height: 428,
 		menubar: false,
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
