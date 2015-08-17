@@ -32,8 +32,8 @@ foreach ($Menus['Date'] as $val){
 <?php }?>
 	</ul>
 </div>
-	<!-- 左侧菜单 -->
-	<div class="left_menu">M</div>
+	<!-- Left Menus -->
+	<div class="left_menu"><em class="ico-menus"></em></div>
 	<div class="menu_ct">
 <?php if($menus){foreach($menus as $val1){
 	$title = $this->lang->line($val1['title']);

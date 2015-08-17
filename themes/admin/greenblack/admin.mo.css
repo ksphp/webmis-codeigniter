@@ -63,7 +63,12 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .nav .an1 em{color: #FFF;}
 .nav .an2{color: #CCC;}
 
-.left_menu{position: fixed; left: 0.2em; top: 50%; width: 21px; height: 100px; line-height: 100px; margin-top: -100px; background-color: rgba(0,0,0,0.6); font-size: 16px; color: #FFF; text-align: center; border-radius: 3px;}
+.left_menu{position: fixed; right: 15px; top: 107px; padding: 8px 9px 6px 9px; border-radius: 32px; box-shadow: 1px 1px 3px #999;
+	background:-moz-linear-gradient(top, #FFF,#E2E4E6);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#E2E4E6));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF,endColorstr=#E2E4E6,grandientType=1);
+}
+.left_menu em{color: #6FB737; font-size: 1.6em; padding-right: 0; text-shadow: 1px 1px 0px #FFF;}
 
 .menu_ct{display: none; position: fixed; top: 0px; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); overflow-y: auto; padding: 1em 0;}
 .menu_ct .title a{color: #38B000; font-weight: bold; padding: 0 1em;}
@@ -159,6 +164,7 @@ Content UI
 .action_ct li{float: left; padding: 0 5px;}
 
 /* ICO */
+.ico-menus:before {content: "\e676";}
 .ico-heart:before {content: "\e650";}
 
 .ico-home:before {content: "\e620";}
