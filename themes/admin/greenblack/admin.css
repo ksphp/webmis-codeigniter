@@ -31,7 +31,7 @@ input:focus, textarea:focus{box-shadow: 0 0 6px rgba(153, 153, 153, 0.7);}
 .Validform_checktip{float: left;}
 .Checkbox{float: left; margin-top: 8px;}
 .noDisplay{display: none;}
-.isIE{position: absolute; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; line-height: 100px; background-color: #666; color: #FFF; text-align: center; font-size: 14px;}
+.isIE{position: absolute; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; line-height: 100%; background-color: #666; color: #FFF; text-align: center; font-size: 15px;}
 
 /* login */
 .login_body{position: relative; z-index: 1; width: 360px; margin: 0 auto;}
