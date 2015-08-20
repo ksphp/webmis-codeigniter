@@ -91,7 +91,7 @@ $(function () {
 		if(id!=','){
 			$.webmis.win('close','sys_filemanager/down.html?path='+path+'&files='+id);
 		}else{
-			$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+			$.get($base_url+'home/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 				$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 			},'json');
 		}
@@ -170,7 +170,7 @@ function openFile(path,ext) {
 	var view_img = ['jpg','png','gif','ico'];
 	var view_file = ['php','css','js','htm','html','sql','txt','md'];
 	if ($.inArray(ext, view_img) != -1) {
-		$.get($base_url+'index_c/getLang/msg',{msg_view:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_view:''},function (data){
 			if(!IsMobile){moWidth = 520; moHeight= 400;}
 			$.webmis.win('open',{title:data.msg_view,width:moWidth,height:moHeight,overflow:true});
 			// Image Class
@@ -197,7 +197,7 @@ function openFile(path,ext) {
 			};
 		},'json');
 	}else if ($.inArray(ext, view_file) != -1){
-		$.get($base_url+'index_c/getLang/msg',{msg_view:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_view:''},function (data){
 			if(!IsMobile){moWidth = 720; moHeight= 500;}
 			$.webmis.win('open',{title:data.msg_view,width:moWidth,height:moHeight,overflow:true});
 			$.get($base_url+'sys_filemanager/viewFile.html',{'path':path},function(data){
@@ -205,7 +205,7 @@ function openFile(path,ext) {
 			});
 		},'json');
 	}else {
-		$.get($base_url+'index_c/getLang/msg',{msg_view:'',msg_not_view:'',msg_auto_close:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_view:'',msg_not_view:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_view, content:'<b class="red">'+data.msg_not_view+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
@@ -239,7 +239,7 @@ function editFile(file,ext,title,lang) {
 			});
 		});
 	}else {
-		$.get($base_url+'index_c/getLang/msg',{msg_edit:'',msg_not_edit:'',msg_auto_close:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_edit:'',msg_not_edit:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_edit, content:'<b class="red">'+data.msg_not_edit+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}

@@ -105,9 +105,9 @@ class Inc{
 		$UserLogin = @$_SESSION['AdminInfo']['logged_in'];
 		if($UserLogin == TRUE){
 			$_SESSION['AdminInfo']['ltime'] = time()+1800;
-			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>[ <a href="'.base_url('sys_config.html').'">'.$APP->lang->line('menu_sys_m_config').'</a> ]&nbsp;|&nbsp;<a href="'.base_url('index_c/loginOut.html').'"><b>'.$APP->lang->line('inc_loginOut').'</b></a>';
+			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>[ <a href="'.base_url('sys_config.html').'">'.$APP->lang->line('menu_sys_m_config').'</a> ]&nbsp;|&nbsp;<a href="'.base_url('home/loginOut.html').'"><b>'.$APP->lang->line('inc_loginOut').'</b></a>';
 		}else{
-			redirect('index_c');
+			redirect('home');
 		}
 		return $html;
 	}

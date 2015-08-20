@@ -49,7 +49,7 @@ function menuTwo(id,type){
 function actionDel(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_remove:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_remove:''},function (data){
 			$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="'+data.msg_remove+'" /></div>'});
 			$('#delSub').webmis('SubClass');
 			//点击提交
@@ -70,7 +70,7 @@ function actionDel(dataUrl,targetUrl) {
 			});
 		},'json');
 	}else{
-		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
@@ -79,7 +79,7 @@ function actionDel(dataUrl,targetUrl) {
 function actionAudit(dataUrl,targetUrl) {
 	var id = $('#listBG').webmis('GetInputID',{type:' '});
 	if(id!=' '){
-		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
 			$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="'+data.msg_pass+'" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="'+data.msg_notpass+'" /></div>'});
 			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
 			//通过
@@ -92,7 +92,7 @@ function actionAudit(dataUrl,targetUrl) {
 			});
 		},'json');
 	}else{
-		$.get($base_url+'index_c/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
+		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
 			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}

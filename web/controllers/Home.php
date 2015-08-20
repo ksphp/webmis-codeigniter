@@ -1,5 +1,5 @@
 <?php
-class Index_c extends CI_Controller {
+class Home extends CI_Controller {
 	public function index(){
 		/* Lang */
 		$this->load->library('user_agent');
@@ -12,7 +12,7 @@ class Index_c extends CI_Controller {
 		$data['css'] = array('index.css');
 		$data['js'] = array('index.js');
 		if($this->IsMobile()){
-			redirect('m/index_c');
+			redirect('m/home');
 		}else{
 			$this->inc->webView($this,'index/index',$data);
 		}

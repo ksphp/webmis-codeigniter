@@ -1,5 +1,5 @@
 <?php
-class Index_c extends CI_Controller {
+class Home extends CI_Controller {
 	public function index(){
 		/* Lang */
 		$this->load->library('user_agent');

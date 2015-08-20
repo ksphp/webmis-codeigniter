@@ -47,7 +47,7 @@ class Inc{
 		$FID1=''; $FID2=''; $FID3='';
 		//排除控制器
 		$arr = array('error','login','safety');
-		if(in_array($Cname,$arr)){$Cname='index_c';}
+		if(in_array($Cname,$arr)){$Cname='home';}
 		$G1 = $APP->class_web_m->getID($Cname);
 		if($G1->fid==0){
 			$FID1 = $G1->id;
