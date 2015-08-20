@@ -14,9 +14,10 @@ class Home extends CI_Controller {
 		$data['LangName'] = $lang.' | '.$LangName[$lang];
 		// Is not IE9
 		$this->load->library('user_agent');
-		if($this->agent->is_browser() && $this->agent->browser()=='Internet Explorer' && $this->agent->version()<9){
-			$data['isIE'] = TRUE;
-		}else{$data['isIE'] = FALSE;}
+		$data['isIE'] = FALSE;
+		if($this->agent->is_browser()){
+			if($this->agent->browser()=='Internet Explorer' && $this->agent->version()<9){$data['isIE'] = TRUE;}
+		}
 		// Is Mobile
 		$mode = $this->input->get('mode');
 		if($mode) {

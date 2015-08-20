@@ -13,7 +13,7 @@
 
 <body class="login_bg">
 <?php if($isIE){?>
-	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
+	<div class="isIE"><p><?php echo $this->lang->line('inc_isIE');?></p></div>
 <?php }?>
 	<div id="Lang" class="lang_ct">
 		<?php echo $LangName;?>

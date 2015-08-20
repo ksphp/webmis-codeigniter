@@ -12,7 +12,7 @@
 
 <body class="top_bg">
 <?php if($isIE){?>
-	<div class="isIE"><?php echo $this->lang->line('inc_isIE');?></div>
+	<div class="isIE"><p><?php echo $this->lang->line('inc_isIE');?></p></div>
 <?php }?>
 <header id="top" class="top">
 	<div class="top_logo"><a href="http://www.ksphp.com" title="WebMIS" target="_blank">&nbsp;</a></div>
