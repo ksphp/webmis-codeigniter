@@ -1,7 +1,8 @@
 $(function(){
 	$.webmis.inc({files:[
+		$webmis_plugin+'tool/json3.min.js',
 		$webmis_plugin + 'form/Validform.min.js',
-		$webmis_plugin + 'chart/highcharts/highcharts.js',
+		$webmis_plugin + 'chart/Chart.min.js',
 		$webmis_plugin + 'edit/tinymce/tinymce.min.js',
 		$webmis_plugin + 'form/jquery.form.js',
 		$webmis_plugin + 'date/datepicker/datepicker.js',
@@ -70,13 +71,9 @@ $(function(){
 		// Content
 		$.post($base_url+'web_news/chartData.html',function(data){
 			// Create
-			$('#WebMisWinCT').highcharts({
-				chart: {type: 'pie'},
-				title: {text: '<b>'+data+'</b>'},
-				tooltip: {pointFormat: '{series.name}: <b>{point.percentage}%</b>',percentageDecimals: 1},
-				plotOptions: {pie: {allowPointSelect: true,cursor: 'pointer',dataLabels: {enabled: true,color: '#000000',connectorColor: '#000000',formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' 条';}}}},
-				series: [{name: 'Percent',data: data}]
-        	});
+			$('#WebMisWinCT').html('<div style="padding: 50px;"><canvas id="myChart" style="width: 100%; height: 315px;"></canvas>');
+			var ctx = $("#myChart").get(0).getContext("2d");
+			var myNewChart = new Chart(ctx).Pie(data);
 		},'json');
 		return false;
 	});

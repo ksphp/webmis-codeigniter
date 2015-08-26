@@ -76,18 +76,16 @@ class Web_news extends MY_Controller {
 	public function chartData() {
 		$this->load->model('class_web_m');
 		$this->load->model('web_news_m');
-		$html = '[';
+		$i = 0;
 		$menus = $this->class_web_m->getMenus('0');
+		$color = array('#6FB737','#3A90BA','#3D3D3D');
 		foreach($menus as $val){
 			$num = $this->web_news_m->count_all(array('class' =>':'.$val->id.':'));
-			$html .= '["'.$val->title.'",'.$num.']';
-			if($val!=end($menus)) {$html .= ',';}
+			$num = $num?$num:'1';
+			$data[] = array('value'=>$num, 'color'=>$color[$i], 'label'=>$val->title);
+			$i++;
 		}
-		$html .= ']';
-		echo $html;
-		//$data = array('title'=>'Title','data'=>array('t1'=>'Text1','t2'=>'Text2'));
-		//echo json_encode($data);
-		/*echo '[["Class1",0],["Class2",0],["Class3",0],["Class4",0]]';*/
+		echo json_encode($data);
 	}
 	/* View */
 	public function show(){
