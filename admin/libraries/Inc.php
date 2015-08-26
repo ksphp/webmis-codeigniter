@@ -91,9 +91,9 @@ class Inc{
 				$title = $APP->lang->line($val->name);
 				$title = $title?$title:$val->name;
 				if($i == 1){
-					$html .= '<li><a href="'.base_url().$APP->config->config['index_url'].$APP->uri->segment(1).'.html"><em class="'.$val->ico.'"></em>'.$title.'</a></li>';
+					$html .= '<li><a href="'.base_url().$APP->config->config['index_url'].$APP->uri->segment(1).'.html"><em class="'.$val->ico.'"></em><span>'.$title.'</span></a></li>';
 				}else{
-					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em>'.$title.'</a></li>';
+					$html .= '<li><a href="#" id="'.$val->ico.'"><em class="'.$val->ico.'"></em><span>'.$title.'</span></a></li>';
 				}
 			}
 			$i++;
