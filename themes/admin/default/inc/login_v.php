@@ -40,7 +40,14 @@
 			Copyright © <?php echo $this->config->config['copy'];?> All rights are reserved.<br>
 			<a href="<?php echo base_url('../'); ?>" ><?php echo $this->lang->line('inc_home');?></a>&nbsp;|&nbsp;
 			<a href="<?php echo base_url('?mode=pc'); ?>" ><?php echo $this->lang->line('inc_pc');?></a>&nbsp;|&nbsp;
-			<a href="<?php echo base_url('?mode=mobile'); ?>" ><?php echo $this->lang->line('inc_mobile');?></a>
+			<a href="<?php echo base_url('?mode=mobile'); ?>" id="QRCodeCT" class="qrcode">
+				<em class="ico-qrcode"></em>
+				<span><?php echo $this->lang->line('inc_mobile');?></span>
+				<div class="qrcode_ct">
+					<div class="arrow"></div>
+					<div id="QRCode" class="ct"></div>
+				</div>
+			</a>
 		</footer>
 	</section>
 </section>

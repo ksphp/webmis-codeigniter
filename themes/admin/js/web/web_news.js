@@ -71,7 +71,7 @@ $(function(){
 		// Content
 		$.post($base_url+'web_news/chartData.html',function(data){
 			// Create
-			$('#WebMisWinCT').html('<div style="padding: 50px;"><canvas id="myChart" style="width: 100%; height: 315px;"></canvas>');
+			$('#WebMisWinCT').html('<div style="padding: 50px;"><canvas id="myChart" style="width: 100%; height: 100%;"></canvas>');
 			var ctx = $("#myChart").get(0).getContext("2d");
 			var myNewChart = new Chart(ctx).Pie(data);
 		},'json');
