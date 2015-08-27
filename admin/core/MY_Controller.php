@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller {
 		$ltime = @$_SESSION['UserInfo']['ltime'];
 		$ntime = time();
 		if(!$logged){
-			redirect('index_c/loginOut');
+			redirect('home/loginOut');
 		}else {
 			$_SESSION['AdminInfo']['ltime'] = time()+1800;
 		}
@@ -31,7 +31,7 @@ class MY_Controller extends CI_Controller {
 		$this->Cid = $Menu->id;
 		$permArr = $_SESSION['AdminInfo']['permArr'];
 		if(!isset($permArr[$this->Cid])){
-			header('location: '.base_url().$this->dirName.'index_c/loginOut.html');
+			header('location: '.base_url().$this->dirName.'home/loginOut.html');
 			exit();
 		}
 	}
