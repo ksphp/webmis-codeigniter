@@ -1,6 +1,5 @@
 $(function(){
 	$.webmis.inc({files:[
-		$webmis_plugin+'tool/json3.min.js',
 		$webmis_plugin + 'form/Validform.min.js',
 		$webmis_plugin + 'chart/Chart.min.js',
 		$webmis_plugin + 'edit/tinymce/tinymce.min.js',

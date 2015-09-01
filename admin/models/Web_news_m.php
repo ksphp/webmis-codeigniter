@@ -77,7 +77,7 @@ class Web_news_m extends CI_Model {
 		$id = trim($this->input->post('id'));
 		if($id){
 			$this->db->trans_start();
-			$arr = array_filter(explode(' ', $id));
+			$arr = json_decode($id);
 			foreach($arr as $val){
 				//删除图片
 				$file = $this->getOne('upload',$val);
@@ -102,7 +102,7 @@ class Web_news_m extends CI_Model {
 		$id = trim($this->input->post('id'));
 		if($id){
 			$this->db->trans_start();
-			$arr = array_filter(explode(' ', $id));
+			$arr = json_decode($id);
 			foreach($arr as $val){
 				$data['state'] = $this->input->post('state');
 				/*添加审核人*/
