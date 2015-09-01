@@ -116,29 +116,3 @@ INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('8', '
 INSERT INTO `wmis_sys_menus_action` (`id`, `name`, `perm`, `ico`) VALUES ('9', 'action_chart', '256', 'ico-chart');
 
 
-#
-# TABLE STRUCTURE FOR: wmis_web_news
-#
-
-DROP TABLE IF EXISTS `wmis_web_news`;
-
-CREATE TABLE `wmis_web_news` (
-  `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `class` varchar(24) NOT NULL COMMENT 'Class',
-  `title` varchar(36) NOT NULL COMMENT 'Title',
-  `img` varchar(300) DEFAULT NULL COMMENT 'IMG',
-  `upload` text NOT NULL COMMENT 'Upload',
-  `source` varchar(24) NOT NULL COMMENT 'Source',
-  `author` varchar(12) NOT NULL COMMENT 'Author',
-  `uname` varchar(16) NOT NULL COMMENT 'UserName',
-  `ctime` datetime DEFAULT NULL COMMENT 'Create time',
-  `click` int(6) NOT NULL COMMENT 'Click Num',
-  `key` varchar(64) DEFAULT NULL COMMENT 'Key',
-  `audit` varchar(16) DEFAULT NULL COMMENT 'Audit',
-  `atime` datetime DEFAULT NULL COMMENT 'Audit time',
-  `state` varchar(1) NOT NULL DEFAULT '0' COMMENT 'State',
-  `summary` varchar(300) DEFAULT NULL COMMENT 'Summary',
-  `content` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
