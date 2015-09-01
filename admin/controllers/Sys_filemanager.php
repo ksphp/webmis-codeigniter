@@ -54,6 +54,20 @@ class Sys_filemanager extends MY_Controller {
 		$this->lang->load('system/sys_file',$this->Lang);
 		$this->load->view('system/filemanager/upload');
 	}
+	function uploadData(){
+		$path = $this->file_class->file_root.$this->input->post('path');
+		$upName = 'webmis';
+		// File
+		if (!empty($_FILES)){
+			$tempFile = $_FILES[$upName]['tmp_name'];
+			$targetFile = $path.$_FILES[$upName]['name'];
+			if(@move_uploaded_file($tempFile,$targetFile)){
+				echo '{"status":"ok","name":"'.$_FILES[$upName]['name'].'"}';
+			}else{
+				echo '{"status":"no","name":"'.$_FILES[$upName]['name'].'"}';
+			}
+		}
+	}
 	/* Remove */
 	function delData(){
 		$this->lang->load('msg',$this->Lang);

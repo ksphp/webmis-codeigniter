@@ -47,7 +47,7 @@ em{color: #6FB737; font-family: 'icomoon'; speak: none; font-style: normal; font
 #WebMisVodCT{background-color: #000; margin: 0 auto; border: #333 1px solid; box-shadow: 1px 1px 5px #000;}
 .WebMisVodTop{line-height: 30px; font-size: 14px;}
 .WebMisVodTop .title{float: left; color: #CCC; padding: 0 15px;}
-.WebMisVodTop .close{float: right; cursor: pointer; color: #999; margin-right: 5px;}
+.WebMisVodTop .close{float: right; cursor: pointer; color: #999;}
 .WebMisVodTop .close:hover{color: #FF6600;}
 .WebMisVodTop .close:before {content: "\e660";}
 

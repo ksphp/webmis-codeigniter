@@ -1,0 +1,22 @@
+.WebMIS_Upload{overflow: hidden; font-size: 12px; border: #DADCDF 1px dashed;}
+.WebMIS_Upload_input{overflow: hidden; color: #666; text-align: center; font-size: 14px; padding: 15px 0; min-width: 360px;}
+.WebMIS_Upload_input span{display: inline-block; cursor: pointer; background-color: #6FB737; color: #FFF; font-weight: bold; padding: 6px 20px; border-radius: 2px; box-shadow: 1px 1px 2px #666;}
+.WebMIS_Upload_input input{display: none;}
+.WebMIS_Upload_files{overflow: hidden; padding: 0 10px;}
+.WebMIS_Upload_files_ct{font-size: 12px; border: #DADCDF 1px solid; padding: 6px 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px #F2F2F2;
+	background:-moz-linear-gradient(top, #FFF,#FEFEFE);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#F8F8F8));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF,endColorstr=#F8F8F8,grandientType=1);
+}
+.WebMIS_Upload_files_title{overflow: hidden; width: 100%; color: #999;}
+.WebMIS_Upload_files_title span{float: left; font-size: 10px;}
+.WebMIS_Upload_files_title span b{color: #666; font-size: 12px;}
+.WebMIS_Upload_files_title em{float: right; cursor: pointer; font-size: 16px;}
+.WebMIS_Upload_files_title em:before {content: "\e660";}
+.WebMIS_Upload_files_load{overflow: hidden; height: 12px; background-color: #F2F2F2; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;}
+@keyframes WebMIS_Upload_files_barBG{from{background-position:40px 0}to{background-position:0 0}}
+.WebMIS_Upload_files_bar{height: 12px; line-height: 12px; font-size: 12px; text-align: right; color: #FFF; background-color: #6FB737; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-size: 40px 40px;
+	animation: WebMIS_Upload_files_barBG 2s linear infinite;
+}

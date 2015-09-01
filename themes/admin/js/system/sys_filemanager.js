@@ -1,9 +1,8 @@
-var file_root = $('#fileRoot').text();
 var path = $('#filePath').text();
 $(function () {
 	$.webmis.inc({files:[
-		$webmis_plugin + 'tinymce/tinymce.min.js',
-		$webmis_plugin+'Validform.min.js'
+		$webmis_plugin + 'edit/tinymce/tinymce.min.js',
+		$webmis_plugin+'form/Validform.min.js'
 	]});
 /* Index */
 	$('#listBG').webmis('TableOddColor');
@@ -56,28 +55,41 @@ $(function () {
 	});
 /* Upload */
 	$('#ico-upload').click(function(){
-		// Upload Plugin
 		$.webmis.inc({files:[
-			$webmis_plugin + 'uploadify/jquery.uploadify.min.js',
-			$webmis_plugin + 'uploadify/uploadify.css'
+			$webmis_plugin+'upload/dmuploader/dmuploader.min.js',
+			$webmis_plugin+'upload/dmuploader/dmuploader.webmis.js',
+			$webmis_plugin+'upload/dmuploader/dmuploader.webmis.css'
 		]});
 		if(!IsMobile){moWidth = 540; moHeight= 450;}
 		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 		// Content
 		$.get($base_url+'sys_filemanager/upload.html',function(data){
 			$.webmis.win('load',data);
-			$("#file_upload").uploadify({
-				'formData': {'path' : file_root+path,'someKey' : 'someValue'},
-				'swf': $webmis_plugin + 'uploadify/uploadify.swf',
-				'uploader': $webmis_plugin + 'uploadify/uploadify.php',
-				'buttonImage' : $webmis_plugin + 'uploadify/browse-btn.png',
-				'auto': false,
+			$("#UplandArea").dmUploader({
+				url: $base_url+'sys_filemanager/uploadData',
+				dataType: 'json',
+				fileName: 'webmis',
+				maxFileSize: 2*1024*1024,
+				allowedTypes: '*',
+				extraData:{path:path},
+				onNewFile: function(id, file){
+					$.webmisUpload.addFile('#UplandFiles', id, file);
+				},
+				onUploadProgress: function(id, percent){
+					$.webmisUpload.updateFileProgress(id, percent);
+				},
+				onUploadSuccess: function(id, data){
+					// alert(JSON.stringify(data));
+					if(data.status=='ok'){
+						// Remove File
+						$('#WebMIS_Upload_Close_'+id).click(function (){
+							$('#WebMIS_Upload_files_'+id).remove();
+						});
+					}else{
+						alert('Error : '+data.name);
+					}
+				}
 			});
-			// Upload
-			$('#fileSub').click(function (){
-				$('#file_upload').uploadify('upload','*');
-				return false;
-			}).webmis('SubClass');
 			// Close
 			$('#WebMisWin .close').click(function (){
 				refreshDir($('#filePath').text());
@@ -175,7 +187,7 @@ function openFile(path,ext) {
 			$.webmis.win('open',{title:data.msg_view,width:moWidth,height:moHeight,overflow:true});
 			// Image Class
 			var img = new Image();
-			img.src = file_root+path;
+			img.src = path;
 			img.onload = function(){
 				// Auto width or height
 				var maxWidth = moWidth

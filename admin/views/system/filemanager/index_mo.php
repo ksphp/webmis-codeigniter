@@ -7,13 +7,13 @@
 		<td class="title"><?php echo $Menus['Ctitle']; ?></td>
 		<td>
 			<ul class="action_ct">
-				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back"></em><?php echo $this->lang->line('sys_file_up');?></a></li>
-				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder"></em><?php echo $this->lang->line('sys_file_new').$this->lang->line('sys_file_folder');?></a></li>
-				<li><a href="#" id="ico-addfile"><em class="ico-addfile"></em><?php echo $this->lang->line('sys_file_new').$this->lang->line('sys_file_file');?></a></li>
-				<li><a href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="ico-refresh"></em><?php echo $this->lang->line('sys_file_refresh');?></a></li>
-				<li><a href="#" id="ico-upload"><em class="ico-upload"></em><?php echo $this->lang->line('sys_file_upload');?></a></li>
-				<li><a href="#" id="ico-down"><em class="ico-down"></em><?php echo $this->lang->line('sys_file_down');?></a></li>
-				<li><a href="#" id="ico-fdel"><em class="ico-fdel"></em><?php echo $this->lang->line('sys_file_remove');?></a></li>
+				<li><a href="#" onclick="backDir('<?php echo dirname($filelist['path']); ?>');return false;"><em class="ico-back"></em><span><?php echo $this->lang->line('sys_file_up');?></span></a></li>
+				<li><a href="#" id="ico-addfolder"><em class="ico-addfolder"></em><span><?php echo $this->lang->line('sys_file_new').$this->lang->line('sys_file_folder');?></span></a></li>
+				<li><a href="#" id="ico-addfile"><em class="ico-addfile"></em><span><?php echo $this->lang->line('sys_file_new').$this->lang->line('sys_file_file');?></span></a></li>
+				<li><a href="#" onclick="refreshDir('<?php echo $filelist['path']; ?>');return false;"><em class="ico-refresh"></em><span><?php echo $this->lang->line('sys_file_refresh');?></span></a></li>
+				<li><a href="#" id="ico-upload"><em class="ico-upload"></em><span><?php echo $this->lang->line('sys_file_upload');?></span></a></li>
+				<li><a href="#" id="ico-down"><em class="ico-down"></em><span><?php echo $this->lang->line('sys_file_down');?></span></a></li>
+				<li><a href="#" id="ico-fdel"><em class="ico-fdel"></em><span><?php echo $this->lang->line('sys_file_remove');?></span></a></li>
 			</ul>
 		</td>
 	</tr>

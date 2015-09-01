@@ -28,13 +28,4 @@ class Home extends CI_Controller {
 		}
 		return $data;
 	}
-	//QQ登录
-	function QQLogin(){
-		$this->load->library('login/qq');
-		$this->qq->Login();
-	}
-	function qq_call_back(){
-		$this->load->library('login_qq');
-		$uinfo = $this->qq->call_back();
-	}
 }
