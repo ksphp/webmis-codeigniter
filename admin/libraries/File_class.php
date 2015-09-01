@@ -104,8 +104,7 @@ class file_class{
 	/* Delete folder and file */
 	function del($path,$f) {
 		$data = false;
-		$arr = array_filter(explode(' ', $f));
-		foreach($arr as $val){
+		foreach($f as $val){
 			$ff = $this->file_root.$path.$val;
 			if(!is_dir($ff)) {
 				if(@unlink($ff)){$data = true;}else {$data = false;break;}

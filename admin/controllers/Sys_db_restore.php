@@ -25,7 +25,7 @@ class Sys_db_restore extends MY_Controller {
 	/* Delete */
 	public function delData(){
 		$this->lang->load('msg',$this->Lang);
-		$file = array_filter(explode(' ', $this->input->post('id')));
+		$file = json_decode($this->input->post('id'));
 		foreach($file as $val){
 			if(unlink($this->config->config['backup'].'/'.trim($val))){
 				$data = '{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}';
@@ -41,13 +41,13 @@ class Sys_db_restore extends MY_Controller {
 		$this->lang->load('inc',$this->Lang);
 		$this->lang->load('system/sys_db',$this->Lang);
 		/* Config */
-		$data['file'] = $this->config->config['backup'].'/'.$this->input->post('file');
+		$data['file'] = $this->config->config['backup'].'/'.trim($this->input->post('file'));
 		$this->load->view('system/db/restore/imp',$data);
 	}
 	public function impData(){
 		$this->lang->load('msg',$this->Lang);
 		$this->load->helper('file');
-		$file = $this->input->post('file');
+		$file = trim($this->input->post('file'));
 		$data = '{"status":"n"}';
 		/* Remove Notes */
 		$content = read_file($file);

@@ -30,10 +30,10 @@ class Sys_db_backup extends MY_Controller {
 		$this->load->dbutil();
 		$this->load->helper('file');
 		/* Post */
-		$dir = $this->input->post('dir');
-		$name = $this->input->post('name');
-		$format = $this->input->post('format');
-		$table = array_filter(explode(' ', $this->input->post('table')));
+		$dir = trim($this->input->post('dir'));
+		$name = trim($this->input->post('name'));
+		$format = trim($this->input->post('format'));
+		$table = json_decode($this->input->post('table'));
 		/* Mkdir */
 		if(!is_dir($dir)){@mkdir($dir,0777);}
 		/* Config */

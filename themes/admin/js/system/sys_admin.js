@@ -73,7 +73,7 @@ function adminForm(){
 /* Edit Perm */
 function editPerm(id,title){
 	var perm = $('#editPerm'+id).attr('title');
-	if(!IsMobile){moWidth = 720; moHeight= 540;}
+	if(!IsMobile){moWidth = 820; moHeight= 540;}
 	$.webmis.win('open',{title:title,width:moWidth,height:moHeight,overflow:true});
 	// Content
 	$.post($base_url+'sys_admin/editPerm.html',{'perm':perm},function(data){
@@ -114,6 +114,7 @@ function editPerm(id,title){
 			var act = getAction(id);
 			perm += id+':'+act+' ';
 		});
+		if(perm){perm = perm.substr(0, perm.length-1);}
 		return perm;
 	}
 	// Get Perm Menu

@@ -12,7 +12,7 @@ class Sys_filemanager extends MY_Controller {
 		$this->load->library('inc');
 		
 		$data['file_root'] = $this->file_class->file_root;
-		$path = $this->input->get('path');
+		$path = trim($this->input->get('path'));
 		$data['filelist'] = $this->file_class->lists($path);
 		$data['js'] = array('system/sys_filemanager.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
@@ -30,7 +30,7 @@ class Sys_filemanager extends MY_Controller {
 	}
 	function addFolder(){
 		$this->lang->load('msg',$this->Lang);
-		$path = $this->input->post('path').str_replace(' ','',$this->input->post('name'));
+		$path = $this->input->post('path').trim($this->input->post('name'));
 		$perm = (int)$this->input->post('perm');
 		if($path && $perm){
 			echo $this->file_class->addDir($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
@@ -44,7 +44,7 @@ class Sys_filemanager extends MY_Controller {
 	}
 	function addFile(){
 		$this->lang->load('msg',$this->Lang);
-		$file = $this->input->post('path').str_replace(' ','',$this->input->post('file'));
+		$file = $this->input->post('path').trim($this->input->post('file'));
 		if($file){
 			echo $this->file_class->addFile($file)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}else{return FALSE;}
@@ -62,7 +62,7 @@ class Sys_filemanager extends MY_Controller {
 			$tempFile = $_FILES[$upName]['tmp_name'];
 			$targetFile = $path.$_FILES[$upName]['name'];
 			if(@move_uploaded_file($tempFile,$targetFile)){
-				echo '{"status":"ok","name":"'.$_FILES[$upName]['name'].'"}';
+				echo '{"status":"ok","name":"'.$_FILES[$upName]['name'].'","size":"'.$_FILES[$upName]['size'].'"}';
 			}else{
 				echo '{"status":"no","name":"'.$_FILES[$upName]['name'].'"}';
 			}
@@ -71,8 +71,8 @@ class Sys_filemanager extends MY_Controller {
 	/* Remove */
 	function delData(){
 		$this->lang->load('msg',$this->Lang);
-		$path = $this->input->get('path');
-		$f = $this->input->post('id');
+		$path = trim($this->input->get('path'));
+		$f = json_decode($this->input->post('id'));
 		if($path && $f){
 			echo $this->file_class->del($path,$f)?'{"status":"y","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_suc').'","text":"'.$this->lang->line('msg_auto_close').'"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}else{return FALSE;}
@@ -85,8 +85,8 @@ class Sys_filemanager extends MY_Controller {
 	}
 	function editPermData(){
 		$this->lang->load('msg',$this->Lang);
-		$path = $this->input->post('path');
-		$perm = $this->input->post('perm');
+		$path = trim($this->input->post('path'));
+		$perm = trim($this->input->post('perm'));
 		if($path && $perm){
 			echo $this->file_class->editPerm($path,$perm)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}else{return FALSE;}
@@ -99,9 +99,9 @@ class Sys_filemanager extends MY_Controller {
 	}
 	function reNameData(){
 		$this->lang->load('msg',$this->Lang);
-		$path = $this->input->post('path');
-		$name = str_replace(' ','',$this->input->post('name'));
-		$rename = $this->input->post('rename');
+		$path = trim($this->input->post('path'));
+		$name = trim($this->input->post('name'));
+		$rename = trim($this->input->post('rename'));
 		if($path && $rename && $name){
 			echo $this->file_class->reName($path.$rename,$path.$name)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
 		}else{return FALSE;}
@@ -111,10 +111,9 @@ class Sys_filemanager extends MY_Controller {
 		$this->load->library('zip');
 		
 		$file_root = $this->file_class->file_root;
-		$path = $this->input->get('path');
-		$files = $this->input->get('files');
-		$arr = array_filter(explode(',',$files));
-		foreach($arr as $val){
+		$path = trim($this->input->get('path'));
+		$files = json_decode($this->input->get('files'));
+		foreach($files as $val){
 			$ff = $file_root.$path.$val;
 			if(!is_dir($ff)) {
 				$this->zip->read_file($ff);
@@ -129,7 +128,7 @@ class Sys_filemanager extends MY_Controller {
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		
-		$file = $this->file_class->file_root.$this->input->get('path');
+		$file = $this->file_class->file_root.trim($this->input->get('path'));
 
 		$string = read_file($file);
 		$string = $string?$string:'Null';
@@ -141,7 +140,7 @@ class Sys_filemanager extends MY_Controller {
 		$this->load->helper('file');
 		$this->load->helper('typography');
 		
-		$file = $this->input->get('file');
+		$file = trim($this->input->get('file'));
 
 		$string = read_file($this->file_class->file_root.$file);
 		
@@ -159,7 +158,7 @@ class Sys_filemanager extends MY_Controller {
 	public function saveFile() {
 		$this->lang->load('msg',$this->Lang);
 		$this->load->helper('file');
-		$file = $this->input->post('file');
+		$file = trim($this->input->post('file'));
 		$filedata = $this->input->post('file_data');
 		if($file && $filedata){
 			echo $this->file_class->editFile($file,$filedata)?'{"status":"y"}':'{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';

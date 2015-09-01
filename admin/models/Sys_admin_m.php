@@ -94,7 +94,7 @@ class Sys_admin_m extends CI_Model {
 		$id = trim($this->input->post('id'));
 		if($id){
 			$this->db->trans_start();
-			$arr = array_filter(explode(' ', $id));
+			$arr = json_decode($id);
 			foreach($arr as $val){
 				$this->db->delete($this->table,array('id'=>$val));
 			}

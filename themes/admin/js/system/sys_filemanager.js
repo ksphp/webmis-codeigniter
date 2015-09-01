@@ -85,6 +85,9 @@ $(function () {
 						$('#WebMIS_Upload_Close_'+id).click(function (){
 							$('#WebMIS_Upload_files_'+id).remove();
 						});
+						// Add File
+						var html = fileOneHtml(data.name,$.webmisUpload.FileSize(data.size));
+						$('#listBG').append(html);
 					}else{
 						alert('Error : '+data.name);
 					}
@@ -99,8 +102,8 @@ $(function () {
 	});
 /* Download */	
 	$('#ico-down').click(function(){
-		var id = $('#listBG').webmis('GetInputID',{type:','});
-		if(id!=','){
+		var id = $('#listBG').webmis('GetInputID',{type:'json'});
+		if(id!=''){
 			$.webmis.win('close','sys_filemanager/down.html?path='+path+'&files='+id);
 		}else{
 			$.get($base_url+'home/getLang/msg',{msg_title:'',msg_select:'',msg_auto_close:''},function (data){
@@ -115,6 +118,21 @@ $(function () {
 		return false;
 	});
 });
+
+/* FileOneHtml */
+function fileOneHtml(name,size){
+	var myDate = new Date();
+	var html = '<tr>'+
+				'<td><input type="checkbox" value="'+name+'" /></td>'+
+				'<td class="tleft" style="font-size: 14px;"><a href="#"><em class="ico-file">&nbsp;</em>'+name+'</a></td>'+
+				'<td>'+myDate.toLocaleString()+'</td>'+
+				'<td>'+myDate.toLocaleString()+'</td>'+
+				'<td>'+size+'</td>'+
+				'<td>0644</td>'+
+				'<td>重命名 | 编辑</td>'+
+			'</tr>';
+	return html;
+}
 
 /* UpLevel */
 function backDir(path) {
@@ -183,15 +201,15 @@ function openFile(path,ext) {
 	var view_file = ['php','css','js','htm','html','sql','txt','md'];
 	if ($.inArray(ext, view_img) != -1) {
 		$.get($base_url+'home/getLang/msg',{msg_view:''},function (data){
-			if(!IsMobile){moWidth = 520; moHeight= 400;}
+			if(!IsMobile){moWidth = 820; moHeight= 540;}
 			$.webmis.win('open',{title:data.msg_view,width:moWidth,height:moHeight,overflow:true});
 			// Image Class
 			var img = new Image();
 			img.src = path;
 			img.onload = function(){
 				// Auto width or height
-				var maxWidth = moWidth
-				var maxHeight = moHeight-31;
+				var maxWidth = moWidth-50;
+				var maxHeight = moHeight-31-50;
 				var Ratio = 1;
 				var w = img.width;
 				var h = img.height;
@@ -205,7 +223,7 @@ function openFile(path,ext) {
 					h = Math.floor(h * Ratio);
 				}
 				// Content
-				$.webmis.win('load','<table class="fileImgView"><tr><td><img src="'+img.src+'" width="'+w+'" height="'+h+'"></td></tr></table>');
+				$.webmis.win('load','<table class="fileImgView"><tr><td><span><img src="'+img.src+'" width="'+w+'" height="'+h+'"></span></td></tr></table>');
 			};
 		},'json');
 	}else if ($.inArray(ext, view_file) != -1){

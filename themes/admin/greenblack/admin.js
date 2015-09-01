@@ -47,8 +47,8 @@ function menuTwo(id,type){
 
 /* Remove */
 function actionDel(dataUrl,targetUrl) {
-	var id = $('#listBG').webmis('GetInputID',{type:' '});
-	if(id!=' '){
+	var id = $('#listBG').webmis('GetInputID',{type:'json'});
+	if(id!=''){
 		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_remove:''},function (data){
 			$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="'+data.msg_remove+'" /></div>'});
 			$('#delSub').webmis('SubClass');
@@ -77,8 +77,8 @@ function actionDel(dataUrl,targetUrl) {
 }
 /* Audit */
 function actionAudit(dataUrl,targetUrl) {
-	var id = $('#listBG').webmis('GetInputID',{type:' '});
-	if(id!=' '){
+	var id = $('#listBG').webmis('GetInputID',{type:'json'});
+	if(id!=''){
 		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
 			$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="'+data.msg_pass+'" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="'+data.msg_notpass+'" /></div>'});
 			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式

@@ -3,7 +3,7 @@
 	<tr>
 		<td class="tright" width="50"><?php echo $this->lang->line('sys_file_name');?>:</td>
 		<td>
-			<input type="text" id="file_name" name="name" class="input" style="width:80%;" maxlength="16" datatype="*1-16" errormsg="1~16<?php echo $this->lang->line('inc_form_char');?>" sucmsg="<?php echo $this->lang->line('inc_form_pass');?>" nullmsg="<?php echo $this->lang->line('inc_form_null');?>" />
+			<input type="text" id="file_name" name="name" class="input" style="width:80%;" maxlength="32" datatype="*1-32" errormsg="1~32<?php echo $this->lang->line('inc_form_char');?>" sucmsg="<?php echo $this->lang->line('inc_form_pass');?>" nullmsg="<?php echo $this->lang->line('inc_form_null');?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>

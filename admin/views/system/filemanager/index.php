@@ -1,4 +1,3 @@
-<div id="file_root" style="display: none;"><?php echo $file_root; ?></div>
 <!-- Action -->
 <table class="action">
 	<tr>

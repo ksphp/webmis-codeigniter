@@ -15,6 +15,8 @@ $lang['sys_file_rename'] = 'Rename';
 $lang['sys_file_edit'] = 'Edit';
 $lang['sys_file_remove'] = 'Remove';
 $lang['sys_file_upload'] = 'Upload';
+$lang['sys_file_upload_an'] = 'Click to Add Files';
+$lang['sys_file_upload_text'] = 'or  Drag Files Here';
 $lang['sys_file_down'] = 'Download';
 
 

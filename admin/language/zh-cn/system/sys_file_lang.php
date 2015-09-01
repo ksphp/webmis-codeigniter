@@ -15,4 +15,6 @@ $lang['sys_file_rename'] = '重命名';
 $lang['sys_file_edit'] = '编辑';
 $lang['sys_file_remove'] = '删除';
 $lang['sys_file_upload'] = '上传';
+$lang['sys_file_upload_an'] = '点击添加文件';
+$lang['sys_file_upload_text'] = '或 拖拽文件到这里';
 $lang['sys_file_down'] = '下载';

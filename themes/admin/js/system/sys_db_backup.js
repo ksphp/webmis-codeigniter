@@ -5,8 +5,8 @@ $(function(){
 	$('#menus_table').webmis('TableAdjust');
 /* Export */
 	$('#ico-exp').click(function(){
-		var id = $('#listBG').webmis('GetInputID',{type:' '});
-		if(id!=' '){
+		var id = $('#listBG').webmis('GetInputID',{type:'json'});
+		if(id!=''){
 			if(!IsMobile){moWidth = 520; moHeight= 420;}
 			$.webmis.win('open',{title:$(this).text(),width:moWidth,height:moHeight,overflow:true});
 			$.post($base_url+'sys_db_backup/exp.html',{'table':id},function(data){

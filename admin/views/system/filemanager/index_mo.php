@@ -1,6 +1,3 @@
-<div id="file_root" style="display: none;"><?php echo $file_root; ?></div>
-<div id="file_action" style="display: none;"><?php echo $file_action; ?></div>
-<div id="file_editor" style="display: none;"><?php echo $file_editor; ?></div>
 <!-- Action -->
 <table class="action">
 	<tr>
@@ -22,16 +19,16 @@
 <!-- Content -->
 <table class="table_list">
 	<tr>
-		<td colspan="5" align="left">
+		<td colspan="5" align="left" class="c2">
 			<?php echo $this->lang->line('sys_file_path');?>：<span id="filePath"><?php echo $filelist['path']; ?></span>
 		</td>
 	</tr>
 	<tr class="title" id="table">
 		<td width="20"><a href="#" id="checkboxY"></a><a href="#" id="checkboxN"></a></td>
 		<td><?php echo $this->lang->line('sys_file_name');?></td>
-		<td><?php echo $this->lang->line('sys_file_size');?></td>
-		<td><?php echo $this->lang->line('sys_file_perm');?></td>
-		<td><?php echo $this->lang->line('sys_file_action');?></td>
+		<td width="80"><?php echo $this->lang->line('sys_file_size');?></td>
+		<td width="40"><?php echo $this->lang->line('sys_file_perm');?></td>
+		<td width="120"><?php echo $this->lang->line('sys_file_action');?></td>
 	</tr>
 	<tbody id="listBG">
 <?php if(@$filelist['folder']){foreach($filelist['folder'] as $val){ ?>
@@ -51,15 +48,15 @@
 		<td><a href="#" onclick="editPerm('<?php echo $val['name']; ?>','<?php echo $val['perm']; ?>','<?php echo $this->lang->line('sys_file_perm');?>');return false;"><?php echo $val['perm']; ?></a></td>
 		<td>
 			<a href="#" onclick="reName('<?php echo $val['name']; ?>','<?php echo $this->lang->line('sys_file_rename');?>');return false;"><?php echo $this->lang->line('sys_file_rename');?></a> | 
-			<a href="#" onclick="editFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>','<?php echo $this->lang->line('sys_file_edit');?>');return false;"><?php echo $this->lang->line('sys_file_edit');?></a>
+			<a href="#" onclick="editFile('<?php echo $filelist['path'].$val['name']; ?>','<?php echo $val['ext']; ?>','<?php echo $this->lang->line('sys_file_edit');?>','<?php echo $this->Lang;?>');return false;"><?php echo $this->lang->line('sys_file_edit');?></a>
 		</td>
 	</tr>
 <?php }} ?>
 	</tbody>
 </table>
 <div class="page">
-	文件夹：<?php echo $filelist['dirNum']; ?>&nbsp;&nbsp;
-	文件：<?php echo $filelist['fileNum']; ?>&nbsp;&nbsp;
-	大小：<?php echo $filelist['size']; ?>
+	<?php echo $this->lang->line('sys_file_folder');?>：<?php echo $filelist['dirNum']; ?>&nbsp;&nbsp;
+	<?php echo $this->lang->line('sys_file_file');?>：<?php echo $filelist['fileNum']; ?>&nbsp;&nbsp;
+	<?php echo $this->lang->line('sys_file_size');?>：<?php echo $filelist['size']; ?>
 </div>
 <!-- Content End -->
