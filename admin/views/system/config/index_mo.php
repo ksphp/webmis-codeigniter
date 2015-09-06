@@ -41,7 +41,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="tright"><?php echo $this->lang->line('sys_config_webmis');?>：</td>
+		<td class="tright"><?php echo $this->lang->line('sys_config_wthemes');?>：</td>
 		<td>
 			<select name="webmis_themes">
 <?php foreach ($webmis_themes as $val) {?>

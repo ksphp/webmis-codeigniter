@@ -50,6 +50,6 @@ foreach ($Menus['Date'] as $val){
 <?php }}?>
 		</ul>
 <?php }}?>
-		<div class="left_copy"><?php echo date('Y');?> &copy; <?php echo $this->config->config['copy'];?></div>
+		<div class="left_copy"><?php echo 'WebMIS '.$this->config->config['version'].' &copy; '.$this->config->config['copy'];?></div>
 	</aside>
 	<section class="ct_right">

@@ -1,6 +1,6 @@
 
 </section>
-<footer class="copy">Copyright © <?php echo $this->config->config['copy'];?></footer>
+<footer class="copy"><?php echo 'WebMIS '.$this->config->config['version'].' &copy; '.$this->config->config['copy'];?></footer>
 <div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
 <div id="Lang" style="display: none;"><?php echo $this->Lang; ?></div>
 <div id="IsMobile" style="display: none;"><?php echo $this->IsMobile; ?></div>

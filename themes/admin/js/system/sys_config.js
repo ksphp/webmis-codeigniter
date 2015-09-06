@@ -2,9 +2,7 @@ $(function(){
 	$.webmis.inc({files:[$webmis_plugin+'form/Validform.min.js']});
 	$('#editSub').webmis('SubClass');
 	//表单验证
-	$("#configForm").Validform({
-		ajaxPost:true,
-		tiptype:2,
+	$("#configForm").Validform({ajaxPost:true,tiptype:2,
 		callback:function(data){
 			$.Hidemsg();
 			if(data.status=="y"){

@@ -2,6 +2,23 @@
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
 	<tr>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $this->lang->line('sys_config_update');?></h3></td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_system');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version'];?></b> [<a href="<?php echo base_url('sys_config/update/system.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_webmis');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_webmis'];?></b> [<a href="<?php echo base_url('sys_config/update/webmis.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
 		<td colspan="2"><h3 class="h3_ccc"><?php echo $Menus['Ctitle'];?></h3><br></td>
 	</tr>
 	<tr>
@@ -41,7 +58,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td class="tright"><?php echo $this->lang->line('sys_config_webmis');?>：</td>
+		<td class="tright"><?php echo $this->lang->line('sys_config_wthemes');?>：</td>
 		<td>
 			<select name="webmis_themes">
 <?php foreach ($webmis_themes as $val) {?>
