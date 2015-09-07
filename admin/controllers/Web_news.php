@@ -12,7 +12,6 @@ class Web_news extends MY_Controller {
 		$data['class'] = $this->class_web_m->getClass();
 		$data['adminState'] = $this->menus->getMenu('adminState',$this->Lang);
 		$data['LoadJS'] = array('web/web_news.js');
-		$data['LoadCSS'] = array('test.css');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'web/news/index_mo',$data);
