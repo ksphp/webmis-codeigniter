@@ -6,7 +6,7 @@ class Sys_admin extends MY_Controller {
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'sys_admin/index.html','model'=>'sys_admin_m'));
-		$data['js'] = array('system/sys_admin.js');
+		$data['LoadJS'] = array('system/sys_admin.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'system/admin/index_mo',$data);

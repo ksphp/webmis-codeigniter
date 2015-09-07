@@ -6,7 +6,7 @@ class Log_admin_login extends MY_Controller {
 		$this->load->library('inc');
 		$this->load->helper('my');
 		$data = $this->inc->Page($this,array('url'=>'log_admin_login/index.html','model'=>'log_admin_login_m'));
-		$data['js'] = array('log/log_admin_login.js');
+		$data['LoadJS'] = array('log/log_admin_login.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'log/admin/login_v_mo',$data);

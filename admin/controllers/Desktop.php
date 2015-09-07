@@ -26,7 +26,7 @@ class Desktop extends MY_Controller {
 		$data['db']['dbprefix'] = $this->db->dbprefix;
 		$data['db']['char_set'] = $this->db->char_set;
 		
-		$data['js'] = array('index/welcome.js');
+		$data['LoadJS'] = array('index/welcome.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		
 		if($this->IsMobile) {

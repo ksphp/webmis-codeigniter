@@ -2,12 +2,33 @@
 <form action="<?php echo base_url($this->config->config['index_url'].'sys_config/editData.html');?>" method="post" id="configForm">
 <table class="table_add">
 	<tr>
+		<td colspan="2"><h3 class="h3_ccc"><?php echo $this->lang->line('sys_config_update');?></h3></td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_admin');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_admin'];?></b> [<a href="<?php echo base_url('sys_config/update/admin.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_webmis');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_webmis'];?></b> [<a href="<?php echo base_url('sys_config/update/webmis.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_CodeIgniter');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_CodeIgniter'];?></b> [<a href="<?php echo base_url('sys_config/update/CodeIgniter.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
 		<td colspan="2"><h3 class="h3_ccc"><?php echo $Menus['Ctitle'];?></h3><br></td>
 	</tr>
 	<tr>
 		<td class="width tright"><?php echo $this->lang->line('sys_config_file');?>：</td>
 		<td>
-			<div class="<?php echo is_writable('config/config.php')?'suc':'err';?>"><em>&nbsp;</em><?php echo base_url('config/config.php');?></div>
+			<div class="<?php echo is_writable('config/config.php')?'suc':'err';?>"><em>&nbsp;</em><b>config/config.php</b></div>
 		</td>
 	</tr>
 	<tr>
@@ -67,7 +88,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="editSub" value="<?php echo $this->lang->line('inc_save');?>" />
 		</td>
 	</tr>

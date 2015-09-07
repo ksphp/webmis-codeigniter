@@ -10,6 +10,11 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.mo.css'); ?>" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
+	<script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
+<?php if(@$LoadCSS){foreach($LoadCSS as $val){ ?>
+	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/css/'.$val); ?>" rel="stylesheet" type="text/css" />
+<?php }}?>
 </head>
 
 <body>

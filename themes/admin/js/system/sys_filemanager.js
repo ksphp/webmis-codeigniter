@@ -10,7 +10,7 @@ $(function () {
 /* Mkdir */
 	$('#ico-addfolder').click(function () {
 		if(!IsMobile){moWidth = 420;}
-		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:210});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:240});
 		// Content
 		$.get($base_url+'sys_filemanager/Folder.html',function(data){
 			$.webmis.win('load',data);
@@ -33,7 +33,7 @@ $(function () {
 /* NewFile */
 	$('#ico-addfile').click(function () {
 		if(!IsMobile){moWidth = 360;}
-		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:180});
+		$.webmis.win('open',{title:$(this).text(),width:moWidth,height:200});
 		// Content
 		$.get($base_url+'sys_filemanager/File.html',function(data){
 			$.webmis.win('load',data);

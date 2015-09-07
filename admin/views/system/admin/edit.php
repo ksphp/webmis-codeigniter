@@ -52,7 +52,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="hidden" id="adminID" name="id" value="" />
 			<input type="submit" id="adminSub" value="<?php echo $this->lang->line('inc_edit');?>" />
 		</td>

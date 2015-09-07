@@ -6,7 +6,7 @@ class Sys_menus extends MY_Controller {
 		$this->load->helper('my');
 		$this->load->library('inc');
 		$data = $this->inc->Page($this,array('url'=>'sys_menus/index.html','model'=>'sys_menus_m'));
-		$data['js'] = array('system/sys_menus.js');
+		$data['LoadJS'] = array('system/sys_menus.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'system/menus/index_mo',$data);

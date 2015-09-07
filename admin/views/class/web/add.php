@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="classSub" value="<?php echo $this->lang->line('inc_add');?>" />
 		</td>
 	</tr>

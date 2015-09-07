@@ -79,7 +79,7 @@
 	</tr>
 	<tr>
 		<td class="tright"><?php echo $this->lang->line('desktop_db_config');?>：</td>
-		<td colspan="3" class="tleft"><?php echo base_url('config/database.php'); ?></td>
+		<td colspan="3" class="tleft">config/database.php</td>
 	</tr>
 	<tr>
 		<td class="tright"><?php echo $this->lang->line('desktop_db_driver');?>：</td>

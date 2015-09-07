@@ -49,7 +49,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="seaSub" name="search" value="<?php echo $this->lang->line('inc_sea');?>" />
 		</td>
 	</tr>

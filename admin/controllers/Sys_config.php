@@ -17,7 +17,7 @@ class Sys_config extends MY_Controller {
 		/* Language */
 		$data['lang'] = get_dir_file_info('language');
 
-		$data['js'] = array('system/sys_config.js');
+		$data['LoadJS'] = array('system/sys_config.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'system/config/index_mo',$data);
@@ -60,7 +60,7 @@ class Sys_config extends MY_Controller {
 		}else{return FALSE;}
 	}
 	// Update System
-	function update($name='system'){
+	function update($name='admin'){
 		require APPPATH.'third_party/update/vierbergenlars/SemVer/expression.php';
 		require APPPATH.'third_party/update/vierbergenlars/SemVer/version.php';
 		require APPPATH.'third_party/update/Psr/Log/LoggerInterface.php';
@@ -83,24 +83,33 @@ class Sys_config extends MY_Controller {
 		
 		// Config
 		$this->lang->load('system/sys_config',$this->Lang);
-		if($name=='system'){
+		if($name=='admin'){
 			$RootDir = './';
-			$UpdateUrl = 'http://ksphp.ksphp.cn/update/system';
-			$Cache = 'update/cache_system';
-			$LogFile = 'update/update_system.log';
-			$VersionName = 'version';
+			$UpdateUrl = 'http://www.ksphp.com/update/admin';
+			$Cache = 'update/cache_admin';
+			$LogFile = 'update/update_admin.log';
+			$VersionName = 'version_admin';
 			$Version = $this->config->config[$VersionName];
 			$data['Name'] = $name;
-			$data['Title'] = $this->lang->line('sys_config_system');
+			$data['Title'] = $this->lang->line('sys_config_admin');
 		}elseif($name=='webmis'){
 			$RootDir = '../webmis/';
-			$UpdateUrl = 'http://ksphp.ksphp.cn/update/webmis';
+			$UpdateUrl = 'http://www.ksphp.com/update/webmis';
 			$Cache = 'update/cache_webmis';
 			$LogFile = 'update/update_webmis.log';
 			$VersionName = 'version_webmis';
 			$Version = $this->config->config[$VersionName];
 			$data['Name'] = $name;
 			$data['Title'] = $this->lang->line('sys_config_webmis');
+		}elseif($name=='CodeIgniter'){
+			$RootDir = '../system/';
+			$UpdateUrl = 'http://www.ksphp.com/update/CodeIgniter';
+			$Cache = 'update/cache_CodeIgniter';
+			$LogFile = 'update/update_CodeIgniter.log';
+			$VersionName = 'version_CodeIgniter';
+			$Version = $this->config->config[$VersionName];
+			$data['Name'] = $name;
+			$data['Title'] = $this->lang->line('sys_config_CodeIgniter');
 		}
 		
 		$update = new AutoUpdate('update/temp', $RootDir, 60);
@@ -136,7 +145,7 @@ class Sys_config extends MY_Controller {
 		}	
 		// View
 		$this->load->library('inc');
-		$data['js'] = array('system/sys_config.js');
+		$data['LoadJS'] = array('system/sys_config.js');
 		$data['Log'] = nl2br(file_get_contents($LogFile));
 		$data['LogFile'] = str_replace('./','',$LogFile);
 		$data['VersionName'] = $VersionName;
@@ -145,7 +154,7 @@ class Sys_config extends MY_Controller {
 	}
 	
 	// Clear Log
-	function clearLog($name='system'){
+	function clearLog($name='admin'){
 		if($name){
 			$LogFile = 'update/update_'.$name.'.log';
 			$fp=fopen($LogFile,'w');

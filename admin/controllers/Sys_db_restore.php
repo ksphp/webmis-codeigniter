@@ -8,7 +8,7 @@ class Sys_db_restore extends MY_Controller {
 		$this->load->helper('file');
 		$this->load->model('sys_db_m');
 		
-		$data['js'] = array('system/sys_db_restore.js',);
+		$data['LoadJS'] = array('system/sys_db_restore.js',);
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		$data['file'] = get_dir_file_info($this->config->config['backup'],false);
 		$this->inc->adminView($this,'system/db/restore/index',$data);
@@ -48,12 +48,15 @@ class Sys_db_restore extends MY_Controller {
 		$this->lang->load('msg',$this->Lang);
 		$this->load->helper('file');
 		$file = trim($this->input->post('file'));
-		$data = '{"status":"n"}';
+		$data = '{"status":"n","title":"'.$this->lang->line('msg_title').'","msg":"'.$this->lang->line('msg_err').'","text":"'.$this->lang->line('msg_auto_close').'"}';
+		// IS SQL
+		$ext = pathinfo($file, PATHINFO_EXTENSION);
+		if($ext!='sql'){echo $data; return FALSE;}
 		/* Remove Notes */
 		$content = read_file($file);
 		$content = preg_replace("/#\n# TABLE(.*)\s#\n/i","",$content);
 		$sqls = array_filter(explode(";\n",$content));
-		foreach($sqls as $sql){
+		foreach(@$sqls as $sql){
 			$sql = trim($sql);
 			if(!empty($sql)){
 				if(@$this->db->query($sql)){

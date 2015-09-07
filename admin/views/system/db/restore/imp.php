@@ -12,7 +12,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="impSub" value="<?php echo $this->lang->line('inc_import');?>" />
 		</td>
 	</tr>

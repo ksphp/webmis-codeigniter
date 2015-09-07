@@ -55,7 +55,7 @@ foreach($action as $val){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="menusSub" value="<?php echo $this->lang->line('inc_add');?>" />
 		</td>
 	</tr>

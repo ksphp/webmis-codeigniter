@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<div style="border: #DADCDF 1px solid; background-color: #F4F6F8; padding: 10px; overflow: hidden;"><?php echo $Log;?></div>
+			<div class="code"><?php echo $Log;?></div>
 		</td>
 	</tr>
 </table>

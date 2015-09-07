@@ -50,7 +50,7 @@ var openWin = function (options) {
 	
 	//窗口类型
 	if(options.overflow){
-		options.content = '<div id="WebMisWinCT" style="width: 100%; height: '+(options.height-31)+'px; overflow: auto;">'+options.content+'</div>';
+		options.content = '<div id="WebMisWinCT" style="width: 100%; height: '+(options.height-32)+'px; overflow: auto;">'+options.content+'</div>';
 	}else if(options.AutoClose){
 		options.content = '<div style="line-height: 30px; text-align: center; padding-top: 10px;">'+options.content;
 		options.content += '<br /><span style="color: #666;"><b id="WebMisWinIntNum" class="red">&nbsp;</b> '+options.AutoCloseText+'</span>';

@@ -8,16 +8,16 @@ class Home extends CI_Controller {
 		$this->lang->load('text',$Lang);
 		
 		$this->load->library('inc');
-		$data['Menus'] = $this->inc->getMenuUser($this);	//WEB分类菜单
-		$data['css'] = array('index.css');
-		$data['js'] = array('index.js');
+		$data['Menus'] = $this->inc->getMenuUser($this);	// WEB Menu
+		$data['LoadCSS'] = array('index.css');
+		$data['LoadJS'] = array('index.js');
 		if($this->IsMobile()){
 			redirect('m/home');
 		}else{
 			$this->inc->webView($this,'index/index',$data);
 		}
 	}
-	/*是否手机设备*/
+	/* IsMobile */
 	private function IsMobile() {
 		$this->load->library('user_agent');
 		$mode = $this->input->get('mode');

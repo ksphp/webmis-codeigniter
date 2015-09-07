@@ -8,6 +8,11 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/admin.css'); ?>" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
+	<script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
+<?php if(@$LoadCSS){foreach($LoadCSS as $val){ ?>
+	<link href="<?php echo base_url('../themes/admin/'.$this->config->config['admin_themes'].'/css/'.$val); ?>" rel="stylesheet" type="text/css" />
+<?php }}?>
 </head>
 
 <body class="top_bg">
@@ -66,7 +71,7 @@ foreach ($Menus['Date'] as $val){
 				</div>
 			</div>
 		</div>
-		<div class="left_copy"><?php echo 'WebMIS '.$this->config->config['version'].' &copy; '.$this->config->config['copy'];?></div>
+		<div class="left_copy"><?php echo 'WebMIS '.$this->config->config['version_admin'].' &copy; '.$this->config->config['copy'];?></div>
 	</aside>
 	<section class="ct_line"><div id="LeftMenus" class="UI tu" title="显示/隐藏">&nbsp;</div></section>
 	<section class="ct_right">

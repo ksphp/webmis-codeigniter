@@ -8,11 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['title'] = 'WebMIS Management';
 $config['copy'] = '<a href="http://www.ksphp.com/" target="_blank"><b>ksphp.com</b></a>';
 $config['backup'] = 'backup';
-$config['admin_themes'] = 'greenblack';
+$config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
 $config['language'] = 'zh-cn';  // en-us,zh-cn
-$config['version'] = '5.0';
+$config['version_CodeIgniter'] = '3.0';
+$config['version_admin'] = '5.0';
 $config['version_webmis'] = '1.0';
 
 $config['base_url'] = '';

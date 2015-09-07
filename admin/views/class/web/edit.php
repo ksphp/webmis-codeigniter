@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="hidden" id="classID" name="id" value="" />
 			<input type="submit" id="classSub" value="<?php echo $this->lang->line('inc_edit');?>" />
 		</td>

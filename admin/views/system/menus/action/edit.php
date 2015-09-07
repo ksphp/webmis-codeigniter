@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="hidden" id="actionID" name="id" value="" />
 			<input type="submit" id="actionSub" value="<?php echo $this->lang->line('inc_edit');?>" />
 		</td>

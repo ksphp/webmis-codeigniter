@@ -37,7 +37,7 @@
 			</div>
 		</aside>
 		<footer class="login_copy">
-			<?php echo 'WebMIS '.$this->config->config['version'].' &copy; '.$this->config->config['copy'];?> All rights are reserved.<br>
+			<?php echo 'WebMIS '.$this->config->config['version_admin'].' &copy; '.$this->config->config['copy'];?> All rights are reserved.<br>
 			<a href="<?php echo base_url('../'); ?>" ><?php echo $this->lang->line('inc_home');?></a>&nbsp;|&nbsp;
 			<a href="<?php echo base_url('?mode=pc'); ?>" ><?php echo $this->lang->line('inc_pc');?></a>&nbsp;|&nbsp;
 			<a href="<?php echo base_url('?mode=mobile'); ?>" id="QRCodeCT" class="qrcode">

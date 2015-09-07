@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="changeSub" value="<?php echo $this->lang->line('sys_pwd_change');?>" />
 		</td>
 	</tr>

@@ -14,7 +14,7 @@ class Sys_filemanager extends MY_Controller {
 		$data['file_root'] = $this->file_class->file_root;
 		$path = trim($this->input->get('path'));
 		$data['filelist'] = $this->file_class->lists($path);
-		$data['js'] = array('system/sys_filemanager.js');
+		$data['LoadJS'] = array('system/sys_filemanager.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'system/filemanager/index_mo',$data);

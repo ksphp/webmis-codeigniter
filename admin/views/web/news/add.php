@@ -38,7 +38,7 @@
 		<td class="tright"><?php echo $this->lang->line('web_news_key');?>:</td>
 		<td>
 			<input type="text" name="key" class="input" style="width: 70%;" />
-			<span class="inputText c2">WebMIS,灵创网络,PHP</span>
+			<span class="inputText c2">WebMIS,PHP</span>
 		</td>
 	</tr>
 	<tr>
@@ -53,7 +53,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="newsSub" value="<?php echo $this->lang->line('inc_add');?>" />
 		</td>
 	</tr>

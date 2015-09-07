@@ -5,7 +5,7 @@ class Sys_change_passwd extends MY_Controller {
 		$this->lang->load('inc',$this->Lang);
 		$this->lang->load('index/sys_pwd',$this->Lang);
 		$this->load->library('inc');
-		$data['js'] = array('index/change_passwd.js');
+		$data['LoadJS'] = array('index/change_passwd.js');
 		$data['Menus'] = $this->inc->getMenuAdmin($this);
 		if($this->IsMobile) {
 			$this->inc->adminView($this,'index/change_passwd_v_mo',$data);

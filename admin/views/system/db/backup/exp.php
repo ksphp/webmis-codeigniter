@@ -3,7 +3,7 @@
 	<tr>
 		<td class="width tright"><?php echo $this->lang->line('sys_db_backup_name');?>:</td>
 		<td>
-			<input type="text" name="name" class="input" style="width: 70%;" value="<?php echo $fname;?>" datatype="s2-30" errormsg="2~30个字符！" />
+			<input type="text" name="name" class="input" style="width: 70%;" value="<?php echo $fname;?>" datatype="*2-30" errormsg="2~30<?php echo $this->lang->line('inc_form_char');?>" sucmsg="<?php echo $this->lang->line('inc_form_pass');?>" nullmsg="<?php echo $this->lang->line('inc_form_null');?>" />
 			<span class="Validform_checktip"></span>
 		</td>
 	</tr>
@@ -34,7 +34,7 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td>
+		<td class="sub">
 			<input type="submit" id="expSub" value="<?php echo $this->lang->line('inc_export');?>" />
 		</td>
 	</tr>

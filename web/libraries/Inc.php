@@ -9,7 +9,9 @@ class Inc{
 			if($APP->agent->browser()=='Internet Explorer' && $APP->agent->version()<9){$data['isIE'] = TRUE;}
 		}
 		// 分层
-		$APP->lang->load('inc');
+		$lang = $APP->agent->languages();
+		$Lang = $lang?$lang[0]:'en-us';
+		$APP->lang->load('inc',$Lang);
 		$APP->load->view('../../themes/web/'.$APP->config->config['web_themes'].'/inc/web_top',$data);
 		$APP->load->view($url);
 		$APP->load->view('../../themes/web/'.$APP->config->config['web_themes'].'/inc/web_bottom');

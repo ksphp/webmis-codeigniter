@@ -1,6 +1,7 @@
 <?php
-$lang['sys_config_system'] = 'System Version';
-$lang['sys_config_webmis'] = 'WebMIS Version';
+$lang['sys_config_admin'] = 'System Ver';
+$lang['sys_config_webmis'] = 'WebMIS Ver';
+$lang['sys_config_CodeIgniter'] = 'CI Ver';
 $lang['sys_config_update'] = 'Update System';
 $lang['sys_config_update_nofind'] = 'Could not check for updates! See log file for details.';
 $lang['sys_config_update_new'] = 'Current Version is up to date.';
@@ -14,5 +15,5 @@ $lang['sys_config_title'] = 'System Title';
 $lang['sys_config_copy'] = 'Copy Info';
 $lang['sys_config_backup'] = 'Backup Path';
 $lang['sys_config_themes'] = 'Themes';
-$lang['sys_config_webmis'] = 'WebMIS';
+$lang['sys_config_wthemes'] = 'WebMIS';
 $lang['sys_config_lang'] = 'Language';

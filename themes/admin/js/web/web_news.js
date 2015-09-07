@@ -118,7 +118,7 @@ function TinyMce(obj,Lang){
 		selector: obj,
 		language: Lang,
 		convert_urls: false,
-		height: 428,
+		height: 425,
 		menubar: false,
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",

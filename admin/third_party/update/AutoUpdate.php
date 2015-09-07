@@ -1,4 +1,5 @@
 <?php namespace VisualAppeal;
+
 use \vierbergenlars\SemVer\version;
 use \vierbergenlars\SemVer\expression;
 use \vierbergenlars\SemVer\SemVerException;
@@ -6,8 +7,6 @@ use \vierbergenlars\SemVer\SemVerException;
 use \Desarrolla2\Cache\Cache;
 use \Desarrolla2\Cache\Adapter\NotCache;
 
-// require(__DIR__.'/Monolog/Logger.php');
-// require(__DIR__.'/Monolog/Handler/NullHandlerr.php');
 use \Monolog\Logger;
 use \Monolog\Handler\NullHandler;
 

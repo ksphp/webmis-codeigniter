@@ -43,10 +43,10 @@ function navMove(){
 	if(W >= 720){N = 7;}
 	if(W >= 820){N = 8;}
 	$("#Nav li").width(W/N-1);
-	//统计li宽度
+	// Li width
 	var li = $("#Nav li").length;
 	var li_w = (W/N-1)*li;
-	//左右滑动
+	// Sliding Around
 	$('#Nav').touchwipe({
 		wipeLeft: function() {
 			var W = $(window).width();
@@ -107,7 +107,7 @@ function actionDel(dataUrl,targetUrl) {
 		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_remove:''},function (data){
 			$.webmis.win('open',{title:$('#ico-del').text(),width:280,height:160,content:'<div class="delData"><input type="submit" id="delSub" value="'+data.msg_remove+'" /></div>'});
 			$('#delSub').webmis('SubClass');
-			//点击提交
+			// Sub
 			var lock = false;
 			$('#delSub').click(function(){
 				if(lock){return;} lock=true;
@@ -136,12 +136,12 @@ function actionAudit(dataUrl,targetUrl) {
 	if(id!=''){
 		$.get($base_url+'home/getLang/msg',{msg_title:'',msg_pass:'',msg_notpass:''},function (data){
 			$.webmis.win('open',{title:$('#ico-audit').text(),width:240,height:140,content:'<div class="delData"><input type="submit" id="auditSub1" value="'+data.msg_pass+'" />&nbsp;&nbsp;<input type="submit" id="auditSub2" value="'+data.msg_notpass+'" /></div>'});
-			$('#auditSub1,#auditSub2').webmis('SubClass'); //按钮样式
-			//通过
+			$('#auditSub1,#auditSub2').webmis('SubClass');
+			// Pass
 			$('#auditSub1').click(function(){
 				auditData(id,'1');
 			});
-			//不通过
+			// NoPass
 			$('#auditSub2').click(function(){
 				auditData(id,'2');
 			});
@@ -151,7 +151,7 @@ function actionAudit(dataUrl,targetUrl) {
 			$.webmis.win('open',{title:data.msg_title, content:'<b class="red">'+data.msg_select+'</b>',AutoClose:3,AutoCloseText:data.msg_auto_close});
 		},'json');
 	}
-	//提交数据
+	// Sub
 	var lock = false;
 	var auditData = function(id,state){
 		if(lock){return;} lock=true;

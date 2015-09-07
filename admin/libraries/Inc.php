@@ -46,7 +46,7 @@ class Inc{
 				$M1++;
 			}
 		}
-		//用户导航
+		// Nav
 		$APP->lang->load('inc',$_SESSION['AdminInfo']['lang']);
 		$APP->lang->load('menu',$_SESSION['AdminInfo']['lang']);
 		$actionHtml=$this->actionHtml($APP);
@@ -79,7 +79,7 @@ class Inc{
 		}
 		return array('Ctitle'=>$Title,'FID1'=>$FID1,'FID2'=>$FID2,'FID3'=>$FID3);
 	}
-	/* 动作菜单 */
+	/* Action Menu */
 	private function actionHtml($APP){
 		$APP->load->model('sys_menus_action_m');
 		$permArr = $_SESSION['AdminInfo']['permArr'];
@@ -106,18 +106,18 @@ class Inc{
 		$UserLogin = @$_SESSION['AdminInfo']['logged_in'];
 		if($UserLogin == TRUE){
 			$_SESSION['AdminInfo']['ltime'] = time()+1800;
-			$html = '<a href="#"><b>'.$_SESSION['AdminInfo']['uname'].'</b></a>[ <a href="'.base_url('sys_config.html').'">'.$APP->lang->line('menu_sys_m_config').'</a> ]&nbsp;|&nbsp;<a href="'.base_url('home/loginOut.html').'"><b>'.$APP->lang->line('inc_loginOut').'</b></a>';
+			$html = '<b>'.$_SESSION['AdminInfo']['uname'].'</b> [ <a href="'.base_url('sys_config.html').'">'.$APP->lang->line('menu_sys_m_config').'</a> ]&nbsp;|&nbsp;<a href="'.base_url('home/loginOut.html').'"><b>'.$APP->lang->line('inc_loginOut').'</b></a>';
 		}else{
 			redirect('home');
 		}
 		return $html;
 	}
 	
-	//分页
+	// Page
 	function page($APP,$arr=''){
 		$APP->load->library('pagination');
 		$APP->load->model($arr['model']);
-		//默认值
+		// Default
 		if(!array_key_exists('page',$arr)){$arr['page']=15;}
 		if(!array_key_exists('name',$arr)){$arr['name']='page';}
 		if(!array_key_exists('where',$arr)){$arr['where']='';}

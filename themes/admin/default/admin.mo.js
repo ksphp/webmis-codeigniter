@@ -43,10 +43,10 @@ function navMove(){
 	if(W >= 720){N = 7;}
 	if(W >= 820){N = 8;}
 	$("#Nav li").width(W/N-1);
-	//统计li宽度
+	// Li width
 	var li = $("#Nav li").length;
 	var li_w = (W/N-1)*li;
-	//左右滑动
+	// Sliding Around
 	$('#Nav').touchwipe({
 		wipeLeft: function() {
 			var W = $(window).width();
