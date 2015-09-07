@@ -9,7 +9,9 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo base_url('../webmis/themes/'.$this->config->config['webmis_themes'].'/webmis.css'); ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('../themes/m/'.$this->config->config['m_themes'].'/m.css');?>" rel="stylesheet" type="text/css" />
-<?php if(@$css){ foreach($css as $val){ ?>
+	<script language="javascript" src="<?php echo base_url('../webmis/plugin/jquery/jquery-2.min.js'); ?>"></script>
+	<script language="javascript" src="<?php echo base_url('../webmis/jquery.webmis.js'); ?>"></script>
+<?php if(@$LoadCSS){foreach($LoadCSS as $val){ ?>
 	<link href="<?php echo base_url('../themes/m/'.$this->config->config['m_themes'].'/css/'.$val);?>" rel="stylesheet" type="text/css" />
 <?php }}?>
 </head>

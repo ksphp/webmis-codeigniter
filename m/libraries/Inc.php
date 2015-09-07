@@ -1,20 +1,24 @@
 <?php
 class Inc{
-	/* M 三层视图 */
+	/* M Views */
 	function mView($APP, $url='', $data=''){
-		//积分、成长值
+		// Lang
+		$APP->load->library('user_agent');
+		$lang = $APP->agent->languages();
+		$Lang = $lang?$lang[0]:'en-us';
+		$APP->lang->load('inc',$Lang);
+		// Views
 		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/m_top',$data);
 		$APP->load->view($url);
 		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/m_bottom');
 	}
-	/* Html 三层视图 */
+	/* Html Views */
 	function htmlView($APP, $url='', $data=''){
-		//积分、成长值
 		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/html_top',$data);
 		$APP->load->view($url);
 		$APP->load->view('../../themes/m/'.$APP->config->config['m_themes'].'/inc/html_bottom');
 	}
-	/* 菜单分类 */
+	/* Menus */
 	function getMenuUser($APP){
 		$Cname = $APP->router->class;
 		$FID = $this->getFID($APP,$Cname);
@@ -45,7 +49,7 @@ class Inc{
 	private function getFID($APP,$Cname){
 		$APP->load->model('class_web_m');
 		$FID1=''; $FID2=''; $FID3='';
-		//排除控制器
+		// Exclude Controller
 		$arr = array('error','login','safety');
 		if(in_array($Cname,$arr)){$Cname='home';}
 		$G1 = $APP->class_web_m->getID($Cname);
@@ -65,11 +69,11 @@ class Inc{
 		return array('FID1'=>$FID1,'FID2'=>$FID2,'FID3'=>$FID3);
 	}
 	
-	/* 分页 */
+	/* Page */
 	function page($APP,$arr=''){
 		$APP->load->library('pagination');
 		$APP->load->model($arr['model']);
-		//默认值
+		// Default
 		if(!array_key_exists('page',$arr)){$arr['page']=24;}
 		if(!array_key_exists('name',$arr)){$arr['name']='page';}
 		if(!array_key_exists('where',$arr)){$arr['where']='';}

@@ -1,6 +1,6 @@
 <?php
 class Inc{
-	/* Web 三层视图 */
+	/* Web Views */
 	function webView($APP, $url='', $data=''){
 		// Is not IE9
 		$APP->load->library('user_agent');
@@ -8,7 +8,7 @@ class Inc{
 		if($APP->agent->is_browser()){
 			if($APP->agent->browser()=='Internet Explorer' && $APP->agent->version()<9){$data['isIE'] = TRUE;}
 		}
-		// 分层
+		// Views
 		$lang = $APP->agent->languages();
 		$Lang = $lang?$lang[0]:'en-us';
 		$APP->lang->load('inc',$Lang);
@@ -16,7 +16,7 @@ class Inc{
 		$APP->load->view($url);
 		$APP->load->view('../../themes/web/'.$APP->config->config['web_themes'].'/inc/web_bottom');
 	}
-	/* 菜单分类 */
+	/* Menus */
 	function getMenuUser($APP){
 		$Cname = $APP->router->class;
 		$FID = $this->getFID($APP,$Cname);
@@ -47,7 +47,7 @@ class Inc{
 	private function getFID($APP,$Cname){
 		$APP->load->model('class_web_m');
 		$FID1=''; $FID2=''; $FID3='';
-		//排除控制器
+		// Exclude Controller
 		$arr = array('error','login','safety');
 		if(in_array($Cname,$arr)){$Cname='index_c';}
 		$G1 = $APP->class_web_m->getID($Cname);
@@ -67,11 +67,11 @@ class Inc{
 		return array('FID1'=>$FID1,'FID2'=>$FID2,'FID3'=>$FID3);
 	}
 	
-	/* 分页 */
+	/* Page */
 	function page($APP,$arr=''){
 		$APP->load->library('pagination');
 		$APP->load->model($arr['model']);
-		//默认值
+		// Default
 		if(!array_key_exists('page',$arr)){$arr['page']=24;}
 		if(!array_key_exists('name',$arr)){$arr['name']='page';}
 		if(!array_key_exists('where',$arr)){$arr['where']='';}
