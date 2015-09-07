@@ -1,6 +1,6 @@
 <?php
 $lang['sys_config_admin'] = '系统版本';
-$lang['sys_config_webmis1'] = 'WebMIS版本';
+$lang['sys_config_webmis'] = 'WebMIS版本';
 $lang['sys_config_CodeIgniter'] = 'CI版本';
 $lang['sys_config_update'] = '更新系统';
 $lang['sys_config_update_nofind'] = '无法检查更新！查看日志文件的详细信息。';
