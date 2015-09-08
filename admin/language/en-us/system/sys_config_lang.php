@@ -1,5 +1,6 @@
 <?php
 $lang['sys_config_admin'] = 'System Ver';
+$lang['sys_config_themes'] = 'Themes Ver';
 $lang['sys_config_webmis'] = 'WebMIS Ver';
 $lang['sys_config_CodeIgniter'] = 'CI Ver';
 $lang['sys_config_update'] = 'Update System';

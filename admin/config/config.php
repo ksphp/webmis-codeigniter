@@ -12,9 +12,10 @@ $config['admin_themes'] = 'default';
 $config['webmis_themes'] = 'default';
 $config['index_url'] = '';  // not Rewrite 'index.php/'
 $config['language'] = 'zh-cn';  // en-us,zh-cn
-$config['version_CodeIgniter'] = '3.0';
 $config['version_admin'] = '5.0';
+$config['version_themes'] = '1.0';
 $config['version_webmis'] = '1.0';
+$config['version_CodeIgniter'] = '3.0';
 
 $config['base_url'] = '';
 $config['index_page'] = '';

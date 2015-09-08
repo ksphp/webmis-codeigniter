@@ -12,6 +12,10 @@
 		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_admin'];?></b> [<a href="<?php echo base_url('sys_config/update/admin.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
 	</tr>
 	<tr>
+		<td class="width tright"><?php echo $this->lang->line('sys_config_themes');?>：</td>
+		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_themes'];?></b> [<a href="<?php echo base_url('sys_config/update/themes.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
+	</tr>
+	<tr>
 		<td class="width tright"><?php echo $this->lang->line('sys_config_webmis');?>：</td>
 		<td><b style="font-size: 14px; color: #666;"><?php echo $this->config->config['version_webmis'];?></b> [<a href="<?php echo base_url('sys_config/update/webmis.html');?>"><?php echo $this->lang->line('sys_config_update');?></a>]</td>
 	</tr>

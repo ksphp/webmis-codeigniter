@@ -92,6 +92,15 @@ class Sys_config extends MY_Controller {
 			$Version = $this->config->config[$VersionName];
 			$data['Name'] = $name;
 			$data['Title'] = $this->lang->line('sys_config_admin');
+		}elseif($name=='themes'){
+			$RootDir = '../themes/';
+			$UpdateUrl = 'http://www.ksphp.com/update/themes';
+			$Cache = 'update/cache_themes';
+			$LogFile = 'update/update_themes.log';
+			$VersionName = 'version_themes';
+			$Version = $this->config->config[$VersionName];
+			$data['Name'] = $name;
+			$data['Title'] = $this->lang->line('sys_config_themes');
 		}elseif($name=='webmis'){
 			$RootDir = '../webmis/';
 			$UpdateUrl = 'http://www.ksphp.com/update/webmis';

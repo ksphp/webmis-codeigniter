@@ -1,5 +1,6 @@
 <?php
 $lang['sys_config_admin'] = '系统版本';
+$lang['sys_config_themes'] = '主题版本';
 $lang['sys_config_webmis'] = 'WebMIS版本';
 $lang['sys_config_CodeIgniter'] = 'CI版本';
 $lang['sys_config_update'] = '更新系统';
