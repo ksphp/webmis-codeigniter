@@ -234,7 +234,7 @@ h2{font-size: 14px; border-bottom: #DADCDF 1px solid; color: #999;}
 <?php }else{echo $suc;}?>
 	</div>
 	<div class="copy">
-		Copyright © <a href="http://www.ksphp.com/">WebMIS</a> Tencent. All Rights Reserved
+		Copyright © <a href="http://www.ksphp.com/">WebMIS</a> All Rights Reserved
 	</div>
 </body>
 </html>

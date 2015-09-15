@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* 初始化 */
 body,div,span,ul,li,table,tr,td,input,a,h1,h2,h3,h4{margin: 0; padding: 0;}
-body,textarea{font-family: arial; font-size: 12px;}
+body,textarea{font-family: ROCK,"\5FAE\8F6F\96C5\9ED1",helvetica,arial,sans-serif; font-size: 12px;}
 header,section,footer,aside{display: block;}
 a{color: #007568; text-decoration: none;}
 a:hover{color: #FF6600;}

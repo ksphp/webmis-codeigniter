@@ -1,7 +1,7 @@
 
 	</div>
 	<div class="web_copy">
-		Copyright © <a href="http://webmis.ksphp.com/admin" id="webmisVersion">ksphp.com</a> Tencent. All Rights Reserved
+		Copyright © <a href="http://webmis.ksphp.com/admin" id="webmisVersion">ksphp.com</a> All Rights Reserved
 	</div>
 	<!-- Index End -->
 	<div id="base_url" style="display: none;"><?php echo base_url().$this->config->config['index_url']; ?></div>
