@@ -39,7 +39,7 @@ var AutoSelect = function (options,obj) {
 						}else{
 							$(options.getVal).val(options.data);
 						}
-						getData(num+1);
+						if(options.num > num){getData(num+1)};
 					}
 				});
 			}
